@@ -1,0 +1,234 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "33662ee2dd9f5386a1eb7438c7e711640858805e93f8cee2bfe9beda2eb3499a",
+      "id": "pubmed",
+      "info": {
+        "citation": null,
+        "description": "PubMed Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "pubmed",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/PubMed"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "self_training",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/home/mbarbaux/ModSSC/cache/preprocess/33662ee2dd9f5386a1eb7438c7e711640858805e93f8cee2bfe9beda2eb3499a",
+      "fit_fingerprint": "fit:ad24769fdd4a3cbc4b8afe0089de2f16caa591c008290b29e71893488b66ac13",
+      "plan_fingerprint": "resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42",
+      "preprocess_fingerprint": "preprocess:584d87f3e51ad43dbb76f2111dd9667b5f1d4499adb725baefb05b6fc64659f8",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "581a0c5eb5eeb4cd9f64465531b18f40cf86b3ab8bacd3b696ac130b0edc12eb",
+      "stats": {
+        "labeled": 12,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 4,
+            "1": 4,
+            "2": 4
+          },
+          "n": 12
+        },
+        "nodes": 19717,
+        "test": 1000,
+        "train": 60,
+        "unlabeled": 48,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "pubmed",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "self_training",
+      "model": null,
+      "params": {
+        "classifier_backend": "torch",
+        "classifier_id": "graphsage_inductive",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "confidence_threshold": 0.95,
+        "max_iter": 10,
+        "min_new_labels": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "graph.sparse_adjacency",
+            "params": {
+              "batch_size": 32,
+              "device": "auto",
+              "embed_epochs": 5,
+              "embed_lr": 0.01,
+              "max_nodes": 20000,
+              "undirected": true
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_inductive_self_training_pubmed",
+      "output_dir": "runs/inductive/self_training/graph/pubmed",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.559,
+      "macro_f1": 0.5546858429999025
+    },
+    "val": {
+      "accuracy": 0.546,
+      "macro_f1": 0.5494156393559749
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/inductive/self_training/graph/pubmed.yaml",
+    "finished_at": "2026-02-02T14:20:04.946175+00:00",
+    "name": "best_graph_inductive_self_training_pubmed",
+    "seed": 5,
+    "started_at": "2026-02-02T14:20:02.080229+00:00",
+    "status": "success"
+  }
+}

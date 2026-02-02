@@ -1,0 +1,50 @@
+2026-02-02 15:16:12,742 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=cora download=True cache_dir=None
+2026-02-02 15:16:12,742 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 15:16:12,745 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 15:16:12,745 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=cora provider=pyg canonical_uri=pyg:Planetoid/Cora
+2026-02-02 15:16:12,746 INFO modssc.data_loader.api api.py:117: Dataset load: id=cora provider=pyg version=None fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:16:12,746 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'Cora'}}
+2026-02-02 15:16:12,751 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:16:12,752 INFO modssc.data_loader.api api.py:133: Dataset cached: id=cora train=2708 test=None n_classes=7 duration_s=0.009
+2026-02-02 15:16:12,752 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=2708 test=None graph=True fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 provider=pyg
+2026-02-02 15:16:12,752 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.010
+2026-02-02 15:16:12,778 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=cora
+2026-02-02 15:16:12,778 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:16:12,778 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:16:12,778 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=cora dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 seed=5 graph=True split=holdout
+2026-02-02 15:16:12,778 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:16:12,790 INFO modssc.sampling.api api.py:141: Sampling done: train=140 val=500 test=1000 labeled=28 unlabeled=112 duration_s=0.012
+2026-02-02 15:16:12,790 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:16:12,790 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=140 val=500 test=1000 labeled=28 unlabeled=112 graph=True
+2026-02-02 15:16:12,790 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:16:12,790 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.013
+2026-02-02 15:16:12,791 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=3 fit_indices=28
+2026-02-02 15:16:12,791 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy']
+2026-02-02 15:16:12,791 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy'] output_key=features.X seed=5 cache=True
+2026-02-02 15:16:12,791 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(2708, 1433) train_y=(2708,) test_X=None test_y=None
+2026-02-02 15:16:12,791 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=15.0 MB test_data=n/a
+2026-02-02 15:16:12,791 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:16:12,798 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.008
+2026-02-02 15:16:12,798 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.008 train_data=15.0 MB test_data=n/a
+2026-02-02 15:16:12,799 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=1 kind=transform params={}
+2026-02-02 15:16:12,805 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.006
+2026-02-02 15:16:12,805 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=1 duration_s=0.007 train_data=15.0 MB test_data=n/a
+2026-02-02 15:16:12,805 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_numpy index=2 kind=transform params={}
+2026-02-02 15:16:12,810 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_numpy keys=['features.X'] duration_s=0.005
+2026-02-02 15:16:12,810 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_numpy index=2 duration_s=0.005 train_data=15.0 MB test_data=n/a
+2026-02-02 15:16:12,810 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 duration_s=0.020 train_X=(2708, 1433) test_X=None
+2026-02-02 15:16:12,810 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:6eaf9a71c3db86ab24260f10118a587c53889f7dd5582a4e0ff2cdabcdf4774f plan_fingerprint=resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 skipped=[]
+2026-02-02 15:16:12,811 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(2708, 1433) test_X=None
+2026-02-02 15:16:12,811 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.020
+2026-02-02 15:16:12,811 INFO bench.orchestrators.method_transductive method_transductive.py:139: Transductive method start: id=planetoid seed=3274374610 device=auto resolved_device=cuda use_test=False
+2026-02-02 15:16:12,811 DEBUG bench.orchestrators.method_transductive method_transductive.py:147: Transductive method params: {'embedding_dim': 128, 'num_walks': 10, 'walk_length': 40, 'window_size': 5, 'p': 1.0, 'q': 1.0, 'num_negative': 5, 'batch_size': 128, 'sup_batch_size': 64, 'epochs': 1, 'lr': 0.01, 'weight_decay': 0.0, 'lambda_sup': 1.0, 'undirected': True}
+2026-02-02 15:16:12,811 INFO bench.orchestrators.method_transductive method_transductive.py:158: Transductive data: n_nodes=2708 n_train=2708 n_test=0
+2026-02-02 15:16:12,811 INFO bench.orchestrators.method_transductive method_transductive.py:177: Transductive masks: labeled_count=28 train_count=140
+2026-02-02 15:16:12,811 INFO modssc.transductive.methods.gnn.planetoid planetoid.py:80: Starting planetoid.fit
+2026-02-02 15:16:12,811 DEBUG modssc.transductive.methods.gnn.planetoid planetoid.py:81: spec=PlanetoidSpec(embedding_dim=128, num_walks=10, walk_length=40, window_size=5, p=1.0, q=1.0, num_negative=5, batch_size=128, sup_batch_size=64, epochs=1, lr=0.01, weight_decay=0.0, lambda_sup=1.0, undirected=True) device=cuda seed=3274374610
+2026-02-02 15:16:12,813 INFO modssc.transductive.methods.gnn.planetoid planetoid.py:98: Planetoid sizes: n_nodes=2708 n_classes=7 train=28 val=500
+2026-02-02 15:17:41,306 INFO modssc.transductive.methods.gnn.planetoid planetoid.py:193: Finished planetoid.fit in 88.495s
+2026-02-02 15:17:41,312 INFO bench.orchestrators.method_transductive method_transductive.py:218: Transductive method done: id=planetoid duration_s=88.502
+2026-02-02 15:17:41,312 INFO bench.orchestrators.evaluation evaluation.py:244: Evaluation (transductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:17:41,332 INFO bench.orchestrators.evaluation evaluation.py:263: Evaluation (transductive) done: duration_s=0.019
+2026-02-02 15:17:41,335 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/transductive/planetoid/graph/cora/best_graph_transductive_planetoid_cora-20260202T141612Z/run.json status=success duration_s=0.003

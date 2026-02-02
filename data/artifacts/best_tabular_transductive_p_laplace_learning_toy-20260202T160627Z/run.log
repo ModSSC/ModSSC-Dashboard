@@ -1,0 +1,62 @@
+2026-02-02 17:06:27,126 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=toy download=True cache_dir=None
+2026-02-02 17:06:27,126 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 17:06:27,130 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: toy
+2026-02-02 17:06:27,130 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=toy provider=toy canonical_uri=toy:default
+2026-02-02 17:06:27,130 INFO modssc.data_loader.api api.py:117: Dataset load: id=toy provider=toy version=1 fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 17:06:27,130 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'n_samples': 64, 'n_features': 4, 'n_classes': 3, 'seed': 0, 'test': True, 'test_size': 0.25}
+2026-02-02 17:06:27,132 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:06:27,132 INFO modssc.data_loader.api api.py:133: Dataset cached: id=toy train=48 test=16 n_classes=3 duration_s=0.006
+2026-02-02 17:06:27,132 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=48 test=16 graph=False fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 provider=toy
+2026-02-02 17:06:27,132 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.006
+2026-02-02 17:06:27,150 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=toy
+2026-02-02 17:06:27,150 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 17:06:27,150 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:06:27,151 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=toy dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 seed=1 graph=False split=holdout
+2026-02-02 17:06:27,151 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 17:06:27,162 INFO modssc.sampling.api api.py:141: Sampling done: train=43 val=5 test=16 labeled=9 unlabeled=34 duration_s=0.011
+2026-02-02 17:06:27,162 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:06:27,162 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=43 val=5 test=16 labeled=9 unlabeled=34 graph=False
+2026-02-02 17:06:27,162 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:06:27,162 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.012
+2026-02-02 17:06:27,162 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=4 fit_indices=9
+2026-02-02 17:06:27,162 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'core.ensure_2d', 'core.pca', 'core.to_numpy']
+2026-02-02 17:06:27,163 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 steps=['labels.encode', 'core.ensure_2d', 'core.pca', 'core.to_numpy'] output_key=features.X seed=1 cache=True
+2026-02-02 17:06:27,163 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(48, 4) train_y=(48,) test_X=(16, 4) test_y=(16,)
+2026-02-02 17:06:27,163 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=1.1 KB test_data=384 B
+2026-02-02 17:06:27,163 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 17:06:27,168 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.006
+2026-02-02 17:06:27,169 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=labels.encode keys=['labels.classes', 'labels.y']
+2026-02-02 17:06:27,169 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.007 train_data=1.1 KB test_data=384 B
+2026-02-02 17:06:27,169 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=1 kind=transform params={}
+2026-02-02 17:06:27,171 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.001
+2026-02-02 17:06:27,171 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.ensure_2d keys=['features.X']
+2026-02-02 17:06:27,171 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=1 duration_s=0.002 train_data=1.1 KB test_data=384 B
+2026-02-02 17:06:27,171 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.pca index=2 kind=fittable params={'n_components': 30}
+2026-02-02 17:06:27,173 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.pca keys=['features.X'] duration_s=0.002
+2026-02-02 17:06:27,174 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.pca keys=['features.X']
+2026-02-02 17:06:27,174 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.pca index=2 duration_s=0.003 train_data=1.1 KB test_data=384 B
+2026-02-02 17:06:27,174 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_numpy index=3 kind=transform params={}
+2026-02-02 17:06:27,175 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_numpy keys=['features.X'] duration_s=0.001
+2026-02-02 17:06:27,175 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.to_numpy keys=['features.X']
+2026-02-02 17:06:27,175 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_numpy index=3 duration_s=0.001 train_data=1.1 KB test_data=384 B
+2026-02-02 17:06:27,175 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 duration_s=0.013 train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:06:27,175 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:a4b302dcd398bdcf28f4f8764cdf7bc00b34c334059f8e7e116b0f68f026bbe5 plan_fingerprint=resolved_plan:482a0984f51742ea5d9dbcc35f660359eaee028ed4420e88d582a288bf1fe3f8 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 skipped=[]
+2026-02-02 17:06:27,175 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:06:27,175 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.013
+2026-02-02 17:06:27,176 INFO bench.orchestrators.graph graph.py:67: Graph start: include_test=True cache=True
+2026-02-02 17:06:27,176 DEBUG bench.orchestrators.graph graph.py:72: Graph spec: scheme=knn metric=cosine k=15 radius=None backend=numpy feature_field=features.X seed=1
+2026-02-02 17:06:27,176 DEBUG bench.orchestrators.graph graph.py:89: Graph features: shape=(64, 4)
+2026-02-02 17:06:27,177 INFO modssc.graph.construction.api api.py:111: Graph cached: fingerprint=59a2790db7647357857ea9b695d8e62bee1a7755da35ef78b76f48c747828133 n_nodes=64 n_edges=880 duration_s=0.001
+2026-02-02 17:06:27,177 INFO bench.orchestrators.graph graph.py:100: Graph built: fingerprint=59a2790db7647357857ea9b695d8e62bee1a7755da35ef78b76f48c747828133 n_nodes=64 n_edges=880 duration_s=0.001
+2026-02-02 17:06:27,177 INFO bench.orchestrators.method_transductive method_transductive.py:139: Transductive method start: id=p_laplace_learning seed=398591604 device=auto resolved_device=cpu use_test=True
+2026-02-02 17:06:27,177 DEBUG bench.orchestrators.method_transductive method_transductive.py:147: Transductive method params: {'p': 3.0, 'max_iter': 50, 'tol': 1e-06, 'cg_tol': 1e-06, 'cg_max_iter': 2000, 'eps': 1e-12, 'symmetrize': True, 'zero_diagonal': True}
+2026-02-02 17:06:27,177 INFO bench.orchestrators.method_transductive method_transductive.py:158: Transductive data: n_nodes=64 n_train=48 n_test=16
+2026-02-02 17:06:27,177 INFO bench.orchestrators.method_transductive method_transductive.py:177: Transductive masks: labeled_count=9 train_count=43
+2026-02-02 17:06:27,177 INFO modssc.transductive.methods.pde.p_laplace_learning p_laplace_learning.py:266: Starting p_laplace_learning.fit
+2026-02-02 17:06:27,177 DEBUG modssc.transductive.methods.pde.p_laplace_learning p_laplace_learning.py:267: spec=PLaplaceLearningSpec(p=3.0, max_iter=50, tol=1e-06, cg_tol=1e-06, cg_max_iter=2000, eps=1e-12, symmetrize=True, zero_diagonal=True) device=cpu seed=398591604
+2026-02-02 17:06:27,177 INFO modssc.transductive.methods.pde.p_laplace_learning p_laplace_learning.py:276: p-Laplace sizes: n_nodes=64 labeled=9
+2026-02-02 17:06:27,188 INFO modssc.transductive.methods.pde.p_laplace_learning p_laplace_learning.py:292: Finished p_laplace_learning.fit in 0.011s
+2026-02-02 17:06:27,188 INFO bench.orchestrators.method_transductive method_transductive.py:218: Transductive method done: id=p_laplace_learning duration_s=0.011
+2026-02-02 17:06:27,188 INFO bench.orchestrators.evaluation evaluation.py:244: Evaluation (transductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 17:06:27,188 INFO bench.orchestrators.evaluation evaluation.py:263: Evaluation (transductive) done: duration_s=0.000
+2026-02-02 17:06:27,189 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/transductive/p_laplace_learning/tabular/toy/best_tabular_transductive_p_laplace_learning_toy-20260202T160627Z/run.json status=success duration_s=0.001

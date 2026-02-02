@@ -1,0 +1,239 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "democratic_co_learning",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/home/mbarbaux/ModSSC/cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "fit_fingerprint": "fit:83257d249188fe8fb28cea5975530768b7f6b6ed7cd037437951e916977bfb9b",
+      "plan_fingerprint": "resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42",
+      "preprocess_fingerprint": "preprocess:169265f8bd8d4cf86a27523c10e74ddb6b072ed41e8057863440cf0ebfa9b6d2",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "e3296fe3d24e34fba58063529dfecb57d8802b2d5809a7e3e362b17fed3eac69",
+      "stats": {
+        "labeled": 28,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 4,
+            "1": 4,
+            "2": 4,
+            "3": 4,
+            "4": 4,
+            "5": 4,
+            "6": 4
+          },
+          "n": 28
+        },
+        "nodes": 2708,
+        "test": 1000,
+        "train": 140,
+        "unlabeled": 112,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "cora",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "democratic_co_learning",
+      "model": null,
+      "params": {
+        "classifier_backend": "torch",
+        "classifier_id": "graphsage_inductive",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "confidence_level": 0.95,
+        "max_iter": 20,
+        "min_confidence": 0.5,
+        "n_learners": 3
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "graph.sparse_adjacency",
+            "params": {
+              "batch_size": 32,
+              "device": "auto",
+              "embed_epochs": 5,
+              "embed_lr": 0.01,
+              "max_nodes": 20000,
+              "undirected": true
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_inductive_democratic_co_learning_cora",
+      "output_dir": "runs/inductive/democratic_co_learning/graph/cora",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.262,
+      "macro_f1": 0.2248599644216067
+    },
+    "val": {
+      "accuracy": 0.232,
+      "macro_f1": 0.20229539297192156
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/inductive/democratic_co_learning/graph/cora.yaml",
+    "finished_at": "2026-02-02T14:06:49.698563+00:00",
+    "name": "best_graph_inductive_democratic_co_learning_cora",
+    "seed": 5,
+    "started_at": "2026-02-02T14:06:44.990282+00:00",
+    "status": "success"
+  }
+}

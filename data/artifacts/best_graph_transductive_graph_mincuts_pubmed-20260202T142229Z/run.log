@@ -1,0 +1,52 @@
+2026-02-02 15:22:29,494 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=pubmed download=True cache_dir=None
+2026-02-02 15:22:29,495 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: ['class_filter']
+2026-02-02 15:22:29,497 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 15:22:29,497 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=pubmed provider=pyg canonical_uri=pyg:Planetoid/PubMed
+2026-02-02 15:22:29,497 INFO modssc.data_loader.api api.py:117: Dataset load: id=pubmed provider=pyg version=None fingerprint=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:22:29,497 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'PubMed'}, 'class_filter': [0, 1]}
+2026-02-02 15:22:29,501 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 15:22:29,501 INFO modssc.data_loader.api api.py:356: Loading provider dataset: provider=pyg dataset_id=Planetoid version=None raw_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets/raw/pyg/Planetoid/noversion
+2026-02-02 15:22:32,014 INFO modssc.data_loader.api api.py:387: Dataset stored: provider=pyg dataset_id=Planetoid fingerprint=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8
+2026-02-02 15:22:32,014 INFO modssc.data_loader.api api.py:149: Dataset ready: id=pubmed train=11842 test=None n_classes=2 duration_s=2.520
+2026-02-02 15:22:32,014 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=11842 test=None graph=True fingerprint=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 provider=pyg
+2026-02-02 15:22:32,014 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=2.520
+2026-02-02 15:22:32,034 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=pubmed
+2026-02-02 15:22:32,034 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:22:32,034 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8
+2026-02-02 15:22:32,034 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=pubmed dataset_fingerprint=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 seed=5 graph=True split=holdout
+2026-02-02 15:22:32,034 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:22:32,035 INFO modssc.sampling.api api.py:141: Sampling done: train=40 val=292 test=593 labeled=8 unlabeled=32 duration_s=0.001
+2026-02-02 15:22:32,035 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 11842, 'train': 40, 'val': 292, 'test': 593, 'labeled': 8, 'unlabeled': 32, 'labeled_class_dist': {'n': 8, 'classes': {'0': 4, '1': 4}}}
+2026-02-02 15:22:32,035 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=40 val=292 test=593 labeled=8 unlabeled=32 graph=True
+2026-02-02 15:22:32,035 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 11842, 'train': 40, 'val': 292, 'test': 593, 'labeled': 8, 'unlabeled': 32, 'labeled_class_dist': {'n': 8, 'classes': {'0': 4, '1': 4}}}
+2026-02-02 15:22:32,035 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.001
+2026-02-02 15:22:32,035 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=3 fit_indices=8
+2026-02-02 15:22:32,035 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy']
+2026-02-02 15:22:32,035 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy'] output_key=features.X seed=5 cache=True
+2026-02-02 15:22:32,035 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(11842, 500) train_y=(11842,) test_X=None test_y=None
+2026-02-02 15:22:32,035 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=23.4 MB test_data=n/a
+2026-02-02 15:22:32,035 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:22:32,044 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.009
+2026-02-02 15:22:32,044 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.009 train_data=23.4 MB test_data=n/a
+2026-02-02 15:22:32,044 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=1 kind=transform params={}
+2026-02-02 15:22:32,091 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.047
+2026-02-02 15:22:32,091 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=1 duration_s=0.047 train_data=23.4 MB test_data=n/a
+2026-02-02 15:22:32,091 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_numpy index=2 kind=transform params={}
+2026-02-02 15:22:32,125 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_numpy keys=['features.X'] duration_s=0.034
+2026-02-02 15:22:32,125 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_numpy index=2 duration_s=0.034 train_data=23.4 MB test_data=n/a
+2026-02-02 15:22:32,125 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 duration_s=0.091 train_X=(11842, 500) test_X=None
+2026-02-02 15:22:32,125 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:e43d96462429af7ffaddffcb6c9d2959816cc34ada21a3f6009c58eb834c89df plan_fingerprint=resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/6ef10c8860b3bc8b0acbb5623910e328554a8d5f8d46ea1907fb0bfb324422f8 skipped=[]
+2026-02-02 15:22:32,125 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(11842, 500) test_X=None
+2026-02-02 15:22:32,125 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.091
+2026-02-02 15:22:32,126 INFO bench.orchestrators.method_transductive method_transductive.py:139: Transductive method start: id=graph_mincuts seed=3274374610 device=auto resolved_device=cpu use_test=False
+2026-02-02 15:22:32,126 DEBUG bench.orchestrators.method_transductive method_transductive.py:147: Transductive method params: {'backend': 'scipy', 'capacity_scale': 1000.0, 'min_capacity': 1}
+2026-02-02 15:22:32,126 INFO bench.orchestrators.method_transductive method_transductive.py:158: Transductive data: n_nodes=11842 n_train=11842 n_test=0
+2026-02-02 15:22:32,126 INFO bench.orchestrators.method_transductive method_transductive.py:177: Transductive masks: labeled_count=8 train_count=40
+2026-02-02 15:22:32,126 INFO modssc.transductive.methods.classic.graph_mincuts graph_mincuts.py:246: Starting graph_mincuts.fit
+2026-02-02 15:22:32,126 DEBUG modssc.transductive.methods.classic.graph_mincuts graph_mincuts.py:247: spec=GraphMincutsSpec(backend='scipy', capacity_scale=1000.0, min_capacity=1) device=cpu seed=3274374610
+2026-02-02 15:22:32,126 INFO modssc.transductive.methods.classic.graph_mincuts graph_mincuts.py:256: Graph mincuts sizes: n_nodes=11842 labeled=8
+2026-02-02 15:22:32,292 INFO modssc.transductive.methods.classic.graph_mincuts graph_mincuts.py:272: Finished graph_mincuts.fit in 0.166s
+2026-02-02 15:22:32,292 INFO bench.orchestrators.method_transductive method_transductive.py:218: Transductive method done: id=graph_mincuts duration_s=0.166
+2026-02-02 15:22:32,292 INFO bench.orchestrators.evaluation evaluation.py:244: Evaluation (transductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:22:32,292 INFO bench.orchestrators.evaluation evaluation.py:263: Evaluation (transductive) done: duration_s=0.000
+2026-02-02 15:22:32,294 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/transductive/graph_mincuts/graph/pubmed/best_graph_transductive_graph_mincuts_pubmed-20260202T142229Z/run.json status=success duration_s=0.001

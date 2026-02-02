@@ -1,0 +1,263 @@
+2026-02-02 16:56:14,213 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=breast_cancer download=True cache_dir=None
+2026-02-02 16:56:14,213 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 16:56:14,217 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 16:56:14,217 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=breast_cancer provider=openml canonical_uri=openml:15
+2026-02-02 16:56:14,217 INFO modssc.data_loader.api api.py:117: Dataset load: id=breast_cancer provider=openml version=None fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 16:56:14,217 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 15, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 16:56:14,219 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:56:14,224 INFO modssc.data_loader.api api.py:133: Dataset cached: id=breast_cancer train=699 test=None n_classes=2 duration_s=0.011
+2026-02-02 16:56:14,224 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=699 test=None graph=False fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f provider=openml
+2026-02-02 16:56:14,224 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.012
+2026-02-02 16:56:14,273 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=breast_cancer
+2026-02-02 16:56:14,273 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 16:56:14,273 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:56:14,273 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=breast_cancer dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f seed=1 graph=False split=holdout
+2026-02-02 16:56:14,273 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 16:56:14,282 INFO modssc.sampling.api api.py:141: Sampling done: train=503 val=56 test=140 labeled=101 unlabeled=402 duration_s=0.009
+2026-02-02 16:56:14,282 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:56:14,282 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=503 val=56 test=140 labeled=101 unlabeled=402 graph=False
+2026-02-02 16:56:14,282 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:56:14,282 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.009
+2026-02-02 16:56:14,282 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=101
+2026-02-02 16:56:14,282 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 16:56:14,283 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 16:56:14,283 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(699, 9) train_y=(699,) test_X=None test_y=None
+2026-02-02 16:56:14,283 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=54.6 KB test_data=n/a
+2026-02-02 16:56:14,283 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 16:56:14,285 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 16:56:14,285 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=54.6 KB test_data=n/a
+2026-02-02 16:56:14,285 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 16:56:14,384 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.098
+2026-02-02 16:56:14,384 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 16:56:14,384 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.099 train_data=54.6 KB test_data=n/a
+2026-02-02 16:56:14,384 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 16:56:14,387 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 16:56:14,387 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.002 train_data=54.6 KB test_data=n/a
+2026-02-02 16:56:14,387 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 16:56:15,348 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.961
+2026-02-02 16:56:15,348 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=0.962 train_data=54.6 KB test_data=n/a
+2026-02-02 16:56:15,348 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 16:56:15,350 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.002
+2026-02-02 16:56:15,350 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=30.0 KB test_data=n/a
+2026-02-02 16:56:15,350 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 16:56:15,355 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.005
+2026-02-02 16:56:15,355 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.005 train_data=30.0 KB test_data=n/a
+2026-02-02 16:56:15,355 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f duration_s=1.073 train_X=(699, 9) test_X=None
+2026-02-02 16:56:15,355 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:e8e31b503533acb1dd05d9db0c55e174d3debbf7553704fffeddcdd394c40699 plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f skipped=[]
+2026-02-02 16:56:15,355 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(699, 9) test_X=None
+2026-02-02 16:56:15,355 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.073
+2026-02-02 16:56:15,370 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=402 strong_views=1
+2026-02-02 16:56:15,370 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 16:56:15,451 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.082
+2026-02-02 16:56:15,451 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(402, 9) strong=(402, 9) strong_1=None
+2026-02-02 16:56:15,451 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=deep_co_training seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 16:56:15,451 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_cot': 1.0, 'lambda_dif': 1.0, 'adv_eps': 0.03, 'batch_size': 128, 'max_epochs': 50, 'freeze_bn': True, 'detach_target': True}
+2026-02-02 16:56:15,452 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=101 n_unlabeled=402
+2026-02-02 16:56:16,310 INFO modssc.inductive.methods.deep_co_training deep_co_training.py:209: Starting deep_co_training.fit
+2026-02-02 16:56:16,310 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:210: params lambda_cot=1.0 lambda_dif=1.0 adv_eps=0.03 batch_size=128 max_epochs=50 freeze_bn=True detach_target=True adv_clip_min=None adv_clip_max=None has_bundle_1=True has_bundle_2=True device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 16:56:16,310 INFO modssc.inductive.methods.deep_co_training deep_co_training.py:263: Deep Co-Training sizes: n_labeled=101 n_unlabeled=402
+2026-02-02 16:56:16,442 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=0 step=0 loss=2.8240 sup=1.4350 cot=0.0006 dif=1.3884
+2026-02-02 16:56:16,447 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=0 step=1 loss=2.5466 sup=1.1735 cot=0.0005 dif=1.3727
+2026-02-02 16:56:16,451 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=0 step=2 loss=2.2777 sup=0.9584 cot=0.0010 dif=1.3183
+2026-02-02 16:56:16,455 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=0 step=3 loss=2.0192 sup=0.7907 cot=0.0008 dif=1.2277
+2026-02-02 16:56:16,458 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=1 step=0 loss=1.7808 sup=0.6533 cot=0.0014 dif=1.1260
+2026-02-02 16:56:16,462 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=1 step=1 loss=1.5552 sup=0.5409 cot=0.0015 dif=1.0128
+2026-02-02 16:56:16,466 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=1 step=2 loss=1.3651 sup=0.4624 cot=0.0016 dif=0.9011
+2026-02-02 16:56:16,470 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=1 step=3 loss=1.1486 sup=0.4016 cot=0.0008 dif=0.7462
+2026-02-02 16:56:16,474 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=2 step=0 loss=1.0200 sup=0.3566 cot=0.0011 dif=0.6623
+2026-02-02 16:56:16,477 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=2 step=1 loss=0.9000 sup=0.3182 cot=0.0012 dif=0.5806
+2026-02-02 16:56:16,481 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=2 step=2 loss=0.7893 sup=0.2982 cot=0.0010 dif=0.4900
+2026-02-02 16:56:16,485 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=2 step=3 loss=0.6725 sup=0.2812 cot=0.0004 dif=0.3910
+2026-02-02 16:56:16,489 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=3 step=0 loss=0.6374 sup=0.2789 cot=0.0006 dif=0.3579
+2026-02-02 16:56:16,492 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=3 step=1 loss=0.5554 sup=0.2690 cot=0.0007 dif=0.2858
+2026-02-02 16:56:16,496 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=3 step=2 loss=0.5641 sup=0.2677 cot=0.0012 dif=0.2952
+2026-02-02 16:56:16,500 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=3 step=3 loss=0.4990 sup=0.2578 cot=0.0015 dif=0.2397
+2026-02-02 16:56:16,504 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=4 step=0 loss=0.4720 sup=0.2681 cot=0.0007 dif=0.2032
+2026-02-02 16:56:16,507 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=4 step=1 loss=0.4695 sup=0.2529 cot=0.0012 dif=0.2154
+2026-02-02 16:56:16,511 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=4 step=2 loss=0.4712 sup=0.2589 cot=0.0006 dif=0.2117
+2026-02-02 16:56:16,515 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=4 step=3 loss=0.4113 sup=0.2447 cot=0.0007 dif=0.1659
+2026-02-02 16:56:16,519 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=5 step=0 loss=0.4418 sup=0.2433 cot=0.0009 dif=0.1975
+2026-02-02 16:56:16,522 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=5 step=1 loss=0.4233 sup=0.2364 cot=0.0008 dif=0.1861
+2026-02-02 16:56:16,526 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=5 step=2 loss=0.3973 sup=0.2288 cot=0.0006 dif=0.1679
+2026-02-02 16:56:16,530 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=5 step=3 loss=0.3860 sup=0.2297 cot=0.0003 dif=0.1560
+2026-02-02 16:56:16,534 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=6 step=0 loss=0.4105 sup=0.2113 cot=0.0005 dif=0.1987
+2026-02-02 16:56:16,537 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=6 step=1 loss=0.3862 sup=0.2102 cot=0.0007 dif=0.1753
+2026-02-02 16:56:16,541 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=6 step=2 loss=0.4213 sup=0.2019 cot=0.0006 dif=0.2188
+2026-02-02 16:56:16,545 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=6 step=3 loss=0.3679 sup=0.1912 cot=0.0002 dif=0.1764
+2026-02-02 16:56:16,549 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=7 step=0 loss=0.3863 sup=0.1773 cot=0.0010 dif=0.2080
+2026-02-02 16:56:16,552 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=7 step=1 loss=0.3924 sup=0.1649 cot=0.0019 dif=0.2256
+2026-02-02 16:56:16,556 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=7 step=2 loss=0.3876 sup=0.1645 cot=0.0007 dif=0.2225
+2026-02-02 16:56:16,560 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=7 step=3 loss=0.3599 sup=0.1455 cot=0.0013 dif=0.2131
+2026-02-02 16:56:16,564 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=8 step=0 loss=0.3851 sup=0.1516 cot=0.0012 dif=0.2323
+2026-02-02 16:56:16,567 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=8 step=1 loss=0.3833 sup=0.1446 cot=0.0015 dif=0.2372
+2026-02-02 16:56:16,571 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=8 step=2 loss=0.3557 sup=0.1381 cot=0.0010 dif=0.2165
+2026-02-02 16:56:16,575 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=8 step=3 loss=0.3396 sup=0.1337 cot=0.0006 dif=0.2053
+2026-02-02 16:56:16,579 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=9 step=0 loss=0.3612 sup=0.1218 cot=0.0009 dif=0.2385
+2026-02-02 16:56:16,582 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=9 step=1 loss=0.3057 sup=0.1165 cot=0.0009 dif=0.1884
+2026-02-02 16:56:16,586 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=9 step=2 loss=0.3251 sup=0.1169 cot=0.0011 dif=0.2071
+2026-02-02 16:56:16,590 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=9 step=3 loss=0.3397 sup=0.1070 cot=0.0028 dif=0.2298
+2026-02-02 16:56:16,594 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=10 step=0 loss=0.3058 sup=0.1066 cot=0.0011 dif=0.1981
+2026-02-02 16:56:16,597 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=10 step=1 loss=0.3050 sup=0.0933 cot=0.0008 dif=0.2108
+2026-02-02 16:56:16,601 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=10 step=2 loss=0.3046 sup=0.0934 cot=0.0013 dif=0.2099
+2026-02-02 16:56:16,605 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=10 step=3 loss=0.2800 sup=0.0859 cot=0.0005 dif=0.1936
+2026-02-02 16:56:16,609 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=11 step=0 loss=0.2936 sup=0.0834 cot=0.0011 dif=0.2092
+2026-02-02 16:56:16,612 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=11 step=1 loss=0.2678 sup=0.0833 cot=0.0007 dif=0.1838
+2026-02-02 16:56:16,616 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=11 step=2 loss=0.2657 sup=0.0761 cot=0.0013 dif=0.1884
+2026-02-02 16:56:16,620 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=11 step=3 loss=0.2723 sup=0.0830 cot=0.0006 dif=0.1886
+2026-02-02 16:56:16,624 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=12 step=0 loss=0.2699 sup=0.0665 cot=0.0020 dif=0.2014
+2026-02-02 16:56:16,627 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=12 step=1 loss=0.2542 sup=0.0694 cot=0.0017 dif=0.1831
+2026-02-02 16:56:16,631 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=12 step=2 loss=0.2307 sup=0.0578 cot=0.0012 dif=0.1716
+2026-02-02 16:56:16,635 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=12 step=3 loss=0.2120 sup=0.0628 cot=0.0003 dif=0.1489
+2026-02-02 16:56:16,639 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=13 step=0 loss=0.2189 sup=0.0538 cot=0.0016 dif=0.1635
+2026-02-02 16:56:16,642 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=13 step=1 loss=0.2455 sup=0.0571 cot=0.0020 dif=0.1863
+2026-02-02 16:56:16,646 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=13 step=2 loss=0.1810 sup=0.0574 cot=0.0007 dif=0.1229
+2026-02-02 16:56:16,650 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=13 step=3 loss=0.1638 sup=0.0477 cot=0.0002 dif=0.1159
+2026-02-02 16:56:16,654 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=14 step=0 loss=0.1878 sup=0.0466 cot=0.0010 dif=0.1402
+2026-02-02 16:56:16,657 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=14 step=1 loss=0.1754 sup=0.0413 cot=0.0014 dif=0.1327
+2026-02-02 16:56:16,661 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=14 step=2 loss=0.1741 sup=0.0412 cot=0.0011 dif=0.1318
+2026-02-02 16:56:16,665 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=14 step=3 loss=0.1567 sup=0.0426 cot=0.0006 dif=0.1135
+2026-02-02 16:56:16,669 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=15 step=0 loss=0.1693 sup=0.0370 cot=0.0014 dif=0.1309
+2026-02-02 16:56:16,672 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=15 step=1 loss=0.1528 sup=0.0330 cot=0.0008 dif=0.1190
+2026-02-02 16:56:16,676 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=15 step=2 loss=0.1456 sup=0.0372 cot=0.0012 dif=0.1072
+2026-02-02 16:56:16,680 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=15 step=3 loss=0.1434 sup=0.0366 cot=0.0015 dif=0.1052
+2026-02-02 16:56:16,684 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=16 step=0 loss=0.1617 sup=0.0311 cot=0.0019 dif=0.1287
+2026-02-02 16:56:16,687 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=16 step=1 loss=0.1467 sup=0.0304 cot=0.0009 dif=0.1154
+2026-02-02 16:56:16,691 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=16 step=2 loss=0.1175 sup=0.0284 cot=0.0006 dif=0.0884
+2026-02-02 16:56:16,695 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=16 step=3 loss=0.1131 sup=0.0305 cot=0.0003 dif=0.0824
+2026-02-02 16:56:16,699 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=17 step=0 loss=0.1400 sup=0.0219 cot=0.0012 dif=0.1169
+2026-02-02 16:56:16,702 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=17 step=1 loss=0.1206 sup=0.0298 cot=0.0007 dif=0.0901
+2026-02-02 16:56:16,706 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=17 step=2 loss=0.1293 sup=0.0251 cot=0.0013 dif=0.1030
+2026-02-02 16:56:16,710 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=17 step=3 loss=0.1050 sup=0.0243 cot=0.0002 dif=0.0805
+2026-02-02 16:56:16,714 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=18 step=0 loss=0.1290 sup=0.0244 cot=0.0010 dif=0.1037
+2026-02-02 16:56:16,717 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=18 step=1 loss=0.1144 sup=0.0211 cot=0.0010 dif=0.0924
+2026-02-02 16:56:16,721 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=18 step=2 loss=0.1184 sup=0.0218 cot=0.0005 dif=0.0961
+2026-02-02 16:56:16,725 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=18 step=3 loss=0.0770 sup=0.0188 cot=0.0000 dif=0.0582
+2026-02-02 16:56:16,729 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=19 step=0 loss=0.1189 sup=0.0183 cot=0.0015 dif=0.0991
+2026-02-02 16:56:16,733 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=19 step=1 loss=0.1095 sup=0.0159 cot=0.0011 dif=0.0924
+2026-02-02 16:56:16,736 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=19 step=2 loss=0.0769 sup=0.0139 cot=0.0006 dif=0.0625
+2026-02-02 16:56:16,740 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=19 step=3 loss=0.0770 sup=0.0136 cot=0.0000 dif=0.0633
+2026-02-02 16:56:16,744 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=20 step=0 loss=0.0917 sup=0.0165 cot=0.0008 dif=0.0744
+2026-02-02 16:56:16,747 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=20 step=1 loss=0.0976 sup=0.0170 cot=0.0007 dif=0.0800
+2026-02-02 16:56:16,751 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=20 step=2 loss=0.0836 sup=0.0129 cot=0.0011 dif=0.0696
+2026-02-02 16:56:16,755 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=20 step=3 loss=0.0935 sup=0.0128 cot=0.0019 dif=0.0787
+2026-02-02 16:56:16,759 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=21 step=0 loss=0.0907 sup=0.0115 cot=0.0012 dif=0.0780
+2026-02-02 16:56:16,763 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=21 step=1 loss=0.0818 sup=0.0190 cot=0.0005 dif=0.0623
+2026-02-02 16:56:16,766 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=21 step=2 loss=0.0969 sup=0.0158 cot=0.0011 dif=0.0801
+2026-02-02 16:56:16,770 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=21 step=3 loss=0.0676 sup=0.0125 cot=0.0008 dif=0.0544
+2026-02-02 16:56:16,774 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=22 step=0 loss=0.0829 sup=0.0102 cot=0.0006 dif=0.0721
+2026-02-02 16:56:16,778 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=22 step=1 loss=0.0850 sup=0.0129 cot=0.0007 dif=0.0714
+2026-02-02 16:56:16,781 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=22 step=2 loss=0.0722 sup=0.0133 cot=0.0008 dif=0.0580
+2026-02-02 16:56:16,785 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=22 step=3 loss=0.0690 sup=0.0123 cot=0.0027 dif=0.0539
+2026-02-02 16:56:16,789 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=23 step=0 loss=0.0629 sup=0.0111 cot=0.0008 dif=0.0511
+2026-02-02 16:56:16,793 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=23 step=1 loss=0.0823 sup=0.0128 cot=0.0008 dif=0.0687
+2026-02-02 16:56:16,796 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=23 step=2 loss=0.0908 sup=0.0155 cot=0.0013 dif=0.0741
+2026-02-02 16:56:16,800 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=23 step=3 loss=0.0660 sup=0.0118 cot=0.0010 dif=0.0532
+2026-02-02 16:56:16,804 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=24 step=0 loss=0.0601 sup=0.0084 cot=0.0010 dif=0.0508
+2026-02-02 16:56:16,808 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=24 step=1 loss=0.0639 sup=0.0080 cot=0.0003 dif=0.0556
+2026-02-02 16:56:16,811 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=24 step=2 loss=0.0877 sup=0.0100 cot=0.0014 dif=0.0763
+2026-02-02 16:56:16,815 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=24 step=3 loss=0.0728 sup=0.0112 cot=0.0026 dif=0.0590
+2026-02-02 16:56:16,819 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=25 step=0 loss=0.0775 sup=0.0092 cot=0.0012 dif=0.0670
+2026-02-02 16:56:16,822 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=25 step=1 loss=0.0596 sup=0.0086 cot=0.0009 dif=0.0501
+2026-02-02 16:56:16,826 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=25 step=2 loss=0.0678 sup=0.0107 cot=0.0006 dif=0.0565
+2026-02-02 16:56:16,830 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=25 step=3 loss=0.0446 sup=0.0071 cot=0.0005 dif=0.0371
+2026-02-02 16:56:16,834 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=26 step=0 loss=0.0496 sup=0.0068 cot=0.0008 dif=0.0420
+2026-02-02 16:56:16,837 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=26 step=1 loss=0.0785 sup=0.0086 cot=0.0022 dif=0.0678
+2026-02-02 16:56:16,841 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=26 step=2 loss=0.0720 sup=0.0067 cot=0.0015 dif=0.0637
+2026-02-02 16:56:16,845 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=26 step=3 loss=0.0441 sup=0.0079 cot=0.0001 dif=0.0361
+2026-02-02 16:56:16,849 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=27 step=0 loss=0.0839 sup=0.0081 cot=0.0016 dif=0.0742
+2026-02-02 16:56:16,852 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=27 step=1 loss=0.0401 sup=0.0065 cot=0.0005 dif=0.0331
+2026-02-02 16:56:16,856 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=27 step=2 loss=0.0541 sup=0.0062 cot=0.0010 dif=0.0470
+2026-02-02 16:56:16,860 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=27 step=3 loss=0.0430 sup=0.0077 cot=0.0005 dif=0.0349
+2026-02-02 16:56:16,864 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=28 step=0 loss=0.0892 sup=0.0079 cot=0.0023 dif=0.0790
+2026-02-02 16:56:16,868 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=28 step=1 loss=0.0563 sup=0.0070 cot=0.0018 dif=0.0475
+2026-02-02 16:56:16,871 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=28 step=2 loss=0.0403 sup=0.0069 cot=0.0003 dif=0.0331
+2026-02-02 16:56:16,875 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=28 step=3 loss=0.0435 sup=0.0055 cot=0.0004 dif=0.0377
+2026-02-02 16:56:16,879 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=29 step=0 loss=0.0378 sup=0.0054 cot=0.0002 dif=0.0322
+2026-02-02 16:56:16,883 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=29 step=1 loss=0.0599 sup=0.0079 cot=0.0009 dif=0.0511
+2026-02-02 16:56:16,886 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=29 step=2 loss=0.0760 sup=0.0068 cot=0.0026 dif=0.0665
+2026-02-02 16:56:16,890 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=29 step=3 loss=0.0314 sup=0.0065 cot=0.0002 dif=0.0248
+2026-02-02 16:56:16,894 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=30 step=0 loss=0.0553 sup=0.0067 cot=0.0006 dif=0.0480
+2026-02-02 16:56:16,898 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=30 step=1 loss=0.0575 sup=0.0050 cot=0.0010 dif=0.0515
+2026-02-02 16:56:16,901 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=30 step=2 loss=0.0428 sup=0.0063 cot=0.0002 dif=0.0363
+2026-02-02 16:56:16,905 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=30 step=3 loss=0.0687 sup=0.0068 cot=0.0016 dif=0.0603
+2026-02-02 16:56:16,909 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=31 step=0 loss=0.0450 sup=0.0056 cot=0.0005 dif=0.0389
+2026-02-02 16:56:16,913 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=31 step=1 loss=0.0458 sup=0.0053 cot=0.0008 dif=0.0398
+2026-02-02 16:56:16,916 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=31 step=2 loss=0.0477 sup=0.0039 cot=0.0010 dif=0.0427
+2026-02-02 16:56:16,920 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=31 step=3 loss=0.0429 sup=0.0048 cot=0.0006 dif=0.0374
+2026-02-02 16:56:16,924 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=32 step=0 loss=0.0486 sup=0.0038 cot=0.0002 dif=0.0447
+2026-02-02 16:56:16,928 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=32 step=1 loss=0.0554 sup=0.0055 cot=0.0003 dif=0.0496
+2026-02-02 16:56:16,931 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=32 step=2 loss=0.0394 sup=0.0051 cot=0.0005 dif=0.0339
+2026-02-02 16:56:16,935 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=32 step=3 loss=0.0269 sup=0.0050 cot=0.0000 dif=0.0218
+2026-02-02 16:56:16,939 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=33 step=0 loss=0.0463 sup=0.0046 cot=0.0005 dif=0.0412
+2026-02-02 16:56:16,943 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=33 step=1 loss=0.0482 sup=0.0044 cot=0.0012 dif=0.0426
+2026-02-02 16:56:16,946 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=33 step=2 loss=0.0536 sup=0.0043 cot=0.0013 dif=0.0479
+2026-02-02 16:56:16,950 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=33 step=3 loss=0.0214 sup=0.0034 cot=0.0000 dif=0.0179
+2026-02-02 16:56:16,954 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=34 step=0 loss=0.0425 sup=0.0046 cot=0.0011 dif=0.0368
+2026-02-02 16:56:16,958 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=34 step=1 loss=0.0420 sup=0.0040 cot=0.0007 dif=0.0373
+2026-02-02 16:56:16,961 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=34 step=2 loss=0.0388 sup=0.0058 cot=0.0005 dif=0.0325
+2026-02-02 16:56:16,965 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=34 step=3 loss=0.0343 sup=0.0060 cot=0.0015 dif=0.0268
+2026-02-02 16:56:16,969 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=35 step=0 loss=0.0381 sup=0.0043 cot=0.0005 dif=0.0334
+2026-02-02 16:56:16,973 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=35 step=1 loss=0.0462 sup=0.0047 cot=0.0018 dif=0.0397
+2026-02-02 16:56:16,976 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=35 step=2 loss=0.0468 sup=0.0059 cot=0.0018 dif=0.0390
+2026-02-02 16:56:16,980 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=35 step=3 loss=0.0447 sup=0.0063 cot=0.0003 dif=0.0381
+2026-02-02 16:56:16,984 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=36 step=0 loss=0.0578 sup=0.0051 cot=0.0019 dif=0.0509
+2026-02-02 16:56:16,988 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=36 step=1 loss=0.0486 sup=0.0030 cot=0.0006 dif=0.0449
+2026-02-02 16:56:16,991 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=36 step=2 loss=0.0498 sup=0.0042 cot=0.0026 dif=0.0430
+2026-02-02 16:56:16,995 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=36 step=3 loss=0.0238 sup=0.0051 cot=0.0000 dif=0.0186
+2026-02-02 16:56:16,999 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=37 step=0 loss=0.0477 sup=0.0047 cot=0.0007 dif=0.0423
+2026-02-02 16:56:17,003 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=37 step=1 loss=0.0252 sup=0.0035 cot=0.0004 dif=0.0214
+2026-02-02 16:56:17,006 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=37 step=2 loss=0.0487 sup=0.0043 cot=0.0010 dif=0.0433
+2026-02-02 16:56:17,010 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=37 step=3 loss=0.0255 sup=0.0049 cot=0.0000 dif=0.0205
+2026-02-02 16:56:17,014 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=38 step=0 loss=0.0305 sup=0.0036 cot=0.0003 dif=0.0266
+2026-02-02 16:56:17,018 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=38 step=1 loss=0.0416 sup=0.0052 cot=0.0008 dif=0.0356
+2026-02-02 16:56:17,021 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=38 step=2 loss=0.0428 sup=0.0050 cot=0.0007 dif=0.0371
+2026-02-02 16:56:17,025 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=38 step=3 loss=0.0813 sup=0.0046 cot=0.0078 dif=0.0690
+2026-02-02 16:56:17,029 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=39 step=0 loss=0.0368 sup=0.0030 cot=0.0015 dif=0.0323
+2026-02-02 16:56:17,033 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=39 step=1 loss=0.0296 sup=0.0041 cot=0.0002 dif=0.0253
+2026-02-02 16:56:17,036 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=39 step=2 loss=0.0716 sup=0.0047 cot=0.0040 dif=0.0629
+2026-02-02 16:56:17,040 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=39 step=3 loss=0.0345 sup=0.0044 cot=0.0003 dif=0.0298
+2026-02-02 16:56:17,044 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=40 step=0 loss=0.0486 sup=0.0029 cot=0.0024 dif=0.0434
+2026-02-02 16:56:17,048 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=40 step=1 loss=0.0448 sup=0.0051 cot=0.0014 dif=0.0382
+2026-02-02 16:56:17,051 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=40 step=2 loss=0.0490 sup=0.0029 cot=0.0020 dif=0.0440
+2026-02-02 16:56:17,055 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=40 step=3 loss=0.0212 sup=0.0030 cot=0.0000 dif=0.0182
+2026-02-02 16:56:17,059 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=41 step=0 loss=0.0364 sup=0.0054 cot=0.0003 dif=0.0306
+2026-02-02 16:56:17,063 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=41 step=1 loss=0.0325 sup=0.0028 cot=0.0012 dif=0.0285
+2026-02-02 16:56:17,066 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=41 step=2 loss=0.0425 sup=0.0032 cot=0.0011 dif=0.0382
+2026-02-02 16:56:17,070 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=41 step=3 loss=0.0361 sup=0.0028 cot=0.0051 dif=0.0282
+2026-02-02 16:56:17,074 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=42 step=0 loss=0.0414 sup=0.0041 cot=0.0006 dif=0.0366
+2026-02-02 16:56:17,078 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=42 step=1 loss=0.0472 sup=0.0025 cot=0.0021 dif=0.0426
+2026-02-02 16:56:17,082 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=42 step=2 loss=0.0246 sup=0.0039 cot=0.0005 dif=0.0202
+2026-02-02 16:56:17,085 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=42 step=3 loss=0.0249 sup=0.0019 cot=0.0010 dif=0.0220
+2026-02-02 16:56:17,089 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=43 step=0 loss=0.0230 sup=0.0026 cot=0.0004 dif=0.0200
+2026-02-02 16:56:17,093 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=43 step=1 loss=0.0548 sup=0.0023 cot=0.0009 dif=0.0516
+2026-02-02 16:56:17,097 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=43 step=2 loss=0.0162 sup=0.0025 cot=0.0002 dif=0.0135
+2026-02-02 16:56:17,100 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=43 step=3 loss=0.0280 sup=0.0033 cot=0.0025 dif=0.0222
+2026-02-02 16:56:17,104 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=44 step=0 loss=0.0371 sup=0.0030 cot=0.0011 dif=0.0330
+2026-02-02 16:56:17,108 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=44 step=1 loss=0.0387 sup=0.0036 cot=0.0004 dif=0.0347
+2026-02-02 16:56:17,112 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=44 step=2 loss=0.0211 sup=0.0021 cot=0.0003 dif=0.0187
+2026-02-02 16:56:17,115 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=44 step=3 loss=0.0241 sup=0.0028 cot=0.0001 dif=0.0212
+2026-02-02 16:56:17,119 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=45 step=0 loss=0.0283 sup=0.0024 cot=0.0009 dif=0.0250
+2026-02-02 16:56:17,123 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=45 step=1 loss=0.0335 sup=0.0029 cot=0.0006 dif=0.0299
+2026-02-02 16:56:17,127 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=45 step=2 loss=0.0265 sup=0.0021 cot=0.0021 dif=0.0223
+2026-02-02 16:56:17,130 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=45 step=3 loss=0.0166 sup=0.0021 cot=0.0001 dif=0.0145
+2026-02-02 16:56:17,134 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=46 step=0 loss=0.0278 sup=0.0016 cot=0.0009 dif=0.0253
+2026-02-02 16:56:17,138 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=46 step=1 loss=0.0246 sup=0.0026 cot=0.0003 dif=0.0217
+2026-02-02 16:56:17,142 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=46 step=2 loss=0.0273 sup=0.0019 cot=0.0002 dif=0.0252
+2026-02-02 16:56:17,145 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=46 step=3 loss=0.0167 sup=0.0019 cot=0.0005 dif=0.0143
+2026-02-02 16:56:17,149 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=47 step=0 loss=0.0274 sup=0.0015 cot=0.0013 dif=0.0246
+2026-02-02 16:56:17,153 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=47 step=1 loss=0.0316 sup=0.0040 cot=0.0009 dif=0.0267
+2026-02-02 16:56:17,157 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=47 step=2 loss=0.0278 sup=0.0015 cot=0.0006 dif=0.0257
+2026-02-02 16:56:17,160 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=47 step=3 loss=0.0264 sup=0.0023 cot=0.0013 dif=0.0228
+2026-02-02 16:56:17,164 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=48 step=0 loss=0.0258 sup=0.0025 cot=0.0002 dif=0.0231
+2026-02-02 16:56:17,168 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=48 step=1 loss=0.0507 sup=0.0018 cot=0.0036 dif=0.0454
+2026-02-02 16:56:17,172 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=48 step=2 loss=0.0165 sup=0.0028 cot=0.0002 dif=0.0135
+2026-02-02 16:56:17,175 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=48 step=3 loss=0.0183 sup=0.0018 cot=0.0000 dif=0.0165
+2026-02-02 16:56:17,179 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=49 step=0 loss=0.0241 sup=0.0014 cot=0.0004 dif=0.0223
+2026-02-02 16:56:17,183 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=49 step=1 loss=0.0201 sup=0.0025 cot=0.0001 dif=0.0175
+2026-02-02 16:56:17,187 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=49 step=2 loss=0.0282 sup=0.0016 cot=0.0004 dif=0.0262
+2026-02-02 16:56:17,190 DEBUG modssc.inductive.methods.deep_co_training deep_co_training.py:478: Deep Co-Training epoch=49 step=3 loss=0.0107 sup=0.0014 cot=0.0001 dif=0.0093
+2026-02-02 16:56:17,190 INFO modssc.inductive.methods.deep_co_training deep_co_training.py:491: Finished deep_co_training.fit in 0.880s
+2026-02-02 16:56:17,191 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=deep_co_training duration_s=1.739
+2026-02-02 16:56:17,191 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 16:56:17,195 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.004
+2026-02-02 16:56:17,196 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/deep_co_training/tabular/breast_cancer/best_tabular_deep_co_training_breast_cancer-20260202T155614Z/run.json status=success duration_s=0.001

@@ -1,0 +1,86 @@
+2026-02-02 16:57:18,645 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=breast_cancer download=True cache_dir=None
+2026-02-02 16:57:18,646 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 16:57:18,649 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 16:57:18,649 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=breast_cancer provider=openml canonical_uri=openml:15
+2026-02-02 16:57:18,649 INFO modssc.data_loader.api api.py:117: Dataset load: id=breast_cancer provider=openml version=None fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 16:57:18,649 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 15, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 16:57:18,652 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:57:18,657 INFO modssc.data_loader.api api.py:133: Dataset cached: id=breast_cancer train=699 test=None n_classes=2 duration_s=0.011
+2026-02-02 16:57:18,657 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=699 test=None graph=False fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f provider=openml
+2026-02-02 16:57:18,657 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.011
+2026-02-02 16:57:18,704 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=breast_cancer
+2026-02-02 16:57:18,704 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 16:57:18,704 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:57:18,704 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=breast_cancer dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f seed=1 graph=False split=holdout
+2026-02-02 16:57:18,704 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 16:57:18,712 INFO modssc.sampling.api api.py:141: Sampling done: train=503 val=56 test=140 labeled=101 unlabeled=402 duration_s=0.008
+2026-02-02 16:57:18,712 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:57:18,713 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=503 val=56 test=140 labeled=101 unlabeled=402 graph=False
+2026-02-02 16:57:18,713 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:57:18,713 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.009
+2026-02-02 16:57:18,713 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=101
+2026-02-02 16:57:18,713 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 16:57:18,713 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 16:57:18,713 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(699, 9) train_y=(699,) test_X=None test_y=None
+2026-02-02 16:57:18,713 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:18,713 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 16:57:18,715 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 16:57:18,716 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:18,716 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 16:57:18,813 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.097
+2026-02-02 16:57:18,813 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 16:57:18,813 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.098 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:18,813 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 16:57:18,815 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 16:57:18,816 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.002 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:18,816 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 16:57:19,753 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.937
+2026-02-02 16:57:19,753 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=0.937 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:19,753 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 16:57:19,755 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.002
+2026-02-02 16:57:19,755 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=30.0 KB test_data=n/a
+2026-02-02 16:57:19,755 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 16:57:19,756 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.001
+2026-02-02 16:57:19,756 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.001 train_data=30.0 KB test_data=n/a
+2026-02-02 16:57:19,756 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f duration_s=1.043 train_X=(699, 9) test_X=None
+2026-02-02 16:57:19,756 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:e8e31b503533acb1dd05d9db0c55e174d3debbf7553704fffeddcdd394c40699 plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f skipped=[]
+2026-02-02 16:57:19,756 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(699, 9) test_X=None
+2026-02-02 16:57:19,756 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.043
+2026-02-02 16:57:19,756 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=self_training seed=398591604 device=auto dtype=float32 model=None
+2026-02-02 16:57:19,756 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'classifier_id': 'mlp', 'classifier_backend': 'torch', 'classifier_params': {'hidden_sizes': [256, 256], 'activation': 'relu', 'dropout': 0.1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 128, 'max_epochs': 50}, 'max_iter': 10, 'confidence_threshold': 0.95, 'min_new_labels': 1}
+2026-02-02 16:57:19,756 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=101 n_unlabeled=402
+2026-02-02 16:57:19,770 INFO modssc.inductive.methods.self_training self_training.py:247: Starting self_training.fit
+2026-02-02 16:57:19,770 DEBUG modssc.inductive.methods.self_training self_training.py:248: spec=SelfTrainingSpec(classifier_id='mlp', classifier_backend='torch', classifier_params={'hidden_sizes': [256, 256], 'activation': 'relu', 'dropout': 0.1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 128, 'max_epochs': 50}, max_iter=10, confidence_threshold=0.95, max_new_labels=None, min_new_labels=1, use_group_propagation=None, group_key=None, group_min_count=2, group_min_fraction=1.0, group_confidence_threshold=None) device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 16:57:19,770 DEBUG modssc.inductive.methods.self_training self_training.py:257: backend=torch
+2026-02-02 16:57:19,772 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:19,772 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:20,775 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 1.003s
+2026-02-02 16:57:20,780 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=0 direct=332 group_added=0 total_new=332 remaining=402
+2026-02-02 16:57:20,786 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:20,786 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:20,922 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.136s
+2026-02-02 16:57:20,923 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=1 direct=45 group_added=0 total_new=45 remaining=70
+2026-02-02 16:57:20,923 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:20,923 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:21,058 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.135s
+2026-02-02 16:57:21,058 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=2 direct=8 group_added=0 total_new=8 remaining=25
+2026-02-02 16:57:21,059 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:21,059 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:21,193 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.135s
+2026-02-02 16:57:21,194 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=3 direct=2 group_added=0 total_new=2 remaining=17
+2026-02-02 16:57:21,194 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:21,194 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:21,328 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.134s
+2026-02-02 16:57:21,331 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=4 direct=3 group_added=0 total_new=3 remaining=15
+2026-02-02 16:57:21,331 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:21,331 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:21,466 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.135s
+2026-02-02 16:57:21,466 DEBUG modssc.inductive.methods.self_training self_training.py:433: Self-training iter=5 direct=0 group_added=0 total_new=0 remaining=12
+2026-02-02 16:57:21,466 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 16:57:21,466 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 16:57:21,600 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.133s
+2026-02-02 16:57:21,600 INFO modssc.inductive.methods.self_training self_training.py:466: Finished self_training.fit in 1.830s
+2026-02-02 16:57:21,600 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=self_training duration_s=1.844
+2026-02-02 16:57:21,600 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 16:57:21,612 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.012
+2026-02-02 16:57:21,620 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/self_training/tabular/breast_cancer/best_tabular_inductive_self_training_breast_cancer-20260202T155718Z/run.json status=success duration_s=0.007

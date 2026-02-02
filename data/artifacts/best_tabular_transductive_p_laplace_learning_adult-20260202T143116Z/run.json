@@ -1,0 +1,273 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967",
+      "id": "adult",
+      "info": {
+        "citation": null,
+        "description": "Adult (OpenML data_id=1590). No official split.",
+        "homepage": null,
+        "key": "adult",
+        "license": null,
+        "modality": "tabular",
+        "provider": "openml",
+        "required_extra": "openml",
+        "source_kwargs": {
+          "data_id": 1590
+        },
+        "task": "classification",
+        "uri": "openml:1590"
+      }
+    },
+    "graph": {
+      "fingerprint": "fb165a56a198c34aef9c4407753b69fa9c1a153056a34184039b0366b546aec5",
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "p_laplace_learning",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/home/mbarbaux/ModSSC/cache/preprocess/f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967",
+      "fit_fingerprint": "fit:3579beee6fdafc6bb0e5d988f2a1906b067efd5d41c84e97f9ef2500df18db0c",
+      "plan_fingerprint": "resolved_plan:17482c72b46c0128215067eeb16db0338f8d62fa6ee2badc8a99bb54672bbc45",
+      "preprocess_fingerprint": "preprocess:31a3bdc0449b8816bd86555011d98c6efa85f4f337dfdfb9fbb4a067efad09b5",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1,
+      "split_fingerprint": "43a53ed4ad14a41405c4b76a2da703bde665a6d25fe37c59b1e60d89015c9357",
+      "stats": {
+        "policy": {
+          "has_official_test": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "<=50K": 7431,
+            ">50K": 2337
+          },
+          "n": 9768
+        },
+        "train": {
+          "classes": {
+            "<=50K": 26752,
+            ">50K": 8415
+          },
+          "n": 35167
+        },
+        "train_labeled": {
+          "classes": {
+            "<=50K": 3517,
+            ">50K": 3516
+          },
+          "n": 7033
+        },
+        "train_unlabeled": {
+          "n": 28134
+        },
+        "val": {
+          "classes": {
+            "<=50K": 2972,
+            ">50K": 935
+          },
+          "n": 3907
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "adult",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": null,
+      "enabled": true,
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "p_laplace_learning",
+      "model": null,
+      "params": {
+        "cg_max_iter": 2000,
+        "cg_tol": 1e-06,
+        "eps": 1e-12,
+        "max_iter": 50,
+        "p": 3.0,
+        "symmetrize": true,
+        "tol": 1e-06,
+        "zero_diagonal": true
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "tabular.one_hot"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 30
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 1
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_tabular_transductive_p_laplace_learning_adult",
+      "output_dir": "runs/transductive/p_laplace_learning/tabular/adult",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6755733005733006,
+      "macro_f1": 0.6097760142131989
+    },
+    "val": {
+      "accuracy": 0.6672638853340158,
+      "macro_f1": 0.6025034200154644
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/p_laplace_learning/tabular/adult.yaml",
+    "finished_at": "2026-02-02T15:11:51.818096+00:00",
+    "name": "best_tabular_transductive_p_laplace_learning_adult",
+    "seed": 1,
+    "started_at": "2026-02-02T14:31:16.698615+00:00",
+    "status": "success"
+  }
+}

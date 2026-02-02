@@ -1,0 +1,174 @@
+2026-02-02 15:19:13,775 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=adult download=True cache_dir=None
+2026-02-02 15:19:13,775 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 15:19:13,783 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 15:19:13,783 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=adult provider=openml canonical_uri=openml:1590
+2026-02-02 15:19:13,783 INFO modssc.data_loader.api api.py:117: Dataset load: id=adult provider=openml version=None fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:19:13,783 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 1590, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 15:19:13,846 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967
+2026-02-02 15:19:13,868 INFO modssc.data_loader.api api.py:133: Dataset cached: id=adult train=48842 test=None n_classes=2 duration_s=0.093
+2026-02-02 15:19:13,868 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=48842 test=None graph=False fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 provider=openml
+2026-02-02 15:19:13,868 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.093
+2026-02-02 15:19:13,919 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=adult
+2026-02-02 15:19:13,919 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:19:13,919 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967
+2026-02-02 15:19:13,919 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=adult dataset_fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 seed=1 graph=False split=holdout
+2026-02-02 15:19:13,919 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:19:14,019 INFO modssc.sampling.api api.py:141: Sampling done: train=35167 val=3907 test=9768 labeled=7033 unlabeled=28134 duration_s=0.100
+2026-02-02 15:19:14,019 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 35167, 'classes': {'<=50K': 26752, '>50K': 8415}}, 'val': {'n': 3907, 'classes': {'<=50K': 2972, '>50K': 935}}, 'train_labeled': {'n': 7033, 'classes': {'<=50K': 3517, '>50K': 3516}}, 'train_unlabeled': {'n': 28134}, 'test': {'n': 9768, 'classes': {'<=50K': 7431, '>50K': 2337}}}
+2026-02-02 15:19:14,040 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=35167 val=3907 test=9768 labeled=7033 unlabeled=28134 graph=False
+2026-02-02 15:19:14,040 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 35167, 'classes': {'<=50K': 26752, '>50K': 8415}}, 'val': {'n': 3907, 'classes': {'<=50K': 2972, '>50K': 935}}, 'train_labeled': {'n': 7033, 'classes': {'<=50K': 3517, '>50K': 3516}}, 'train_unlabeled': {'n': 28134}, 'test': {'n': 9768, 'classes': {'<=50K': 7431, '>50K': 2337}}}
+2026-02-02 15:19:14,040 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.121
+2026-02-02 15:19:14,041 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=7 fit_indices=7033
+2026-02-02 15:19:14,041 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'tabular.one_hot', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 15:19:14,041 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 steps=['labels.encode', 'labels.to_torch', 'tabular.one_hot', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 15:19:14,041 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(48842, 14) train_y=(48842,) test_X=None test_y=None
+2026-02-02 15:19:14,041 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=5.6 MB test_data=n/a
+2026-02-02 15:19:14,041 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:19:14,045 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.004
+2026-02-02 15:19:14,046 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.004 train_data=5.6 MB test_data=n/a
+2026-02-02 15:19:14,046 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 15:19:14,146 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.100
+2026-02-02 15:19:14,146 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 15:19:14,146 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.101 train_data=5.6 MB test_data=n/a
+2026-02-02 15:19:14,146 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.one_hot index=2 kind=fittable params={}
+2026-02-02 15:19:15,193 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.one_hot keys=['features.X'] duration_s=1.047
+2026-02-02 15:19:15,193 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.one_hot index=2 duration_s=1.047 train_data=20.1 MB test_data=n/a
+2026-02-02 15:19:15,194 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=3 kind=transform params={}
+2026-02-02 15:19:15,201 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.007
+2026-02-02 15:19:15,201 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=3 duration_s=0.008 train_data=20.1 MB test_data=n/a
+2026-02-02 15:19:15,201 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=4 kind=fittable params={}
+2026-02-02 15:19:15,286 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.085
+2026-02-02 15:19:15,286 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=4 duration_s=0.085 train_data=20.1 MB test_data=n/a
+2026-02-02 15:19:15,286 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=5 kind=fittable params={}
+2026-02-02 15:19:15,296 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.010
+2026-02-02 15:19:15,296 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=5 duration_s=0.010 train_data=20.1 MB test_data=n/a
+2026-02-02 15:19:15,296 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=6 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 15:19:15,302 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.006
+2026-02-02 15:19:15,303 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=6 duration_s=0.006 train_data=20.1 MB test_data=n/a
+2026-02-02 15:19:15,303 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 duration_s=1.262 train_X=(48842, 106) test_X=None
+2026-02-02 15:19:15,303 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:4a34efb2af7b2f814e0c648ef7e59972547c0b2de37b10570aceee8bd9625ae2 plan_fingerprint=resolved_plan:6ed490995fe0d8f1eb30fd0ca8262522145e7cafa3ba073f9c42e71d197f40ef cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 skipped=[]
+2026-02-02 15:19:15,303 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(48842, 106) test_X=None
+2026-02-02 15:19:15,303 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.262
+2026-02-02 15:19:15,315 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=28134 strong_views=1
+2026-02-02 15:19:15,315 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 15:19:19,464 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=4.149
+2026-02-02 15:19:19,465 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(28134, 106) strong=(28134, 106) strong_1=None
+2026-02-02 15:19:19,465 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=trinet seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 15:19:19,465 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'max_rounds': 30, 'pool_base': 1000}
+2026-02-02 15:19:19,465 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=7033 n_unlabeled=28134
+2026-02-02 15:19:20,462 INFO modssc.inductive.methods.trinet trinet.py:395: Starting trinet.fit
+2026-02-02 15:19:20,462 DEBUG modssc.inductive.methods.trinet trinet.py:396: spec=TriNetSpec(shared_bundle=TorchModelBundle(model=Sequential(
+  (0): Linear(in_features=106, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=256, out_features=256, bias=True)
+  (4): ReLU()
+  (5): Dropout(p=0.1, inplace=False)
+  (6): Linear(in_features=256, out_features=2, bias=True)
+), optimizer=AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0
+), ema_model=None, scheduler=None, scaler=None, meta=None), head_bundles=(TorchModelBundle(model=Sequential(
+  (0): Linear(in_features=2, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=256, out_features=256, bias=True)
+  (4): ReLU()
+  (5): Dropout(p=0.1, inplace=False)
+  (6): Linear(in_features=256, out_features=2, bias=True)
+), optimizer=AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0
+), ema_model=None, scheduler=None, scaler=None, meta=None), TorchModelBundle(model=Sequential(
+  (0): Linear(in_features=2, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=256, out_features=256, bias=True)
+  (4): ReLU()
+  (5): Dropout(p=0.1, inplace=False)
+  (6): Linear(in_features=256, out_features=2, bias=True)
+), optimizer=AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0
+), ema_model=None, scheduler=None, scaler=None, meta=None), TorchModelBundle(model=Sequential(
+  (0): Linear(in_features=2, out_features=256, bias=True)
+  (1): ReLU()
+  (2): Dropout(p=0.1, inplace=False)
+  (3): Linear(in_features=256, out_features=256, bias=True)
+  (4): ReLU()
+  (5): Dropout(p=0.1, inplace=False)
+  (6): Linear(in_features=256, out_features=2, bias=True)
+), optimizer=AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0
+), ema_model=None, scheduler=None, scaler=None, meta=None)), sigma0=0.95, sigma_os=0.25, sigma_decay=0.05, output_smearing_std=0.05, pool_base=1000, max_rounds=30, fine_tune_interval=4, batch_size=16, init_epochs=1, train_epochs=1, des_passes=6, des_drop_fraction=0.3333333333333333, labeling_stability_passes=1, freeze_bn=True) device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 15:19:20,462 INFO modssc.inductive.methods.trinet trinet.py:413: TriNet sizes: n_labeled=7033 n_unlabeled=28134
+2026-02-02 15:19:24,263 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=1 pool=2000 sigma_t=0.700 pseudo=[1568, 1593, 1606]
+2026-02-02 15:19:26,649 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=2 pool=4000 sigma_t=0.950 pseudo=[1860, 1729, 1985]
+2026-02-02 15:19:30,572 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=3 pool=8000 sigma_t=0.950 pseudo=[4338, 4530, 4419]
+2026-02-02 15:19:37,377 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=4 pool=16000 sigma_t=0.950 pseudo=[9281, 9483, 8801]
+2026-02-02 15:19:48,337 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=5 pool=28134 sigma_t=0.950 pseudo=[15849, 15921, 16525]
+2026-02-02 15:19:59,926 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=6 pool=28134 sigma_t=0.950 pseudo=[17520, 18652, 17613]
+2026-02-02 15:20:10,789 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=7 pool=28134 sigma_t=0.950 pseudo=[17148, 15735, 16278]
+2026-02-02 15:20:27,855 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=9 pool=28134 sigma_t=0.650 pseudo=[23898, 26477, 27055]
+2026-02-02 15:20:42,828 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=10 pool=28134 sigma_t=0.900 pseudo=[23951, 24104, 23809]
+2026-02-02 15:20:57,039 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=11 pool=28134 sigma_t=0.900 pseudo=[22953, 23086, 23366]
+2026-02-02 15:21:14,363 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=13 pool=28134 sigma_t=0.600 pseudo=[25521, 27350, 27620]
+2026-02-02 15:21:30,697 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=14 pool=28134 sigma_t=0.850 pseudo=[26961, 26893, 26229]
+2026-02-02 15:21:46,082 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=15 pool=28134 sigma_t=0.850 pseudo=[25977, 25753, 25210]
+2026-02-02 15:22:04,039 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=17 pool=28134 sigma_t=0.550 pseudo=[27100, 27548, 27647]
+2026-02-02 15:22:20,404 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=18 pool=28134 sigma_t=0.800 pseudo=[27421, 27310, 27174]
+2026-02-02 15:22:36,545 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=19 pool=28134 sigma_t=0.800 pseudo=[27367, 27256, 27221]
+2026-02-02 15:22:54,441 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=21 pool=28134 sigma_t=0.500 pseudo=[27631, 27700, 27729]
+2026-02-02 15:23:10,705 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=22 pool=28134 sigma_t=0.750 pseudo=[27649, 27421, 27387]
+2026-02-02 15:23:26,979 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=23 pool=28134 sigma_t=0.750 pseudo=[27532, 27597, 27558]
+2026-02-02 15:23:44,700 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=25 pool=28134 sigma_t=0.450 pseudo=[27605, 27704, 27717]
+2026-02-02 15:24:01,102 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=26 pool=28134 sigma_t=0.700 pseudo=[27692, 27700, 27694]
+2026-02-02 15:24:17,476 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=27 pool=28134 sigma_t=0.700 pseudo=[27764, 27644, 27622]
+2026-02-02 15:24:35,354 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=29 pool=28134 sigma_t=0.400 pseudo=[27745, 27748, 27794]
+2026-02-02 15:24:51,813 DEBUG modssc.inductive.methods.trinet trinet.py:585: TriNet round=30 pool=28134 sigma_t=0.650 pseudo=[27791, 27784, 27754]
+2026-02-02 15:24:51,813 INFO modssc.inductive.methods.trinet trinet.py:596: Finished trinet.fit in 331.351s
+2026-02-02 15:24:51,813 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=trinet duration_s=332.348
+2026-02-02 15:24:51,813 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:24:51,817 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.004
+2026-02-02 15:24:51,821 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/trinet/tabular/adult/best_tabular_inductive_trinet_adult-20260202T141913Z/run.json status=success duration_s=0.003

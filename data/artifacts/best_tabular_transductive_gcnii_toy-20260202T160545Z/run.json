@@ -1,0 +1,280 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89",
+      "id": "toy",
+      "info": {
+        "citation": null,
+        "description": "Deterministic synthetic dataset used for tests and examples.",
+        "homepage": null,
+        "key": "toy",
+        "license": null,
+        "modality": "tabular",
+        "provider": "toy",
+        "required_extra": null,
+        "source_kwargs": {
+          "n_classes": 3,
+          "n_features": 4,
+          "n_samples": 64,
+          "official_test": true,
+          "seed": 0
+        },
+        "task": "classification",
+        "uri": "toy:default"
+      }
+    },
+    "graph": {
+      "fingerprint": "59a2790db7647357857ea9b695d8e62bee1a7755da35ef78b76f48c747828133",
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "gcnii",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/home/mbarbaux/ModSSC/cache/preprocess/e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89",
+      "fit_fingerprint": "fit:493152f5c5a8382c476b1a71519e4d9599a4a70b9c9a7688909d7cb7a29a3833",
+      "plan_fingerprint": "resolved_plan:482a0984f51742ea5d9dbcc35f660359eaee028ed4420e88d582a288bf1fe3f8",
+      "preprocess_fingerprint": "preprocess:a4b302dcd398bdcf28f4f8764cdf7bc00b34c334059f8e7e116b0f68f026bbe5",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1,
+      "split_fingerprint": "44e7a2643c1c700abf6e81a583aab113a8ea984edeeebf3ed8aa2031d9fcc8e7",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 6,
+            "1": 5,
+            "2": 5
+          },
+          "n": 16
+        },
+        "train": {
+          "classes": {
+            "0": 14,
+            "1": 15,
+            "2": 14
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3
+          },
+          "n": 9
+        },
+        "train_unlabeled": {
+          "n": 34
+        },
+        "val": {
+          "classes": {
+            "0": 1,
+            "1": 2,
+            "2": 2
+          },
+          "n": 5
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "toy",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": null,
+      "enabled": true,
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "gcnii",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "alpha": 0.1,
+        "dropout": 0.5,
+        "hidden_dim": 64,
+        "lam": 0.5,
+        "lr": 0.01,
+        "max_epochs": 200,
+        "num_layers": 16,
+        "patience": 50,
+        "weight_decay": 0.0005
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 30
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 1
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_tabular_transductive_gcnii_toy",
+      "output_dir": "runs/transductive/gcnii/tabular/toy",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.25,
+      "macro_f1": 0.2555555555555556
+    },
+    "val": {
+      "accuracy": 0.2,
+      "macro_f1": 0.16666666666666666
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/gcnii/tabular/toy.yaml",
+    "finished_at": "2026-02-02T16:05:47.116936+00:00",
+    "name": "best_tabular_transductive_gcnii_toy",
+    "seed": 1,
+    "started_at": "2026-02-02T16:05:45.417805+00:00",
+    "status": "success"
+  }
+}

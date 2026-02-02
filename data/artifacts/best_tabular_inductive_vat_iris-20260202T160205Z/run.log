@@ -1,0 +1,113 @@
+2026-02-02 17:02:05,063 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=iris download=True cache_dir=None
+2026-02-02 17:02:05,063 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 17:02:05,066 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 17:02:05,066 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=iris provider=openml canonical_uri=openml:61
+2026-02-02 17:02:05,066 INFO modssc.data_loader.api api.py:117: Dataset load: id=iris provider=openml version=None fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 17:02:05,066 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 61, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 17:02:05,067 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572
+2026-02-02 17:02:05,071 INFO modssc.data_loader.api api.py:133: Dataset cached: id=iris train=150 test=None n_classes=3 duration_s=0.009
+2026-02-02 17:02:05,071 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=150 test=None graph=False fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 provider=openml
+2026-02-02 17:02:05,071 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.009
+2026-02-02 17:02:05,124 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=iris
+2026-02-02 17:02:05,124 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 17:02:05,124 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572
+2026-02-02 17:02:05,124 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=iris dataset_fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 seed=1 graph=False split=holdout
+2026-02-02 17:02:05,124 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 17:02:05,131 INFO modssc.sampling.api api.py:141: Sampling done: train=108 val=12 test=30 labeled=22 unlabeled=86 duration_s=0.007
+2026-02-02 17:02:05,131 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 108, 'classes': {'Iris-setosa': 36, 'Iris-versicolor': 36, 'Iris-virginica': 36}}, 'val': {'n': 12, 'classes': {'Iris-setosa': 4, 'Iris-versicolor': 4, 'Iris-virginica': 4}}, 'train_labeled': {'n': 22, 'classes': {'Iris-setosa': 8, 'Iris-versicolor': 7, 'Iris-virginica': 7}}, 'train_unlabeled': {'n': 86}, 'test': {'n': 30, 'classes': {'Iris-setosa': 10, 'Iris-versicolor': 10, 'Iris-virginica': 10}}}
+2026-02-02 17:02:05,132 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=108 val=12 test=30 labeled=22 unlabeled=86 graph=False
+2026-02-02 17:02:05,132 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 108, 'classes': {'Iris-setosa': 36, 'Iris-versicolor': 36, 'Iris-virginica': 36}}, 'val': {'n': 12, 'classes': {'Iris-setosa': 4, 'Iris-versicolor': 4, 'Iris-virginica': 4}}, 'train_labeled': {'n': 22, 'classes': {'Iris-setosa': 8, 'Iris-versicolor': 7, 'Iris-virginica': 7}}, 'train_unlabeled': {'n': 86}, 'test': {'n': 30, 'classes': {'Iris-setosa': 10, 'Iris-versicolor': 10, 'Iris-virginica': 10}}}
+2026-02-02 17:02:05,132 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.008
+2026-02-02 17:02:05,132 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=22
+2026-02-02 17:02:05,132 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 17:02:05,132 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 17:02:05,132 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(150, 4) train_y=(150,) test_X=None test_y=None
+2026-02-02 17:02:05,132 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=5.9 KB test_data=n/a
+2026-02-02 17:02:05,132 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 17:02:05,134 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 17:02:05,135 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.003 train_data=5.9 KB test_data=n/a
+2026-02-02 17:02:05,135 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 17:02:05,234 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.099
+2026-02-02 17:02:05,234 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 17:02:05,234 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.100 train_data=5.9 KB test_data=n/a
+2026-02-02 17:02:05,234 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 17:02:05,237 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 17:02:05,237 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.002 train_data=5.9 KB test_data=n/a
+2026-02-02 17:02:05,237 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 17:02:06,276 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=1.039
+2026-02-02 17:02:06,276 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=1.040 train_data=5.9 KB test_data=n/a
+2026-02-02 17:02:06,276 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 17:02:06,278 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.002
+2026-02-02 17:02:06,278 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=3.5 KB test_data=n/a
+2026-02-02 17:02:06,278 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 17:02:06,280 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.002
+2026-02-02 17:02:06,280 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.002 train_data=3.5 KB test_data=n/a
+2026-02-02 17:02:06,280 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 duration_s=1.149 train_X=(150, 4) test_X=None
+2026-02-02 17:02:06,280 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:75598ed099a81a08799b66a7d3baf5526adf278e3ed02c30f4109069d7106690 plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 skipped=[]
+2026-02-02 17:02:06,280 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(150, 4) test_X=None
+2026-02-02 17:02:06,281 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.149
+2026-02-02 17:02:06,295 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=86 strong_views=1
+2026-02-02 17:02:06,295 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 17:02:06,331 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.036
+2026-02-02 17:02:06,331 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(86, 4) strong=(86, 4) strong_1=None
+2026-02-02 17:02:06,331 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=vat seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 17:02:06,331 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'unsup_warm_up': 0.4, 'batch_size': 128, 'max_epochs': 50, 'freeze_bn': False, 'detach_target': True}
+2026-02-02 17:02:06,331 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=22 n_unlabeled=86
+2026-02-02 17:02:07,184 INFO modssc.inductive.methods.vat vat.py:176: Starting vat.fit
+2026-02-02 17:02:07,184 DEBUG modssc.inductive.methods.vat vat.py:177: params lambda_u=1.0 xi=1e-06 eps=2.5 num_iters=1 unsup_warm_up=0.4 batch_size=128 max_epochs=50 freeze_bn=False detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 17:02:07,184 INFO modssc.inductive.methods.vat vat.py:209: VAT sizes: n_labeled=22 n_unlabeled=86
+2026-02-02 17:02:07,302 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=0 warm=0.000 sup_loss=1.1297 vat_loss=0.0146 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,329 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=1 warm=0.050 sup_loss=0.9753 vat_loss=0.0255 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,332 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=2 warm=0.100 sup_loss=0.8515 vat_loss=0.0630 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,334 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=3 warm=0.150 sup_loss=0.7443 vat_loss=0.1360 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,336 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=4 warm=0.200 sup_loss=0.6590 vat_loss=0.2285 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,338 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=5 warm=0.250 sup_loss=0.5922 vat_loss=0.3420 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,341 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=6 warm=0.300 sup_loss=0.5554 vat_loss=0.4310 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,343 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=7 warm=0.350 sup_loss=0.5122 vat_loss=0.4893 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,345 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=8 warm=0.400 sup_loss=0.4855 vat_loss=0.5538 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,347 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=9 warm=0.450 sup_loss=0.4524 vat_loss=0.5845 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,349 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=10 warm=0.500 sup_loss=0.4431 vat_loss=0.6563 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,351 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=11 warm=0.550 sup_loss=0.4593 vat_loss=0.6316 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,353 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=12 warm=0.600 sup_loss=0.4300 vat_loss=0.6169 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,355 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=13 warm=0.650 sup_loss=0.4307 vat_loss=0.5963 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,358 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=14 warm=0.700 sup_loss=0.4549 vat_loss=0.5349 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,360 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=15 warm=0.750 sup_loss=0.4500 vat_loss=0.5121 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,362 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=16 warm=0.800 sup_loss=0.4629 vat_loss=0.3908 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,364 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=17 warm=0.850 sup_loss=0.4564 vat_loss=0.4578 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,366 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=18 warm=0.900 sup_loss=0.4788 vat_loss=0.4146 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,368 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=19 warm=0.950 sup_loss=0.4717 vat_loss=0.3750 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,370 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=20 warm=1.000 sup_loss=0.5090 vat_loss=0.3662 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,372 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=21 warm=1.000 sup_loss=0.5164 vat_loss=0.3150 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,374 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=22 warm=1.000 sup_loss=0.5645 vat_loss=0.2526 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,377 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=23 warm=1.000 sup_loss=0.5622 vat_loss=0.2191 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,379 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=24 warm=1.000 sup_loss=0.5905 vat_loss=0.2199 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,381 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=25 warm=1.000 sup_loss=0.6232 vat_loss=0.1789 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,383 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=26 warm=1.000 sup_loss=0.5882 vat_loss=0.1886 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,385 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=27 warm=1.000 sup_loss=0.5795 vat_loss=0.1867 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,387 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=28 warm=1.000 sup_loss=0.5986 vat_loss=0.1918 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,389 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=29 warm=1.000 sup_loss=0.5833 vat_loss=0.1993 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,391 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=30 warm=1.000 sup_loss=0.5518 vat_loss=0.2007 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,393 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=31 warm=1.000 sup_loss=0.5666 vat_loss=0.1966 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,396 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=32 warm=1.000 sup_loss=0.5477 vat_loss=0.2089 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,398 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=33 warm=1.000 sup_loss=0.5403 vat_loss=0.1918 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,400 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=34 warm=1.000 sup_loss=0.5356 vat_loss=0.1965 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,402 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=35 warm=1.000 sup_loss=0.5172 vat_loss=0.1766 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,404 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=36 warm=1.000 sup_loss=0.5609 vat_loss=0.1877 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,406 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=37 warm=1.000 sup_loss=0.5463 vat_loss=0.1700 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,408 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=38 warm=1.000 sup_loss=0.5382 vat_loss=0.1552 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,410 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=39 warm=1.000 sup_loss=0.5410 vat_loss=0.1608 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,412 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=40 warm=1.000 sup_loss=0.5094 vat_loss=0.1748 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,415 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=41 warm=1.000 sup_loss=0.4987 vat_loss=0.1660 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,417 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=42 warm=1.000 sup_loss=0.4912 vat_loss=0.2102 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,419 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=43 warm=1.000 sup_loss=0.4814 vat_loss=0.1758 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,421 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=44 warm=1.000 sup_loss=0.4693 vat_loss=0.2087 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,423 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=45 warm=1.000 sup_loss=0.4770 vat_loss=0.2154 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,425 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=46 warm=1.000 sup_loss=0.4496 vat_loss=0.1871 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,427 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=47 warm=1.000 sup_loss=0.4525 vat_loss=0.1974 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,429 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=48 warm=1.000 sup_loss=0.4487 vat_loss=0.2152 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,431 DEBUG modssc.inductive.methods.vat vat.py:308: VAT epoch=49 warm=1.000 sup_loss=0.4126 vat_loss=0.2408 eps=2.5 xi=1e-06
+2026-02-02 17:02:07,432 INFO modssc.inductive.methods.vat vat.py:326: Finished vat.fit in 0.248s
+2026-02-02 17:02:07,432 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=vat duration_s=1.101
+2026-02-02 17:02:07,432 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 17:02:07,436 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.004
+2026-02-02 17:02:07,439 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/vat/tabular/iris/best_tabular_inductive_vat_iris-20260202T160205Z/run.json status=success duration_s=0.002

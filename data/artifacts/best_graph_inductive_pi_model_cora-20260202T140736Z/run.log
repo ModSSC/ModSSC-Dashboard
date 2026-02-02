@@ -1,0 +1,110 @@
+2026-02-02 15:07:36,654 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=cora download=True cache_dir=None
+2026-02-02 15:07:36,654 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 15:07:36,657 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 15:07:36,657 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=cora provider=pyg canonical_uri=pyg:Planetoid/Cora
+2026-02-02 15:07:36,657 INFO modssc.data_loader.api api.py:117: Dataset load: id=cora provider=pyg version=None fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:07:36,657 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'Cora'}}
+2026-02-02 15:07:36,662 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:07:36,662 INFO modssc.data_loader.api api.py:133: Dataset cached: id=cora train=2708 test=None n_classes=7 duration_s=0.008
+2026-02-02 15:07:36,662 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=2708 test=None graph=True fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 provider=pyg
+2026-02-02 15:07:36,662 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.009
+2026-02-02 15:07:36,706 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=cora
+2026-02-02 15:07:36,706 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:07:36,706 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:07:36,706 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=cora dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 seed=5 graph=True split=holdout
+2026-02-02 15:07:36,706 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:07:36,717 INFO modssc.sampling.api api.py:141: Sampling done: train=140 val=500 test=1000 labeled=28 unlabeled=112 duration_s=0.011
+2026-02-02 15:07:36,717 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:07:36,717 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=140 val=500 test=1000 labeled=28 unlabeled=112 graph=True
+2026-02-02 15:07:36,717 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:07:36,717 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.011
+Inductive method on graph dataset; converting graph masks to indices.
+2026-02-02 15:07:36,717 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=4 fit_indices=28
+2026-02-02 15:07:36,717 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch']
+2026-02-02 15:07:36,717 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch'] output_key=features.X seed=5 cache=True
+2026-02-02 15:07:36,717 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(2708, 1433) train_y=(2708,) test_X=None test_y=None
+2026-02-02 15:07:36,717 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=15.0 MB test_data=n/a
+2026-02-02 15:07:36,718 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:07:36,720 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 15:07:36,720 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=15.0 MB test_data=n/a
+2026-02-02 15:07:36,720 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 15:07:36,810 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.090
+2026-02-02 15:07:36,811 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 15:07:36,811 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.091 train_data=15.0 MB test_data=n/a
+2026-02-02 15:07:36,811 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=graph.sparse_adjacency index=2 kind=transform params={'max_nodes': 20000, 'batch_size': 32, 'embed_epochs': 5, 'embed_lr': 0.01, 'undirected': True, 'device': 'auto'}
+2026-02-02 15:07:36,813 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for graph.sparse_adjacency (train): Incomplete cached outputs for step 'graph.sparse_adjacency' (train)
+2026-02-02 15:07:36,814 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=graph.sparse_adjacency keys=['features.X'] duration_s=0.003
+2026-02-02 15:07:36,814 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=graph.sparse_adjacency index=2 duration_s=0.003 train_data=15.2 MB test_data=n/a
+2026-02-02 15:07:36,814 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=3 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 15:07:36,815 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for core.to_torch (train): Incomplete cached outputs for step 'core.to_torch' (train)
+2026-02-02 15:07:36,817 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.003
+2026-02-02 15:07:36,817 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=3 duration_s=0.003 train_data=15.2 MB test_data=n/a
+2026-02-02 15:07:36,817 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 duration_s=0.100 train_X=None test_X=None
+2026-02-02 15:07:36,817 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:169265f8bd8d4cf86a27523c10e74ddb6b072ed41e8057863440cf0ebfa9b6d2 plan_fingerprint=resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 skipped=[]
+2026-02-02 15:07:36,817 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=None test_X=None
+2026-02-02 15:07:36,817 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.100
+2026-02-02 15:07:38,902 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=5 n_samples=112 strong_views=1
+2026-02-02 15:07:38,902 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.feature_dropout']
+2026-02-02 15:07:38,929 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.027
+2026-02-02 15:07:38,930 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(112, 1433) strong=(112, 1433) strong_1=None
+2026-02-02 15:07:38,930 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=pi_model seed=3274374610 device=auto dtype=float32 model=graphsage_inductive
+2026-02-02 15:07:38,930 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'unsup_warm_up': 0.4, 'batch_size': 128, 'max_epochs': 50, 'freeze_bn': False, 'detach_target': True}
+2026-02-02 15:07:38,930 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=28 n_unlabeled=112
+2026-02-02 15:07:38,965 INFO modssc.inductive.methods.pi_model pi_model.py:69: Starting pi_model.fit
+2026-02-02 15:07:38,965 DEBUG modssc.inductive.methods.pi_model pi_model.py:70: params lambda_u=1.0 unsup_warm_up=0.4 batch_size=128 max_epochs=50 freeze_bn=False detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=3274374610
+2026-02-02 15:07:38,965 INFO modssc.inductive.methods.pi_model pi_model.py:100: Pi-Model sizes: n_labeled=28 n_unlabeled=112
+2026-02-02 15:07:39,061 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=0 warm=0.000 sup_loss=1.9433 unsup_loss=0.0000
+2026-02-02 15:07:39,127 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=1 warm=0.050 sup_loss=1.9037 unsup_loss=0.0000
+2026-02-02 15:07:39,130 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=2 warm=0.100 sup_loss=1.8676 unsup_loss=0.0000
+2026-02-02 15:07:39,133 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=3 warm=0.150 sup_loss=1.8357 unsup_loss=0.0000
+2026-02-02 15:07:39,135 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=4 warm=0.200 sup_loss=1.8037 unsup_loss=0.0000
+2026-02-02 15:07:39,138 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=5 warm=0.250 sup_loss=1.7669 unsup_loss=0.0000
+2026-02-02 15:07:39,141 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=6 warm=0.300 sup_loss=1.7361 unsup_loss=0.0000
+2026-02-02 15:07:39,144 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=7 warm=0.350 sup_loss=1.6997 unsup_loss=0.0000
+2026-02-02 15:07:39,146 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=8 warm=0.400 sup_loss=1.6637 unsup_loss=0.0000
+2026-02-02 15:07:39,149 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=9 warm=0.450 sup_loss=1.6309 unsup_loss=0.0000
+2026-02-02 15:07:39,152 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=10 warm=0.500 sup_loss=1.6020 unsup_loss=0.0000
+2026-02-02 15:07:39,155 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=11 warm=0.550 sup_loss=1.5437 unsup_loss=0.0000
+2026-02-02 15:07:39,157 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=12 warm=0.600 sup_loss=1.5044 unsup_loss=0.0000
+2026-02-02 15:07:39,160 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=13 warm=0.650 sup_loss=1.4767 unsup_loss=0.0000
+2026-02-02 15:07:39,163 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=14 warm=0.700 sup_loss=1.4287 unsup_loss=0.0000
+2026-02-02 15:07:39,165 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=15 warm=0.750 sup_loss=1.3862 unsup_loss=0.0000
+2026-02-02 15:07:39,168 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=16 warm=0.800 sup_loss=1.3308 unsup_loss=0.0001
+2026-02-02 15:07:39,171 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=17 warm=0.850 sup_loss=1.2990 unsup_loss=0.0001
+2026-02-02 15:07:39,173 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=18 warm=0.900 sup_loss=1.2338 unsup_loss=0.0001
+2026-02-02 15:07:39,176 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=19 warm=0.950 sup_loss=1.1848 unsup_loss=0.0001
+2026-02-02 15:07:39,179 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=20 warm=1.000 sup_loss=1.1412 unsup_loss=0.0001
+2026-02-02 15:07:39,181 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=21 warm=1.000 sup_loss=1.1082 unsup_loss=0.0002
+2026-02-02 15:07:39,184 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=22 warm=1.000 sup_loss=1.0330 unsup_loss=0.0001
+2026-02-02 15:07:39,187 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=23 warm=1.000 sup_loss=0.9779 unsup_loss=0.0002
+2026-02-02 15:07:39,189 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=24 warm=1.000 sup_loss=0.9247 unsup_loss=0.0002
+2026-02-02 15:07:39,192 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=25 warm=1.000 sup_loss=0.8908 unsup_loss=0.0003
+2026-02-02 15:07:39,195 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=26 warm=1.000 sup_loss=0.8249 unsup_loss=0.0003
+2026-02-02 15:07:39,198 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=27 warm=1.000 sup_loss=0.7907 unsup_loss=0.0003
+2026-02-02 15:07:39,200 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=28 warm=1.000 sup_loss=0.7236 unsup_loss=0.0003
+2026-02-02 15:07:39,203 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=29 warm=1.000 sup_loss=0.6747 unsup_loss=0.0003
+2026-02-02 15:07:39,206 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=30 warm=1.000 sup_loss=0.6313 unsup_loss=0.0004
+2026-02-02 15:07:39,208 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=31 warm=1.000 sup_loss=0.5827 unsup_loss=0.0004
+2026-02-02 15:07:39,211 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=32 warm=1.000 sup_loss=0.5414 unsup_loss=0.0004
+2026-02-02 15:07:39,214 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=33 warm=1.000 sup_loss=0.5246 unsup_loss=0.0005
+2026-02-02 15:07:39,216 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=34 warm=1.000 sup_loss=0.4734 unsup_loss=0.0006
+2026-02-02 15:07:39,219 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=35 warm=1.000 sup_loss=0.4309 unsup_loss=0.0005
+2026-02-02 15:07:39,222 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=36 warm=1.000 sup_loss=0.3960 unsup_loss=0.0006
+2026-02-02 15:07:39,225 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=37 warm=1.000 sup_loss=0.3946 unsup_loss=0.0006
+2026-02-02 15:07:39,227 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=38 warm=1.000 sup_loss=0.3334 unsup_loss=0.0006
+2026-02-02 15:07:39,230 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=39 warm=1.000 sup_loss=0.3106 unsup_loss=0.0007
+2026-02-02 15:07:39,233 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=40 warm=1.000 sup_loss=0.2959 unsup_loss=0.0007
+2026-02-02 15:07:39,235 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=41 warm=1.000 sup_loss=0.2674 unsup_loss=0.0008
+2026-02-02 15:07:39,238 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=42 warm=1.000 sup_loss=0.2496 unsup_loss=0.0009
+2026-02-02 15:07:39,241 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=43 warm=1.000 sup_loss=0.2292 unsup_loss=0.0009
+2026-02-02 15:07:39,243 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=44 warm=1.000 sup_loss=0.2108 unsup_loss=0.0009
+2026-02-02 15:07:39,246 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=45 warm=1.000 sup_loss=0.1956 unsup_loss=0.0010
+2026-02-02 15:07:39,249 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=46 warm=1.000 sup_loss=0.1832 unsup_loss=0.0010
+2026-02-02 15:07:39,252 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=47 warm=1.000 sup_loss=0.1674 unsup_loss=0.0008
+2026-02-02 15:07:39,254 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=48 warm=1.000 sup_loss=0.1517 unsup_loss=0.0010
+2026-02-02 15:07:39,257 DEBUG modssc.inductive.methods.pi_model pi_model.py:194: Pi-Model epoch=49 warm=1.000 sup_loss=0.1471 unsup_loss=0.0010
+2026-02-02 15:07:39,258 INFO modssc.inductive.methods.pi_model pi_model.py:210: Finished pi_model.fit in 0.293s
+2026-02-02 15:07:39,258 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=pi_model duration_s=0.328
+2026-02-02 15:07:39,258 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:07:39,269 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.011
+2026-02-02 15:07:39,271 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/pi_model/graph/cora/best_graph_inductive_pi_model_cora-20260202T140736Z/run.json status=success duration_s=0.001

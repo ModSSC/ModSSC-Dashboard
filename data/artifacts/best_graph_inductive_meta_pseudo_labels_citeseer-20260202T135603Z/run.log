@@ -1,0 +1,110 @@
+2026-02-02 14:56:03,801 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=citeseer download=True cache_dir=None
+2026-02-02 14:56:03,801 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 14:56:03,805 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 14:56:03,805 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=citeseer provider=pyg canonical_uri=pyg:Planetoid/CiteSeer
+2026-02-02 14:56:03,805 INFO modssc.data_loader.api api.py:117: Dataset load: id=citeseer provider=pyg version=None fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 14:56:03,805 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'CiteSeer'}}
+2026-02-02 14:56:03,817 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:56:03,817 INFO modssc.data_loader.api api.py:133: Dataset cached: id=citeseer train=3327 test=None n_classes=6 duration_s=0.016
+2026-02-02 14:56:03,817 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=3327 test=None graph=True fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 provider=pyg
+2026-02-02 14:56:03,817 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.016
+2026-02-02 14:56:03,862 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=citeseer
+2026-02-02 14:56:03,862 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 14:56:03,862 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:56:03,862 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=citeseer dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 seed=5 graph=True split=holdout
+2026-02-02 14:56:03,862 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 14:56:03,874 INFO modssc.sampling.api api.py:141: Sampling done: train=120 val=500 test=1000 labeled=24 unlabeled=96 duration_s=0.012
+2026-02-02 14:56:03,874 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:56:03,874 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=120 val=500 test=1000 labeled=24 unlabeled=96 graph=True
+2026-02-02 14:56:03,874 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:56:03,874 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.012
+Inductive method on graph dataset; converting graph masks to indices.
+2026-02-02 14:56:03,874 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=4 fit_indices=24
+2026-02-02 14:56:03,874 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch']
+2026-02-02 14:56:03,874 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch'] output_key=features.X seed=5 cache=True
+2026-02-02 14:56:03,874 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(3327, 3703) train_y=(3327,) test_X=None test_y=None
+2026-02-02 14:56:03,874 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=47.2 MB test_data=n/a
+2026-02-02 14:56:03,874 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 14:56:03,876 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 14:56:03,876 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=47.2 MB test_data=n/a
+2026-02-02 14:56:03,876 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 14:56:03,976 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.099
+2026-02-02 14:56:03,976 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 14:56:03,976 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.099 train_data=47.2 MB test_data=n/a
+2026-02-02 14:56:03,976 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=graph.sparse_adjacency index=2 kind=transform params={'max_nodes': 20000, 'batch_size': 32, 'embed_epochs': 5, 'embed_lr': 0.01, 'undirected': True, 'device': 'auto'}
+2026-02-02 14:56:03,978 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for graph.sparse_adjacency (train): Incomplete cached outputs for step 'graph.sparse_adjacency' (train)
+2026-02-02 14:56:03,979 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=graph.sparse_adjacency keys=['features.X'] duration_s=0.003
+2026-02-02 14:56:03,979 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=graph.sparse_adjacency index=2 duration_s=0.003 train_data=47.3 MB test_data=n/a
+2026-02-02 14:56:03,979 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=3 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 14:56:03,981 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for core.to_torch (train): Incomplete cached outputs for step 'core.to_torch' (train)
+2026-02-02 14:56:03,984 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.005
+2026-02-02 14:56:03,984 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=3 duration_s=0.005 train_data=47.3 MB test_data=n/a
+2026-02-02 14:56:03,984 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 duration_s=0.110 train_X=None test_X=None
+2026-02-02 14:56:03,984 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:aa9a18f8888ae8bfd7b23144deb24cb21beda62d98043ce05c45e4b777de76e6 plan_fingerprint=resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 skipped=[]
+2026-02-02 14:56:03,984 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=None test_X=None
+2026-02-02 14:56:03,984 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.110
+2026-02-02 14:56:06,115 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=5 n_samples=96 strong_views=1
+2026-02-02 14:56:06,116 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.feature_dropout']
+2026-02-02 14:56:06,141 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.026
+2026-02-02 14:56:06,141 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(96, 3703) strong=(96, 3703) strong_1=None
+2026-02-02 14:56:06,141 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=meta_pseudo_labels seed=3274374610 device=auto dtype=float32 model=graphsage_inductive
+2026-02-02 14:56:06,141 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'uda_weight': 1.0, 'uda_threshold': 0.8, 'uda_temperature': 0.4, 'label_smoothing': 0.1, 'mpl_ema': 0.99, 'mpl_weight': 1.0, 'batch_size': 128, 'max_epochs': 50, 'detach_target': True}
+2026-02-02 14:56:06,142 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=24 n_unlabeled=96
+2026-02-02 14:56:06,187 INFO modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:147: Starting meta_pseudo_labels.fit
+2026-02-02 14:56:06,187 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:148: params uda_weight=1.0 uda_threshold=0.8 uda_temperature=0.4 label_smoothing=0.1 mpl_ema=0.99 mpl_weight=1.0 batch_size=128 max_epochs=50 detach_target=True init_teacher_from_student=True has_teacher_bundle=True has_student_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=3274374610
+2026-02-02 14:56:06,187 INFO modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:194: Meta Pseudo Labels sizes: n_labeled=24 n_unlabeled=96
+2026-02-02 14:56:06,349 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=0 dot=0.0013 dot_adj=0.0013 sup=1.7899 uda=0.0000 mpl=1.7897 student_u=1.7898 mask_mean=0.000
+2026-02-02 14:56:06,355 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=1 dot=-0.0019 dot_adj=-0.0019 sup=1.7352 uda=0.0000 mpl=1.7887 student_u=1.7893 mask_mean=0.000
+2026-02-02 14:56:06,360 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=2 dot=-0.0021 dot_adj=-0.0021 sup=1.6802 uda=0.0000 mpl=1.7892 student_u=1.7895 mask_mean=0.000
+2026-02-02 14:56:06,365 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=3 dot=-0.0018 dot_adj=-0.0018 sup=1.6404 uda=0.0000 mpl=1.7898 student_u=1.7901 mask_mean=0.000
+2026-02-02 14:56:06,370 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=4 dot=-0.0050 dot_adj=-0.0049 sup=1.5929 uda=0.0000 mpl=1.7903 student_u=1.7908 mask_mean=0.000
+2026-02-02 14:56:06,375 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=5 dot=-0.0023 dot_adj=-0.0022 sup=1.5443 uda=0.0000 mpl=1.7907 student_u=1.7912 mask_mean=0.000
+2026-02-02 14:56:06,380 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=6 dot=-0.0021 dot_adj=-0.0020 sup=1.4963 uda=0.0000 mpl=1.7909 student_u=1.7915 mask_mean=0.000
+2026-02-02 14:56:06,385 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=7 dot=0.0030 dot_adj=0.0031 sup=1.4446 uda=0.0000 mpl=1.7910 student_u=1.7916 mask_mean=0.000
+2026-02-02 14:56:06,390 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=8 dot=-0.0021 dot_adj=-0.0020 sup=1.3928 uda=0.0000 mpl=1.7908 student_u=1.7914 mask_mean=0.000
+2026-02-02 14:56:06,395 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=9 dot=-0.0025 dot_adj=-0.0023 sup=1.3331 uda=0.0000 mpl=1.7907 student_u=1.7913 mask_mean=0.000
+2026-02-02 14:56:06,400 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=10 dot=-0.0028 dot_adj=-0.0026 sup=1.2781 uda=0.0000 mpl=1.7905 student_u=1.7911 mask_mean=0.000
+2026-02-02 14:56:06,404 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=11 dot=-0.0024 dot_adj=-0.0022 sup=1.2154 uda=0.0000 mpl=1.7904 student_u=1.7910 mask_mean=0.000
+2026-02-02 14:56:06,409 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=12 dot=-0.0069 dot_adj=-0.0066 sup=1.1640 uda=0.0000 mpl=1.7901 student_u=1.7908 mask_mean=0.000
+2026-02-02 14:56:06,414 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=13 dot=-0.0014 dot_adj=-0.0012 sup=1.0996 uda=0.0000 mpl=1.7898 student_u=1.7908 mask_mean=0.000
+2026-02-02 14:56:06,419 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=14 dot=-0.0038 dot_adj=-0.0034 sup=1.0497 uda=1.2242 mpl=1.7899 student_u=1.7910 mask_mean=0.010
+2026-02-02 14:56:06,424 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=15 dot=0.0024 dot_adj=0.0027 sup=0.9853 uda=1.0962 mpl=1.7895 student_u=1.7905 mask_mean=0.010
+2026-02-02 14:56:06,429 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=16 dot=-0.0003 dot_adj=0.0000 sup=0.9470 uda=0.9658 mpl=1.7888 student_u=1.7900 mask_mean=0.010
+2026-02-02 14:56:06,434 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=17 dot=-0.0039 dot_adj=-0.0036 sup=0.9059 uda=0.8731 mpl=1.7882 student_u=1.7895 mask_mean=0.010
+2026-02-02 14:56:06,439 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=18 dot=-0.0031 dot_adj=-0.0028 sup=0.8321 uda=0.8495 mpl=1.7881 student_u=1.7893 mask_mean=0.010
+2026-02-02 14:56:06,444 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=19 dot=-0.0003 dot_adj=0.0000 sup=0.8045 uda=0.7688 mpl=1.7874 student_u=1.7888 mask_mean=0.010
+2026-02-02 14:56:06,449 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=20 dot=-0.0066 dot_adj=-0.0062 sup=0.7501 uda=0.5837 mpl=1.7857 student_u=1.7874 mask_mean=0.010
+2026-02-02 14:56:06,454 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=21 dot=-0.0084 dot_adj=-0.0079 sup=0.7120 uda=0.5384 mpl=1.7853 student_u=1.7870 mask_mean=0.010
+2026-02-02 14:56:06,459 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=22 dot=-0.0046 dot_adj=-0.0041 sup=0.6810 uda=0.4611 mpl=1.7845 student_u=1.7867 mask_mean=0.010
+2026-02-02 14:56:06,464 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=23 dot=-0.0060 dot_adj=-0.0054 sup=0.6451 uda=0.4378 mpl=1.7842 student_u=1.7861 mask_mean=0.010
+2026-02-02 14:56:06,469 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=24 dot=0.0043 dot_adj=0.0048 sup=0.6043 uda=0.3464 mpl=1.7828 student_u=1.7853 mask_mean=0.010
+2026-02-02 14:56:06,474 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=25 dot=0.0019 dot_adj=0.0024 sup=0.5784 uda=0.2409 mpl=1.7804 student_u=1.7836 mask_mean=0.010
+2026-02-02 14:56:06,479 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=26 dot=-0.0086 dot_adj=-0.0080 sup=0.5627 uda=0.1885 mpl=1.7786 student_u=1.7822 mask_mean=0.010
+2026-02-02 14:56:06,484 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=27 dot=-0.0019 dot_adj=-0.0013 sup=0.5264 uda=0.1623 mpl=1.7777 student_u=1.7809 mask_mean=0.010
+2026-02-02 14:56:06,489 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=28 dot=-0.0013 dot_adj=-0.0007 sup=0.5147 uda=0.1728 mpl=1.7782 student_u=1.7812 mask_mean=0.010
+2026-02-02 14:56:06,494 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=29 dot=0.0006 dot_adj=0.0012 sup=0.5040 uda=0.1170 mpl=1.7761 student_u=1.7799 mask_mean=0.010
+2026-02-02 14:56:06,499 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=30 dot=-0.0058 dot_adj=-0.0051 sup=0.4920 uda=0.1598 mpl=1.7773 student_u=1.7798 mask_mean=0.010
+2026-02-02 14:56:06,504 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=31 dot=-0.0073 dot_adj=-0.0066 sup=0.4769 uda=0.0703 mpl=1.7742 student_u=1.7779 mask_mean=0.010
+2026-02-02 14:56:06,509 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=32 dot=0.0010 dot_adj=0.0017 sup=0.4742 uda=0.0516 mpl=1.7736 student_u=1.7765 mask_mean=0.010
+2026-02-02 14:56:06,514 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=33 dot=-0.0008 dot_adj=-0.0001 sup=0.4617 uda=0.0511 mpl=1.7733 student_u=1.7757 mask_mean=0.010
+2026-02-02 14:56:06,519 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=34 dot=-0.0007 dot_adj=0.0000 sup=0.4570 uda=0.0485 mpl=1.7734 student_u=1.7756 mask_mean=0.010
+2026-02-02 14:56:06,524 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=35 dot=-0.0008 dot_adj=-0.0001 sup=0.4601 uda=0.0300 mpl=1.7725 student_u=1.7748 mask_mean=0.010
+2026-02-02 14:56:06,529 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=36 dot=0.0031 dot_adj=0.0038 sup=0.4521 uda=0.0205 mpl=1.7714 student_u=1.7750 mask_mean=0.010
+2026-02-02 14:56:06,534 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=37 dot=-0.0015 dot_adj=-0.0009 sup=0.4491 uda=0.0211 mpl=1.7708 student_u=1.7744 mask_mean=0.010
+2026-02-02 14:56:06,539 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=38 dot=0.0031 dot_adj=0.0037 sup=0.4464 uda=0.0173 mpl=1.7702 student_u=1.7740 mask_mean=0.010
+2026-02-02 14:56:06,544 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=39 dot=0.0026 dot_adj=0.0032 sup=0.4499 uda=0.0198 mpl=1.7683 student_u=1.7728 mask_mean=0.010
+2026-02-02 14:56:06,549 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=40 dot=-0.0009 dot_adj=-0.0003 sup=0.4460 uda=0.0168 mpl=1.7658 student_u=1.7726 mask_mean=0.010
+2026-02-02 14:56:06,554 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=41 dot=0.0009 dot_adj=0.0015 sup=0.4461 uda=0.0096 mpl=1.7634 student_u=1.7712 mask_mean=0.010
+2026-02-02 14:56:06,558 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=42 dot=-0.0062 dot_adj=-0.0056 sup=0.4426 uda=0.0129 mpl=1.7609 student_u=1.7705 mask_mean=0.010
+2026-02-02 14:56:06,563 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=43 dot=-0.0035 dot_adj=-0.0028 sup=0.4455 uda=0.0078 mpl=1.7594 student_u=1.7690 mask_mean=0.010
+2026-02-02 14:56:06,568 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=44 dot=-0.0066 dot_adj=-0.0059 sup=0.4423 uda=0.0082 mpl=1.7615 student_u=1.7692 mask_mean=0.010
+2026-02-02 14:56:06,573 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=45 dot=-0.0034 dot_adj=-0.0027 sup=0.4467 uda=0.0132 mpl=1.7635 student_u=1.7694 mask_mean=0.010
+2026-02-02 14:56:06,578 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=46 dot=-0.0043 dot_adj=-0.0035 sup=0.4455 uda=0.0176 mpl=1.7661 student_u=1.7700 mask_mean=0.010
+2026-02-02 14:56:06,583 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=47 dot=-0.0082 dot_adj=-0.0073 sup=0.4465 uda=0.0122 mpl=1.7681 student_u=1.7710 mask_mean=0.010
+2026-02-02 14:56:06,588 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=48 dot=-0.0024 dot_adj=-0.0015 sup=0.4406 uda=0.0055 mpl=1.7686 student_u=1.7715 mask_mean=0.010
+2026-02-02 14:56:06,593 DEBUG modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:370: MPL epoch=49 dot=0.0018 dot_adj=0.0026 sup=0.4459 uda=0.0060 mpl=1.7690 student_u=1.7726 mask_mean=0.010
+2026-02-02 14:56:06,593 INFO modssc.inductive.methods.meta_pseudo_labels meta_pseudo_labels.py:386: Finished meta_pseudo_labels.fit in 0.406s
+2026-02-02 14:56:06,593 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=meta_pseudo_labels duration_s=0.452
+2026-02-02 14:56:06,593 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 14:56:06,596 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.003
+2026-02-02 14:56:06,598 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/meta_pseudo_labels/graph/citeseer/best_graph_inductive_meta_pseudo_labels_citeseer-20260202T135603Z/run.json status=success duration_s=0.001
