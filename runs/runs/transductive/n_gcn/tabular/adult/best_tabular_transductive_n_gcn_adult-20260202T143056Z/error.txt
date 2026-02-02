@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/nfs/home/mbarbaux/ModSSC/bench/main.py", line 624, in run_experiment
+    method, data = transductive_orch.run(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/bench/orchestrators/method_transductive.py", line 217, in run
+    method.fit(data, device=resolved_device, seed=int(seed))
+  File "/nfs/home/mbarbaux/ModSSC/src/modssc/transductive/methods/gnn/n_gcn.py", line 261, in fit
+    P = adj_norm_t @ P
+        ~~~~~~~~~~~^~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.89 GiB. GPU 0 has a total capacity of 44.40 GiB of which 6.52 GiB is free. Process 2850152 has 1.79 GiB memory in use. Including non-PyTorch memory, this process has 36.09 GiB memory in use. Of the allocated memory 35.57 GiB is allocated by PyTorch, and 28.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

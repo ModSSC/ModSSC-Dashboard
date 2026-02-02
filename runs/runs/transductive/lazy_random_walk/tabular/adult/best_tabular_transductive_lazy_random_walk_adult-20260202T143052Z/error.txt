@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/nfs/home/mbarbaux/ModSSC/bench/main.py", line 624, in run_experiment
+    method, data = transductive_orch.run(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/bench/orchestrators/method_transductive.py", line 217, in run
+    method.fit(data, device=resolved_device, seed=int(seed))
+  File "/nfs/home/mbarbaux/ModSSC/src/modssc/transductive/methods/classic/lazy_random_walk.py", line 268, in fit
+    self._result = lazy_random_walk(
+                   ^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/src/modssc/transductive/methods/classic/lazy_random_walk.py", line 223, in lazy_random_walk
+    return lazy_random_walk_torch(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/src/modssc/transductive/methods/classic/lazy_random_walk.py", line 167, in lazy_random_walk_torch
+    A = torch.eye(n_nodes, dtype=torch.float32, device=W.device) - float(spec.alpha) * S
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 8.89 GiB. GPU 0 has a total capacity of 44.40 GiB of which 6.53 GiB is free. Process 2850152 has 1.79 GiB memory in use. Including non-PyTorch memory, this process has 36.08 GiB memory in use. Of the allocated memory 35.57 GiB is allocated by PyTorch, and 25.54 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

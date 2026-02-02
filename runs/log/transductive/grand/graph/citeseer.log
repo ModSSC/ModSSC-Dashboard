@@ -1,0 +1,110 @@
+2026-02-02 14:58:13,443 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=citeseer download=True cache_dir=None
+2026-02-02 14:58:13,443 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 14:58:13,446 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 14:58:13,446 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=citeseer provider=pyg canonical_uri=pyg:Planetoid/CiteSeer
+2026-02-02 14:58:13,446 INFO modssc.data_loader.api api.py:117: Dataset load: id=citeseer provider=pyg version=None fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 14:58:13,446 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'CiteSeer'}}
+2026-02-02 14:58:13,458 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:58:13,458 INFO modssc.data_loader.api api.py:133: Dataset cached: id=citeseer train=3327 test=None n_classes=6 duration_s=0.015
+2026-02-02 14:58:13,458 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=3327 test=None graph=True fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 provider=pyg
+2026-02-02 14:58:13,458 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.015
+2026-02-02 14:58:13,480 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=citeseer
+2026-02-02 14:58:13,480 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 14:58:13,480 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:58:13,480 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=citeseer dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 seed=5 graph=True split=holdout
+2026-02-02 14:58:13,480 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 14:58:13,490 INFO modssc.sampling.api api.py:141: Sampling done: train=120 val=500 test=1000 labeled=24 unlabeled=96 duration_s=0.010
+2026-02-02 14:58:13,490 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:58:13,490 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=120 val=500 test=1000 labeled=24 unlabeled=96 graph=True
+2026-02-02 14:58:13,490 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:58:13,490 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.010
+2026-02-02 14:58:13,490 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=3 fit_indices=24
+2026-02-02 14:58:13,490 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy']
+2026-02-02 14:58:13,490 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy'] output_key=features.X seed=5 cache=True
+2026-02-02 14:58:13,490 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(3327, 3703) train_y=(3327,) test_X=None test_y=None
+2026-02-02 14:58:13,490 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:13,490 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 14:58:13,496 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.005
+2026-02-02 14:58:13,496 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.005 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:13,496 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=1 kind=transform params={}
+2026-02-02 14:58:13,507 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.011
+2026-02-02 14:58:13,507 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=1 duration_s=0.011 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:13,507 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_numpy index=2 kind=transform params={}
+2026-02-02 14:58:13,518 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_numpy keys=['features.X'] duration_s=0.011
+2026-02-02 14:58:13,518 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_numpy index=2 duration_s=0.011 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:13,518 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 duration_s=0.028 train_X=(3327, 3703) test_X=None
+2026-02-02 14:58:13,518 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:1069b34df5ccf35e8af20c1a0d052e7352ec159e264e72d1990d4ec20c0a9338 plan_fingerprint=resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 skipped=[]
+2026-02-02 14:58:13,518 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(3327, 3703) test_X=None
+2026-02-02 14:58:13,518 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.028
+2026-02-02 14:58:13,518 INFO bench.orchestrators.method_transductive method_transductive.py:139: Transductive method start: id=grand seed=3274374610 device=auto resolved_device=cuda use_test=False
+2026-02-02 14:58:13,518 DEBUG bench.orchestrators.method_transductive method_transductive.py:147: Transductive method params: {'hidden_dim': 64, 'mlp_dropout': 0.5, 'prop_steps': 8, 'dropnode': 0.5, 'num_samples': 4, 'lambda_consistency': 1.0, 'lr': 0.01, 'weight_decay': 0.0005, 'max_epochs': 200, 'patience': 50, 'add_self_loops': True}
+2026-02-02 14:58:13,518 INFO bench.orchestrators.method_transductive method_transductive.py:158: Transductive data: n_nodes=3327 n_train=3327 n_test=0
+2026-02-02 14:58:13,518 INFO bench.orchestrators.method_transductive method_transductive.py:177: Transductive masks: labeled_count=24 train_count=120
+2026-02-02 14:58:13,519 INFO modssc.transductive.methods.gnn.grand grand.py:83: Starting grand.fit
+2026-02-02 14:58:13,519 DEBUG modssc.transductive.methods.gnn.grand grand.py:84: spec=GRANDSpec(hidden_dim=64, mlp_dropout=0.5, prop_steps=8, dropnode=0.5, num_samples=4, lambda_consistency=1.0, lr=0.01, weight_decay=0.0005, max_epochs=200, patience=50, add_self_loops=True) device=cuda seed=3274374610
+2026-02-02 14:58:13,689 INFO modssc.transductive.methods.gnn.grand grand.py:96: GRAND sizes: n_nodes=3327 n_classes=6 train=24 val=500
+2026-02-02 14:58:14,658 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=0 val_loss=1.7202 best updated
+2026-02-02 14:58:14,722 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=1 val_loss=1.6280 best updated
+2026-02-02 14:58:14,786 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=2 val_loss=1.5255 best updated
+2026-02-02 14:58:14,851 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=3 val_loss=1.4196 best updated
+2026-02-02 14:58:14,914 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=4 val_loss=1.3197 best updated
+2026-02-02 14:58:14,978 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=5 val_loss=1.2368 best updated
+2026-02-02 14:58:15,042 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=6 val_loss=1.1794 best updated
+2026-02-02 14:58:15,106 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=7 val_loss=1.1487 best updated
+2026-02-02 14:58:15,170 DEBUG modssc.transductive.methods.gnn.grand grand.py:184: GRAND epoch=8 val_loss=1.1459 best updated
+2026-02-02 14:58:15,233 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=9 val_loss=1.1627 bad_epochs=1/50
+2026-02-02 14:58:15,297 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=10 val_loss=1.1953 bad_epochs=2/50
+2026-02-02 14:58:15,361 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=11 val_loss=1.2428 bad_epochs=3/50
+2026-02-02 14:58:15,424 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=12 val_loss=1.2948 bad_epochs=4/50
+2026-02-02 14:58:15,488 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=13 val_loss=1.3515 bad_epochs=5/50
+2026-02-02 14:58:15,552 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=14 val_loss=1.4079 bad_epochs=6/50
+2026-02-02 14:58:15,615 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=15 val_loss=1.4640 bad_epochs=7/50
+2026-02-02 14:58:15,679 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=16 val_loss=1.5195 bad_epochs=8/50
+2026-02-02 14:58:15,743 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=17 val_loss=1.5737 bad_epochs=9/50
+2026-02-02 14:58:15,807 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=18 val_loss=1.6259 bad_epochs=10/50
+2026-02-02 14:58:15,870 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=19 val_loss=1.6718 bad_epochs=11/50
+2026-02-02 14:58:15,934 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=20 val_loss=1.7109 bad_epochs=12/50
+2026-02-02 14:58:15,998 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=21 val_loss=1.7497 bad_epochs=13/50
+2026-02-02 14:58:16,061 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=22 val_loss=1.7848 bad_epochs=14/50
+2026-02-02 14:58:16,125 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=23 val_loss=1.7998 bad_epochs=15/50
+2026-02-02 14:58:16,189 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=24 val_loss=1.8051 bad_epochs=16/50
+2026-02-02 14:58:16,253 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=25 val_loss=1.8065 bad_epochs=17/50
+2026-02-02 14:58:16,316 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=26 val_loss=1.7916 bad_epochs=18/50
+2026-02-02 14:58:16,380 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=27 val_loss=1.7832 bad_epochs=19/50
+2026-02-02 14:58:16,444 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=28 val_loss=1.7714 bad_epochs=20/50
+2026-02-02 14:58:16,508 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=29 val_loss=1.7604 bad_epochs=21/50
+2026-02-02 14:58:16,571 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=30 val_loss=1.7540 bad_epochs=22/50
+2026-02-02 14:58:16,635 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=31 val_loss=1.7565 bad_epochs=23/50
+2026-02-02 14:58:16,699 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=32 val_loss=1.7689 bad_epochs=24/50
+2026-02-02 14:58:16,762 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=33 val_loss=1.7905 bad_epochs=25/50
+2026-02-02 14:58:16,826 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=34 val_loss=1.8227 bad_epochs=26/50
+2026-02-02 14:58:16,890 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=35 val_loss=1.8470 bad_epochs=27/50
+2026-02-02 14:58:16,954 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=36 val_loss=1.8624 bad_epochs=28/50
+2026-02-02 14:58:17,018 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=37 val_loss=1.8761 bad_epochs=29/50
+2026-02-02 14:58:17,081 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=38 val_loss=1.8909 bad_epochs=30/50
+2026-02-02 14:58:17,145 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=39 val_loss=1.9125 bad_epochs=31/50
+2026-02-02 14:58:17,209 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=40 val_loss=1.9421 bad_epochs=32/50
+2026-02-02 14:58:17,272 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=41 val_loss=1.9760 bad_epochs=33/50
+2026-02-02 14:58:17,336 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=42 val_loss=2.0176 bad_epochs=34/50
+2026-02-02 14:58:17,400 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=43 val_loss=2.0433 bad_epochs=35/50
+2026-02-02 14:58:17,464 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=44 val_loss=2.0692 bad_epochs=36/50
+2026-02-02 14:58:17,527 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=45 val_loss=2.1067 bad_epochs=37/50
+2026-02-02 14:58:17,591 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=46 val_loss=2.1400 bad_epochs=38/50
+2026-02-02 14:58:17,655 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=47 val_loss=2.1675 bad_epochs=39/50
+2026-02-02 14:58:17,719 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=48 val_loss=2.1962 bad_epochs=40/50
+2026-02-02 14:58:17,783 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=49 val_loss=2.2053 bad_epochs=41/50
+2026-02-02 14:58:17,846 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=50 val_loss=2.2146 bad_epochs=42/50
+2026-02-02 14:58:17,910 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=51 val_loss=2.2211 bad_epochs=43/50
+2026-02-02 14:58:17,974 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=52 val_loss=2.2060 bad_epochs=44/50
+2026-02-02 14:58:18,037 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=53 val_loss=2.2093 bad_epochs=45/50
+2026-02-02 14:58:18,101 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=54 val_loss=2.2317 bad_epochs=46/50
+2026-02-02 14:58:18,165 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=55 val_loss=2.2532 bad_epochs=47/50
+2026-02-02 14:58:18,228 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=56 val_loss=2.2711 bad_epochs=48/50
+2026-02-02 14:58:18,293 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=57 val_loss=2.2973 bad_epochs=49/50
+2026-02-02 14:58:18,356 DEBUG modssc.transductive.methods.gnn.grand grand.py:187: GRAND epoch=58 val_loss=2.3164 bad_epochs=50/50
+2026-02-02 14:58:18,357 DEBUG modssc.transductive.methods.gnn.grand grand.py:195: GRAND early_stop epoch=58 best_val=1.1459
+2026-02-02 14:58:18,357 INFO modssc.transductive.methods.gnn.grand grand.py:205: Finished grand.fit in 4.838s
+2026-02-02 14:58:18,357 INFO bench.orchestrators.method_transductive method_transductive.py:218: Transductive method done: id=grand duration_s=4.839
+2026-02-02 14:58:18,357 INFO bench.orchestrators.evaluation evaluation.py:244: Evaluation (transductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 14:58:18,370 INFO bench.orchestrators.evaluation evaluation.py:263: Evaluation (transductive) done: duration_s=0.013
+2026-02-02 14:58:18,372 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/transductive/grand/graph/citeseer/best_graph_transductive_grand_citeseer-20260202T135813Z/run.json status=success duration_s=0.001

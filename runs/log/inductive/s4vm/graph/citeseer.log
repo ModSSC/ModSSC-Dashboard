@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/nfs/home/mbarbaux/ModSSC/bench/main.py", line 691, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/bench/main.py", line 683, in main
+    resolved = _resolve_log_level_for_run(Path(args.config), args.log_level)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/bench/main.py", line 317, in _resolve_log_level_for_run
+    raw = load_yaml(config_path)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/nfs/home/mbarbaux/ModSSC/bench/utils/io.py", line 12, in load_yaml
+    data = yaml.safe_load(p.read_text(encoding="utf-8"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/software/contrib/apps/python/3.12.5/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/software/contrib/apps/python/3.12.5/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'bench/configs/experiments/best/inductive/s4vm/graph/citeseer.yaml'

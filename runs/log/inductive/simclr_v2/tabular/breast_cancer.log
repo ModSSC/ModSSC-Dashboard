@@ -1,0 +1,133 @@
+2026-02-02 16:57:29,841 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=breast_cancer download=True cache_dir=None
+2026-02-02 16:57:29,841 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 16:57:29,845 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 16:57:29,845 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=breast_cancer provider=openml canonical_uri=openml:15
+2026-02-02 16:57:29,845 INFO modssc.data_loader.api api.py:117: Dataset load: id=breast_cancer provider=openml version=None fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 16:57:29,845 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 15, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 16:57:29,847 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:57:29,851 INFO modssc.data_loader.api api.py:133: Dataset cached: id=breast_cancer train=699 test=None n_classes=2 duration_s=0.010
+2026-02-02 16:57:29,851 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=699 test=None graph=False fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f provider=openml
+2026-02-02 16:57:29,851 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.010
+2026-02-02 16:57:29,901 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=breast_cancer
+2026-02-02 16:57:29,901 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 16:57:29,901 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f
+2026-02-02 16:57:29,901 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=breast_cancer dataset_fingerprint=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f seed=1 graph=False split=holdout
+2026-02-02 16:57:29,901 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 16:57:29,910 INFO modssc.sampling.api api.py:141: Sampling done: train=503 val=56 test=140 labeled=101 unlabeled=402 duration_s=0.009
+2026-02-02 16:57:29,910 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:57:29,910 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=503 val=56 test=140 labeled=101 unlabeled=402 graph=False
+2026-02-02 16:57:29,910 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 503, 'classes': {'benign': 329, 'malignant': 174}}, 'val': {'n': 56, 'classes': {'benign': 37, 'malignant': 19}}, 'train_labeled': {'n': 101, 'classes': {'benign': 51, 'malignant': 50}}, 'train_unlabeled': {'n': 402}, 'test': {'n': 140, 'classes': {'benign': 92, 'malignant': 48}}}
+2026-02-02 16:57:29,910 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.009
+2026-02-02 16:57:29,910 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=101
+2026-02-02 16:57:29,910 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 16:57:29,910 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 16:57:29,910 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(699, 9) train_y=(699,) test_X=None test_y=None
+2026-02-02 16:57:29,911 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:29,911 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 16:57:29,913 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.003
+2026-02-02 16:57:29,914 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.003 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:29,914 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 16:57:30,012 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.099
+2026-02-02 16:57:30,013 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 16:57:30,013 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.099 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:30,013 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 16:57:30,015 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 16:57:30,015 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.002 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:30,015 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 16:57:31,015 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=1.000
+2026-02-02 16:57:31,015 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=1.000 train_data=54.6 KB test_data=n/a
+2026-02-02 16:57:31,015 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 16:57:31,017 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.001
+2026-02-02 16:57:31,017 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=30.0 KB test_data=n/a
+2026-02-02 16:57:31,017 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 16:57:31,018 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.001
+2026-02-02 16:57:31,018 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.001 train_data=30.0 KB test_data=n/a
+2026-02-02 16:57:31,018 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f duration_s=1.108 train_X=(699, 9) test_X=None
+2026-02-02 16:57:31,018 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:e8e31b503533acb1dd05d9db0c55e174d3debbf7553704fffeddcdd394c40699 plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f skipped=[]
+2026-02-02 16:57:31,019 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(699, 9) test_X=None
+2026-02-02 16:57:31,019 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.108
+2026-02-02 16:57:31,034 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=402 strong_views=1
+2026-02-02 16:57:31,034 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 16:57:31,117 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.083
+2026-02-02 16:57:31,117 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(402, 9) strong=(402, 9) strong_1=None
+2026-02-02 16:57:31,117 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=simclr_v2 seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 16:57:31,117 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'batch_size': 128, 'pretrain_epochs': 10, 'finetune_epochs': 50, 'distill_epochs': 10, 'temperature': 0.5, 'distill_temperature': 1.0, 'alpha': 0.5, 'transfer_pretrain': True, 'use_labeled_in_distill': True, 'freeze_bn': True, 'detach_target': True}
+2026-02-02 16:57:31,117 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=101 n_unlabeled=402
+2026-02-02 16:57:32,199 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:219: Starting simclr_v2.fit
+2026-02-02 16:57:32,199 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:220: params temperature=0.5 distill_temperature=1.0 alpha=0.5 batch_size=128 pretrain_epochs=10 finetune_epochs=50 distill_epochs=10 transfer_pretrain=True use_labeled_in_distill=True freeze_bn=True detach_target=True has_pretrain_bundle=True has_finetune_bundle=True has_student_bundle=False device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 16:57:32,199 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:258: SimCLRv2 sizes: n_labeled=101 n_unlabeled=402
+2026-02-02 16:57:32,344 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=0 loss=5.9245
+2026-02-02 16:57:32,404 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=1 loss=5.0026
+2026-02-02 16:57:32,411 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=2 loss=4.8979
+2026-02-02 16:57:32,417 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=3 loss=4.9198
+2026-02-02 16:57:32,423 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=4 loss=4.9134
+2026-02-02 16:57:32,429 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=5 loss=4.9001
+2026-02-02 16:57:32,436 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=6 loss=4.8757
+2026-02-02 16:57:32,442 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=7 loss=4.9163
+2026-02-02 16:57:32,448 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=8 loss=4.8849
+2026-02-02 16:57:32,454 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=9 loss=4.8014
+2026-02-02 16:57:32,478 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=0 sup_loss=1.7701
+2026-02-02 16:57:32,479 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=1 sup_loss=1.5045
+2026-02-02 16:57:32,480 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=2 sup_loss=1.2910
+2026-02-02 16:57:32,481 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=3 sup_loss=1.0821
+2026-02-02 16:57:32,482 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=4 sup_loss=0.9252
+2026-02-02 16:57:32,483 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=5 sup_loss=0.7999
+2026-02-02 16:57:32,484 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=6 sup_loss=0.6776
+2026-02-02 16:57:32,484 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=7 sup_loss=0.5921
+2026-02-02 16:57:32,485 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=8 sup_loss=0.5070
+2026-02-02 16:57:32,486 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=9 sup_loss=0.4433
+2026-02-02 16:57:32,487 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=10 sup_loss=0.3839
+2026-02-02 16:57:32,488 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=11 sup_loss=0.3430
+2026-02-02 16:57:32,488 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=12 sup_loss=0.3032
+2026-02-02 16:57:32,489 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=13 sup_loss=0.2698
+2026-02-02 16:57:32,490 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=14 sup_loss=0.2419
+2026-02-02 16:57:32,491 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=15 sup_loss=0.2223
+2026-02-02 16:57:32,492 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=16 sup_loss=0.2015
+2026-02-02 16:57:32,493 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=17 sup_loss=0.1879
+2026-02-02 16:57:32,493 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=18 sup_loss=0.1773
+2026-02-02 16:57:32,494 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=19 sup_loss=0.1661
+2026-02-02 16:57:32,495 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=20 sup_loss=0.1575
+2026-02-02 16:57:32,496 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=21 sup_loss=0.1570
+2026-02-02 16:57:32,497 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=22 sup_loss=0.1498
+2026-02-02 16:57:32,497 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=23 sup_loss=0.1393
+2026-02-02 16:57:32,498 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=24 sup_loss=0.1354
+2026-02-02 16:57:32,499 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=25 sup_loss=0.1394
+2026-02-02 16:57:32,500 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=26 sup_loss=0.1417
+2026-02-02 16:57:32,501 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=27 sup_loss=0.1403
+2026-02-02 16:57:32,501 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=28 sup_loss=0.1340
+2026-02-02 16:57:32,502 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=29 sup_loss=0.1302
+2026-02-02 16:57:32,503 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=30 sup_loss=0.1298
+2026-02-02 16:57:32,504 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=31 sup_loss=0.1300
+2026-02-02 16:57:32,505 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=32 sup_loss=0.1247
+2026-02-02 16:57:32,505 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=33 sup_loss=0.1265
+2026-02-02 16:57:32,506 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=34 sup_loss=0.1206
+2026-02-02 16:57:32,507 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=35 sup_loss=0.1205
+2026-02-02 16:57:32,508 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=36 sup_loss=0.1161
+2026-02-02 16:57:32,509 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=37 sup_loss=0.1126
+2026-02-02 16:57:32,509 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=38 sup_loss=0.1196
+2026-02-02 16:57:32,510 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=39 sup_loss=0.1034
+2026-02-02 16:57:32,511 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=40 sup_loss=0.1037
+2026-02-02 16:57:32,512 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=41 sup_loss=0.1017
+2026-02-02 16:57:32,513 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=42 sup_loss=0.1104
+2026-02-02 16:57:32,514 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=43 sup_loss=0.0976
+2026-02-02 16:57:32,514 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=44 sup_loss=0.1038
+2026-02-02 16:57:32,515 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=45 sup_loss=0.0928
+2026-02-02 16:57:32,516 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=46 sup_loss=0.0888
+2026-02-02 16:57:32,517 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=47 sup_loss=0.0856
+2026-02-02 16:57:32,518 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=48 sup_loss=0.0842
+2026-02-02 16:57:32,518 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=49 sup_loss=0.0849
+2026-02-02 16:57:32,520 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=0 sup_loss=0.0855 distill_loss=0.2062
+2026-02-02 16:57:32,526 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=1 sup_loss=0.0681 distill_loss=0.1579
+2026-02-02 16:57:32,532 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=2 sup_loss=0.0831 distill_loss=0.1828
+2026-02-02 16:57:32,538 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=3 sup_loss=0.0645 distill_loss=0.1598
+2026-02-02 16:57:32,543 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=4 sup_loss=0.0622 distill_loss=0.1708
+2026-02-02 16:57:32,549 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=5 sup_loss=0.0654 distill_loss=0.1831
+2026-02-02 16:57:32,555 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=6 sup_loss=0.0712 distill_loss=0.1695
+2026-02-02 16:57:32,561 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=7 sup_loss=0.0588 distill_loss=0.1604
+2026-02-02 16:57:32,566 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=8 sup_loss=0.0625 distill_loss=0.1691
+2026-02-02 16:57:32,572 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=9 sup_loss=0.0629 distill_loss=0.1755
+2026-02-02 16:57:32,577 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:542: Finished simclr_v2.fit in 0.378s
+2026-02-02 16:57:32,577 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=simclr_v2 duration_s=1.460
+2026-02-02 16:57:32,577 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 16:57:32,578 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.001
+2026-02-02 16:57:32,580 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/simclr_v2/tabular/breast_cancer/best_tabular_simclr_v2_breast_cancer-20260202T155729Z/run.json status=success duration_s=0.001

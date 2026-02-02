@@ -1,0 +1,119 @@
+2026-02-02 17:04:21,621 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=toy download=True cache_dir=None
+2026-02-02 17:04:21,621 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 17:04:21,624 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: toy
+2026-02-02 17:04:21,624 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=toy provider=toy canonical_uri=toy:default
+2026-02-02 17:04:21,624 INFO modssc.data_loader.api api.py:117: Dataset load: id=toy provider=toy version=1 fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 17:04:21,624 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'n_samples': 64, 'n_features': 4, 'n_classes': 3, 'seed': 0, 'test': True, 'test_size': 0.25}
+2026-02-02 17:04:21,626 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:04:21,626 INFO modssc.data_loader.api api.py:133: Dataset cached: id=toy train=48 test=16 n_classes=3 duration_s=0.005
+2026-02-02 17:04:21,626 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=48 test=16 graph=False fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 provider=toy
+2026-02-02 17:04:21,626 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.005
+2026-02-02 17:04:21,671 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=toy
+2026-02-02 17:04:21,671 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 17:04:21,671 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:04:21,672 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=toy dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 seed=1 graph=False split=holdout
+2026-02-02 17:04:21,672 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 17:04:21,683 INFO modssc.sampling.api api.py:141: Sampling done: train=43 val=5 test=16 labeled=9 unlabeled=34 duration_s=0.012
+2026-02-02 17:04:21,683 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:04:21,684 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=43 val=5 test=16 labeled=9 unlabeled=34 graph=False
+2026-02-02 17:04:21,684 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:04:21,684 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.012
+2026-02-02 17:04:21,684 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=9
+2026-02-02 17:04:21,684 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 17:04:21,684 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 17:04:21,684 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(48, 4) train_y=(48,) test_X=(16, 4) test_y=(16,)
+2026-02-02 17:04:21,684 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:21,684 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 17:04:21,686 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 17:04:21,687 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=labels.encode keys=['labels.classes', 'labels.y']
+2026-02-02 17:04:21,687 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.003 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:21,687 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 17:04:21,783 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.096
+2026-02-02 17:04:21,785 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=labels.to_torch keys=['labels.y']
+2026-02-02 17:04:21,785 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 17:04:21,785 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.098 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:21,785 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 17:04:21,787 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 17:04:21,788 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.ensure_2d keys=['features.X']
+2026-02-02 17:04:21,788 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.003 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:21,788 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 17:04:22,672 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.884
+2026-02-02 17:04:22,672 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=tabular.impute keys=['features.X']
+2026-02-02 17:04:22,672 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=0.884 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:22,672 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 17:04:22,674 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.001
+2026-02-02 17:04:22,674 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=tabular.standard_scaler keys=['features.X']
+2026-02-02 17:04:22,674 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:22,674 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 17:04:22,676 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.001
+2026-02-02 17:04:22,676 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.to_torch keys=['features.X']
+2026-02-02 17:04:22,676 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.002 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:22,676 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 duration_s=0.992 train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:04:22,676 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:2084820f9dca20adeb55bdfd0f380fbf298775455425b2e216730279686da63f plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 skipped=[]
+2026-02-02 17:04:22,676 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:04:22,676 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.993
+2026-02-02 17:04:22,684 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=34 strong_views=1
+2026-02-02 17:04:22,684 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 17:04:22,715 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.031
+2026-02-02 17:04:22,715 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(34, 4) strong=(34, 4) strong_1=None
+2026-02-02 17:04:22,715 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=mean_teacher seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 17:04:22,715 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'unsup_warm_up': 0.4, 'batch_size': 128, 'max_epochs': 50, 'ema_decay': 0.999, 'freeze_bn': True, 'detach_target': True}
+2026-02-02 17:04:22,715 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=9 n_unlabeled=34
+2026-02-02 17:04:23,579 INFO modssc.inductive.methods.mean_teacher mean_teacher.py:95: Starting mean_teacher.fit
+2026-02-02 17:04:23,579 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:96: params lambda_u=1.0 unsup_warm_up=0.4 batch_size=128 max_epochs=50 ema_decay=0.999 freeze_bn=True detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 17:04:23,579 INFO modssc.inductive.methods.mean_teacher mean_teacher.py:127: Mean Teacher sizes: n_labeled=9 n_unlabeled=34
+2026-02-02 17:04:23,672 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=0 warm=0.000 sup_loss=1.1027 unsup_loss=0.0005 ema_decay=0.999
+2026-02-02 17:04:23,716 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=1 warm=0.050 sup_loss=1.0235 unsup_loss=0.0021 ema_decay=0.999
+2026-02-02 17:04:23,718 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=2 warm=0.100 sup_loss=0.9282 unsup_loss=0.0053 ema_decay=0.999
+2026-02-02 17:04:23,720 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=3 warm=0.150 sup_loss=0.8625 unsup_loss=0.0100 ema_decay=0.999
+2026-02-02 17:04:23,722 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=4 warm=0.200 sup_loss=0.8015 unsup_loss=0.0134 ema_decay=0.999
+2026-02-02 17:04:23,723 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=5 warm=0.250 sup_loss=0.7451 unsup_loss=0.0185 ema_decay=0.999
+2026-02-02 17:04:23,725 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=6 warm=0.300 sup_loss=0.6933 unsup_loss=0.0269 ema_decay=0.999
+2026-02-02 17:04:23,727 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=7 warm=0.350 sup_loss=0.6457 unsup_loss=0.0321 ema_decay=0.999
+2026-02-02 17:04:23,728 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=8 warm=0.400 sup_loss=0.6097 unsup_loss=0.0384 ema_decay=0.999
+2026-02-02 17:04:23,730 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=9 warm=0.450 sup_loss=0.5597 unsup_loss=0.0441 ema_decay=0.999
+2026-02-02 17:04:23,732 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=10 warm=0.500 sup_loss=0.5133 unsup_loss=0.0493 ema_decay=0.999
+2026-02-02 17:04:23,733 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=11 warm=0.550 sup_loss=0.4821 unsup_loss=0.0558 ema_decay=0.999
+2026-02-02 17:04:23,735 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=12 warm=0.600 sup_loss=0.4494 unsup_loss=0.0620 ema_decay=0.999
+2026-02-02 17:04:23,737 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=13 warm=0.650 sup_loss=0.4246 unsup_loss=0.0663 ema_decay=0.999
+2026-02-02 17:04:23,738 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=14 warm=0.700 sup_loss=0.3892 unsup_loss=0.0733 ema_decay=0.999
+2026-02-02 17:04:23,740 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=15 warm=0.750 sup_loss=0.3768 unsup_loss=0.0776 ema_decay=0.999
+2026-02-02 17:04:23,741 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=16 warm=0.800 sup_loss=0.3093 unsup_loss=0.0823 ema_decay=0.999
+2026-02-02 17:04:23,743 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=17 warm=0.850 sup_loss=0.3427 unsup_loss=0.0824 ema_decay=0.999
+2026-02-02 17:04:23,744 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=18 warm=0.900 sup_loss=0.3020 unsup_loss=0.0767 ema_decay=0.999
+2026-02-02 17:04:23,746 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=19 warm=0.950 sup_loss=0.3040 unsup_loss=0.0825 ema_decay=0.999
+2026-02-02 17:04:23,748 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=20 warm=1.000 sup_loss=0.2828 unsup_loss=0.0849 ema_decay=0.999
+2026-02-02 17:04:23,749 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=21 warm=1.000 sup_loss=0.2878 unsup_loss=0.0895 ema_decay=0.999
+2026-02-02 17:04:23,751 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=22 warm=1.000 sup_loss=0.2160 unsup_loss=0.0873 ema_decay=0.999
+2026-02-02 17:04:23,752 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=23 warm=1.000 sup_loss=0.2202 unsup_loss=0.0903 ema_decay=0.999
+2026-02-02 17:04:23,754 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=24 warm=1.000 sup_loss=0.2090 unsup_loss=0.0918 ema_decay=0.999
+2026-02-02 17:04:23,756 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=25 warm=1.000 sup_loss=0.2133 unsup_loss=0.0910 ema_decay=0.999
+2026-02-02 17:04:23,757 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=26 warm=1.000 sup_loss=0.1874 unsup_loss=0.0930 ema_decay=0.999
+2026-02-02 17:04:23,759 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=27 warm=1.000 sup_loss=0.1860 unsup_loss=0.0861 ema_decay=0.999
+2026-02-02 17:04:23,760 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=28 warm=1.000 sup_loss=0.1776 unsup_loss=0.0941 ema_decay=0.999
+2026-02-02 17:04:23,762 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=29 warm=1.000 sup_loss=0.1609 unsup_loss=0.0895 ema_decay=0.999
+2026-02-02 17:04:23,763 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=30 warm=1.000 sup_loss=0.1365 unsup_loss=0.0905 ema_decay=0.999
+2026-02-02 17:04:23,765 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=31 warm=1.000 sup_loss=0.1438 unsup_loss=0.0968 ema_decay=0.999
+2026-02-02 17:04:23,767 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=32 warm=1.000 sup_loss=0.1386 unsup_loss=0.0928 ema_decay=0.999
+2026-02-02 17:04:23,768 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=33 warm=1.000 sup_loss=0.1263 unsup_loss=0.0968 ema_decay=0.999
+2026-02-02 17:04:23,770 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=34 warm=1.000 sup_loss=0.1206 unsup_loss=0.0971 ema_decay=0.999
+2026-02-02 17:04:23,771 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=35 warm=1.000 sup_loss=0.1060 unsup_loss=0.0958 ema_decay=0.999
+2026-02-02 17:04:23,773 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=36 warm=1.000 sup_loss=0.1132 unsup_loss=0.0997 ema_decay=0.999
+2026-02-02 17:04:23,774 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=37 warm=1.000 sup_loss=0.0961 unsup_loss=0.0919 ema_decay=0.999
+2026-02-02 17:04:23,776 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=38 warm=1.000 sup_loss=0.0857 unsup_loss=0.1018 ema_decay=0.999
+2026-02-02 17:04:23,778 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=39 warm=1.000 sup_loss=0.0775 unsup_loss=0.0986 ema_decay=0.999
+2026-02-02 17:04:23,779 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=40 warm=1.000 sup_loss=0.0796 unsup_loss=0.0948 ema_decay=0.999
+2026-02-02 17:04:23,781 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=41 warm=1.000 sup_loss=0.0709 unsup_loss=0.0988 ema_decay=0.999
+2026-02-02 17:04:23,782 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=42 warm=1.000 sup_loss=0.0802 unsup_loss=0.0975 ema_decay=0.999
+2026-02-02 17:04:23,784 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=43 warm=1.000 sup_loss=0.0707 unsup_loss=0.0966 ema_decay=0.999
+2026-02-02 17:04:23,785 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=44 warm=1.000 sup_loss=0.0570 unsup_loss=0.0944 ema_decay=0.999
+2026-02-02 17:04:23,787 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=45 warm=1.000 sup_loss=0.0672 unsup_loss=0.0910 ema_decay=0.999
+2026-02-02 17:04:23,789 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=46 warm=1.000 sup_loss=0.0707 unsup_loss=0.0943 ema_decay=0.999
+2026-02-02 17:04:23,790 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=47 warm=1.000 sup_loss=0.0522 unsup_loss=0.0917 ema_decay=0.999
+2026-02-02 17:04:23,792 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=48 warm=1.000 sup_loss=0.0653 unsup_loss=0.0962 ema_decay=0.999
+2026-02-02 17:04:23,793 DEBUG modssc.inductive.methods.mean_teacher mean_teacher.py:233: MeanTeacher epoch=49 warm=1.000 sup_loss=0.0438 unsup_loss=0.0979 ema_decay=0.999
+2026-02-02 17:04:23,794 INFO modssc.inductive.methods.mean_teacher mean_teacher.py:251: Finished mean_teacher.fit in 0.216s
+2026-02-02 17:04:23,794 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=mean_teacher duration_s=1.079
+2026-02-02 17:04:23,794 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 17:04:23,796 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.001
+2026-02-02 17:04:23,797 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy-20260202T160421Z/run.json status=success duration_s=0.001

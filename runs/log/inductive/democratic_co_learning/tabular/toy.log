@@ -1,0 +1,114 @@
+2026-02-02 17:04:02,948 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=toy download=True cache_dir=None
+2026-02-02 17:04:02,948 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 17:04:02,952 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: toy
+2026-02-02 17:04:02,952 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=toy provider=toy canonical_uri=toy:default
+2026-02-02 17:04:02,952 INFO modssc.data_loader.api api.py:117: Dataset load: id=toy provider=toy version=1 fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 17:04:02,952 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'n_samples': 64, 'n_features': 4, 'n_classes': 3, 'seed': 0, 'test': True, 'test_size': 0.25}
+2026-02-02 17:04:02,954 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:04:02,954 INFO modssc.data_loader.api api.py:133: Dataset cached: id=toy train=48 test=16 n_classes=3 duration_s=0.005
+2026-02-02 17:04:02,954 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=48 test=16 graph=False fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 provider=toy
+2026-02-02 17:04:02,954 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.006
+2026-02-02 17:04:03,001 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=toy
+2026-02-02 17:04:03,001 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 17:04:03,001 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89
+2026-02-02 17:04:03,001 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=toy dataset_fingerprint=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 seed=1 graph=False split=holdout
+2026-02-02 17:04:03,001 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 17:04:03,014 INFO modssc.sampling.api api.py:141: Sampling done: train=43 val=5 test=16 labeled=9 unlabeled=34 duration_s=0.013
+2026-02-02 17:04:03,014 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:04:03,014 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=43 val=5 test=16 labeled=9 unlabeled=34 graph=False
+2026-02-02 17:04:03,014 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': True, 'test_ref': 'test'}, 'train': {'n': 43, 'classes': {'0': 14, '1': 15, '2': 14}}, 'val': {'n': 5, 'classes': {'0': 1, '1': 2, '2': 2}}, 'train_labeled': {'n': 9, 'classes': {'0': 3, '1': 3, '2': 3}}, 'train_unlabeled': {'n': 34}, 'test': {'n': 16, 'classes': {'0': 6, '1': 5, '2': 5}}}
+2026-02-02 17:04:03,014 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.013
+2026-02-02 17:04:03,014 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=9
+2026-02-02 17:04:03,014 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 17:04:03,015 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 17:04:03,015 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(48, 4) train_y=(48,) test_X=(16, 4) test_y=(16,)
+2026-02-02 17:04:03,015 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:03,015 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 17:04:03,018 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.003
+2026-02-02 17:04:03,018 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=labels.encode keys=['labels.classes', 'labels.y']
+2026-02-02 17:04:03,018 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.003 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:03,018 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 17:04:03,116 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.098
+2026-02-02 17:04:03,117 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=labels.to_torch keys=['labels.y']
+2026-02-02 17:04:03,118 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 17:04:03,118 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.099 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:03,118 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 17:04:03,120 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 17:04:03,120 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.ensure_2d keys=['features.X']
+2026-02-02 17:04:03,120 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.003 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:03,120 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 17:04:04,109 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.988
+2026-02-02 17:04:04,109 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=tabular.impute keys=['features.X']
+2026-02-02 17:04:04,110 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=0.989 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:04,110 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 17:04:04,111 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.002
+2026-02-02 17:04:04,112 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=tabular.standard_scaler keys=['features.X']
+2026-02-02 17:04:04,112 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:04,112 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 17:04:04,114 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.002
+2026-02-02 17:04:04,114 DEBUG modssc.preprocess.api api.py:654: Preprocess step test outputs: id=core.to_torch keys=['features.X']
+2026-02-02 17:04:04,114 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.002 train_data=1.1 KB test_data=384 B
+2026-02-02 17:04:04,114 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 duration_s=1.100 train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:04:04,114 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:2084820f9dca20adeb55bdfd0f380fbf298775455425b2e216730279686da63f plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89 skipped=[]
+2026-02-02 17:04:04,114 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(48, 4) test_X=(16, 4)
+2026-02-02 17:04:04,114 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.100
+2026-02-02 17:04:04,114 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=democratic_co_learning seed=398591604 device=auto dtype=float32 model=None
+2026-02-02 17:04:04,115 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'classifier_id': 'mlp', 'classifier_backend': 'torch', 'classifier_params': {'hidden_sizes': [256, 256], 'activation': 'relu', 'dropout': 0.1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 128, 'max_epochs': 50}, 'max_iter': 20, 'confidence_level': 0.95, 'min_confidence': 0.5, 'n_learners': 3}
+2026-02-02 17:04:04,115 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=9 n_unlabeled=34
+2026-02-02 17:04:04,129 INFO modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:260: Starting democratic_co_learning.fit
+2026-02-02 17:04:04,129 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:261: spec=DemocraticCoLearningSpec(classifier_id='mlp', classifier_backend='torch', classifier_params={'hidden_sizes': [256, 256], 'activation': 'relu', 'dropout': 0.1, 'lr': 0.001, 'weight_decay': 0.0, 'batch_size': 128, 'max_epochs': 50}, max_iter=20, confidence_level=0.95, min_confidence=0.5, n_learners=3, classifier_specs=None) device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 17:04:04,129 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:266: backend=torch
+2026-02-02 17:04:04,134 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:04,134 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 17:04:05,184 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 1.050s
+2026-02-02 17:04:05,184 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,184 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591605 n_jobs=None
+2026-02-02 17:04:05,221 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.037s
+2026-02-02 17:04:05,221 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,221 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591606 n_jobs=None
+2026-02-02 17:04:05,257 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.036s
+2026-02-02 17:04:05,326 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:424: Democratic co-learning iter=0 changed=True
+2026-02-02 17:04:05,327 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,327 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 17:04:05,363 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.036s
+2026-02-02 17:04:05,363 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,363 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591605 n_jobs=None
+2026-02-02 17:04:05,398 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,398 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,398 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591606 n_jobs=None
+2026-02-02 17:04:05,433 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,435 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:424: Democratic co-learning iter=1 changed=True
+2026-02-02 17:04:05,436 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,436 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 17:04:05,471 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.036s
+2026-02-02 17:04:05,471 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,471 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591605 n_jobs=None
+2026-02-02 17:04:05,506 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,507 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,507 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591606 n_jobs=None
+2026-02-02 17:04:05,541 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,544 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:424: Democratic co-learning iter=2 changed=True
+2026-02-02 17:04:05,544 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,544 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 17:04:05,580 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.036s
+2026-02-02 17:04:05,580 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,580 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591605 n_jobs=None
+2026-02-02 17:04:05,615 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,615 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,615 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591606 n_jobs=None
+2026-02-02 17:04:05,650 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,652 DEBUG modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:424: Democratic co-learning iter=3 changed=False
+2026-02-02 17:04:05,652 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,652 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591604 n_jobs=None
+2026-02-02 17:04:05,688 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.036s
+2026-02-02 17:04:05,688 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,688 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591605 n_jobs=None
+2026-02-02 17:04:05,723 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,723 INFO modssc.supervised.backends.torch.mlp mlp.py:75: Starting mlp.fit
+2026-02-02 17:04:05,723 DEBUG modssc.supervised.backends.torch.mlp mlp.py:76: params hidden_sizes=(256, 256) activation=relu dropout=0.1 lr=0.001 weight_decay=0.0 batch_size=128 max_epochs=50 seed=398591606 n_jobs=None
+2026-02-02 17:04:05,758 INFO modssc.supervised.backends.torch.mlp mlp.py:167: Finished mlp.fit in 0.035s
+2026-02-02 17:04:05,759 INFO modssc.inductive.methods.democratic_co_learning democratic_co_learning.py:433: Finished democratic_co_learning.fit in 1.630s
+2026-02-02 17:04:05,759 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=democratic_co_learning duration_s=1.644
+2026-02-02 17:04:05,759 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 17:04:05,777 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.018
+2026-02-02 17:04:05,778 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy-20260202T160402Z/run.json status=success duration_s=0.001

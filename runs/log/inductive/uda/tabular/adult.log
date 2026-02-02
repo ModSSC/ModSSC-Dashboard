@@ -1,0 +1,116 @@
+2026-02-02 15:25:58,363 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=adult download=True cache_dir=None
+2026-02-02 15:25:58,364 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 15:25:58,367 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 15:25:58,367 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=adult provider=openml canonical_uri=openml:1590
+2026-02-02 15:25:58,367 INFO modssc.data_loader.api api.py:117: Dataset load: id=adult provider=openml version=None fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:25:58,367 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 1590, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 15:25:58,429 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967
+2026-02-02 15:25:58,449 INFO modssc.data_loader.api api.py:133: Dataset cached: id=adult train=48842 test=None n_classes=2 duration_s=0.085
+2026-02-02 15:25:58,449 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=48842 test=None graph=False fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 provider=openml
+2026-02-02 15:25:58,449 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.085
+2026-02-02 15:25:58,501 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=adult
+2026-02-02 15:25:58,501 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:25:58,501 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967
+2026-02-02 15:25:58,501 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=adult dataset_fingerprint=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 seed=1 graph=False split=holdout
+2026-02-02 15:25:58,501 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:25:58,600 INFO modssc.sampling.api api.py:141: Sampling done: train=35167 val=3907 test=9768 labeled=7033 unlabeled=28134 duration_s=0.099
+2026-02-02 15:25:58,600 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 35167, 'classes': {'<=50K': 26752, '>50K': 8415}}, 'val': {'n': 3907, 'classes': {'<=50K': 2972, '>50K': 935}}, 'train_labeled': {'n': 7033, 'classes': {'<=50K': 3517, '>50K': 3516}}, 'train_unlabeled': {'n': 28134}, 'test': {'n': 9768, 'classes': {'<=50K': 7431, '>50K': 2337}}}
+2026-02-02 15:25:58,621 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=35167 val=3907 test=9768 labeled=7033 unlabeled=28134 graph=False
+2026-02-02 15:25:58,621 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 35167, 'classes': {'<=50K': 26752, '>50K': 8415}}, 'val': {'n': 3907, 'classes': {'<=50K': 2972, '>50K': 935}}, 'train_labeled': {'n': 7033, 'classes': {'<=50K': 3517, '>50K': 3516}}, 'train_unlabeled': {'n': 28134}, 'test': {'n': 9768, 'classes': {'<=50K': 7431, '>50K': 2337}}}
+2026-02-02 15:25:58,621 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.120
+2026-02-02 15:25:58,621 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=7 fit_indices=7033
+2026-02-02 15:25:58,621 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'tabular.one_hot', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 15:25:58,621 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 steps=['labels.encode', 'labels.to_torch', 'tabular.one_hot', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 15:25:58,621 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(48842, 14) train_y=(48842,) test_X=None test_y=None
+2026-02-02 15:25:58,621 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=5.6 MB test_data=n/a
+2026-02-02 15:25:58,622 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:25:58,626 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.005
+2026-02-02 15:25:58,626 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.005 train_data=5.6 MB test_data=n/a
+2026-02-02 15:25:58,626 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 15:25:58,725 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.099
+2026-02-02 15:25:58,726 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 15:25:58,726 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.099 train_data=5.6 MB test_data=n/a
+2026-02-02 15:25:58,726 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.one_hot index=2 kind=fittable params={}
+2026-02-02 15:25:59,735 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.one_hot keys=['features.X'] duration_s=1.009
+2026-02-02 15:25:59,735 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.one_hot index=2 duration_s=1.009 train_data=20.1 MB test_data=n/a
+2026-02-02 15:25:59,735 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=3 kind=transform params={}
+2026-02-02 15:25:59,742 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.007
+2026-02-02 15:25:59,743 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=3 duration_s=0.007 train_data=20.1 MB test_data=n/a
+2026-02-02 15:25:59,743 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=4 kind=fittable params={}
+2026-02-02 15:25:59,827 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.085
+2026-02-02 15:25:59,828 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=4 duration_s=0.085 train_data=20.1 MB test_data=n/a
+2026-02-02 15:25:59,828 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=5 kind=fittable params={}
+2026-02-02 15:25:59,837 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.009
+2026-02-02 15:25:59,837 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=5 duration_s=0.010 train_data=20.1 MB test_data=n/a
+2026-02-02 15:25:59,837 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=6 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 15:25:59,844 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.006
+2026-02-02 15:25:59,844 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=6 duration_s=0.006 train_data=20.1 MB test_data=n/a
+2026-02-02 15:25:59,844 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 duration_s=1.223 train_X=(48842, 106) test_X=None
+2026-02-02 15:25:59,844 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:4a34efb2af7b2f814e0c648ef7e59972547c0b2de37b10570aceee8bd9625ae2 plan_fingerprint=resolved_plan:6ed490995fe0d8f1eb30fd0ca8262522145e7cafa3ba073f9c42e71d197f40ef cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967 skipped=[]
+2026-02-02 15:25:59,844 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(48842, 106) test_X=None
+2026-02-02 15:25:59,844 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.223
+2026-02-02 15:25:59,856 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=28134 strong_views=1
+2026-02-02 15:25:59,856 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 15:26:03,983 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=4.126
+2026-02-02 15:26:03,983 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(28134, 106) strong=(28134, 106) strong_1=None
+2026-02-02 15:26:03,983 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=uda seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 15:26:03,983 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'p_cutoff': 0.8, 'temperature': 0.4, 'tsa_schedule': 'none', 'use_cat': False, 'batch_size': 128, 'max_epochs': 50, 'detach_target': True}
+2026-02-02 15:26:03,983 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=7033 n_unlabeled=28134
+2026-02-02 15:26:04,967 INFO modssc.inductive.methods.uda uda.py:89: Starting uda.fit
+2026-02-02 15:26:04,967 DEBUG modssc.inductive.methods.uda uda.py:90: params lambda_u=1.0 p_cutoff=0.8 temperature=0.4 tsa_schedule=none use_cat=False batch_size=128 max_epochs=50 detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 15:26:04,967 INFO modssc.inductive.methods.uda uda.py:122: UDA sizes: n_labeled=7033 n_unlabeled=28134
+2026-02-02 15:26:05,062 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=0 tsa=none p_cutoff=0.8 mask_mean=0.008 sup_loss=0.6823 unsup_loss=0.1040
+2026-02-02 15:26:05,396 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=1 tsa=none p_cutoff=0.8 mask_mean=0.922 sup_loss=0.3480 unsup_loss=0.0786
+2026-02-02 15:26:05,694 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=2 tsa=none p_cutoff=0.8 mask_mean=0.914 sup_loss=0.4476 unsup_loss=0.0966
+2026-02-02 15:26:05,993 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=3 tsa=none p_cutoff=0.8 mask_mean=0.914 sup_loss=0.3459 unsup_loss=0.1169
+2026-02-02 15:26:06,291 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=4 tsa=none p_cutoff=0.8 mask_mean=0.930 sup_loss=0.2915 unsup_loss=0.0796
+2026-02-02 15:26:06,589 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=5 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.4092 unsup_loss=0.1170
+2026-02-02 15:26:06,888 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=6 tsa=none p_cutoff=0.8 mask_mean=0.961 sup_loss=0.1922 unsup_loss=0.0811
+2026-02-02 15:26:07,187 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=7 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.2836 unsup_loss=0.0958
+2026-02-02 15:26:07,488 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=8 tsa=none p_cutoff=0.8 mask_mean=0.867 sup_loss=0.2234 unsup_loss=0.0757
+2026-02-02 15:26:07,787 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=9 tsa=none p_cutoff=0.8 mask_mean=0.953 sup_loss=0.2488 unsup_loss=0.1034
+2026-02-02 15:26:08,085 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=10 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.2264 unsup_loss=0.0769
+2026-02-02 15:26:08,384 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=11 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.2044 unsup_loss=0.1465
+2026-02-02 15:26:08,682 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=12 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.2352 unsup_loss=0.0696
+2026-02-02 15:26:08,983 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=13 tsa=none p_cutoff=0.8 mask_mean=0.898 sup_loss=0.1841 unsup_loss=0.1047
+2026-02-02 15:26:09,301 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=14 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.1636 unsup_loss=0.0497
+2026-02-02 15:26:09,599 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=15 tsa=none p_cutoff=0.8 mask_mean=0.930 sup_loss=0.1405 unsup_loss=0.1575
+2026-02-02 15:26:09,897 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=16 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.1883 unsup_loss=0.0614
+2026-02-02 15:26:10,195 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=17 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.2020 unsup_loss=0.1562
+2026-02-02 15:26:10,494 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=18 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1548 unsup_loss=0.0675
+2026-02-02 15:26:10,796 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=19 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.1496 unsup_loss=0.0376
+2026-02-02 15:26:11,095 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=20 tsa=none p_cutoff=0.8 mask_mean=0.922 sup_loss=0.2088 unsup_loss=0.1246
+2026-02-02 15:26:11,394 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=21 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.2375 unsup_loss=0.0779
+2026-02-02 15:26:11,692 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=22 tsa=none p_cutoff=0.8 mask_mean=0.969 sup_loss=0.2087 unsup_loss=0.0953
+2026-02-02 15:26:11,991 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=23 tsa=none p_cutoff=0.8 mask_mean=0.953 sup_loss=0.1642 unsup_loss=0.0605
+2026-02-02 15:26:12,290 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=24 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1257 unsup_loss=0.0702
+2026-02-02 15:26:12,590 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=25 tsa=none p_cutoff=0.8 mask_mean=0.922 sup_loss=0.1441 unsup_loss=0.0842
+2026-02-02 15:26:12,889 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=26 tsa=none p_cutoff=0.8 mask_mean=0.930 sup_loss=0.1417 unsup_loss=0.1178
+2026-02-02 15:26:13,187 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=27 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1969 unsup_loss=0.1219
+2026-02-02 15:26:13,486 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=28 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1695 unsup_loss=0.1122
+2026-02-02 15:26:13,785 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=29 tsa=none p_cutoff=0.8 mask_mean=0.930 sup_loss=0.1241 unsup_loss=0.0474
+2026-02-02 15:26:14,083 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=30 tsa=none p_cutoff=0.8 mask_mean=0.961 sup_loss=0.1169 unsup_loss=0.2059
+2026-02-02 15:26:14,382 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=31 tsa=none p_cutoff=0.8 mask_mean=0.930 sup_loss=0.1012 unsup_loss=0.0584
+2026-02-02 15:26:14,680 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=32 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.1702 unsup_loss=0.0865
+2026-02-02 15:26:14,979 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=33 tsa=none p_cutoff=0.8 mask_mean=0.953 sup_loss=0.1207 unsup_loss=0.1018
+2026-02-02 15:26:15,277 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=34 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.1319 unsup_loss=0.1092
+2026-02-02 15:26:15,576 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=35 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1430 unsup_loss=0.1010
+2026-02-02 15:26:15,874 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=36 tsa=none p_cutoff=0.8 mask_mean=0.961 sup_loss=0.1106 unsup_loss=0.0875
+2026-02-02 15:26:16,173 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=37 tsa=none p_cutoff=0.8 mask_mean=0.961 sup_loss=0.0983 unsup_loss=0.0462
+2026-02-02 15:26:16,472 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=38 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.0895 unsup_loss=0.0782
+2026-02-02 15:26:16,770 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=39 tsa=none p_cutoff=0.8 mask_mean=0.906 sup_loss=0.1363 unsup_loss=0.1064
+2026-02-02 15:26:17,069 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=40 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.3371 unsup_loss=0.0405
+2026-02-02 15:26:17,369 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=41 tsa=none p_cutoff=0.8 mask_mean=0.984 sup_loss=0.1222 unsup_loss=0.1015
+2026-02-02 15:26:17,667 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=42 tsa=none p_cutoff=0.8 mask_mean=0.984 sup_loss=0.1284 unsup_loss=0.0676
+2026-02-02 15:26:17,966 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=43 tsa=none p_cutoff=0.8 mask_mean=0.953 sup_loss=0.1167 unsup_loss=0.2224
+2026-02-02 15:26:18,264 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=44 tsa=none p_cutoff=0.8 mask_mean=0.953 sup_loss=0.1258 unsup_loss=0.0756
+2026-02-02 15:26:18,562 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=45 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1085 unsup_loss=0.0603
+2026-02-02 15:26:18,859 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=46 tsa=none p_cutoff=0.8 mask_mean=0.938 sup_loss=0.1158 unsup_loss=0.0977
+2026-02-02 15:26:19,155 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=47 tsa=none p_cutoff=0.8 mask_mean=0.961 sup_loss=0.1047 unsup_loss=0.0504
+2026-02-02 15:26:19,454 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=48 tsa=none p_cutoff=0.8 mask_mean=0.977 sup_loss=0.0948 unsup_loss=0.1491
+2026-02-02 15:26:19,752 DEBUG modssc.inductive.methods.uda uda.py:258: UDA epoch=49 tsa=none p_cutoff=0.8 mask_mean=0.945 sup_loss=0.1298 unsup_loss=0.0732
+2026-02-02 15:26:20,050 INFO modssc.inductive.methods.uda uda.py:279: Finished uda.fit in 15.084s
+2026-02-02 15:26:20,051 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=uda duration_s=16.068
+2026-02-02 15:26:20,051 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:26:20,064 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.013
+2026-02-02 15:26:20,066 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/uda/tabular/adult/best_tabular_inductive_uda_adult-20260202T142558Z/run.json status=success duration_s=0.002

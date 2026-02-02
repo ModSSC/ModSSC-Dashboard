@@ -1,0 +1,295 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 1
+    },
+    "dataset": {
+      "fingerprint": "e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89",
+      "id": "toy",
+      "info": {
+        "citation": null,
+        "description": "Deterministic synthetic dataset used for tests and examples.",
+        "homepage": null,
+        "key": "toy",
+        "license": null,
+        "modality": "tabular",
+        "provider": "toy",
+        "required_extra": null,
+        "source_kwargs": {
+          "n_classes": 3,
+          "n_features": 4,
+          "n_samples": 64,
+          "official_test": true,
+          "seed": 0
+        },
+        "task": "classification",
+        "uri": "toy:default"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "vat",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/home/mbarbaux/ModSSC/cache/preprocess/e0c01c98d61086d3a0f9eed4436f4ecf49dcaace00195bf10f825786b9b12b89",
+      "fit_fingerprint": "fit:493152f5c5a8382c476b1a71519e4d9599a4a70b9c9a7688909d7cb7a29a3833",
+      "plan_fingerprint": "resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69",
+      "preprocess_fingerprint": "preprocess:2084820f9dca20adeb55bdfd0f380fbf298775455425b2e216730279686da63f",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1,
+      "split_fingerprint": "44e7a2643c1c700abf6e81a583aab113a8ea984edeeebf3ed8aa2031d9fcc8e7",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 6,
+            "1": 5,
+            "2": 5
+          },
+          "n": 16
+        },
+        "train": {
+          "classes": {
+            "0": 14,
+            "1": 15,
+            "2": 14
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3
+          },
+          "n": 9
+        },
+        "train_unlabeled": {
+          "n": 34
+        },
+        "val": {
+          "classes": {
+            "0": 1,
+            "1": 2,
+            "2": 2
+          },
+          "n": 5
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "tabular",
+      "mode": "fixed",
+      "seed": 1,
+      "strong": {
+        "steps": [
+          {
+            "id": "tabular.swap_noise",
+            "params": {
+              "p": 0.1
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "tabular.gaussian_noise",
+            "params": {
+              "std": 0.01
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "toy",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "vat",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "mlp",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            256,
+            256
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "freeze_bn": false,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "unsup_warm_up": 0.4
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "tabular.impute"
+          },
+          {
+            "id": "tabular.standard_scaler"
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 1
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_tabular_inductive_vat_toy",
+      "output_dir": "runs/inductive/vat/tabular/toy",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.4375,
+      "macro_f1": 0.43636363636363634
+    },
+    "val": {
+      "accuracy": 0.2,
+      "macro_f1": 0.13333333333333333
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/inductive/vat/tabular/toy.yaml",
+    "finished_at": "2026-02-02T16:05:27.980114+00:00",
+    "name": "best_tabular_inductive_vat_toy",
+    "seed": 1,
+    "started_at": "2026-02-02T16:05:25.765744+00:00",
+    "status": "success"
+  }
+}

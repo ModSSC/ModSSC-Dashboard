@@ -1,0 +1,118 @@
+2026-02-02 14:58:02,533 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=citeseer download=True cache_dir=None
+2026-02-02 14:58:02,534 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 14:58:02,537 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 14:58:02,537 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=citeseer provider=pyg canonical_uri=pyg:Planetoid/CiteSeer
+2026-02-02 14:58:02,537 INFO modssc.data_loader.api api.py:117: Dataset load: id=citeseer provider=pyg version=None fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 14:58:02,537 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'CiteSeer'}}
+2026-02-02 14:58:02,549 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:58:02,549 INFO modssc.data_loader.api api.py:133: Dataset cached: id=citeseer train=3327 test=None n_classes=6 duration_s=0.015
+2026-02-02 14:58:02,549 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=3327 test=None graph=True fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 provider=pyg
+2026-02-02 14:58:02,549 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.016
+2026-02-02 14:58:02,571 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=citeseer
+2026-02-02 14:58:02,572 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 14:58:02,572 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:58:02,572 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=citeseer dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 seed=5 graph=True split=holdout
+2026-02-02 14:58:02,572 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 14:58:02,582 INFO modssc.sampling.api api.py:141: Sampling done: train=120 val=500 test=1000 labeled=24 unlabeled=96 duration_s=0.010
+2026-02-02 14:58:02,582 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:58:02,582 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=120 val=500 test=1000 labeled=24 unlabeled=96 graph=True
+2026-02-02 14:58:02,582 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:58:02,582 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.011
+2026-02-02 14:58:02,582 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=3 fit_indices=24
+2026-02-02 14:58:02,582 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy']
+2026-02-02 14:58:02,582 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 steps=['labels.encode', 'core.ensure_2d', 'core.to_numpy'] output_key=features.X seed=5 cache=True
+2026-02-02 14:58:02,582 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(3327, 3703) train_y=(3327,) test_X=None test_y=None
+2026-02-02 14:58:02,582 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:02,582 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 14:58:02,588 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.006
+2026-02-02 14:58:02,588 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.006 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:02,588 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=1 kind=transform params={}
+2026-02-02 14:58:02,599 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.011
+2026-02-02 14:58:02,599 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=1 duration_s=0.011 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:02,599 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_numpy index=2 kind=transform params={}
+2026-02-02 14:58:02,610 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_numpy keys=['features.X'] duration_s=0.011
+2026-02-02 14:58:02,610 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_numpy index=2 duration_s=0.011 train_data=47.2 MB test_data=n/a
+2026-02-02 14:58:02,610 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 duration_s=0.028 train_X=(3327, 3703) test_X=None
+2026-02-02 14:58:02,610 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:1069b34df5ccf35e8af20c1a0d052e7352ec159e264e72d1990d4ec20c0a9338 plan_fingerprint=resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 skipped=[]
+2026-02-02 14:58:02,610 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(3327, 3703) test_X=None
+2026-02-02 14:58:02,610 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.028
+2026-02-02 14:58:02,611 INFO bench.orchestrators.method_transductive method_transductive.py:139: Transductive method start: id=gcnii seed=3274374610 device=auto resolved_device=cuda use_test=False
+2026-02-02 14:58:02,611 DEBUG bench.orchestrators.method_transductive method_transductive.py:147: Transductive method params: {'hidden_dim': 64, 'num_layers': 16, 'alpha': 0.1, 'lam': 0.5, 'dropout': 0.5, 'lr': 0.01, 'weight_decay': 0.0005, 'max_epochs': 200, 'patience': 50, 'add_self_loops': True}
+2026-02-02 14:58:02,611 INFO bench.orchestrators.method_transductive method_transductive.py:158: Transductive data: n_nodes=3327 n_train=3327 n_test=0
+2026-02-02 14:58:02,611 INFO bench.orchestrators.method_transductive method_transductive.py:177: Transductive masks: labeled_count=24 train_count=120
+2026-02-02 14:58:02,611 INFO modssc.transductive.methods.gnn.gcnii gcnii.py:102: Starting gcnii.fit
+2026-02-02 14:58:02,611 DEBUG modssc.transductive.methods.gnn.gcnii gcnii.py:103: spec=GCNIISpec(hidden_dim=64, num_layers=16, alpha=0.1, lam=0.5, dropout=0.5, lr=0.01, weight_decay=0.0005, max_epochs=200, patience=50, add_self_loops=True) device=cuda seed=3274374610
+2026-02-02 14:58:02,787 INFO modssc.transductive.methods.gnn.gcnii gcnii.py:115: GCNII sizes: n_nodes=3327 n_classes=6 train=24 val=500
+2026-02-02 14:58:03,719 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=0 val_loss=1.7732 best updated
+2026-02-02 14:58:03,729 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=1 val_loss=1.7347 best updated
+2026-02-02 14:58:03,739 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=2 val_loss=1.6916 best updated
+2026-02-02 14:58:03,748 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=3 val_loss=1.6399 best updated
+2026-02-02 14:58:03,757 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=4 val_loss=1.5860 best updated
+2026-02-02 14:58:03,766 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=5 val_loss=1.5260 best updated
+2026-02-02 14:58:03,775 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=6 val_loss=1.4659 best updated
+2026-02-02 14:58:03,784 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=7 val_loss=1.3994 best updated
+2026-02-02 14:58:03,793 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=8 val_loss=1.3296 best updated
+2026-02-02 14:58:03,802 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=9 val_loss=1.2675 best updated
+2026-02-02 14:58:03,811 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=10 val_loss=1.2168 best updated
+2026-02-02 14:58:03,820 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=11 val_loss=1.1780 best updated
+2026-02-02 14:58:03,830 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=12 val_loss=1.1385 best updated
+2026-02-02 14:58:03,839 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=13 val_loss=1.1083 best updated
+2026-02-02 14:58:03,848 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=14 val_loss=1.0897 best updated
+2026-02-02 14:58:03,857 DEBUG modssc.transductive.methods.gnn.common common.py:373: train_fullbatch epoch=15 val_loss=1.0843 best updated
+2026-02-02 14:58:03,866 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=16 val_loss=1.0948 bad_epochs=1/50
+2026-02-02 14:58:03,874 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=17 val_loss=1.0959 bad_epochs=2/50
+2026-02-02 14:58:03,883 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=18 val_loss=1.1085 bad_epochs=3/50
+2026-02-02 14:58:03,892 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=19 val_loss=1.1238 bad_epochs=4/50
+2026-02-02 14:58:03,901 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=20 val_loss=1.1317 bad_epochs=5/50
+2026-02-02 14:58:03,909 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=21 val_loss=1.1464 bad_epochs=6/50
+2026-02-02 14:58:03,918 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=22 val_loss=1.1420 bad_epochs=7/50
+2026-02-02 14:58:03,927 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=23 val_loss=1.1441 bad_epochs=8/50
+2026-02-02 14:58:03,935 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=24 val_loss=1.1468 bad_epochs=9/50
+2026-02-02 14:58:03,944 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=25 val_loss=1.1450 bad_epochs=10/50
+2026-02-02 14:58:03,953 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=26 val_loss=1.1527 bad_epochs=11/50
+2026-02-02 14:58:03,962 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=27 val_loss=1.1708 bad_epochs=12/50
+2026-02-02 14:58:03,970 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=28 val_loss=1.1820 bad_epochs=13/50
+2026-02-02 14:58:03,979 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=29 val_loss=1.2052 bad_epochs=14/50
+2026-02-02 14:58:03,988 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=30 val_loss=1.2141 bad_epochs=15/50
+2026-02-02 14:58:03,996 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=31 val_loss=1.2054 bad_epochs=16/50
+2026-02-02 14:58:04,005 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=32 val_loss=1.1948 bad_epochs=17/50
+2026-02-02 14:58:04,014 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=33 val_loss=1.1779 bad_epochs=18/50
+2026-02-02 14:58:04,022 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=34 val_loss=1.1543 bad_epochs=19/50
+2026-02-02 14:58:04,035 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=35 val_loss=1.1342 bad_epochs=20/50
+2026-02-02 14:58:04,044 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=36 val_loss=1.1243 bad_epochs=21/50
+2026-02-02 14:58:04,052 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=37 val_loss=1.1226 bad_epochs=22/50
+2026-02-02 14:58:04,061 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=38 val_loss=1.1259 bad_epochs=23/50
+2026-02-02 14:58:04,070 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=39 val_loss=1.1376 bad_epochs=24/50
+2026-02-02 14:58:04,078 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=40 val_loss=1.1527 bad_epochs=25/50
+2026-02-02 14:58:04,087 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=41 val_loss=1.1672 bad_epochs=26/50
+2026-02-02 14:58:04,096 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=42 val_loss=1.1793 bad_epochs=27/50
+2026-02-02 14:58:04,105 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=43 val_loss=1.1996 bad_epochs=28/50
+2026-02-02 14:58:04,113 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=44 val_loss=1.2017 bad_epochs=29/50
+2026-02-02 14:58:04,122 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=45 val_loss=1.2020 bad_epochs=30/50
+2026-02-02 14:58:04,131 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=46 val_loss=1.1889 bad_epochs=31/50
+2026-02-02 14:58:04,140 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=47 val_loss=1.1461 bad_epochs=32/50
+2026-02-02 14:58:04,148 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=48 val_loss=1.1241 bad_epochs=33/50
+2026-02-02 14:58:04,157 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=49 val_loss=1.1233 bad_epochs=34/50
+2026-02-02 14:58:04,166 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=50 val_loss=1.1299 bad_epochs=35/50
+2026-02-02 14:58:04,174 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=51 val_loss=1.1401 bad_epochs=36/50
+2026-02-02 14:58:04,183 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=52 val_loss=1.1659 bad_epochs=37/50
+2026-02-02 14:58:04,192 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=53 val_loss=1.1884 bad_epochs=38/50
+2026-02-02 14:58:04,201 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=54 val_loss=1.2122 bad_epochs=39/50
+2026-02-02 14:58:04,209 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=55 val_loss=1.2282 bad_epochs=40/50
+2026-02-02 14:58:04,218 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=56 val_loss=1.2337 bad_epochs=41/50
+2026-02-02 14:58:04,227 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=57 val_loss=1.2299 bad_epochs=42/50
+2026-02-02 14:58:04,236 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=58 val_loss=1.1888 bad_epochs=43/50
+2026-02-02 14:58:04,244 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=59 val_loss=1.1645 bad_epochs=44/50
+2026-02-02 14:58:04,253 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=60 val_loss=1.1398 bad_epochs=45/50
+2026-02-02 14:58:04,262 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=61 val_loss=1.1264 bad_epochs=46/50
+2026-02-02 14:58:04,270 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=62 val_loss=1.1208 bad_epochs=47/50
+2026-02-02 14:58:04,279 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=63 val_loss=1.1147 bad_epochs=48/50
+2026-02-02 14:58:04,288 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=64 val_loss=1.1077 bad_epochs=49/50
+2026-02-02 14:58:04,297 DEBUG modssc.transductive.methods.gnn.common common.py:380: train_fullbatch epoch=65 val_loss=1.1054 bad_epochs=50/50
+2026-02-02 14:58:04,297 DEBUG modssc.transductive.methods.gnn.common common.py:388: train_fullbatch early_stop epoch=65 best_epoch=15 best_val_loss=1.0843
+2026-02-02 14:58:04,297 DEBUG modssc.transductive.methods.gnn.common common.py:399: train_fullbatch done n_epochs=66 best_epoch=15 best_val_loss=1.084319829940796
+2026-02-02 14:58:04,297 INFO modssc.transductive.methods.gnn.gcnii gcnii.py:147: Finished gcnii.fit in 1.687s
+2026-02-02 14:58:04,298 INFO bench.orchestrators.method_transductive method_transductive.py:218: Transductive method done: id=gcnii duration_s=1.687
+2026-02-02 14:58:04,298 INFO bench.orchestrators.evaluation evaluation.py:244: Evaluation (transductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 14:58:04,300 INFO bench.orchestrators.evaluation evaluation.py:263: Evaluation (transductive) done: duration_s=0.003
+2026-02-02 14:58:04,302 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/transductive/gcnii/graph/citeseer/best_graph_transductive_gcnii_citeseer-20260202T135802Z/run.json status=success duration_s=0.001

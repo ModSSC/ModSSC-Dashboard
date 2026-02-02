@@ -1,0 +1,113 @@
+2026-02-02 17:00:08,180 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=iris download=True cache_dir=None
+2026-02-02 17:00:08,180 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 17:00:08,184 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: openml
+2026-02-02 17:00:08,184 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=iris provider=openml canonical_uri=openml:61
+2026-02-02 17:00:08,184 INFO modssc.data_loader.api api.py:117: Dataset load: id=iris provider=openml version=None fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 17:00:08,184 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'data_id': 61, 'name': None, 'version': None, 'as_frame': False, 'target_column': None, 'class_filter': None, 'max_samples': None, 'seed': None}
+2026-02-02 17:00:08,186 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572
+2026-02-02 17:00:08,190 INFO modssc.data_loader.api api.py:133: Dataset cached: id=iris train=150 test=None n_classes=3 duration_s=0.010
+2026-02-02 17:00:08,190 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=150 test=None graph=False fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 provider=openml
+2026-02-02 17:00:08,191 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.010
+2026-02-02 17:00:08,237 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=1 dataset_id=iris
+2026-02-02 17:00:08,237 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 17:00:08,237 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572
+2026-02-02 17:00:08,237 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=iris dataset_fingerprint=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 seed=1 graph=False split=holdout
+2026-02-02 17:00:08,237 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 17:00:08,244 INFO modssc.sampling.api api.py:141: Sampling done: train=108 val=12 test=30 labeled=22 unlabeled=86 duration_s=0.007
+2026-02-02 17:00:08,244 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 108, 'classes': {'Iris-setosa': 36, 'Iris-versicolor': 36, 'Iris-virginica': 36}}, 'val': {'n': 12, 'classes': {'Iris-setosa': 4, 'Iris-versicolor': 4, 'Iris-virginica': 4}}, 'train_labeled': {'n': 22, 'classes': {'Iris-setosa': 8, 'Iris-versicolor': 7, 'Iris-virginica': 7}}, 'train_unlabeled': {'n': 86}, 'test': {'n': 30, 'classes': {'Iris-setosa': 10, 'Iris-versicolor': 10, 'Iris-virginica': 10}}}
+2026-02-02 17:00:08,245 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=108 val=12 test=30 labeled=22 unlabeled=86 graph=False
+2026-02-02 17:00:08,245 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'policy': {'respect_official_test': True, 'has_official_test': False, 'test_ref': 'train'}, 'train': {'n': 108, 'classes': {'Iris-setosa': 36, 'Iris-versicolor': 36, 'Iris-virginica': 36}}, 'val': {'n': 12, 'classes': {'Iris-setosa': 4, 'Iris-versicolor': 4, 'Iris-virginica': 4}}, 'train_labeled': {'n': 22, 'classes': {'Iris-setosa': 8, 'Iris-versicolor': 7, 'Iris-virginica': 7}}, 'train_unlabeled': {'n': 86}, 'test': {'n': 30, 'classes': {'Iris-setosa': 10, 'Iris-versicolor': 10, 'Iris-virginica': 10}}}
+2026-02-02 17:00:08,245 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.008
+2026-02-02 17:00:08,245 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=1 cache=True n_steps=6 fit_indices=22
+2026-02-02 17:00:08,245 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch']
+2026-02-02 17:00:08,245 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 steps=['labels.encode', 'labels.to_torch', 'core.ensure_2d', 'tabular.impute', 'tabular.standard_scaler', 'core.to_torch'] output_key=features.X seed=1 cache=True
+2026-02-02 17:00:08,245 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(150, 4) train_y=(150,) test_X=None test_y=None
+2026-02-02 17:00:08,245 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=5.9 KB test_data=n/a
+2026-02-02 17:00:08,245 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 17:00:08,247 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 17:00:08,247 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=5.9 KB test_data=n/a
+2026-02-02 17:00:08,247 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 17:00:08,347 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.100
+2026-02-02 17:00:08,347 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 17:00:08,347 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.100 train_data=5.9 KB test_data=n/a
+2026-02-02 17:00:08,348 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.ensure_2d index=2 kind=transform params={}
+2026-02-02 17:00:08,350 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.ensure_2d keys=['features.X'] duration_s=0.002
+2026-02-02 17:00:08,350 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.ensure_2d index=2 duration_s=0.002 train_data=5.9 KB test_data=n/a
+2026-02-02 17:00:08,350 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.impute index=3 kind=fittable params={}
+2026-02-02 17:00:09,251 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.impute keys=['features.X'] duration_s=0.901
+2026-02-02 17:00:09,251 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.impute index=3 duration_s=0.901 train_data=5.9 KB test_data=n/a
+2026-02-02 17:00:09,251 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=tabular.standard_scaler index=4 kind=fittable params={}
+2026-02-02 17:00:09,252 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=tabular.standard_scaler keys=['features.X'] duration_s=0.001
+2026-02-02 17:00:09,252 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=tabular.standard_scaler index=4 duration_s=0.002 train_data=3.5 KB test_data=n/a
+2026-02-02 17:00:09,252 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=5 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 17:00:09,254 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.001
+2026-02-02 17:00:09,254 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=5 duration_s=0.001 train_data=3.5 KB test_data=n/a
+2026-02-02 17:00:09,254 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 duration_s=1.009 train_X=(150, 4) test_X=None
+2026-02-02 17:00:09,254 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:75598ed099a81a08799b66a7d3baf5526adf278e3ed02c30f4109069d7106690 plan_fingerprint=resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/ba055ddc9f9ca1b72ab8a14217263923c7ce2466a9ada1892118d69873fd8572 skipped=[]
+2026-02-02 17:00:09,254 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=(150, 4) test_X=None
+2026-02-02 17:00:09,254 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=1.009
+2026-02-02 17:00:09,269 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=1 n_samples=86 strong_views=1
+2026-02-02 17:00:09,269 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.swap_noise']
+2026-02-02 17:00:09,308 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.039
+2026-02-02 17:00:09,308 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(86, 4) strong=(86, 4) strong_1=None
+2026-02-02 17:00:09,308 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=adamatch seed=398591604 device=auto dtype=float32 model=mlp
+2026-02-02 17:00:09,308 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'p_cutoff': 0.95, 'temperature': 0.5, 'ema_p': 0.999, 'hard_label': True, 'use_cat': False, 'batch_size': 128, 'max_epochs': 50, 'detach_target': True}
+2026-02-02 17:00:09,308 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=22 n_unlabeled=86
+2026-02-02 17:00:10,173 INFO modssc.inductive.methods.adamatch adamatch.py:104: Starting adamatch.fit
+2026-02-02 17:00:10,173 DEBUG modssc.inductive.methods.adamatch adamatch.py:105: params lambda_u=1.0 p_cutoff=0.95 temperature=0.5 ema_p=0.999 hard_label=True use_cat=False batch_size=128 max_epochs=50 detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=398591604
+2026-02-02 17:00:10,174 INFO modssc.inductive.methods.adamatch adamatch.py:153: AdaMatch sizes: n_labeled=22 n_unlabeled=86
+2026-02-02 17:00:10,292 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=0 p_rel=0.3467 mask_mean=0.895 p_model[min=0.333 max=0.333] p_target[min=0.333 max=0.333]
+2026-02-02 17:00:10,326 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=1 p_rel=0.3701 mask_mean=0.779 p_model[min=0.333 max=0.333] p_target[min=0.333 max=0.333]
+2026-02-02 17:00:10,328 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=2 p_rel=0.3962 mask_mean=0.849 p_model[min=0.333 max=0.333] p_target[min=0.333 max=0.333]
+2026-02-02 17:00:10,330 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=3 p_rel=0.4399 mask_mean=0.767 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,332 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=4 p_rel=0.4712 mask_mean=0.791 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,334 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=5 p_rel=0.5092 mask_mean=0.721 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,335 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=6 p_rel=0.5464 mask_mean=0.651 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,337 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=7 p_rel=0.5829 mask_mean=0.628 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,339 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=8 p_rel=0.6273 mask_mean=0.605 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,340 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=9 p_rel=0.6654 mask_mean=0.616 p_model[min=0.333 max=0.334] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,342 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=10 p_rel=0.7091 mask_mean=0.616 p_model[min=0.332 max=0.335] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,344 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=11 p_rel=0.7316 mask_mean=0.674 p_model[min=0.332 max=0.335] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,346 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=12 p_rel=0.7593 mask_mean=0.674 p_model[min=0.332 max=0.335] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,347 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=13 p_rel=0.7684 mask_mean=0.721 p_model[min=0.332 max=0.335] p_target[min=0.333 max=0.334]
+2026-02-02 17:00:10,349 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=14 p_rel=0.7837 mask_mean=0.698 p_model[min=0.332 max=0.335] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,351 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=15 p_rel=0.7858 mask_mean=0.674 p_model[min=0.332 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,352 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=16 p_rel=0.7928 mask_mean=0.698 p_model[min=0.332 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,354 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=17 p_rel=0.7726 mask_mean=0.721 p_model[min=0.332 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,356 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=18 p_rel=0.7742 mask_mean=0.674 p_model[min=0.332 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,357 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=19 p_rel=0.7587 mask_mean=0.686 p_model[min=0.331 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,359 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=20 p_rel=0.7602 mask_mean=0.686 p_model[min=0.331 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,361 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=21 p_rel=0.7451 mask_mean=0.686 p_model[min=0.331 max=0.336] p_target[min=0.332 max=0.335]
+2026-02-02 17:00:10,363 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=22 p_rel=0.7457 mask_mean=0.663 p_model[min=0.331 max=0.336] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,364 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=23 p_rel=0.7315 mask_mean=0.698 p_model[min=0.331 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,366 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=24 p_rel=0.7417 mask_mean=0.686 p_model[min=0.331 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,368 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=25 p_rel=0.7308 mask_mean=0.709 p_model[min=0.331 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,369 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=26 p_rel=0.7502 mask_mean=0.698 p_model[min=0.331 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,371 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=27 p_rel=0.7421 mask_mean=0.709 p_model[min=0.331 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,373 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=28 p_rel=0.7528 mask_mean=0.698 p_model[min=0.330 max=0.337] p_target[min=0.331 max=0.335]
+2026-02-02 17:00:10,374 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=29 p_rel=0.7614 mask_mean=0.686 p_model[min=0.330 max=0.337] p_target[min=0.331 max=0.336]
+2026-02-02 17:00:10,376 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=30 p_rel=0.7741 mask_mean=0.709 p_model[min=0.330 max=0.337] p_target[min=0.331 max=0.336]
+2026-02-02 17:00:10,378 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=31 p_rel=0.7730 mask_mean=0.709 p_model[min=0.330 max=0.337] p_target[min=0.331 max=0.336]
+2026-02-02 17:00:10,379 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=32 p_rel=0.7734 mask_mean=0.698 p_model[min=0.330 max=0.338] p_target[min=0.331 max=0.336]
+2026-02-02 17:00:10,381 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=33 p_rel=0.7675 mask_mean=0.721 p_model[min=0.330 max=0.338] p_target[min=0.331 max=0.336]
+2026-02-02 17:00:10,383 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=34 p_rel=0.7742 mask_mean=0.698 p_model[min=0.330 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,385 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=35 p_rel=0.7790 mask_mean=0.721 p_model[min=0.330 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,386 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=36 p_rel=0.7799 mask_mean=0.733 p_model[min=0.330 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,388 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=37 p_rel=0.7785 mask_mean=0.709 p_model[min=0.329 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,390 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=38 p_rel=0.7878 mask_mean=0.698 p_model[min=0.329 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,391 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=39 p_rel=0.7838 mask_mean=0.721 p_model[min=0.329 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,393 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=40 p_rel=0.7979 mask_mean=0.698 p_model[min=0.329 max=0.338] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,395 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=41 p_rel=0.8132 mask_mean=0.651 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,396 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=42 p_rel=0.8108 mask_mean=0.698 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,398 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=43 p_rel=0.8133 mask_mean=0.733 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,400 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=44 p_rel=0.8093 mask_mean=0.744 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,401 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=45 p_rel=0.8204 mask_mean=0.686 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,403 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=46 p_rel=0.8247 mask_mean=0.721 p_model[min=0.329 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,405 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=47 p_rel=0.8235 mask_mean=0.733 p_model[min=0.328 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,406 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=48 p_rel=0.8310 mask_mean=0.756 p_model[min=0.328 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,408 DEBUG modssc.inductive.methods.adamatch adamatch.py:306: AdaMatch epoch=49 p_rel=0.8312 mask_mean=0.744 p_model[min=0.328 max=0.339] p_target[min=0.330 max=0.336]
+2026-02-02 17:00:10,409 INFO modssc.inductive.methods.adamatch adamatch.py:326: Finished adamatch.fit in 0.236s
+2026-02-02 17:00:10,409 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=adamatch duration_s=1.101
+2026-02-02 17:00:10,409 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 17:00:10,413 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.004
+2026-02-02 17:00:10,415 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/adamatch/tabular/iris/best_tabular_inductive_adamatch_iris-20260202T160008Z/run.json status=success duration_s=0.001

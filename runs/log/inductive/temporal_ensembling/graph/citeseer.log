@@ -1,0 +1,110 @@
+2026-02-02 14:57:02,406 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=citeseer download=True cache_dir=None
+2026-02-02 14:57:02,406 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 14:57:02,410 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 14:57:02,410 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=citeseer provider=pyg canonical_uri=pyg:Planetoid/CiteSeer
+2026-02-02 14:57:02,410 INFO modssc.data_loader.api api.py:117: Dataset load: id=citeseer provider=pyg version=None fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 14:57:02,410 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'CiteSeer'}}
+2026-02-02 14:57:02,423 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:57:02,423 INFO modssc.data_loader.api api.py:133: Dataset cached: id=citeseer train=3327 test=None n_classes=6 duration_s=0.017
+2026-02-02 14:57:02,423 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=3327 test=None graph=True fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 provider=pyg
+2026-02-02 14:57:02,423 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.017
+2026-02-02 14:57:02,471 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=citeseer
+2026-02-02 14:57:02,471 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 14:57:02,471 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744
+2026-02-02 14:57:02,472 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=citeseer dataset_fingerprint=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 seed=5 graph=True split=holdout
+2026-02-02 14:57:02,472 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 14:57:02,483 INFO modssc.sampling.api api.py:141: Sampling done: train=120 val=500 test=1000 labeled=24 unlabeled=96 duration_s=0.012
+2026-02-02 14:57:02,483 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:57:02,483 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=120 val=500 test=1000 labeled=24 unlabeled=96 graph=True
+2026-02-02 14:57:02,483 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 3327, 'train': 120, 'val': 500, 'test': 1000, 'labeled': 24, 'unlabeled': 96, 'labeled_class_dist': {'n': 24, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4}}}
+2026-02-02 14:57:02,484 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.012
+Inductive method on graph dataset; converting graph masks to indices.
+2026-02-02 14:57:02,484 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=4 fit_indices=24
+2026-02-02 14:57:02,484 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch']
+2026-02-02 14:57:02,484 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch'] output_key=features.X seed=5 cache=True
+2026-02-02 14:57:02,484 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(3327, 3703) train_y=(3327,) test_X=None test_y=None
+2026-02-02 14:57:02,484 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=47.2 MB test_data=n/a
+2026-02-02 14:57:02,484 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 14:57:02,487 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.003
+2026-02-02 14:57:02,487 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.003 train_data=47.2 MB test_data=n/a
+2026-02-02 14:57:02,487 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 14:57:02,583 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.097
+2026-02-02 14:57:02,584 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 14:57:02,584 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.097 train_data=47.2 MB test_data=n/a
+2026-02-02 14:57:02,584 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=graph.sparse_adjacency index=2 kind=transform params={'max_nodes': 20000, 'batch_size': 32, 'embed_epochs': 5, 'embed_lr': 0.01, 'undirected': True, 'device': 'auto'}
+2026-02-02 14:57:02,586 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for graph.sparse_adjacency (train): Incomplete cached outputs for step 'graph.sparse_adjacency' (train)
+2026-02-02 14:57:02,588 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=graph.sparse_adjacency keys=['features.X'] duration_s=0.004
+2026-02-02 14:57:02,588 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=graph.sparse_adjacency index=2 duration_s=0.004 train_data=47.3 MB test_data=n/a
+2026-02-02 14:57:02,588 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=3 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 14:57:02,589 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for core.to_torch (train): Incomplete cached outputs for step 'core.to_torch' (train)
+2026-02-02 14:57:02,593 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.005
+2026-02-02 14:57:02,593 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=3 duration_s=0.005 train_data=47.3 MB test_data=n/a
+2026-02-02 14:57:02,593 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 duration_s=0.109 train_X=None test_X=None
+2026-02-02 14:57:02,593 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:aa9a18f8888ae8bfd7b23144deb24cb21beda62d98043ce05c45e4b777de76e6 plan_fingerprint=resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744 skipped=[]
+2026-02-02 14:57:02,593 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=None test_X=None
+2026-02-02 14:57:02,593 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.110
+2026-02-02 14:57:04,912 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=5 n_samples=96 strong_views=1
+2026-02-02 14:57:04,912 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.feature_dropout']
+2026-02-02 14:57:04,938 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.025
+2026-02-02 14:57:04,938 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(96, 3703) strong=(96, 3703) strong_1=None
+2026-02-02 14:57:04,938 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=temporal_ensembling seed=3274374610 device=auto dtype=float32 model=graphsage_inductive
+2026-02-02 14:57:04,938 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'lambda_u': 1.0, 'unsup_warm_up': 0.4, 'batch_size': 128, 'max_epochs': 50, 'alpha': 0.6, 'freeze_bn': True, 'detach_target': True}
+2026-02-02 14:57:04,938 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=24 n_unlabeled=96
+2026-02-02 14:57:04,978 INFO modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:70: Starting temporal_ensembling.fit
+2026-02-02 14:57:04,978 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:71: params lambda_u=1.0 unsup_warm_up=0.4 batch_size=128 max_epochs=50 alpha=0.6 freeze_bn=True detach_target=True has_model_bundle=True device=DeviceSpec(device='auto', dtype='float32') seed=3274374610
+2026-02-02 14:57:04,978 INFO modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:104: Temporal Ensembling sizes: n_labeled=24 n_unlabeled=96
+2026-02-02 14:57:05,100 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=0 warm=0.000 sup_loss=1.7889 unsup_loss=0.0279 alpha=0.6
+2026-02-02 14:57:05,137 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=1 warm=0.050 sup_loss=1.7288 unsup_loss=0.0039 alpha=0.6
+2026-02-02 14:57:05,140 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=2 warm=0.100 sup_loss=1.6715 unsup_loss=0.0009 alpha=0.6
+2026-02-02 14:57:05,144 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=3 warm=0.150 sup_loss=1.6224 unsup_loss=0.0003 alpha=0.6
+2026-02-02 14:57:05,147 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=4 warm=0.200 sup_loss=1.5774 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,150 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=5 warm=0.250 sup_loss=1.5207 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,153 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=6 warm=0.300 sup_loss=1.4657 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,156 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=7 warm=0.350 sup_loss=1.3993 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,159 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=8 warm=0.400 sup_loss=1.3397 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,162 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=9 warm=0.450 sup_loss=1.2904 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,165 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=10 warm=0.500 sup_loss=1.2209 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,168 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=11 warm=0.550 sup_loss=1.1597 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,171 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=12 warm=0.600 sup_loss=1.1044 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,174 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=13 warm=0.650 sup_loss=1.0168 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,177 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=14 warm=0.700 sup_loss=0.9595 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,180 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=15 warm=0.750 sup_loss=0.8922 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,183 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=16 warm=0.800 sup_loss=0.8407 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,186 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=17 warm=0.850 sup_loss=0.7592 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,189 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=18 warm=0.900 sup_loss=0.7082 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,192 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=19 warm=0.950 sup_loss=0.6439 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,195 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=20 warm=1.000 sup_loss=0.5672 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,198 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=21 warm=1.000 sup_loss=0.5155 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,201 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=22 warm=1.000 sup_loss=0.4647 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,204 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=23 warm=1.000 sup_loss=0.4154 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,206 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=24 warm=1.000 sup_loss=0.3613 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,209 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=25 warm=1.000 sup_loss=0.3389 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,212 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=26 warm=1.000 sup_loss=0.2935 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,215 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=27 warm=1.000 sup_loss=0.2690 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,218 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=28 warm=1.000 sup_loss=0.2358 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,222 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=29 warm=1.000 sup_loss=0.2037 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,225 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=30 warm=1.000 sup_loss=0.1748 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,228 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=31 warm=1.000 sup_loss=0.1528 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,231 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=32 warm=1.000 sup_loss=0.1482 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,234 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=33 warm=1.000 sup_loss=0.1267 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,237 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=34 warm=1.000 sup_loss=0.1129 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,240 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=35 warm=1.000 sup_loss=0.1017 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,243 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=36 warm=1.000 sup_loss=0.0768 unsup_loss=0.0000 alpha=0.6
+2026-02-02 14:57:05,246 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=37 warm=1.000 sup_loss=0.0795 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,249 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=38 warm=1.000 sup_loss=0.0654 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,252 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=39 warm=1.000 sup_loss=0.0608 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,255 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=40 warm=1.000 sup_loss=0.0560 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,258 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=41 warm=1.000 sup_loss=0.0492 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,261 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=42 warm=1.000 sup_loss=0.0440 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,264 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=43 warm=1.000 sup_loss=0.0375 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,267 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=44 warm=1.000 sup_loss=0.0328 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,270 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=45 warm=1.000 sup_loss=0.0297 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,273 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=46 warm=1.000 sup_loss=0.0328 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,276 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=47 warm=1.000 sup_loss=0.0255 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,278 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=48 warm=1.000 sup_loss=0.0252 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,281 DEBUG modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:231: TemporalEnsembling epoch=49 warm=1.000 sup_loss=0.0209 unsup_loss=0.0001 alpha=0.6
+2026-02-02 14:57:05,283 INFO modssc.inductive.methods.temporal_ensembling temporal_ensembling.py:257: Finished temporal_ensembling.fit in 0.305s
+2026-02-02 14:57:05,283 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=temporal_ensembling duration_s=0.345
+2026-02-02 14:57:05,283 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 14:57:05,294 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.011
+2026-02-02 14:57:05,296 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/temporal_ensembling/graph/citeseer/best_graph_inductive_temporal_ensembling_citeseer-20260202T135702Z/run.json status=success duration_s=0.002

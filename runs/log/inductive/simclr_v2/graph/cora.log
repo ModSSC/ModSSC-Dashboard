@@ -1,0 +1,130 @@
+2026-02-02 15:08:01,981 INFO bench.orchestrators.dataset dataset.py:36: Dataset start: id=cora download=True cache_dir=None
+2026-02-02 15:08:01,981 DEBUG bench.orchestrators.dataset dataset.py:42: Dataset options: []
+2026-02-02 15:08:01,985 DEBUG modssc.data_loader.providers __init__.py:38: Creating provider: pyg
+2026-02-02 15:08:01,985 DEBUG modssc.data_loader.api api.py:316: Resolved dataset id=cora provider=pyg canonical_uri=pyg:Planetoid/Cora
+2026-02-02 15:08:01,985 INFO modssc.data_loader.api api.py:117: Dataset load: id=cora provider=pyg version=None fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 download=True force=False cache_dir=/nfs/home/mbarbaux/ModSSC/cache/datasets
+2026-02-02 15:08:01,985 DEBUG modssc.data_loader.api api.py:127: Dataset resolved_kwargs: {'dataset_class': 'Planetoid', 'dataset_kwargs': {'name': 'Cora'}}
+2026-02-02 15:08:01,990 DEBUG modssc.data_loader.api api.py:403: Loaded cached dataset: fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:08:01,991 INFO modssc.data_loader.api api.py:133: Dataset cached: id=cora train=2708 test=None n_classes=7 duration_s=0.009
+2026-02-02 15:08:01,991 INFO bench.orchestrators.dataset dataset.py:54: Dataset loaded: train=2708 test=None graph=True fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 provider=pyg
+2026-02-02 15:08:01,991 INFO bench.orchestrators.dataset dataset.py:62: Dataset stage done: duration_s=0.009
+2026-02-02 15:08:02,038 INFO bench.orchestrators.sampling sampling.py:86: Sampling start: seed=5 dataset_id=cora
+2026-02-02 15:08:02,038 DEBUG bench.orchestrators.sampling sampling.py:87: Sampling plan: split={'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True} labeling={'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None} imbalance={'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1} policy={'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}
+2026-02-02 15:08:02,038 DEBUG bench.orchestrators.sampling sampling.py:98: Sampling dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728
+2026-02-02 15:08:02,038 INFO modssc.sampling.api api.py:99: Sampling start: dataset_id=cora dataset_fingerprint=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 seed=5 graph=True split=holdout
+2026-02-02 15:08:02,038 DEBUG modssc.sampling.api api.py:107: Sampling plan: {'split': {'kind': 'holdout', 'test_fraction': 0.2, 'val_fraction': 0.1, 'stratify': True, 'shuffle': True}, 'labeling': {'mode': 'fraction', 'value': 0.2, 'per_class': False, 'min_per_class': 1, 'strategy': 'balanced', 'fixed_indices': None}, 'imbalance': {'kind': 'none', 'apply_to': 'train', 'max_per_class': None, 'alpha': None, 'min_per_class': 1}, 'policy': {'respect_official_test': True, 'use_official_graph_masks': True, 'allow_override_official': False}}
+2026-02-02 15:08:02,050 INFO modssc.sampling.api api.py:141: Sampling done: train=140 val=500 test=1000 labeled=28 unlabeled=112 duration_s=0.011
+2026-02-02 15:08:02,050 DEBUG modssc.sampling.api api.py:150: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:08:02,050 INFO bench.orchestrators.sampling sampling.py:123: Sampling result: train=140 val=500 test=1000 labeled=28 unlabeled=112 graph=True
+2026-02-02 15:08:02,050 DEBUG bench.orchestrators.sampling sampling.py:132: Sampling stats: {'nodes': 2708, 'train': 140, 'val': 500, 'test': 1000, 'labeled': 28, 'unlabeled': 112, 'labeled_class_dist': {'n': 28, 'classes': {'0': 4, '1': 4, '2': 4, '3': 4, '4': 4, '5': 4, '6': 4}}}
+2026-02-02 15:08:02,050 INFO bench.orchestrators.sampling sampling.py:133: Sampling stage done: duration_s=0.012
+Inductive method on graph dataset; converting graph masks to indices.
+2026-02-02 15:08:02,050 INFO bench.orchestrators.preprocess preprocess.py:105: Preprocess start: seed=5 cache=True n_steps=4 fit_indices=28
+2026-02-02 15:08:02,050 DEBUG bench.orchestrators.preprocess preprocess.py:112: Preprocess plan: output_key=features.X steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch']
+2026-02-02 15:08:02,050 INFO modssc.preprocess.api api.py:490: Preprocess start: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 steps=['labels.encode', 'labels.to_torch', 'graph.sparse_adjacency', 'core.to_torch'] output_key=features.X seed=5 cache=True
+2026-02-02 15:08:02,050 DEBUG modssc.preprocess.api api.py:498: Preprocess input shapes: train_X=(2708, 1433) train_y=(2708,) test_X=None test_y=None
+2026-02-02 15:08:02,050 INFO modssc.preprocess.api api.py:505: Preprocess input size: train_data=15.0 MB test_data=n/a
+2026-02-02 15:08:02,050 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.encode index=0 kind=transform params={}
+2026-02-02 15:08:02,053 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.encode keys=['labels.classes', 'labels.y'] duration_s=0.002
+2026-02-02 15:08:02,053 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.encode index=0 duration_s=0.002 train_data=15.0 MB test_data=n/a
+2026-02-02 15:08:02,053 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=labels.to_torch index=1 kind=transform params={'device': 'auto', 'dtype': 'int64'}
+2026-02-02 15:08:02,145 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=labels.to_torch keys=['labels.y'] duration_s=0.092
+2026-02-02 15:08:02,145 INFO modssc.preprocess.api api.py:267: Preprocess GPU device: device=cuda:0 model=NVIDIA L40
+2026-02-02 15:08:02,145 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=labels.to_torch index=1 duration_s=0.093 train_data=15.0 MB test_data=n/a
+2026-02-02 15:08:02,145 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=graph.sparse_adjacency index=2 kind=transform params={'max_nodes': 20000, 'batch_size': 32, 'embed_epochs': 5, 'embed_lr': 0.01, 'undirected': True, 'device': 'auto'}
+2026-02-02 15:08:02,148 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for graph.sparse_adjacency (train): Incomplete cached outputs for step 'graph.sparse_adjacency' (train)
+2026-02-02 15:08:02,149 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=graph.sparse_adjacency keys=['features.X'] duration_s=0.004
+2026-02-02 15:08:02,149 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=graph.sparse_adjacency index=2 duration_s=0.004 train_data=15.2 MB test_data=n/a
+2026-02-02 15:08:02,149 DEBUG modssc.preprocess.api api.py:521: Preprocess step start: id=core.to_torch index=3 kind=transform params={'device': 'auto', 'dtype': 'float32'}
+2026-02-02 15:08:02,151 WARNING modssc.preprocess.api api.py:575: Preprocess cache miss for core.to_torch (train): Incomplete cached outputs for step 'core.to_torch' (train)
+2026-02-02 15:08:02,153 DEBUG modssc.preprocess.api api.py:605: Preprocess step train outputs: id=core.to_torch keys=['features.X'] duration_s=0.003
+2026-02-02 15:08:02,153 INFO modssc.preprocess.api api.py:679: Preprocess step done: id=core.to_torch index=3 duration_s=0.004 train_data=15.2 MB test_data=n/a
+2026-02-02 15:08:02,153 INFO modssc.preprocess.api api.py:730: Preprocess done: dataset_fp=2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 duration_s=0.103 train_X=None test_X=None
+2026-02-02 15:08:02,153 INFO bench.orchestrators.preprocess preprocess.py:124: Preprocess result: fingerprint=preprocess:169265f8bd8d4cf86a27523c10e74ddb6b072ed41e8057863440cf0ebfa9b6d2 plan_fingerprint=resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42 cache_dir=/nfs/home/mbarbaux/ModSSC/cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728 skipped=[]
+2026-02-02 15:08:02,153 DEBUG bench.orchestrators.preprocess preprocess.py:131: Preprocess output shapes: train_X=None test_X=None
+2026-02-02 15:08:02,153 INFO bench.orchestrators.preprocess preprocess.py:136: Preprocess stage done: duration_s=0.103
+2026-02-02 15:08:04,258 INFO bench.orchestrators.augmentation augmentation.py:66: Augmentation start: mode=fixed modality=tabular seed=5 n_samples=112 strong_views=1
+2026-02-02 15:08:04,258 DEBUG bench.orchestrators.augmentation augmentation.py:74: Augmentation steps: weak=['tabular.gaussian_noise'] strong=['tabular.feature_dropout']
+2026-02-02 15:08:04,286 INFO bench.orchestrators.augmentation augmentation.py:191: Augmentation done: duration_s=0.027
+2026-02-02 15:08:04,286 DEBUG bench.orchestrators.augmentation augmentation.py:192: Augmentation output shapes: weak=(112, 1433) strong=(112, 1433) strong_1=None
+2026-02-02 15:08:04,286 INFO bench.orchestrators.method_inductive method_inductive.py:441: Inductive method start: id=simclr_v2 seed=3274374610 device=auto dtype=float32 model=graphsage_inductive
+2026-02-02 15:08:04,286 DEBUG bench.orchestrators.method_inductive method_inductive.py:470: Inductive method params: {'batch_size': 128, 'pretrain_epochs': 10, 'finetune_epochs': 50, 'distill_epochs': 10, 'temperature': 0.5, 'distill_temperature': 1.0, 'alpha': 0.5, 'transfer_pretrain': True, 'use_labeled_in_distill': True, 'freeze_bn': True, 'detach_target': True}
+2026-02-02 15:08:04,286 INFO bench.orchestrators.method_inductive method_inductive.py:476: Inductive method data: n_labeled=28 n_unlabeled=112
+2026-02-02 15:08:04,325 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:219: Starting simclr_v2.fit
+2026-02-02 15:08:04,325 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:220: params temperature=0.5 distill_temperature=1.0 alpha=0.5 batch_size=128 pretrain_epochs=10 finetune_epochs=50 distill_epochs=10 transfer_pretrain=True use_labeled_in_distill=True freeze_bn=True detach_target=True has_pretrain_bundle=True has_finetune_bundle=True has_student_bundle=False device=DeviceSpec(device='auto', dtype='float32') seed=3274374610
+2026-02-02 15:08:04,325 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:258: SimCLRv2 sizes: n_labeled=28 n_unlabeled=112
+2026-02-02 15:08:04,462 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=0 loss=4.4677
+2026-02-02 15:08:04,517 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=1 loss=4.2628
+2026-02-02 15:08:04,519 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=2 loss=4.1520
+2026-02-02 15:08:04,522 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=3 loss=4.0826
+2026-02-02 15:08:04,524 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=4 loss=4.0031
+2026-02-02 15:08:04,526 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=5 loss=3.9413
+2026-02-02 15:08:04,529 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=6 loss=3.9067
+2026-02-02 15:08:04,531 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=7 loss=3.8873
+2026-02-02 15:08:04,533 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=8 loss=3.8481
+2026-02-02 15:08:04,535 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:364: SimCLRv2 pretrain epoch=9 loss=3.8614
+2026-02-02 15:08:04,554 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=0 sup_loss=1.9494
+2026-02-02 15:08:04,557 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=1 sup_loss=1.9295
+2026-02-02 15:08:04,558 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=2 sup_loss=1.9095
+2026-02-02 15:08:04,559 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=3 sup_loss=1.8940
+2026-02-02 15:08:04,560 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=4 sup_loss=1.8772
+2026-02-02 15:08:04,562 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=5 sup_loss=1.8626
+2026-02-02 15:08:04,563 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=6 sup_loss=1.8444
+2026-02-02 15:08:04,564 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=7 sup_loss=1.8271
+2026-02-02 15:08:04,565 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=8 sup_loss=1.8043
+2026-02-02 15:08:04,566 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=9 sup_loss=1.7910
+2026-02-02 15:08:04,567 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=10 sup_loss=1.7700
+2026-02-02 15:08:04,569 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=11 sup_loss=1.7425
+2026-02-02 15:08:04,570 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=12 sup_loss=1.7150
+2026-02-02 15:08:04,571 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=13 sup_loss=1.7000
+2026-02-02 15:08:04,572 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=14 sup_loss=1.6662
+2026-02-02 15:08:04,573 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=15 sup_loss=1.6382
+2026-02-02 15:08:04,574 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=16 sup_loss=1.6070
+2026-02-02 15:08:04,575 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=17 sup_loss=1.5761
+2026-02-02 15:08:04,577 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=18 sup_loss=1.5421
+2026-02-02 15:08:04,578 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=19 sup_loss=1.5158
+2026-02-02 15:08:04,579 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=20 sup_loss=1.4602
+2026-02-02 15:08:04,580 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=21 sup_loss=1.4178
+2026-02-02 15:08:04,581 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=22 sup_loss=1.3857
+2026-02-02 15:08:04,582 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=23 sup_loss=1.3704
+2026-02-02 15:08:04,584 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=24 sup_loss=1.3032
+2026-02-02 15:08:04,585 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=25 sup_loss=1.2498
+2026-02-02 15:08:04,586 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=26 sup_loss=1.2103
+2026-02-02 15:08:04,587 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=27 sup_loss=1.1611
+2026-02-02 15:08:04,588 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=28 sup_loss=1.1184
+2026-02-02 15:08:04,589 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=29 sup_loss=1.0587
+2026-02-02 15:08:04,591 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=30 sup_loss=1.0099
+2026-02-02 15:08:04,592 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=31 sup_loss=0.9539
+2026-02-02 15:08:04,593 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=32 sup_loss=0.9034
+2026-02-02 15:08:04,594 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=33 sup_loss=0.8622
+2026-02-02 15:08:04,595 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=34 sup_loss=0.8273
+2026-02-02 15:08:04,596 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=35 sup_loss=0.7581
+2026-02-02 15:08:04,598 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=36 sup_loss=0.7399
+2026-02-02 15:08:04,599 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=37 sup_loss=0.6540
+2026-02-02 15:08:04,600 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=38 sup_loss=0.6143
+2026-02-02 15:08:04,601 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=39 sup_loss=0.5833
+2026-02-02 15:08:04,602 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=40 sup_loss=0.5455
+2026-02-02 15:08:04,603 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=41 sup_loss=0.5061
+2026-02-02 15:08:04,604 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=42 sup_loss=0.4597
+2026-02-02 15:08:04,606 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=43 sup_loss=0.4151
+2026-02-02 15:08:04,607 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=44 sup_loss=0.3862
+2026-02-02 15:08:04,608 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=45 sup_loss=0.3533
+2026-02-02 15:08:04,609 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=46 sup_loss=0.3358
+2026-02-02 15:08:04,610 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=47 sup_loss=0.2975
+2026-02-02 15:08:04,611 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=48 sup_loss=0.2640
+2026-02-02 15:08:04,613 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:411: SimCLRv2 finetune epoch=49 sup_loss=0.2658
+2026-02-02 15:08:04,616 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=0 sup_loss=0.2560 distill_loss=1.9072
+2026-02-02 15:08:04,620 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=1 sup_loss=0.2376 distill_loss=1.9055
+2026-02-02 15:08:04,622 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=2 sup_loss=0.2071 distill_loss=1.9040
+2026-02-02 15:08:04,625 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=3 sup_loss=0.1920 distill_loss=1.9029
+2026-02-02 15:08:04,628 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=4 sup_loss=0.1800 distill_loss=1.9027
+2026-02-02 15:08:04,630 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=5 sup_loss=0.1695 distill_loss=1.9019
+2026-02-02 15:08:04,633 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=6 sup_loss=0.1609 distill_loss=1.9018
+2026-02-02 15:08:04,636 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=7 sup_loss=0.1489 distill_loss=1.9019
+2026-02-02 15:08:04,638 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=8 sup_loss=0.1439 distill_loss=1.9010
+2026-02-02 15:08:04,641 DEBUG modssc.inductive.methods.simclr_v2 simclr_v2.py:520: SimCLRv2 distill epoch=9 sup_loss=0.1341 distill_loss=1.9013
+2026-02-02 15:08:04,642 INFO modssc.inductive.methods.simclr_v2 simclr_v2.py:542: Finished simclr_v2.fit in 0.317s
+2026-02-02 15:08:04,642 INFO bench.orchestrators.method_inductive method_inductive.py:550: Inductive method done: id=simclr_v2 duration_s=0.356
+2026-02-02 15:08:04,642 INFO bench.orchestrators.evaluation evaluation.py:189: Evaluation (inductive): splits=['val', 'test'] metrics=['accuracy', 'macro_f1']
+2026-02-02 15:08:04,645 INFO bench.orchestrators.evaluation evaluation.py:231: Evaluation (inductive) done: duration_s=0.003
+2026-02-02 15:08:04,646 INFO bench.orchestrators.reporting reporting.py:54: Run summary written: /nfs/home/mbarbaux/ModSSC/runs/inductive/simclr_v2/graph/cora/best_graph_inductive_simclr_v2_cora-20260202T140801Z/run.json status=success duration_s=0.001
