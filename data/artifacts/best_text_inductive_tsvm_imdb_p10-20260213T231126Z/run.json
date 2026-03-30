@@ -1,0 +1,241 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b40044ec362367c67ce608654c4857ccd1a190f348530bbca547afa258e73f50",
+      "id": "imdb",
+      "info": {
+        "citation": null,
+        "description": "IMDB (Hugging Face datasets).",
+        "homepage": null,
+        "key": "imdb",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:imdb"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "tsvm",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/b40044ec362367c67ce608654c4857ccd1a190f348530bbca547afa258e73f50",
+      "fit_fingerprint": "fit:3f18d64f476de9eceb723e108b8ec1a0321da49c43a6f43863e23cde2affb42a",
+      "plan_fingerprint": "resolved_plan:2d415473f3c5c23f003dcd29ea85574353b8833cfa20fc26efffc5ba14c722ae",
+      "preprocess_fingerprint": "preprocess:8dc9d36963f3457c89d418ac1cba25573682c89e73c55f984ba84455b4723f9d",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "86f3018b6386245c5d57d762d8e8e32a2bb24fb1611b01411adee6650d7ecad7",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 12500,
+            "1": 12500
+          },
+          "n": 25000
+        },
+        "train": {
+          "classes": {
+            "0": 11250,
+            "1": 11250
+          },
+          "n": 22500
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 1125,
+            "1": 1125
+          },
+          "n": 2250
+        },
+        "train_unlabeled": {
+          "n": 20250
+        },
+        "val": {
+          "classes": {
+            "0": 1250,
+            "1": 1250
+          },
+          "n": 2500
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "imdb",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "tsvm",
+      "model": null,
+      "params": {
+        "C_l": 1.0,
+        "C_u_max": 1.0,
+        "balance": true,
+        "batch_size": 128,
+        "epochs_per_iter": 5,
+        "l2": 1.0,
+        "lr": 0.1,
+        "max_iter": 10
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.vocab_tokenizer",
+            "params": {
+              "max_length": 256,
+              "vocab_size": 20000
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_tsvm_imdb_p10",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p10/inductive/tsvm/text/imdb",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": null
+  },
+  "error": "InductiveValidationError: X_l must be float32 or float64 for TSVM.",
+  "hpo": null,
+  "metrics": null,
+  "run": {
+    "config_path": "bench/configs/experiments/best/p10/inductive/tsvm/text/imdb.yaml",
+    "finished_at": "2026-02-13T23:11:27.956571+00:00",
+    "name": "best_text_inductive_tsvm_imdb_p10",
+    "seed": 2,
+    "started_at": "2026-02-13T23:11:26.813520+00:00",
+    "status": "failed"
+  }
+}

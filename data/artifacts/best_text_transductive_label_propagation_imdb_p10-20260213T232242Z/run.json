@@ -1,0 +1,279 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "58fab0ad71a2d0aeb12650ac2c8a40bfa7bf5d23534db8462bff7c12fc101c60",
+      "id": "imdb",
+      "info": {
+        "citation": null,
+        "description": "IMDB (Hugging Face datasets).",
+        "homepage": null,
+        "key": "imdb",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:imdb"
+      }
+    },
+    "graph": {
+      "fingerprint": "e3379465be914dafbfeb3640e2f675363e9e733d8f83cc17c2e92258a710e47c",
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "label_propagation",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/58fab0ad71a2d0aeb12650ac2c8a40bfa7bf5d23534db8462bff7c12fc101c60",
+      "fit_fingerprint": "fit:3f18d64f476de9eceb723e108b8ec1a0321da49c43a6f43863e23cde2affb42a",
+      "plan_fingerprint": "resolved_plan:4fda8116cca0403db890539d155ce14f7bb76f75a5a9162ca6572f52f679d80a",
+      "preprocess_fingerprint": "preprocess:d42cab1f556e06e499ac4477dbedb7fb1c5fafe03cb46a10899acb2eedeb8eaf",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "f98688452241767ec7e018d3cf666d2fd00546e2347f8a82a4850848c823b118",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 12500,
+            "1": 12500
+          },
+          "n": 25000
+        },
+        "train": {
+          "classes": {
+            "0": 11250,
+            "1": 11250
+          },
+          "n": 22500
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 1125,
+            "1": 1125
+          },
+          "n": 2250
+        },
+        "train_unlabeled": {
+          "n": 20250
+        },
+        "val": {
+          "classes": {
+            "0": 1250,
+            "1": 1250
+          },
+          "n": 2500
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "imdb",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/graphs",
+      "enabled": true,
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "label_propagation",
+      "model": null,
+      "params": {
+        "max_iter": 200,
+        "norm": "rw",
+        "normalize_rows": true,
+        "tol": 1e-06
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_transductive_label_propagation_imdb_p10",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p10/transductive/label_propagation/text/imdb",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.65628,
+      "macro_f1": 0.6548928209875287
+    },
+    "val": {
+      "accuracy": 0.7036,
+      "macro_f1": 0.7035418942112655
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p10/transductive/label_propagation/text/imdb.yaml",
+    "finished_at": "2026-02-13T23:22:43.686451+00:00",
+    "name": "best_text_transductive_label_propagation_imdb_p10",
+    "seed": 2,
+    "started_at": "2026-02-13T23:22:42.670883+00:00",
+    "status": "success"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": "1f9978509a49b4b784729653533b749706626e73ea3f12f84210a7adbc54f92a",
+      "seed": 6,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "lazy_random_walk",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "fit_fingerprint": "fit:b643b0129e154cd208229e7e31404b5d0ed0f0a59a3cbb50f5ac4be6764e4679",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:b7735b8c95ce62c0f3c02b3d95d50c07f968c33d3545597e6d2e798b4a1c9e1f",
+      "seed": 6
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6,
+      "split_fingerprint": "64dbf541464f7ae07a6440d098e2729196e7e1de567bbcebedad942c6ed089be",
+      "stats": {
+        "labeled": 2,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 1,
+            "1": 1
+          },
+          "n": 2
+        },
+        "nodes": 568,
+        "test": 221,
+        "train": 40,
+        "unlabeled": 38,
+        "val": 97
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "n_classes": 2,
+        "n_features": 4,
+        "n_samples": 64,
+        "official_test": true,
+        "test_size": 0.25
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": null
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/graphs",
+      "enabled": true,
+      "seed": 6,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "lazy_random_walk",
+      "model": null,
+      "params": {
+        "alpha": 0.99
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 6
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_lazy_random_walk_cora_p01",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p01/transductive/lazy_random_walk/graph/cora",
+      "seed": 6
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6244343891402715,
+      "macro_f1": 0.4674080311256932
+    },
+    "val": {
+      "accuracy": 0.6494845360824743,
+      "macro_f1": 0.44365721997300944
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p01/transductive/lazy_random_walk/graph/cora.yaml",
+    "finished_at": "2026-02-13T17:37:58.660123+00:00",
+    "name": "best_graph_lazy_random_walk_cora_p01",
+    "seed": 6,
+    "started_at": "2026-02-13T17:37:58.105830+00:00",
+    "status": "success"
+  }
+}

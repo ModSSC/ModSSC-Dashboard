@@ -1,0 +1,338 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 3
+    },
+    "dataset": {
+      "fingerprint": "46bfdd98e26ed954f611b41565bc64a3ba5b5497773f2f92a7ebeaa8ff465a58",
+      "id": "cifar10",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-10 (torchvision).",
+        "homepage": null,
+        "key": "cifar10",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR10"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "adamatch",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/46bfdd98e26ed954f611b41565bc64a3ba5b5497773f2f92a7ebeaa8ff465a58",
+      "fit_fingerprint": "fit:a630cd2cf1f3128a03ca27db94f372b9f93df23b4eb02e188d75f0a827a49fd4",
+      "plan_fingerprint": "resolved_plan:9277cc7a85201df1623edc176bc7c3834a949f763e57143ad5470e4092a8d5a7",
+      "preprocess_fingerprint": "preprocess:7960e62b9a347ebed611044d23a66be50a94ce069c95e3c32ec1074966e8df92",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "c5ff68afd3975d02466ad37389c989020fe82c860ca7487163426bad945e68bf",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1000,
+            "1": 1000,
+            "2": 1000,
+            "3": 1000,
+            "4": 1000,
+            "5": 1000,
+            "6": 1000,
+            "7": 1000,
+            "8": 1000,
+            "9": 1000
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 4500,
+            "1": 4500,
+            "2": 4500,
+            "3": 4500,
+            "4": 4500,
+            "5": 4500,
+            "6": 4500,
+            "7": 4500,
+            "8": 4500,
+            "9": 4500
+          },
+          "n": 45000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 900,
+            "1": 900,
+            "2": 900,
+            "3": 900,
+            "4": 900,
+            "5": 900,
+            "6": 900,
+            "7": 900,
+            "8": 900,
+            "9": 900
+          },
+          "n": 9000
+        },
+        "train_unlabeled": {
+          "n": 36000
+        },
+        "val": {
+          "classes": {
+            "0": 500,
+            "1": 500,
+            "2": 500,
+            "3": 500,
+            "4": 500,
+            "5": 500,
+            "6": 500,
+            "7": 500,
+            "8": 500,
+            "9": 500
+          },
+          "n": 5000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "vision",
+      "mode": "fixed",
+      "seed": 3,
+      "strong": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 4
+            }
+          },
+          {
+            "id": "vision.random_horizontal_flip"
+          },
+          {
+            "id": "vision.cutout",
+            "params": {
+              "length": 16,
+              "n_holes": 1
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 4
+            }
+          },
+          {
+            "id": "vision.random_horizontal_flip"
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "cifar10",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "adamatch",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "image_pretrained",
+        "classifier_params": {
+          "batch_size": 32,
+          "freeze_backbone": false,
+          "input_layout": "channels_first",
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "model_name": "resnet18",
+          "weight_decay": 0.0001,
+          "weights": null
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "ema_p": 0.999,
+        "hard_label": true,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "p_cutoff": 0.95,
+        "temperature": 0.5,
+        "use_cat": false
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 224,
+              "width": 224
+            }
+          },
+          {
+            "id": "core.copy_raw"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_inductive_adamatch_cifar10",
+      "output_dir": "/home/mbarbaux/scratch/runs/inductive/adamatch/vision/cifar10",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6137,
+      "macro_f1": 0.6097506121226265
+    },
+    "val": {
+      "accuracy": 0.6276,
+      "macro_f1": 0.6241161314149084
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/inductive/adamatch/vision/cifar10.yaml",
+    "finished_at": "2026-02-06T11:02:25.954089+00:00",
+    "name": "best_vision_inductive_adamatch_cifar10",
+    "seed": 3,
+    "started_at": "2026-02-06T10:40:15.445098+00:00",
+    "status": "success"
+  }
+}

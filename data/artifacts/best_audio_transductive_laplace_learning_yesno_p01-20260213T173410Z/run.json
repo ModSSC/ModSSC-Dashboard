@@ -1,0 +1,263 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "id": "yesno",
+      "info": {
+        "citation": null,
+        "description": "YESNO (torchaudio). No official split (data_loader returns train only).",
+        "homepage": null,
+        "key": "yesno",
+        "license": null,
+        "modality": "audio",
+        "provider": "torchaudio",
+        "required_extra": "audio",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchaudio:YESNO"
+      }
+    },
+    "graph": {
+      "fingerprint": "84b81e1be31e0e886ab7dc45acdb9bcd056b879002458da4e5d7aa85bec0afc0",
+      "seed": 4,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "laplace_learning",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "fit_fingerprint": "fit:de928823a28cc2f8858fa8d51a30d061197d4e8b76f9774213af971c1a092457",
+      "plan_fingerprint": "resolved_plan:4588f7b5d37f3002bcd19f58396b2dc29c84a4cec36ee81e3c95abf48f233466",
+      "preprocess_fingerprint": "preprocess:e98a29cc0295e16cab36eaad1f3f4992e1570f95edf408218871e0300e92d96b",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "f6cb459630bc582918e3c7382b2940ed9c047cdde91ef6ce72ad9e93f5620c67",
+      "stats": {
+        "policy": {
+          "has_official_test": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "no": 6,
+            "yes": 6
+          },
+          "n": 12
+        },
+        "train": {
+          "classes": {
+            "no": 22,
+            "yes": 21
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "no": 1,
+            "yes": 1
+          },
+          "n": 2
+        },
+        "train_unlabeled": {
+          "n": 41
+        },
+        "val": {
+          "classes": {
+            "no": 3,
+            "yes": 2
+          },
+          "n": 5
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "yesno",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/graphs",
+      "enabled": true,
+      "seed": 4,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "laplace_learning",
+      "model": null,
+      "params": {}
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "audio.wav2vec2",
+            "params": {
+              "batch_size": 8
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_audio_transductive_laplace_learning_yesno_p01",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p01/transductive/laplace_learning/audio/yesno",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.3333333333333333,
+      "macro_f1": 0.3142857142857143
+    },
+    "val": {
+      "accuracy": 0.6,
+      "macro_f1": 0.37499999999999994
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p01/transductive/laplace_learning/audio/yesno.yaml",
+    "finished_at": "2026-02-13T17:34:10.697116+00:00",
+    "name": "best_audio_transductive_laplace_learning_yesno_p01",
+    "seed": 4,
+    "started_at": "2026-02-13T17:34:10.334804+00:00",
+    "status": "success"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "id": "mnist",
+      "info": {
+        "citation": null,
+        "description": "MNIST (torchvision).",
+        "homepage": null,
+        "key": "mnist",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:MNIST"
+      }
+    },
+    "graph": {
+      "fingerprint": "9a8fbafb718debec32b6fc30ecd2863759b1de7113962b7e196c6666f27a21f8",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "graphsage",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "fit_fingerprint": "fit:4b8182601e1c4f069286e8c9602416f3947f4a05c7302b0dec9a5922ce28f603",
+      "plan_fingerprint": "resolved_plan:38f44d8d624f3302d8410f7b4ec343f6734e45332b325a38c2dab9da321eac80",
+      "preprocess_fingerprint": "preprocess:2dfc2b308c6ceef2c4575e44a6dd0893bdfed83ff1b2a4b2cbeaf53b9f051f97",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "920608327903d16e5b718f4368f994764c852243c060c5fe6fa3ce89317dea98",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 980,
+            "1": 1135,
+            "2": 1032,
+            "3": 1010,
+            "4": 982,
+            "5": 892,
+            "6": 958,
+            "7": 1028,
+            "8": 974,
+            "9": 1009
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 5331,
+            "1": 6068,
+            "2": 5362,
+            "3": 5518,
+            "4": 5258,
+            "5": 4879,
+            "6": 5326,
+            "7": 5638,
+            "8": 5266,
+            "9": 5354
+          },
+          "n": 54000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 540,
+            "1": 540,
+            "2": 540,
+            "3": 540,
+            "4": 540,
+            "5": 540,
+            "6": 540,
+            "7": 540,
+            "8": 540,
+            "9": 540
+          },
+          "n": 5400
+        },
+        "train_unlabeled": {
+          "n": 48600
+        },
+        "val": {
+          "classes": {
+            "0": 592,
+            "1": 674,
+            "2": 596,
+            "3": 613,
+            "4": 584,
+            "5": 542,
+            "6": 592,
+            "7": 627,
+            "8": 585,
+            "9": 595
+          },
+          "n": 6000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "mnist",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/graphs",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graphsage",
+      "model": null,
+      "params": {
+        "add_self_loops": false,
+        "dropout": 0.5,
+        "hidden_dim": 32,
+        "lr": 0.01,
+        "max_epochs": 200,
+        "patience": 50,
+        "weight_decay": 0.0005
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NHWC"
+            }
+          },
+          {
+            "id": "vision.squeeze"
+          },
+          {
+            "id": "vision.openclip",
+            "params": {
+              "batch_size": 32
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_graphsage_mnist_p10",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p10/transductive/graphsage/vision/mnist",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9717,
+      "macro_f1": 0.9715241835226811
+    },
+    "val": {
+      "accuracy": 0.9701666666666666,
+      "macro_f1": 0.9700014770278559
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p10/transductive/graphsage/vision/mnist.yaml",
+    "finished_at": "2026-02-16T03:28:21.006913+00:00",
+    "name": "best_vision_transductive_graphsage_mnist_p10",
+    "seed": 3,
+    "started_at": "2026-02-16T03:28:17.628938+00:00",
+    "status": "success"
+  }
+}

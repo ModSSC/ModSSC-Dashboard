@@ -1,0 +1,291 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "c76cb0fcac607faf409fadd0539fd8d56833d7871e6ca7be3272c95526320b35",
+      "id": "ag_news",
+      "info": {
+        "citation": null,
+        "description": "AG News (Hugging Face datasets).",
+        "homepage": null,
+        "key": "ag_news",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:ag_news"
+      }
+    },
+    "graph": {
+      "fingerprint": "ccae7814575d02c754077713a0a39d2e74311daa1a242d301620100e06134059",
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "chebnet",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/c76cb0fcac607faf409fadd0539fd8d56833d7871e6ca7be3272c95526320b35",
+      "fit_fingerprint": "fit:81313b77364883b60c227883a478b40935f98b96cf430bf0c6cd68b3efc78d0b",
+      "plan_fingerprint": "resolved_plan:4fda8116cca0403db890539d155ce14f7bb76f75a5a9162ca6572f52f679d80a",
+      "preprocess_fingerprint": "preprocess:a02c022af9bc19d8240136e2e76d1e495b803018f1761faf5b77ac1e1d99805e",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "75c498152d9d02601b76cc35ece8593d68dba4a504b7606a6dce3625aa3f4475",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1900,
+            "1": 1900,
+            "2": 1900,
+            "3": 1900
+          },
+          "n": 7600
+        },
+        "train": {
+          "classes": {
+            "0": 27000,
+            "1": 27000,
+            "2": 27000,
+            "3": 27000
+          },
+          "n": 108000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5400,
+            "1": 5400,
+            "2": 5400,
+            "3": 5400
+          },
+          "n": 21600
+        },
+        "train_unlabeled": {
+          "n": 86400
+        },
+        "val": {
+          "classes": {
+            "0": 3000,
+            "1": 3000,
+            "2": 3000,
+            "3": 3000
+          },
+          "n": 12000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "ag_news",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/graph",
+      "enabled": true,
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "chebnet",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "dropout": 0.5,
+        "hidden_dim": 32,
+        "k": 2,
+        "lr": 0.01,
+        "max_epochs": 200,
+        "patience": 50,
+        "weight_decay": 0.0005
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_transductive_chebnet_ag_news",
+      "output_dir": "/home/mbarbaux/scratch/runs/transductive/chebnet/text/ag_news",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9064473684210527,
+      "macro_f1": 0.9062737697176747
+    },
+    "val": {
+      "accuracy": 0.9064166666666666,
+      "macro_f1": 0.9062668175833553
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/chebnet/text/ag_news.yaml",
+    "finished_at": "2026-02-10T19:12:49.728641+00:00",
+    "name": "best_text_transductive_chebnet_ag_news",
+    "seed": 2,
+    "started_at": "2026-02-10T19:12:34.228598+00:00",
+    "status": "success"
+  }
+}

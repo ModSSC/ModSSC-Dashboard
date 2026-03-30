@@ -1,0 +1,215 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "h_gcn",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "fit_fingerprint": "fit:c016ad296510fd3ee277c50ad23f0c794685f2e51cdf9bdf9239c9ca8278d66e",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:3b1d7cf74bb138369af0dd6faa7889dc109ebc655707a3cb66aa2541998c68e0",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "855dd1379762dc498ed8b7aca3eec9450266172d3efc1e70e6446d374462638e",
+      "stats": {
+        "labeled": 14,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 2,
+            "1": 2,
+            "2": 2,
+            "3": 2,
+            "4": 2,
+            "5": 2,
+            "6": 2
+          },
+          "n": 14
+        },
+        "nodes": 2708,
+        "test": 1000,
+        "train": 140,
+        "unlabeled": 126,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "h_gcn",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "channels": 4,
+        "dropout": 0.15,
+        "hidden_dim": 64,
+        "lr": 0.03,
+        "max_epochs": 250,
+        "num_layers": 9,
+        "patience": 50,
+        "symmetrize": true,
+        "weight_decay": 0.0007,
+        "weight_embed_dim": 8
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_transductive_h_gcn_cora_p10",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p10/transductive/h_gcn/graph/cora",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.392,
+      "macro_f1": 0.2910734444765188
+    },
+    "val": {
+      "accuracy": 0.362,
+      "macro_f1": 0.27858536746313606
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p10/transductive/h_gcn/graph/cora.yaml",
+    "finished_at": "2026-02-13T22:16:47.756232+00:00",
+    "name": "best_graph_transductive_h_gcn_cora_p10",
+    "seed": 5,
+    "started_at": "2026-02-13T22:16:45.021870+00:00",
+    "status": "success"
+  }
+}

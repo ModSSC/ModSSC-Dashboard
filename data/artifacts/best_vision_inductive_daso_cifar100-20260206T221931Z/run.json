@@ -1,0 +1,706 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 3
+    },
+    "dataset": {
+      "fingerprint": "b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "id": "cifar100",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-100 (torchvision).",
+        "homepage": null,
+        "key": "cifar100",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR100"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "daso",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "fit_fingerprint": "fit:ec26fa6e147528285008623c89328a19b879a9390474075aee4867be327ef767",
+      "plan_fingerprint": "resolved_plan:9277cc7a85201df1623edc176bc7c3834a949f763e57143ad5470e4092a8d5a7",
+      "preprocess_fingerprint": "preprocess:8b860feb6c448537afdefbecbea673847cf538d8a3c10496158415ccec1c36ca",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "95b71c509885e68efb3c386f30d8df88a4d0bb0ee8edc487108850636f981593",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 100,
+            "1": 100,
+            "10": 100,
+            "11": 100,
+            "12": 100,
+            "13": 100,
+            "14": 100,
+            "15": 100,
+            "16": 100,
+            "17": 100,
+            "18": 100,
+            "19": 100,
+            "2": 100,
+            "20": 100,
+            "21": 100,
+            "22": 100,
+            "23": 100,
+            "24": 100,
+            "25": 100,
+            "26": 100,
+            "27": 100,
+            "28": 100,
+            "29": 100,
+            "3": 100,
+            "30": 100,
+            "31": 100,
+            "32": 100,
+            "33": 100,
+            "34": 100,
+            "35": 100,
+            "36": 100,
+            "37": 100,
+            "38": 100,
+            "39": 100,
+            "4": 100,
+            "40": 100,
+            "41": 100,
+            "42": 100,
+            "43": 100,
+            "44": 100,
+            "45": 100,
+            "46": 100,
+            "47": 100,
+            "48": 100,
+            "49": 100,
+            "5": 100,
+            "50": 100,
+            "51": 100,
+            "52": 100,
+            "53": 100,
+            "54": 100,
+            "55": 100,
+            "56": 100,
+            "57": 100,
+            "58": 100,
+            "59": 100,
+            "6": 100,
+            "60": 100,
+            "61": 100,
+            "62": 100,
+            "63": 100,
+            "64": 100,
+            "65": 100,
+            "66": 100,
+            "67": 100,
+            "68": 100,
+            "69": 100,
+            "7": 100,
+            "70": 100,
+            "71": 100,
+            "72": 100,
+            "73": 100,
+            "74": 100,
+            "75": 100,
+            "76": 100,
+            "77": 100,
+            "78": 100,
+            "79": 100,
+            "8": 100,
+            "80": 100,
+            "81": 100,
+            "82": 100,
+            "83": 100,
+            "84": 100,
+            "85": 100,
+            "86": 100,
+            "87": 100,
+            "88": 100,
+            "89": 100,
+            "9": 100,
+            "90": 100,
+            "91": 100,
+            "92": 100,
+            "93": 100,
+            "94": 100,
+            "95": 100,
+            "96": 100,
+            "97": 100,
+            "98": 100,
+            "99": 100
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 450,
+            "1": 450,
+            "10": 450,
+            "11": 450,
+            "12": 450,
+            "13": 450,
+            "14": 450,
+            "15": 450,
+            "16": 450,
+            "17": 450,
+            "18": 450,
+            "19": 450,
+            "2": 450,
+            "20": 450,
+            "21": 450,
+            "22": 450,
+            "23": 450,
+            "24": 450,
+            "25": 450,
+            "26": 450,
+            "27": 450,
+            "28": 450,
+            "29": 450,
+            "3": 450,
+            "30": 450,
+            "31": 450,
+            "32": 450,
+            "33": 450,
+            "34": 450,
+            "35": 450,
+            "36": 450,
+            "37": 450,
+            "38": 450,
+            "39": 450,
+            "4": 450,
+            "40": 450,
+            "41": 450,
+            "42": 450,
+            "43": 450,
+            "44": 450,
+            "45": 450,
+            "46": 450,
+            "47": 450,
+            "48": 450,
+            "49": 450,
+            "5": 450,
+            "50": 450,
+            "51": 450,
+            "52": 450,
+            "53": 450,
+            "54": 450,
+            "55": 450,
+            "56": 450,
+            "57": 450,
+            "58": 450,
+            "59": 450,
+            "6": 450,
+            "60": 450,
+            "61": 450,
+            "62": 450,
+            "63": 450,
+            "64": 450,
+            "65": 450,
+            "66": 450,
+            "67": 450,
+            "68": 450,
+            "69": 450,
+            "7": 450,
+            "70": 450,
+            "71": 450,
+            "72": 450,
+            "73": 450,
+            "74": 450,
+            "75": 450,
+            "76": 450,
+            "77": 450,
+            "78": 450,
+            "79": 450,
+            "8": 450,
+            "80": 450,
+            "81": 450,
+            "82": 450,
+            "83": 450,
+            "84": 450,
+            "85": 450,
+            "86": 450,
+            "87": 450,
+            "88": 450,
+            "89": 450,
+            "9": 450,
+            "90": 450,
+            "91": 450,
+            "92": 450,
+            "93": 450,
+            "94": 450,
+            "95": 450,
+            "96": 450,
+            "97": 450,
+            "98": 450,
+            "99": 450
+          },
+          "n": 45000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 90,
+            "1": 90,
+            "10": 90,
+            "11": 90,
+            "12": 90,
+            "13": 90,
+            "14": 90,
+            "15": 90,
+            "16": 90,
+            "17": 90,
+            "18": 90,
+            "19": 90,
+            "2": 90,
+            "20": 90,
+            "21": 90,
+            "22": 90,
+            "23": 90,
+            "24": 90,
+            "25": 90,
+            "26": 90,
+            "27": 90,
+            "28": 90,
+            "29": 90,
+            "3": 90,
+            "30": 90,
+            "31": 90,
+            "32": 90,
+            "33": 90,
+            "34": 90,
+            "35": 90,
+            "36": 90,
+            "37": 90,
+            "38": 90,
+            "39": 90,
+            "4": 90,
+            "40": 90,
+            "41": 90,
+            "42": 90,
+            "43": 90,
+            "44": 90,
+            "45": 90,
+            "46": 90,
+            "47": 90,
+            "48": 90,
+            "49": 90,
+            "5": 90,
+            "50": 90,
+            "51": 90,
+            "52": 90,
+            "53": 90,
+            "54": 90,
+            "55": 90,
+            "56": 90,
+            "57": 90,
+            "58": 90,
+            "59": 90,
+            "6": 90,
+            "60": 90,
+            "61": 90,
+            "62": 90,
+            "63": 90,
+            "64": 90,
+            "65": 90,
+            "66": 90,
+            "67": 90,
+            "68": 90,
+            "69": 90,
+            "7": 90,
+            "70": 90,
+            "71": 90,
+            "72": 90,
+            "73": 90,
+            "74": 90,
+            "75": 90,
+            "76": 90,
+            "77": 90,
+            "78": 90,
+            "79": 90,
+            "8": 90,
+            "80": 90,
+            "81": 90,
+            "82": 90,
+            "83": 90,
+            "84": 90,
+            "85": 90,
+            "86": 90,
+            "87": 90,
+            "88": 90,
+            "89": 90,
+            "9": 90,
+            "90": 90,
+            "91": 90,
+            "92": 90,
+            "93": 90,
+            "94": 90,
+            "95": 90,
+            "96": 90,
+            "97": 90,
+            "98": 90,
+            "99": 90
+          },
+          "n": 9000
+        },
+        "train_unlabeled": {
+          "n": 36000
+        },
+        "val": {
+          "classes": {
+            "0": 50,
+            "1": 50,
+            "10": 50,
+            "11": 50,
+            "12": 50,
+            "13": 50,
+            "14": 50,
+            "15": 50,
+            "16": 50,
+            "17": 50,
+            "18": 50,
+            "19": 50,
+            "2": 50,
+            "20": 50,
+            "21": 50,
+            "22": 50,
+            "23": 50,
+            "24": 50,
+            "25": 50,
+            "26": 50,
+            "27": 50,
+            "28": 50,
+            "29": 50,
+            "3": 50,
+            "30": 50,
+            "31": 50,
+            "32": 50,
+            "33": 50,
+            "34": 50,
+            "35": 50,
+            "36": 50,
+            "37": 50,
+            "38": 50,
+            "39": 50,
+            "4": 50,
+            "40": 50,
+            "41": 50,
+            "42": 50,
+            "43": 50,
+            "44": 50,
+            "45": 50,
+            "46": 50,
+            "47": 50,
+            "48": 50,
+            "49": 50,
+            "5": 50,
+            "50": 50,
+            "51": 50,
+            "52": 50,
+            "53": 50,
+            "54": 50,
+            "55": 50,
+            "56": 50,
+            "57": 50,
+            "58": 50,
+            "59": 50,
+            "6": 50,
+            "60": 50,
+            "61": 50,
+            "62": 50,
+            "63": 50,
+            "64": 50,
+            "65": 50,
+            "66": 50,
+            "67": 50,
+            "68": 50,
+            "69": 50,
+            "7": 50,
+            "70": 50,
+            "71": 50,
+            "72": 50,
+            "73": 50,
+            "74": 50,
+            "75": 50,
+            "76": 50,
+            "77": 50,
+            "78": 50,
+            "79": 50,
+            "8": 50,
+            "80": 50,
+            "81": 50,
+            "82": 50,
+            "83": 50,
+            "84": 50,
+            "85": 50,
+            "86": 50,
+            "87": 50,
+            "88": 50,
+            "89": 50,
+            "9": 50,
+            "90": 50,
+            "91": 50,
+            "92": 50,
+            "93": 50,
+            "94": 50,
+            "95": 50,
+            "96": 50,
+            "97": 50,
+            "98": 50,
+            "99": 50
+          },
+          "n": 5000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "vision",
+      "mode": "fixed",
+      "seed": 3,
+      "strong": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 4
+            }
+          },
+          {
+            "id": "vision.random_horizontal_flip"
+          },
+          {
+            "id": "vision.cutout",
+            "params": {
+              "length": 16,
+              "n_holes": 1
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 4
+            }
+          },
+          {
+            "id": "vision.random_horizontal_flip"
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "cifar100",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "daso",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "image_pretrained",
+        "classifier_params": {
+          "batch_size": 32,
+          "freeze_backbone": false,
+          "input_layout": "channels_first",
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "model_name": "resnet18",
+          "weight_decay": 0.0001,
+          "weights": null
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "dist_aware": true,
+        "dist_update_period": 100,
+        "ema_decay": 0.999,
+        "hard_label": true,
+        "interp_alpha": 0.5,
+        "lambda_align": 1.0,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "p_cutoff": 0.95,
+        "pretrain_steps": 5000,
+        "queue_size": 256,
+        "t_dist": 1.5,
+        "t_proto": 0.05,
+        "use_cat": false,
+        "use_ema": true
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 224,
+              "width": 224
+            }
+          },
+          {
+            "id": "core.copy_raw"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_inductive_daso_cifar100",
+      "output_dir": "/home/mbarbaux/scratch/runs/inductive/daso/vision/cifar100",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.0394,
+      "macro_f1": 0.04980506532494335
+    },
+    "val": {
+      "accuracy": 0.037,
+      "macro_f1": 0.04527876417018294
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/inductive/daso/vision/cifar100.yaml",
+    "finished_at": "2026-02-06T22:45:00.778855+00:00",
+    "name": "best_vision_inductive_daso_cifar100",
+    "seed": 3,
+    "started_at": "2026-02-06T22:19:31.443879+00:00",
+    "status": "success"
+  }
+}

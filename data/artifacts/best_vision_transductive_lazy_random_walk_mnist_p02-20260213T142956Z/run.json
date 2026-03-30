@@ -1,0 +1,285 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "08c07f29009414e4fdfabc0ae2fc8da74e9122d413c40e84d07976c140b799f6",
+      "id": "mnist",
+      "info": {
+        "citation": null,
+        "description": "MNIST (torchvision).",
+        "homepage": null,
+        "key": "mnist",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:MNIST"
+      }
+    },
+    "graph": {
+      "fingerprint": "c0e0f63db354ca610c116612bf172b3a7eb0a06a566cd0610cc8168e2f7507a9",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "lazy_random_walk",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/08c07f29009414e4fdfabc0ae2fc8da74e9122d413c40e84d07976c140b799f6",
+      "fit_fingerprint": "fit:23c942040440c820040cffd8e08981091fc306fa215ecc56cd6d15c4c41f9f12",
+      "plan_fingerprint": "resolved_plan:38f44d8d624f3302d8410f7b4ec343f6734e45332b325a38c2dab9da321eac80",
+      "preprocess_fingerprint": "preprocess:66b8144268495ae60421d643e7df5374a7d4b30b2c2a3909a3565e08859698e2",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.02
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "3a4151f8df7a6f04fe8deb621a0bc3b0dc2ccdacff2202a48e313c80b797f1e9",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 980,
+            "1": 1135
+          },
+          "n": 2115
+        },
+        "train": {
+          "classes": {
+            "0": 5331,
+            "1": 6068
+          },
+          "n": 11399
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 114,
+            "1": 114
+          },
+          "n": 228
+        },
+        "train_unlabeled": {
+          "n": 11171
+        },
+        "val": {
+          "classes": {
+            "0": 592,
+            "1": 674
+          },
+          "n": 1266
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "mnist",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/graphs",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "lazy_random_walk",
+      "model": null,
+      "params": {
+        "alpha": 0.99
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NHWC"
+            }
+          },
+          {
+            "id": "vision.squeeze"
+          },
+          {
+            "id": "vision.openclip",
+            "params": {
+              "batch_size": 32
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_lazy_random_walk_mnist_p02",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p02/transductive/lazy_random_walk/vision/mnist",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.02
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9995271867612293,
+      "macro_f1": 0.9995246004114735
+    },
+    "val": {
+      "accuracy": 0.9976303317535545,
+      "macro_f1": 0.9976196012487379
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p02/transductive/lazy_random_walk/vision/mnist.yaml",
+    "finished_at": "2026-02-13T14:30:00.636041+00:00",
+    "name": "best_vision_transductive_lazy_random_walk_mnist_p02",
+    "seed": 3,
+    "started_at": "2026-02-13T14:29:56.110949+00:00",
+    "status": "success"
+  }
+}

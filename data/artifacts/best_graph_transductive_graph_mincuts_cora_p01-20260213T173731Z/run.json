@@ -1,0 +1,207 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "graph_mincuts",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "fit_fingerprint": "fit:dbc8d7ab88326b7833e7dbc65865fd90865a2c8a7de5bd112b0c0443f7d39b16",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:77fd33d50768d241faf54879e8ecffc2470c4746fb9ec19b63ebee0355e57c30",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "d9620f636970d9a7fa81820daa2ca25907d40e850ffa1c73950e5497d897b8ff",
+      "stats": {
+        "labeled": 2,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 1,
+            "1": 1
+          },
+          "n": 2
+        },
+        "nodes": 568,
+        "test": 221,
+        "train": 40,
+        "unlabeled": 38,
+        "val": 97
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graph_mincuts",
+      "model": null,
+      "params": {
+        "backend": "scipy",
+        "capacity_scale": 1000.0,
+        "min_capacity": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_transductive_graph_mincuts_cora_p01",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p01/transductive/graph_mincuts/graph/cora",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.01
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.5882352941176471,
+      "macro_f1": 0.37037037037037035
+    },
+    "val": {
+      "accuracy": 0.6288659793814433,
+      "macro_f1": 0.3860759493670886
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/p01/transductive/graph_mincuts/graph/cora.yaml",
+    "finished_at": "2026-02-13T17:37:31.243427+00:00",
+    "name": "best_graph_transductive_graph_mincuts_cora_p01",
+    "seed": 5,
+    "started_at": "2026-02-13T17:37:31.014269+00:00",
+    "status": "success"
+  }
+}
