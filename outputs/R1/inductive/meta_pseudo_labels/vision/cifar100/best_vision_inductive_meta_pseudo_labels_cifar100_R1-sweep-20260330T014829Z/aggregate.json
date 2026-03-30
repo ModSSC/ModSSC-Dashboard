@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.01,
+        "mean": 0.01,
+        "min": 0.01,
+        "std": 0.0,
+        "values": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.00019801980198019803,
+        "mean": 0.00019801980198019803,
+        "min": 0.00019801980198019803,
+        "std": 0.0,
+        "values": [
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.01,
+        "mean": 0.01,
+        "min": 0.01,
+        "std": 0.0,
+        "values": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.00019801980198019803,
+        "mean": 0.00019801980198019803,
+        "min": 0.00019801980198019803,
+        "std": 0.0,
+        "values": [
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed3-b8e9e5983ab85f5c062d-20260330T014831Z",
+      "run_id": "b8e9e5983ab85f5c062d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed3-b8e9e5983ab85f5c062d-20260330T014831Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed4-4909e21dadf7ae2f4a08-20260330T015643Z",
+      "run_id": "4909e21dadf7ae2f4a08",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed4-4909e21dadf7ae2f4a08-20260330T015643Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed5-e92a023e8adf067053c4-20260330T020435Z",
+      "run_id": "e92a023e8adf067053c4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed5-e92a023e8adf067053c4-20260330T020435Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed6-65171c2caea0c571b042-20260330T021226Z",
+      "run_id": "65171c2caea0c571b042",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed6-65171c2caea0c571b042-20260330T021226Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed7-2cb4ad2fbec201997f52-20260330T022019Z",
+      "run_id": "2cb4ad2fbec201997f52",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z/best_vision_inductive_meta_pseudo_labels_cifar100_R1-seed7-2cb4ad2fbec201997f52-20260330T022019Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T02:28:23.328299+00:00",
+    "base_name": "best_vision_inductive_meta_pseudo_labels_cifar100_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/meta_pseudo_labels/vision/cifar100.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/meta_pseudo_labels/vision/cifar100/best_vision_inductive_meta_pseudo_labels_cifar100_R1-sweep-20260330T014829Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

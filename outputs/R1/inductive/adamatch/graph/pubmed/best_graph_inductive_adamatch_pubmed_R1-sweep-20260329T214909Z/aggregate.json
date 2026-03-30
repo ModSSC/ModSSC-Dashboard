@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.413,
+        "mean": 0.41059999999999997,
+        "min": 0.407,
+        "std": 0.0029393876913398165,
+        "values": [
+          0.413,
+          0.413,
+          0.413,
+          0.407,
+          0.407
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.1948572776598254,
+        "mean": 0.19405248552505894,
+        "min": 0.19284529732290925,
+        "std": 0.0009856650395915145,
+        "values": [
+          0.1948572776598254,
+          0.1948572776598254,
+          0.1948572776598254,
+          0.19284529732290925,
+          0.19284529732290925
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.416,
+        "mean": 0.3992,
+        "min": 0.388,
+        "std": 0.013717142559585782,
+        "values": [
+          0.388,
+          0.388,
+          0.388,
+          0.416,
+          0.416
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.19585687382297554,
+        "mean": 0.1901583114888444,
+        "min": 0.18635926993275698,
+        "std": 0.004652856662021594,
+        "values": [
+          0.18635926993275698,
+          0.18635926993275698,
+          0.18635926993275698,
+          0.19585687382297554,
+          0.19585687382297554
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.413,
+          "macro_f1": 0.1948572776598254
+        },
+        "val": {
+          "accuracy": 0.388,
+          "macro_f1": 0.18635926993275698
+        }
+      },
+      "name": "best_graph_inductive_adamatch_pubmed_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed5-5743b4ed748d6d63e9fb-20260329T214918Z",
+      "run_id": "5743b4ed748d6d63e9fb",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed5-5743b4ed748d6d63e9fb-20260329T214918Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.413,
+          "macro_f1": 0.1948572776598254
+        },
+        "val": {
+          "accuracy": 0.388,
+          "macro_f1": 0.18635926993275698
+        }
+      },
+      "name": "best_graph_inductive_adamatch_pubmed_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed6-548e856d230c62e2b4cc-20260329T214944Z",
+      "run_id": "548e856d230c62e2b4cc",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed6-548e856d230c62e2b4cc-20260329T214944Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.413,
+          "macro_f1": 0.1948572776598254
+        },
+        "val": {
+          "accuracy": 0.388,
+          "macro_f1": 0.18635926993275698
+        }
+      },
+      "name": "best_graph_inductive_adamatch_pubmed_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed7-cc5ab7a422a5cd1c36eb-20260329T214944Z",
+      "run_id": "cc5ab7a422a5cd1c36eb",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed7-cc5ab7a422a5cd1c36eb-20260329T214944Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.407,
+          "macro_f1": 0.19284529732290925
+        },
+        "val": {
+          "accuracy": 0.416,
+          "macro_f1": 0.19585687382297554
+        }
+      },
+      "name": "best_graph_inductive_adamatch_pubmed_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed8-0283d14f41ea424099c8-20260329T214944Z",
+      "run_id": "0283d14f41ea424099c8",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed8-0283d14f41ea424099c8-20260329T214944Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.407,
+          "macro_f1": 0.19284529732290925
+        },
+        "val": {
+          "accuracy": 0.416,
+          "macro_f1": 0.19585687382297554
+        }
+      },
+      "name": "best_graph_inductive_adamatch_pubmed_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed9-b111b02fdc8c9a9c7859-20260329T214945Z",
+      "run_id": "b111b02fdc8c9a9c7859",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z/best_graph_inductive_adamatch_pubmed_R1-seed9-b111b02fdc8c9a9c7859-20260329T214945Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:49:45.407991+00:00",
+    "base_name": "best_graph_inductive_adamatch_pubmed_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/adamatch/graph/pubmed.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adamatch/graph/pubmed/best_graph_inductive_adamatch_pubmed_R1-sweep-20260329T214909Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

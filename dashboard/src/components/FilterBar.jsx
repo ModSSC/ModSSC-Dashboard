@@ -7,6 +7,7 @@ const FilterBar = ({
     selectedModalities, setSelectedModalities, availableModalities,
     selectedDataset, setSelectedDataset, availableDatasets = []
 }) => {
+    const getModalityLabel = (m) => (m === 'vision' ? 'image' : m);
 
     const toggleModality = (m) => {
         if (selectedModalities.includes(m)) {
@@ -78,7 +79,7 @@ const FilterBar = ({
                                 )}
                                 onClick={() => toggleModality(m)}
                             >
-                                {m}
+                                {getModalityLabel(m)}
                             </Badge>
                         ))}
                     </div>

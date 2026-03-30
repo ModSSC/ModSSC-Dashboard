@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9642857142857143,
+        "mean": 0.6942857142857143,
+        "min": 0.3357142857142857,
+        "std": 0.2428739489983247,
+        "values": [
+          0.8285714285714286,
+          0.8642857142857143,
+          0.4785714285714286,
+          0.3357142857142857,
+          0.9642857142857143
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.960565601937919,
+        "mean": 0.6590783335963473,
+        "min": 0.2591749644381223,
+        "std": 0.2599892688233057,
+        "values": [
+          0.7756410256410255,
+          0.8415817997736883,
+          0.4584282761909808,
+          0.2591749644381223,
+          0.960565601937919
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9642857142857143,
+        "mean": 0.6714285714285715,
+        "min": 0.2857142857142857,
+        "std": 0.28180359349398376,
+        "values": [
+          0.7678571428571429,
+          0.9464285714285714,
+          0.39285714285714285,
+          0.2857142857142857,
+          0.9642857142857143
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9611111111111111,
+        "mean": 0.6339920453898948,
+        "min": 0.22222222222222224,
+        "std": 0.3038590157631441,
+        "values": [
+          0.7100756670649144,
+          0.9376623376623376,
+          0.3388888888888889,
+          0.22222222222222224,
+          0.9611111111111111
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8285714285714286,
+          "macro_f1": 0.7756410256410255
+        },
+        "val": {
+          "accuracy": 0.7678571428571429,
+          "macro_f1": 0.7100756670649144
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_breast_cancer_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed1-42c658cd0a5ea49d4c2f-20260328T232446Z",
+      "run_id": "42c658cd0a5ea49d4c2f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed1-42c658cd0a5ea49d4c2f-20260328T232446Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8642857142857143,
+          "macro_f1": 0.8415817997736883
+        },
+        "val": {
+          "accuracy": 0.9464285714285714,
+          "macro_f1": 0.9376623376623376
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_breast_cancer_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed2-ab2fdae9a1f11904c645-20260328T232452Z",
+      "run_id": "ab2fdae9a1f11904c645",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed2-ab2fdae9a1f11904c645-20260328T232452Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.4785714285714286,
+          "macro_f1": 0.4584282761909808
+        },
+        "val": {
+          "accuracy": 0.39285714285714285,
+          "macro_f1": 0.3388888888888889
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_breast_cancer_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed3-a35cb32c99dd8e88bbf9-20260328T232453Z",
+      "run_id": "a35cb32c99dd8e88bbf9",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed3-a35cb32c99dd8e88bbf9-20260328T232453Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3357142857142857,
+          "macro_f1": 0.2591749644381223
+        },
+        "val": {
+          "accuracy": 0.2857142857142857,
+          "macro_f1": 0.22222222222222224
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_breast_cancer_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed4-8946e186a0005b8d78cf-20260328T232454Z",
+      "run_id": "8946e186a0005b8d78cf",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed4-8946e186a0005b8d78cf-20260328T232454Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.960565601937919
+        },
+        "val": {
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.9611111111111111
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_breast_cancer_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed5-760b1511d0f1ce305be7-20260328T232455Z",
+      "run_id": "760b1511d0f1ce305be7",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z/best_tabular_inductive_mean_teacher_breast_cancer_R1-seed5-760b1511d0f1ce305be7-20260328T232455Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:24:55.911694+00:00",
+    "base_name": "best_tabular_inductive_mean_teacher_breast_cancer_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/tabular/breast_cancer.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/breast_cancer/best_tabular_inductive_mean_teacher_breast_cancer_R1-sweep-20260328T232443Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

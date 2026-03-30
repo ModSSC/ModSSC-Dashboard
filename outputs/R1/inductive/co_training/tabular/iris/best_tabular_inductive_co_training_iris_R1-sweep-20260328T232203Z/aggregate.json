@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9333333333333333,
+        "mean": 0.72,
+        "min": 0.4666666666666667,
+        "std": 0.19843834754849624,
+        "values": [
+          0.8,
+          0.9333333333333333,
+          0.9,
+          0.4666666666666667,
+          0.5
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9326599326599326,
+        "mean": 0.719105339105339,
+        "min": 0.4612794612794613,
+        "std": 0.20016167089516035,
+        "values": [
+          0.8030910609857979,
+          0.9326599326599326,
+          0.899749373433584,
+          0.4612794612794613,
+          0.49874686716791977
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 0.7333333333333333,
+        "min": 0.3333333333333333,
+        "std": 0.2953340857778225,
+        "values": [
+          0.9166666666666666,
+          1.0,
+          1.0,
+          0.3333333333333333,
+          0.4166666666666667
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 1.0,
+        "mean": 0.7365079365079366,
+        "min": 0.35978835978835977,
+        "std": 0.2901941557340048,
+        "values": [
+          0.9153439153439153,
+          1.0,
+          1.0,
+          0.35978835978835977,
+          0.40740740740740744
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8,
+          "macro_f1": 0.8030910609857979
+        },
+        "val": {
+          "accuracy": 0.9166666666666666,
+          "macro_f1": 0.9153439153439153
+        }
+      },
+      "name": "best_tabular_inductive_co_training_iris_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed1-5707720a108e4feacfc9-20260328T232206Z",
+      "run_id": "5707720a108e4feacfc9",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed1-5707720a108e4feacfc9-20260328T232206Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9333333333333333,
+          "macro_f1": 0.9326599326599326
+        },
+        "val": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0
+        }
+      },
+      "name": "best_tabular_inductive_co_training_iris_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed2-19b0036f890cbecfc9ef-20260328T232216Z",
+      "run_id": "19b0036f890cbecfc9ef",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed2-19b0036f890cbecfc9ef-20260328T232216Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9,
+          "macro_f1": 0.899749373433584
+        },
+        "val": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0
+        }
+      },
+      "name": "best_tabular_inductive_co_training_iris_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed3-cbd5f619371eaa6a9299-20260328T232219Z",
+      "run_id": "cbd5f619371eaa6a9299",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed3-cbd5f619371eaa6a9299-20260328T232219Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.4666666666666667,
+          "macro_f1": 0.4612794612794613
+        },
+        "val": {
+          "accuracy": 0.3333333333333333,
+          "macro_f1": 0.35978835978835977
+        }
+      },
+      "name": "best_tabular_inductive_co_training_iris_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed4-342f26f6a30c1fe794ae-20260328T232222Z",
+      "run_id": "342f26f6a30c1fe794ae",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed4-342f26f6a30c1fe794ae-20260328T232222Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5,
+          "macro_f1": 0.49874686716791977
+        },
+        "val": {
+          "accuracy": 0.4166666666666667,
+          "macro_f1": 0.40740740740740744
+        }
+      },
+      "name": "best_tabular_inductive_co_training_iris_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed5-101bac2e4d28f2b4b8b7-20260328T232226Z",
+      "run_id": "101bac2e4d28f2b4b8b7",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z/best_tabular_inductive_co_training_iris_R1-seed5-101bac2e4d28f2b4b8b7-20260328T232226Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:22:29.686377+00:00",
+    "base_name": "best_tabular_inductive_co_training_iris_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/co_training/tabular/iris.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/co_training/tabular/iris/best_tabular_inductive_co_training_iris_R1-sweep-20260328T232203Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

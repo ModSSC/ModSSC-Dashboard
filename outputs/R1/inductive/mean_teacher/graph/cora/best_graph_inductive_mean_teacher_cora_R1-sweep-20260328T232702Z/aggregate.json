@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.286,
+        "mean": 0.2508,
+        "min": 0.227,
+        "std": 0.020360746548199055,
+        "values": [
+          0.251,
+          0.227,
+          0.255,
+          0.235,
+          0.286
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.25142068350637947,
+        "mean": 0.2306908785828159,
+        "min": 0.21285444631259964,
+        "std": 0.012572117981494445,
+        "values": [
+          0.23310240859365847,
+          0.22468125945087772,
+          0.21285444631259964,
+          0.23139559505056426,
+          0.25142068350637947
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.28,
+        "mean": 0.2564,
+        "min": 0.22,
+        "std": 0.02087678136111983,
+        "values": [
+          0.28,
+          0.22,
+          0.26,
+          0.25,
+          0.272
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.26686590272215804,
+        "mean": 0.24034050366807827,
+        "min": 0.21543868980253994,
+        "std": 0.018032030148598933,
+        "values": [
+          0.26686590272215804,
+          0.21543868980253994,
+          0.2270704526958098,
+          0.24077119114077997,
+          0.25155628197910357
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.251,
+          "macro_f1": 0.23310240859365847
+        },
+        "val": {
+          "accuracy": 0.28,
+          "macro_f1": 0.26686590272215804
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_cora_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed5-fe7c7d70dde8795847fe-20260328T232705Z",
+      "run_id": "fe7c7d70dde8795847fe",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed5-fe7c7d70dde8795847fe-20260328T232705Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.227,
+          "macro_f1": 0.22468125945087772
+        },
+        "val": {
+          "accuracy": 0.22,
+          "macro_f1": 0.21543868980253994
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_cora_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed6-250c0e8efed61b432843-20260328T232713Z",
+      "run_id": "250c0e8efed61b432843",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed6-250c0e8efed61b432843-20260328T232713Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.255,
+          "macro_f1": 0.21285444631259964
+        },
+        "val": {
+          "accuracy": 0.26,
+          "macro_f1": 0.2270704526958098
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_cora_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed7-04de631ee76d2c7fe75e-20260328T232713Z",
+      "run_id": "04de631ee76d2c7fe75e",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed7-04de631ee76d2c7fe75e-20260328T232713Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.235,
+          "macro_f1": 0.23139559505056426
+        },
+        "val": {
+          "accuracy": 0.25,
+          "macro_f1": 0.24077119114077997
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_cora_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed8-98039bc3e62af0447a6b-20260328T232714Z",
+      "run_id": "98039bc3e62af0447a6b",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed8-98039bc3e62af0447a6b-20260328T232714Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.286,
+          "macro_f1": 0.25142068350637947
+        },
+        "val": {
+          "accuracy": 0.272,
+          "macro_f1": 0.25155628197910357
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_cora_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed9-5a49820d30d0f918519c-20260328T232715Z",
+      "run_id": "5a49820d30d0f918519c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z/best_graph_inductive_mean_teacher_cora_R1-seed9-5a49820d30d0f918519c-20260328T232715Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:27:16.028487+00:00",
+    "base_name": "best_graph_inductive_mean_teacher_cora_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/graph/cora.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/cora/best_graph_inductive_mean_teacher_cora_R1-sweep-20260328T232702Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

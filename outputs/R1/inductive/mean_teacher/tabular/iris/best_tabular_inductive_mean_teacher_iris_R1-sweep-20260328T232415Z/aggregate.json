@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.8666666666666667,
+        "mean": 0.7666666666666667,
+        "min": 0.6,
+        "std": 0.09189365834726816,
+        "values": [
+          0.6,
+          0.8333333333333334,
+          0.7666666666666667,
+          0.7666666666666667,
+          0.8666666666666667
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.8659932659932661,
+        "mean": 0.7622135186968947,
+        "min": 0.5846273291925467,
+        "std": 0.0963615144775696,
+        "values": [
+          0.5846273291925467,
+          0.825481707834649,
+          0.7730605285592498,
+          0.7619047619047619,
+          0.8659932659932661
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9166666666666666,
+        "mean": 0.7333333333333333,
+        "min": 0.5,
+        "std": 0.19293061504650375,
+        "values": [
+          0.5,
+          0.9166666666666666,
+          0.5,
+          0.9166666666666666,
+          0.8333333333333334
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9153439153439153,
+        "mean": 0.7256613756613757,
+        "min": 0.4611111111111111,
+        "std": 0.1979643611890772,
+        "values": [
+          0.4611111111111111,
+          0.9153439153439153,
+          0.5142857142857143,
+          0.9153439153439153,
+          0.8222222222222223
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.6,
+          "macro_f1": 0.5846273291925467
+        },
+        "val": {
+          "accuracy": 0.5,
+          "macro_f1": 0.4611111111111111
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_iris_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed1-637d7301df098ab8ee0e-20260328T232418Z",
+      "run_id": "637d7301df098ab8ee0e",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed1-637d7301df098ab8ee0e-20260328T232418Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8333333333333334,
+          "macro_f1": 0.825481707834649
+        },
+        "val": {
+          "accuracy": 0.9166666666666666,
+          "macro_f1": 0.9153439153439153
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_iris_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed2-08c25cb32f8b9fc84ec6-20260328T232424Z",
+      "run_id": "08c25cb32f8b9fc84ec6",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed2-08c25cb32f8b9fc84ec6-20260328T232424Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7666666666666667,
+          "macro_f1": 0.7730605285592498
+        },
+        "val": {
+          "accuracy": 0.5,
+          "macro_f1": 0.5142857142857143
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_iris_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed3-fceb28d596ae1f30c881-20260328T232424Z",
+      "run_id": "fceb28d596ae1f30c881",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed3-fceb28d596ae1f30c881-20260328T232424Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7666666666666667,
+          "macro_f1": 0.7619047619047619
+        },
+        "val": {
+          "accuracy": 0.9166666666666666,
+          "macro_f1": 0.9153439153439153
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_iris_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed4-ff940f751b2f8f37be46-20260328T232424Z",
+      "run_id": "ff940f751b2f8f37be46",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed4-ff940f751b2f8f37be46-20260328T232424Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8666666666666667,
+          "macro_f1": 0.8659932659932661
+        },
+        "val": {
+          "accuracy": 0.8333333333333334,
+          "macro_f1": 0.8222222222222223
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_iris_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed5-e3d0f34700e7045c437c-20260328T232425Z",
+      "run_id": "e3d0f34700e7045c437c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z/best_tabular_inductive_mean_teacher_iris_R1-seed5-e3d0f34700e7045c437c-20260328T232425Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:24:25.611044+00:00",
+    "base_name": "best_tabular_inductive_mean_teacher_iris_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/tabular/iris.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/iris/best_tabular_inductive_mean_teacher_iris_R1-sweep-20260328T232415Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

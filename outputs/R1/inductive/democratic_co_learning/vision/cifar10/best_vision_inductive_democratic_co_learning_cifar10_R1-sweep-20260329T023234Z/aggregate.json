@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.1149,
+        "mean": 0.10746,
+        "min": 0.0969,
+        "std": 0.0064207787689656475,
+        "values": [
+          0.106,
+          0.1134,
+          0.1061,
+          0.0969,
+          0.1149
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.06543340009542926,
+        "mean": 0.049021099469526555,
+        "min": 0.026965877085864565,
+        "std": 0.014299753894411323,
+        "values": [
+          0.06543340009542926,
+          0.04033511221871967,
+          0.06283811625336792,
+          0.026965877085864565,
+          0.04953299169425137
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.1142,
+        "mean": 0.10795999999999999,
+        "min": 0.0954,
+        "std": 0.006730705757942474,
+        "values": [
+          0.1112,
+          0.1122,
+          0.1068,
+          0.0954,
+          0.1142
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.06932033928100352,
+        "mean": 0.04917542402476406,
+        "min": 0.026720755029389854,
+        "std": 0.015296578913046446,
+        "values": [
+          0.06932033928100352,
+          0.03934044547448769,
+          0.06193444843676832,
+          0.026720755029389854,
+          0.04856113190217091
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.106,
+          "macro_f1": 0.06543340009542926
+        },
+        "val": {
+          "accuracy": 0.1112,
+          "macro_f1": 0.06932033928100352
+        }
+      },
+      "name": "best_vision_inductive_democratic_co_learning_cifar10_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed3-2ebb141178f42f775de0-20260329T023236Z",
+      "run_id": "2ebb141178f42f775de0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed3-2ebb141178f42f775de0-20260329T023236Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1134,
+          "macro_f1": 0.04033511221871967
+        },
+        "val": {
+          "accuracy": 0.1122,
+          "macro_f1": 0.03934044547448769
+        }
+      },
+      "name": "best_vision_inductive_democratic_co_learning_cifar10_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed4-868bff232fc390b6fb95-20260329T023839Z",
+      "run_id": "868bff232fc390b6fb95",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed4-868bff232fc390b6fb95-20260329T023839Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1061,
+          "macro_f1": 0.06283811625336792
+        },
+        "val": {
+          "accuracy": 0.1068,
+          "macro_f1": 0.06193444843676832
+        }
+      },
+      "name": "best_vision_inductive_democratic_co_learning_cifar10_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed5-205158b819d9577f2698-20260329T025825Z",
+      "run_id": "205158b819d9577f2698",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed5-205158b819d9577f2698-20260329T025825Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0969,
+          "macro_f1": 0.026965877085864565
+        },
+        "val": {
+          "accuracy": 0.0954,
+          "macro_f1": 0.026720755029389854
+        }
+      },
+      "name": "best_vision_inductive_democratic_co_learning_cifar10_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed6-471362b8970baa16a564-20260329T033412Z",
+      "run_id": "471362b8970baa16a564",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed6-471362b8970baa16a564-20260329T033412Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1149,
+          "macro_f1": 0.04953299169425137
+        },
+        "val": {
+          "accuracy": 0.1142,
+          "macro_f1": 0.04856113190217091
+        }
+      },
+      "name": "best_vision_inductive_democratic_co_learning_cifar10_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed7-85ab96748376a3900c00-20260329T033641Z",
+      "run_id": "85ab96748376a3900c00",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z/best_vision_inductive_democratic_co_learning_cifar10_R1-seed7-85ab96748376a3900c00-20260329T033641Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T03:40:32.140012+00:00",
+    "base_name": "best_vision_inductive_democratic_co_learning_cifar10_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/vision/cifar10.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar10/best_vision_inductive_democratic_co_learning_cifar10_R1-sweep-20260329T023234Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

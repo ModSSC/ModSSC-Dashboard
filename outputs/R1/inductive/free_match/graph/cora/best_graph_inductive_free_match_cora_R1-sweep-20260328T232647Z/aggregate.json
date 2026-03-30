@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.319,
+        "mean": 0.21259999999999998,
+        "min": 0.131,
+        "std": 0.08669163742830101,
+        "values": [
+          0.319,
+          0.318,
+          0.131,
+          0.15,
+          0.145
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.06909996750785227,
+        "mean": 0.049849086703215924,
+        "min": 0.03398327163033045,
+        "std": 0.015799066002927683,
+        "values": [
+          0.06909996750785227,
+          0.06898795964855191,
+          0.03398327163033045,
+          0.04028587702405815,
+          0.03688835770528683
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.316,
+        "mean": 0.2144,
+        "min": 0.122,
+        "std": 0.08407044665041337,
+        "values": [
+          0.316,
+          0.316,
+          0.122,
+          0.162,
+          0.156
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.06860616587060356,
+        "mean": 0.04933374073699957,
+        "min": 0.031066972243442837,
+        "std": 0.01601837830478485,
+        "values": [
+          0.06860616587060356,
+          0.06860616587060356,
+          0.031066972243442837,
+          0.03983280059011557,
+          0.038556599110232334
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.319,
+          "macro_f1": 0.06909996750785227
+        },
+        "val": {
+          "accuracy": 0.316,
+          "macro_f1": 0.06860616587060356
+        }
+      },
+      "name": "best_graph_inductive_free_match_cora_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed5-ddbd0eaf2141b90b7490-20260328T232649Z",
+      "run_id": "ddbd0eaf2141b90b7490",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed5-ddbd0eaf2141b90b7490-20260328T232649Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.318,
+          "macro_f1": 0.06898795964855191
+        },
+        "val": {
+          "accuracy": 0.316,
+          "macro_f1": 0.06860616587060356
+        }
+      },
+      "name": "best_graph_inductive_free_match_cora_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed6-2ab69800d9a4fbe67a6f-20260328T232657Z",
+      "run_id": "2ab69800d9a4fbe67a6f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed6-2ab69800d9a4fbe67a6f-20260328T232657Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.131,
+          "macro_f1": 0.03398327163033045
+        },
+        "val": {
+          "accuracy": 0.122,
+          "macro_f1": 0.031066972243442837
+        }
+      },
+      "name": "best_graph_inductive_free_match_cora_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed7-d692c5f0585e2e5474fa-20260328T232658Z",
+      "run_id": "d692c5f0585e2e5474fa",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed7-d692c5f0585e2e5474fa-20260328T232658Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.15,
+          "macro_f1": 0.04028587702405815
+        },
+        "val": {
+          "accuracy": 0.162,
+          "macro_f1": 0.03983280059011557
+        }
+      },
+      "name": "best_graph_inductive_free_match_cora_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed8-a7dd5a1aa9dd337767fa-20260328T232659Z",
+      "run_id": "a7dd5a1aa9dd337767fa",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed8-a7dd5a1aa9dd337767fa-20260328T232659Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.145,
+          "macro_f1": 0.03688835770528683
+        },
+        "val": {
+          "accuracy": 0.156,
+          "macro_f1": 0.038556599110232334
+        }
+      },
+      "name": "best_graph_inductive_free_match_cora_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed9-d90b7685dc5d7982145f-20260328T232700Z",
+      "run_id": "d90b7685dc5d7982145f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z/best_graph_inductive_free_match_cora_R1-seed9-d90b7685dc5d7982145f-20260328T232700Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:27:01.167883+00:00",
+    "base_name": "best_graph_inductive_free_match_cora_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/free_match/graph/cora.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/graph/cora/best_graph_inductive_free_match_cora_R1-sweep-20260328T232647Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

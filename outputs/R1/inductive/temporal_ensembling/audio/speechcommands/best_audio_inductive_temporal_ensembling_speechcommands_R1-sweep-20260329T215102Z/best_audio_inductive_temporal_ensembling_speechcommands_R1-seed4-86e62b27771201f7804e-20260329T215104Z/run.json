@@ -1,0 +1,516 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "f9fc65e7babec5490a6dbc801b8e6baf994aed0339d53d9bea1b3505219d04e3",
+      "id": "speechcommands",
+      "info": {
+        "citation": null,
+        "description": "SpeechCommands (torchaudio) with official training/testing subsets.",
+        "homepage": null,
+        "key": "speechcommands",
+        "license": null,
+        "modality": "audio",
+        "provider": "torchaudio",
+        "required_extra": "audio",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchaudio:SPEECHCOMMANDS"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "temporal_ensembling",
+      "kind": "inductive"
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "814f0f4f41c875783257d5b566d801baf0841ff59bf33351dab9d329c0afb6e1",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "backward": 165,
+            "bed": 207,
+            "bird": 185,
+            "cat": 194,
+            "dog": 220,
+            "down": 406,
+            "eight": 408,
+            "five": 445,
+            "follow": 172,
+            "forward": 155,
+            "four": 400,
+            "go": 402,
+            "happy": 203,
+            "house": 191,
+            "learn": 161,
+            "left": 412,
+            "marvin": 195,
+            "nine": 408,
+            "no": 405,
+            "off": 402,
+            "on": 396,
+            "one": 399,
+            "right": 396,
+            "seven": 406,
+            "sheila": 212,
+            "six": 394,
+            "stop": 411,
+            "three": 405,
+            "tree": 193,
+            "two": 424,
+            "up": 425,
+            "visual": 165,
+            "wow": 206,
+            "yes": 419,
+            "zero": 418
+          },
+          "n": 11005
+        },
+        "train": {
+          "classes": {
+            "backward": 1211,
+            "bed": 1435,
+            "bird": 1527,
+            "cat": 1491,
+            "dog": 1540,
+            "down": 2821,
+            "eight": 2730,
+            "five": 2916,
+            "follow": 1148,
+            "forward": 1130,
+            "four": 2660,
+            "go": 2796,
+            "happy": 1469,
+            "house": 1554,
+            "learn": 1157,
+            "left": 2733,
+            "marvin": 1539,
+            "nine": 2853,
+            "no": 2817,
+            "off": 2673,
+            "on": 2778,
+            "one": 2826,
+            "right": 2717,
+            "seven": 2885,
+            "sheila": 1445,
+            "six": 2779,
+            "stop": 2800,
+            "three": 2669,
+            "tree": 1266,
+            "two": 2800,
+            "up": 2653,
+            "visual": 1159,
+            "wow": 1552,
+            "yes": 2905,
+            "zero": 2925
+          },
+          "n": 76359
+        },
+        "train_labeled": {
+          "classes": {
+            "backward": 1,
+            "bed": 1,
+            "bird": 1,
+            "cat": 1,
+            "dog": 1,
+            "down": 1,
+            "eight": 1,
+            "five": 1,
+            "follow": 1,
+            "forward": 1,
+            "four": 1,
+            "go": 1,
+            "happy": 1,
+            "house": 1,
+            "learn": 1,
+            "left": 1,
+            "marvin": 1,
+            "nine": 1,
+            "no": 1,
+            "off": 1,
+            "on": 1,
+            "one": 1,
+            "right": 1,
+            "seven": 1,
+            "sheila": 1,
+            "six": 1,
+            "stop": 1,
+            "three": 1,
+            "tree": 1,
+            "two": 1,
+            "up": 1,
+            "visual": 1,
+            "wow": 1,
+            "yes": 1,
+            "zero": 1
+          },
+          "n": 35
+        },
+        "train_unlabeled": {
+          "n": 76324
+        },
+        "val": {
+          "classes": {
+            "backward": 135,
+            "bed": 159,
+            "bird": 170,
+            "cat": 166,
+            "dog": 171,
+            "down": 313,
+            "eight": 303,
+            "five": 324,
+            "follow": 127,
+            "forward": 126,
+            "four": 295,
+            "go": 310,
+            "happy": 163,
+            "house": 173,
+            "learn": 129,
+            "left": 304,
+            "marvin": 171,
+            "nine": 317,
+            "no": 313,
+            "off": 297,
+            "on": 308,
+            "one": 314,
+            "right": 302,
+            "seven": 320,
+            "sheila": 161,
+            "six": 309,
+            "stop": 311,
+            "three": 297,
+            "tree": 141,
+            "two": 311,
+            "up": 295,
+            "visual": 129,
+            "wow": 172,
+            "yes": 323,
+            "zero": 325
+          },
+          "n": 8484
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "audio",
+      "mode": "fixed",
+      "seed": 4,
+      "strong": {
+        "steps": [
+          {
+            "id": "audio.add_noise",
+            "params": {
+              "std": 0.005
+            }
+          },
+          {
+            "id": "audio.time_shift",
+            "params": {
+              "max_frac": 0.1
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "audio.add_noise",
+            "params": {
+              "std": 0.002
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "speechcommands",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "temporal_ensembling",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "audio_pretrained",
+        "classifier_params": {
+          "batch_size": 8,
+          "bundle": "WAV2VEC2_BASE",
+          "freeze_backbone": false,
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "weight_decay": 0.0001
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "alpha": 0.6,
+        "batch_size": 128,
+        "detach_target": true,
+        "freeze_bn": true,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "unsup_warm_up": 0.4
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "audio.load_waveform",
+            "params": {
+              "allow_fallback": true,
+              "max_length": 16000,
+              "target_sample_rate": 16000
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_audio_inductive_temporal_ensembling_speechcommands_R1-seed4",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/audio/speechcommands/best_audio_inductive_temporal_ensembling_speechcommands_R1-sweep-20260329T215102Z",
+      "seed": 4,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": null
+  },
+  "error": "JSONDecodeError: Extra data: line 1 column 451 (char 450)",
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "b406eb5fc7a830bf5951d15ceba4bfe86058ecd4e70621d6c8deb60761a05cc1",
+    "effective_config_hash": "5f9a33ba67e2386040503a926de590104e369fd2b7e5b8bbaf9affe470045f31"
+  },
+  "hpo": null,
+  "metrics": null,
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {}
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {}
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {}
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/temporal_ensembling/audio/speechcommands.yaml",
+    "error_code": "E_BENCH_RUNTIME",
+    "finished_at": "2026-03-29T21:51:15.469316+00:00",
+    "name": "best_audio_inductive_temporal_ensembling_speechcommands_R1-seed4",
+    "run_id": "86e62b27771201f7804e",
+    "seed": 4,
+    "started_at": "2026-03-29T21:51:04.509921+00:00",
+    "status": "failed"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

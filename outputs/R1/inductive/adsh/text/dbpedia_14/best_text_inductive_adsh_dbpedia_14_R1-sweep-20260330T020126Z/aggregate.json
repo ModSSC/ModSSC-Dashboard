@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.26474285714285717,
+        "mean": 0.15978,
+        "min": 0.07437142857142857,
+        "std": 0.06572486722260132,
+        "values": [
+          0.1978,
+          0.14058571428571429,
+          0.07437142857142857,
+          0.26474285714285717,
+          0.1214
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.19196309392977645,
+        "mean": 0.09378717394970429,
+        "min": 0.05138135980387208,
+        "std": 0.052762806731460714,
+        "values": [
+          0.10603160731442078,
+          0.06293344315265212,
+          0.05138135980387208,
+          0.19196309392977645,
+          0.05662636554780004
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.26517857142857143,
+        "mean": 0.1597357142857143,
+        "min": 0.07316071428571429,
+        "std": 0.0656669602491797,
+        "values": [
+          0.19564285714285715,
+          0.14123214285714286,
+          0.07316071428571429,
+          0.26517857142857143,
+          0.12346428571428572
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.19273800781240508,
+        "mean": 0.0937793503975621,
+        "min": 0.05082614780413784,
+        "std": 0.05293559396954099,
+        "values": [
+          0.10469563121104879,
+          0.06302657389758211,
+          0.05082614780413784,
+          0.19273800781240508,
+          0.05761039126263677
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1978,
+          "macro_f1": 0.10603160731442078
+        },
+        "val": {
+          "accuracy": 0.19564285714285715,
+          "macro_f1": 0.10469563121104879
+        }
+      },
+      "name": "best_text_inductive_adsh_dbpedia_14_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed2-849ae5911c8ea78f92a3-20260330T020128Z",
+      "run_id": "849ae5911c8ea78f92a3",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed2-849ae5911c8ea78f92a3-20260330T020128Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.14058571428571429,
+          "macro_f1": 0.06293344315265212
+        },
+        "val": {
+          "accuracy": 0.14123214285714286,
+          "macro_f1": 0.06302657389758211
+        }
+      },
+      "name": "best_text_inductive_adsh_dbpedia_14_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed3-a777df44cfbef6cf0d13-20260330T025818Z",
+      "run_id": "a777df44cfbef6cf0d13",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed3-a777df44cfbef6cf0d13-20260330T025818Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.07437142857142857,
+          "macro_f1": 0.05138135980387208
+        },
+        "val": {
+          "accuracy": 0.07316071428571429,
+          "macro_f1": 0.05082614780413784
+        }
+      },
+      "name": "best_text_inductive_adsh_dbpedia_14_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed4-43b655c470efeaf7c3d0-20260330T035512Z",
+      "run_id": "43b655c470efeaf7c3d0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed4-43b655c470efeaf7c3d0-20260330T035512Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.26474285714285717,
+          "macro_f1": 0.19196309392977645
+        },
+        "val": {
+          "accuracy": 0.26517857142857143,
+          "macro_f1": 0.19273800781240508
+        }
+      },
+      "name": "best_text_inductive_adsh_dbpedia_14_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed5-238815f9067d92dfce73-20260330T045213Z",
+      "run_id": "238815f9067d92dfce73",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed5-238815f9067d92dfce73-20260330T045213Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1214,
+          "macro_f1": 0.05662636554780004
+        },
+        "val": {
+          "accuracy": 0.12346428571428572,
+          "macro_f1": 0.05761039126263677
+        }
+      },
+      "name": "best_text_inductive_adsh_dbpedia_14_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed6-fc28f1bd128bc0d3242c-20260330T054917Z",
+      "run_id": "fc28f1bd128bc0d3242c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z/best_text_inductive_adsh_dbpedia_14_R1-seed6-fc28f1bd128bc0d3242c-20260330T054917Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T06:46:13.168532+00:00",
+    "base_name": "best_text_inductive_adsh_dbpedia_14_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/adsh/text/dbpedia_14.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/text/dbpedia_14/best_text_inductive_adsh_dbpedia_14_R1-sweep-20260330T020126Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9714285714285714,
+        "mean": 0.7985714285714286,
+        "min": 0.18571428571428572,
+        "std": 0.30664078565737374,
+        "values": [
+          0.18571428571428572,
+          0.95,
+          0.95,
+          0.9357142857142857,
+          0.9714285714285714
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9686028257456829,
+        "mean": 0.794541292096936,
+        "min": 0.18304668304668306,
+        "std": 0.3060060257426207,
+        "values": [
+          0.18304668304668306,
+          0.945793462027767,
+          0.9462454061762932,
+          0.9290180834882541,
+          0.9686028257456829
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9821428571428571,
+        "mean": 0.7892857142857143,
+        "min": 0.08928571428571429,
+        "std": 0.3501821683358651,
+        "values": [
+          0.08928571428571429,
+          0.9821428571428571,
+          0.9642857142857143,
+          0.9464285714285714,
+          0.9642857142857143
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.980330172110994,
+        "mean": 0.7863009605227942,
+        "min": 0.08666453469779342,
+        "std": 0.3500250156300776,
+        "values": [
+          0.08666453469779342,
+          0.980330172110994,
+          0.9611111111111111,
+          0.9422878735829612,
+          0.9611111111111111
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.18571428571428572,
+          "macro_f1": 0.18304668304668306
+        },
+        "val": {
+          "accuracy": 0.08928571428571429,
+          "macro_f1": 0.08666453469779342
+        }
+      },
+      "name": "best_tabular_inductive_setred_breast_cancer_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed1-0ea03f5689d794ffd1f5-20260328T232649Z",
+      "run_id": "0ea03f5689d794ffd1f5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed1-0ea03f5689d794ffd1f5-20260328T232649Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.95,
+          "macro_f1": 0.945793462027767
+        },
+        "val": {
+          "accuracy": 0.9821428571428571,
+          "macro_f1": 0.980330172110994
+        }
+      },
+      "name": "best_tabular_inductive_setred_breast_cancer_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed2-e85ddd92dd65d1fea108-20260328T232656Z",
+      "run_id": "e85ddd92dd65d1fea108",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed2-e85ddd92dd65d1fea108-20260328T232656Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.95,
+          "macro_f1": 0.9462454061762932
+        },
+        "val": {
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.9611111111111111
+        }
+      },
+      "name": "best_tabular_inductive_setred_breast_cancer_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed3-205e5cef861c5a1b84e0-20260328T232659Z",
+      "run_id": "205e5cef861c5a1b84e0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed3-205e5cef861c5a1b84e0-20260328T232659Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9357142857142857,
+          "macro_f1": 0.9290180834882541
+        },
+        "val": {
+          "accuracy": 0.9464285714285714,
+          "macro_f1": 0.9422878735829612
+        }
+      },
+      "name": "best_tabular_inductive_setred_breast_cancer_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed4-87e4837eb1356d72ffca-20260328T232701Z",
+      "run_id": "87e4837eb1356d72ffca",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed4-87e4837eb1356d72ffca-20260328T232701Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9714285714285714,
+          "macro_f1": 0.9686028257456829
+        },
+        "val": {
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.9611111111111111
+        }
+      },
+      "name": "best_tabular_inductive_setred_breast_cancer_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed5-05ffc05a9f4292242310-20260328T232703Z",
+      "run_id": "05ffc05a9f4292242310",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z/best_tabular_inductive_setred_breast_cancer_R1-seed5-05ffc05a9f4292242310-20260328T232703Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:27:05.869400+00:00",
+    "base_name": "best_tabular_inductive_setred_breast_cancer_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/setred/tabular/breast_cancer.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/tabular/breast_cancer/best_tabular_inductive_setred_breast_cancer_R1-sweep-20260328T232647Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.52572,
+        "mean": 0.504992,
+        "min": 0.48452,
+        "std": 0.016016839138856324,
+        "values": [
+          0.51932,
+          0.48452,
+          0.48988,
+          0.50552,
+          0.52572
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.5189330828816576,
+        "mean": 0.43457289655885534,
+        "min": 0.3633471778730569,
+        "std": 0.05575596919677938,
+        "values": [
+          0.5189330828816576,
+          0.3842837970493824,
+          0.4613559910191432,
+          0.3633471778730569,
+          0.44494443397103645
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5248,
+        "mean": 0.50656,
+        "min": 0.486,
+        "std": 0.015773598194451413,
+        "values": [
+          0.5228,
+          0.486,
+          0.4916,
+          0.5076,
+          0.5248
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.5221387164413602,
+        "mean": 0.43710530581186335,
+        "min": 0.3667642052124308,
+        "std": 0.05558422400243254,
+        "values": [
+          0.5221387164413602,
+          0.38739406684717803,
+          0.4642352812237861,
+          0.3667642052124308,
+          0.44499425933456127
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.51932,
+          "macro_f1": 0.5189330828816576
+        },
+        "val": {
+          "accuracy": 0.5228,
+          "macro_f1": 0.5221387164413602
+        }
+      },
+      "name": "best_text_inductive_simclr_v2_imdb_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed2-e277390b5b23a86b090e-20260330T013619Z",
+      "run_id": "e277390b5b23a86b090e",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed2-e277390b5b23a86b090e-20260330T013619Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.48452,
+          "macro_f1": 0.3842837970493824
+        },
+        "val": {
+          "accuracy": 0.486,
+          "macro_f1": 0.38739406684717803
+        }
+      },
+      "name": "best_text_inductive_simclr_v2_imdb_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed3-13748d85a0b7096ab356-20260330T013718Z",
+      "run_id": "13748d85a0b7096ab356",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed3-13748d85a0b7096ab356-20260330T013718Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.48988,
+          "macro_f1": 0.4613559910191432
+        },
+        "val": {
+          "accuracy": 0.4916,
+          "macro_f1": 0.4642352812237861
+        }
+      },
+      "name": "best_text_inductive_simclr_v2_imdb_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed4-0a4aaffa57db572ac70b-20260330T013814Z",
+      "run_id": "0a4aaffa57db572ac70b",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed4-0a4aaffa57db572ac70b-20260330T013814Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50552,
+          "macro_f1": 0.3633471778730569
+        },
+        "val": {
+          "accuracy": 0.5076,
+          "macro_f1": 0.3667642052124308
+        }
+      },
+      "name": "best_text_inductive_simclr_v2_imdb_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed5-afe417cb543c33a03e48-20260330T013910Z",
+      "run_id": "afe417cb543c33a03e48",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed5-afe417cb543c33a03e48-20260330T013910Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.52572,
+          "macro_f1": 0.44494443397103645
+        },
+        "val": {
+          "accuracy": 0.5248,
+          "macro_f1": 0.44499425933456127
+        }
+      },
+      "name": "best_text_inductive_simclr_v2_imdb_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed6-daa0c1cd7f2d45185467-20260330T014006Z",
+      "run_id": "daa0c1cd7f2d45185467",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z/best_text_inductive_simclr_v2_imdb_R1-seed6-daa0c1cd7f2d45185467-20260330T014006Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T01:41:02.647718+00:00",
+    "base_name": "best_text_inductive_simclr_v2_imdb_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/simclr_v2/text/imdb.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/simclr_v2/text/imdb/best_text_inductive_simclr_v2_imdb_R1-sweep-20260330T013617Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 737, in _run_experiment_single
+    pre = prep_orch.run(
+          ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/preprocess.py", line 137, in run
+    result = preprocess(
+             ^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/preprocess/services/pipeline.py", line 554, in preprocess
+    produced_train = cm.load_step_outputs(step_fingerprint=step_fp, split="train")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/preprocess/cache.py", line 309, in load_step_outputs
+    data = json_load(manifest)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/preprocess/cache.py", line 324, in json_load
+    obj = json.loads(text)
+          ^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/json/decoder.py", line 341, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 451 (char 450)

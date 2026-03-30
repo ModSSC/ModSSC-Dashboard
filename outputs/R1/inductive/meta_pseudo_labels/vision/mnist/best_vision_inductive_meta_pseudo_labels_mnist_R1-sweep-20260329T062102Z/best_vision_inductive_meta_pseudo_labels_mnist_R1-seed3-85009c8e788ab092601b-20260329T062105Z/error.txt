@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 920, in _run_experiment_single
+    method, method_resolution = inductive_orch.run(
+                                ^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/method_inductive.py", line 651, in run
+    method.fit(data, device=device, seed=int(seed))
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/inductive/methods/meta_pseudo_labels.py", line 218, in fit
+    raise InductiveValidationError("X_l_s must be 2D.")
+modssc.inductive.errors.InductiveValidationError: X_l_s must be 2D.

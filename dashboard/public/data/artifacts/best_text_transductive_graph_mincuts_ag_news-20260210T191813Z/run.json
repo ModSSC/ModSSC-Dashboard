@@ -1,0 +1,282 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "79b0b12bcca835b7710f45b503450ec0d831c2a44adebbfeef542d416445fe52",
+      "id": "ag_news",
+      "info": {
+        "citation": null,
+        "description": "AG News (Hugging Face datasets).",
+        "homepage": null,
+        "key": "ag_news",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:ag_news"
+      }
+    },
+    "graph": {
+      "fingerprint": "cff54f79044c904d2d4e289d9a1fb5b5911617e649dcd80ed74f7a22102ca76d",
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "graph_mincuts",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/79b0b12bcca835b7710f45b503450ec0d831c2a44adebbfeef542d416445fe52",
+      "fit_fingerprint": "fit:2685b85937f92179f611f97217ab0f7dcaf026941682f887e263b2713eae5b68",
+      "plan_fingerprint": "resolved_plan:4fda8116cca0403db890539d155ce14f7bb76f75a5a9162ca6572f52f679d80a",
+      "preprocess_fingerprint": "preprocess:d9bebaa99cc2f2a5f6f7646ba98ad66a184ba35c18425486ac0cbe2f4b1575e0",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "6657274d7563f1eb509c4e1d692936cfd47384585e0f6018f8a1a018183aa920",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1900,
+            "1": 1900
+          },
+          "n": 3800
+        },
+        "train": {
+          "classes": {
+            "0": 27000,
+            "1": 27000
+          },
+          "n": 54000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5400,
+            "1": 5400
+          },
+          "n": 10800
+        },
+        "train_unlabeled": {
+          "n": 43200
+        },
+        "val": {
+          "classes": {
+            "0": 3000,
+            "1": 3000
+          },
+          "n": 6000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "ag_news",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/graph",
+      "enabled": true,
+      "seed": 2,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graph_mincuts",
+      "model": null,
+      "params": {
+        "backend": "scipy",
+        "capacity_scale": 1000.0,
+        "min_capacity": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_transductive_graph_mincuts_ag_news",
+      "output_dir": "/home/mbarbaux/scratch/runs/transductive/graph_mincuts/text/ag_news",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9578947368421052,
+      "macro_f1": 0.9578900709219857
+    },
+    "val": {
+      "accuracy": 0.9598333333333333,
+      "macro_f1": 0.9598294490642276
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/graph_mincuts/text/ag_news.yaml",
+    "finished_at": "2026-02-10T19:19:41.850207+00:00",
+    "name": "best_text_transductive_graph_mincuts_ag_news",
+    "seed": 2,
+    "started_at": "2026-02-10T19:18:13.407704+00:00",
+    "status": "success"
+  }
+}

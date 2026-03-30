@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/providers/torchvision.py", line 100, in _make_train_test
+    train_ds = ds_cls(root=str(root), train=True, download=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: STL10.__init__() got an unexpected keyword argument 'train'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1358, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1404, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1353, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1113, in _send_output
+    self.send(msg)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1057, in send
+    self.connect()
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/http/client.py", line 1023, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/socket.py", line 850, in create_connection
+    sock.connect(sa)
+OSError: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 636, in _run_experiment_single
+    dataset, dataset_info = ds_orch.load(cfg.dataset)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/dataset.py", line 43, in load
+    ds = load_dataset(
+         ^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 236, in load_dataset
+    ds = _download_and_store(layout, identity, force=force)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 453, in _download_and_store
+    ds = provider.load_canonical(identity, raw_dir=raw_dir)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/providers/torchvision.py", line 71, in load_canonical
+    train_ds, test_ds = _make_train_test(ds_cls, root)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/providers/torchvision.py", line 105, in _make_train_test
+    train_ds = ds_cls(root=str(root), split="train", download=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/torchvision/datasets/stl10.py", line 61, in __init__
+    self.download()
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/torchvision/datasets/stl10.py", line 158, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/torchvision/datasets/utils.py", line 388, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/torchvision/datasets/utils.py", line 118, in download_url
+    url = _get_redirect_url(url, max_hops=max_redirect_hops)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/torchvision/datasets/utils.py", line 63, in _get_redirect_url
+    with urllib.request.urlopen(urllib.request.Request(url, headers=headers)) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/urllib/request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 101] Network is unreachable>

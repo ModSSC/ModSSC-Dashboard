@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.274,
+        "mean": 0.2558,
+        "min": 0.216,
+        "std": 0.021113029152634643,
+        "values": [
+          0.26,
+          0.274,
+          0.273,
+          0.216,
+          0.256
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.281834727611234,
+        "mean": 0.23811058766160825,
+        "min": 0.1914075302208997,
+        "std": 0.030117150204945313,
+        "values": [
+          0.22218996297854296,
+          0.281834727611234,
+          0.24530480380628136,
+          0.1914075302208997,
+          0.24981591369108316
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.298,
+        "mean": 0.27199999999999996,
+        "min": 0.238,
+        "std": 0.024915858403835894,
+        "values": [
+          0.286,
+          0.292,
+          0.246,
+          0.238,
+          0.298
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.2862717966560935,
+        "mean": 0.2440914558316285,
+        "min": 0.1939740406256555,
+        "std": 0.03724786648690404,
+        "values": [
+          0.24085973217184412,
+          0.28554552356748886,
+          0.2138061861370605,
+          0.1939740406256555,
+          0.2862717966560935
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.26,
+          "macro_f1": 0.22218996297854296
+        },
+        "val": {
+          "accuracy": 0.286,
+          "macro_f1": 0.24085973217184412
+        }
+      },
+      "name": "best_graph_inductive_fixmatch_citeseer_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed5-6067a957304bd5e18729-20260329T215132Z",
+      "run_id": "6067a957304bd5e18729",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed5-6067a957304bd5e18729-20260329T215132Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.274,
+          "macro_f1": 0.281834727611234
+        },
+        "val": {
+          "accuracy": 0.292,
+          "macro_f1": 0.28554552356748886
+        }
+      },
+      "name": "best_graph_inductive_fixmatch_citeseer_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed6-6f2d7e4a1b991319f7e5-20260329T215139Z",
+      "run_id": "6f2d7e4a1b991319f7e5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed6-6f2d7e4a1b991319f7e5-20260329T215139Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.273,
+          "macro_f1": 0.24530480380628136
+        },
+        "val": {
+          "accuracy": 0.246,
+          "macro_f1": 0.2138061861370605
+        }
+      },
+      "name": "best_graph_inductive_fixmatch_citeseer_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed7-eeef5ce9934b8649b764-20260329T215139Z",
+      "run_id": "eeef5ce9934b8649b764",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed7-eeef5ce9934b8649b764-20260329T215139Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.216,
+          "macro_f1": 0.1914075302208997
+        },
+        "val": {
+          "accuracy": 0.238,
+          "macro_f1": 0.1939740406256555
+        }
+      },
+      "name": "best_graph_inductive_fixmatch_citeseer_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed8-4b483f604c5a42216363-20260329T215139Z",
+      "run_id": "4b483f604c5a42216363",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed8-4b483f604c5a42216363-20260329T215139Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.256,
+          "macro_f1": 0.24981591369108316
+        },
+        "val": {
+          "accuracy": 0.298,
+          "macro_f1": 0.2862717966560935
+        }
+      },
+      "name": "best_graph_inductive_fixmatch_citeseer_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed9-f9789a5d3a8bd51bb068-20260329T215140Z",
+      "run_id": "f9789a5d3a8bd51bb068",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z/best_graph_inductive_fixmatch_citeseer_R1-seed9-f9789a5d3a8bd51bb068-20260329T215140Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:51:40.366450+00:00",
+    "base_name": "best_graph_inductive_fixmatch_citeseer_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/fixmatch/graph/citeseer.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/fixmatch/graph/citeseer/best_graph_inductive_fixmatch_citeseer_R1-sweep-20260329T215129Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

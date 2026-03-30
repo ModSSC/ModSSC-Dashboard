@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.54568,
+        "mean": 0.513528,
+        "min": 0.47592,
+        "std": 0.023611067235514805,
+        "values": [
+          0.52624,
+          0.47592,
+          0.54568,
+          0.5012,
+          0.5186
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.5154746394051182,
+        "mean": 0.454974379401787,
+        "min": 0.3798197011039309,
+        "std": 0.047024222936439444,
+        "values": [
+          0.4337011112792349,
+          0.45491144639965775,
+          0.5154746394051182,
+          0.3798197011039309,
+          0.49096499882099287
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5556,
+        "mean": 0.5187999999999999,
+        "min": 0.4676,
+        "std": 0.031106526646348654,
+        "values": [
+          0.5324,
+          0.4676,
+          0.5556,
+          0.5008,
+          0.5376
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.5269743816818594,
+        "mean": 0.4587300466499011,
+        "min": 0.3703274055309472,
+        "std": 0.055816170564064044,
+        "values": [
+          0.4439678454548343,
+          0.4424466730193955,
+          0.5269743816818594,
+          0.3703274055309472,
+          0.509933927562469
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.52624,
+          "macro_f1": 0.4337011112792349
+        },
+        "val": {
+          "accuracy": 0.5324,
+          "macro_f1": 0.4439678454548343
+        }
+      },
+      "name": "best_text_inductive_setred_imdb_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed2-007c87c96d17746651d4-20260330T013606Z",
+      "run_id": "007c87c96d17746651d4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed2-007c87c96d17746651d4-20260330T013606Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.47592,
+          "macro_f1": 0.45491144639965775
+        },
+        "val": {
+          "accuracy": 0.4676,
+          "macro_f1": 0.4424466730193955
+        }
+      },
+      "name": "best_text_inductive_setred_imdb_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed3-674541daf69cd470e3f4-20260330T013612Z",
+      "run_id": "674541daf69cd470e3f4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed3-674541daf69cd470e3f4-20260330T013612Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.54568,
+          "macro_f1": 0.5154746394051182
+        },
+        "val": {
+          "accuracy": 0.5556,
+          "macro_f1": 0.5269743816818594
+        }
+      },
+      "name": "best_text_inductive_setred_imdb_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed4-d6e793effbb1dd84af2e-20260330T013613Z",
+      "run_id": "d6e793effbb1dd84af2e",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed4-d6e793effbb1dd84af2e-20260330T013613Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5012,
+          "macro_f1": 0.3798197011039309
+        },
+        "val": {
+          "accuracy": 0.5008,
+          "macro_f1": 0.3703274055309472
+        }
+      },
+      "name": "best_text_inductive_setred_imdb_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed5-769bdfcd56314ea90ef0-20260330T013614Z",
+      "run_id": "769bdfcd56314ea90ef0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed5-769bdfcd56314ea90ef0-20260330T013614Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5186,
+          "macro_f1": 0.49096499882099287
+        },
+        "val": {
+          "accuracy": 0.5376,
+          "macro_f1": 0.509933927562469
+        }
+      },
+      "name": "best_text_inductive_setred_imdb_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed6-f28070ead9fd3da196a5-20260330T013615Z",
+      "run_id": "f28070ead9fd3da196a5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z/best_text_inductive_setred_imdb_R1-seed6-f28070ead9fd3da196a5-20260330T013615Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T01:36:16.017018+00:00",
+    "base_name": "best_text_inductive_setred_imdb_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/setred/text/imdb.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/imdb/best_text_inductive_setred_imdb_R1-sweep-20260330T013604Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

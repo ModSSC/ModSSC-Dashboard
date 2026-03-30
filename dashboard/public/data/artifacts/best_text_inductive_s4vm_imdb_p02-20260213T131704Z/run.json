@@ -1,0 +1,252 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b40044ec362367c67ce608654c4857ccd1a190f348530bbca547afa258e73f50",
+      "id": "imdb",
+      "info": {
+        "citation": null,
+        "description": "IMDB (Hugging Face datasets).",
+        "homepage": null,
+        "key": "imdb",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:imdb"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "s4vm",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/ModSSC/cache/preprocess/b40044ec362367c67ce608654c4857ccd1a190f348530bbca547afa258e73f50",
+      "fit_fingerprint": "fit:0cc12eaf26b05b5baca86f3ca5d976372ac091c2b0960b896c4435ed5b8d5d8c",
+      "plan_fingerprint": "resolved_plan:f6edee3330573ff309bb67d1390b7c10660610ae4afdff2c62ae9aa2dea83416",
+      "preprocess_fingerprint": "preprocess:c906a4630bcbf593d59de59324ab164c63cce19bdf987e50c1f5f48e28f356c0",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.02
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "5d7083407a3afb11008e2de50594677f61330ef61404a2d33ef118b9a5ae8389",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 12500,
+            "1": 12500
+          },
+          "n": 25000
+        },
+        "train": {
+          "classes": {
+            "0": 11250,
+            "1": 11250
+          },
+          "n": 22500
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 225,
+            "1": 225
+          },
+          "n": 450
+        },
+        "train_unlabeled": {
+          "n": 22050
+        },
+        "val": {
+          "classes": {
+            "0": 1250,
+            "1": 1250
+          },
+          "n": 2500
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/datasets",
+      "download": true,
+      "id": "imdb",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "s4vm",
+      "model": null,
+      "params": {
+        "classifier_backend": "torch",
+        "classifier_id": "lstm_scratch",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "flip_rate": 0.05,
+        "k_candidates": 6
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/ModSSC/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.vocab_tokenizer",
+            "params": {
+              "max_length": 256,
+              "vocab_size": 20000
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_s4vm_imdb_p02",
+      "output_dir": "/home/mbarbaux/scratch/ModSSC/runs/p02/inductive/s4vm/text/imdb",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.02
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": null
+  },
+  "error": "TypeError: TorchLSTMClassifier.__init__() got an unexpected keyword argument 'hidden_sizes'",
+  "hpo": null,
+  "metrics": null,
+  "run": {
+    "config_path": "bench/configs/experiments/best/p02/inductive/s4vm/text/imdb.yaml",
+    "finished_at": "2026-02-13T13:17:08.616181+00:00",
+    "name": "best_text_inductive_s4vm_imdb_p02",
+    "seed": 2,
+    "started_at": "2026-02-13T13:17:04.115930+00:00",
+    "status": "failed"
+  }
+}

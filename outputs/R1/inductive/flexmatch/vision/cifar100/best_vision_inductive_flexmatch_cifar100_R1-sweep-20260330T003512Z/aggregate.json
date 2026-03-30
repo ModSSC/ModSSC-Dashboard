@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.026,
+        "mean": 0.0132,
+        "min": 0.01,
+        "std": 0.0063999999999999994,
+        "values": [
+          0.01,
+          0.01,
+          0.01,
+          0.026,
+          0.01
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.007439265118056515,
+        "mean": 0.0016462688651954615,
+        "min": 0.00019801980198019803,
+        "std": 0.0028964981264305266,
+        "values": [
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.007439265118056515,
+          0.00019801980198019803
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.0262,
+        "mean": 0.013240000000000002,
+        "min": 0.01,
+        "std": 0.0064800000000000005,
+        "values": [
+          0.01,
+          0.01,
+          0.01,
+          0.0262,
+          0.01
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.006067609707787497,
+        "mean": 0.0013719377831416578,
+        "min": 0.00019801980198019803,
+        "std": 0.0023478359623229196,
+        "values": [
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.00019801980198019803,
+          0.006067609707787497,
+          0.00019801980198019803
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_flexmatch_cifar100_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed3-bb028c9bdee9a6321c08-20260330T003514Z",
+      "run_id": "bb028c9bdee9a6321c08",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed3-bb028c9bdee9a6321c08-20260330T003514Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_flexmatch_cifar100_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed4-ae6bfdf36c7e3298f004-20260330T004035Z",
+      "run_id": "ae6bfdf36c7e3298f004",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed4-ae6bfdf36c7e3298f004-20260330T004035Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_flexmatch_cifar100_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed5-85fdce6fdd194d9d4fe1-20260330T004554Z",
+      "run_id": "85fdce6fdd194d9d4fe1",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed5-85fdce6fdd194d9d4fe1-20260330T004554Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.026,
+          "macro_f1": 0.007439265118056515
+        },
+        "val": {
+          "accuracy": 0.0262,
+          "macro_f1": 0.006067609707787497
+        }
+      },
+      "name": "best_vision_inductive_flexmatch_cifar100_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed6-94e942b60e231962be3c-20260330T005123Z",
+      "run_id": "94e942b60e231962be3c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed6-94e942b60e231962be3c-20260330T005123Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_flexmatch_cifar100_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed7-35db55a392ad14fef6ae-20260330T005703Z",
+      "run_id": "35db55a392ad14fef6ae",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z/best_vision_inductive_flexmatch_cifar100_R1-seed7-35db55a392ad14fef6ae-20260330T005703Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T01:02:45.297442+00:00",
+    "base_name": "best_vision_inductive_flexmatch_cifar100_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/flexmatch/vision/cifar100.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/vision/cifar100/best_vision_inductive_flexmatch_cifar100_R1-sweep-20260330T003512Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

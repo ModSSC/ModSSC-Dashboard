@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/storage/files.py", line 171, in _load_array
+    return np.load(path, allow_pickle=allow_pickle, mmap_mode=mmap_mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py", line 483, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/site-packages/numpy/lib/_format_impl.py", line 833, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 636, in _run_experiment_single
+    dataset, dataset_info = ds_orch.load(cfg.dataset)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/dataset.py", line 43, in load
+    ds = load_dataset(
+         ^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 220, in load_dataset
+    ds = _load_processed(layout, fp)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 488, in _load_processed
+    ds = storage.load(layout.processed_dir(fingerprint))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/storage/files.py", line 89, in load
+    train = self._load_split(processed_dir, "train", layout["splits"]["train"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/storage/files.py", line 120, in _load_split
+    X = self._load_array(root, info["X"])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/storage/files.py", line 173, in _load_array
+    raise ManifestError(f"Failed to load cached array: {path}") from e
+modssc.data_loader.errors.ManifestError: Failed to load cached array: /lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets/processed/f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967/train_X.npy

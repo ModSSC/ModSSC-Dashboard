@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.4375,
+        "mean": 0.3125,
+        "min": 0.1875,
+        "std": 0.08838834764831845,
+        "values": [
+          0.375,
+          0.4375,
+          0.25,
+          0.1875,
+          0.3125
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.41899766899766894,
+        "mean": 0.30437007437007435,
+        "min": 0.1494949494949495,
+        "std": 0.10034056839101949,
+        "values": [
+          0.3914529914529914,
+          0.41899766899766894,
+          0.2333333333333333,
+          0.1494949494949495,
+          0.32857142857142857
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.6,
+        "mean": 0.32,
+        "min": 0.0,
+        "std": 0.24,
+        "values": [
+          0.6,
+          0.6,
+          0.0,
+          0.2,
+          0.2
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4444444444444444,
+        "mean": 0.2422222222222222,
+        "min": 0.0,
+        "std": 0.17531629265169796,
+        "values": [
+          0.43333333333333335,
+          0.4444444444444444,
+          0.0,
+          0.11111111111111112,
+          0.2222222222222222
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.3914529914529914
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.43333333333333335
+        }
+      },
+      "name": "best_tabular_inductive_noisy_student_toy_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed1-eca1cc4213b7f843c71d-20260329T215953Z",
+      "run_id": "eca1cc4213b7f843c71d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed1-eca1cc4213b7f843c71d-20260329T215953Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.4375,
+          "macro_f1": 0.41899766899766894
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.4444444444444444
+        }
+      },
+      "name": "best_tabular_inductive_noisy_student_toy_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed2-eed312a228f6eb7d9baa-20260329T215957Z",
+      "run_id": "eed312a228f6eb7d9baa",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed2-eed312a228f6eb7d9baa-20260329T215957Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.2333333333333333
+        },
+        "val": {
+          "accuracy": 0.0,
+          "macro_f1": 0.0
+        }
+      },
+      "name": "best_tabular_inductive_noisy_student_toy_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed3-39472411c8d7da854fa9-20260329T215957Z",
+      "run_id": "39472411c8d7da854fa9",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed3-39472411c8d7da854fa9-20260329T215957Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1875,
+          "macro_f1": 0.1494949494949495
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.11111111111111112
+        }
+      },
+      "name": "best_tabular_inductive_noisy_student_toy_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed4-4b27ad0850c09f2d2f37-20260329T215958Z",
+      "run_id": "4b27ad0850c09f2d2f37",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed4-4b27ad0850c09f2d2f37-20260329T215958Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.32857142857142857
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.2222222222222222
+        }
+      },
+      "name": "best_tabular_inductive_noisy_student_toy_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed5-a68c20c34e0400624fd5-20260329T215958Z",
+      "run_id": "a68c20c34e0400624fd5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z/best_tabular_inductive_noisy_student_toy_R1-seed5-a68c20c34e0400624fd5-20260329T215958Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:59:58.581356+00:00",
+    "base_name": "best_tabular_inductive_noisy_student_toy_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/noisy_student/tabular/toy.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/tabular/toy/best_tabular_inductive_noisy_student_toy_R1-sweep-20260329T215951Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

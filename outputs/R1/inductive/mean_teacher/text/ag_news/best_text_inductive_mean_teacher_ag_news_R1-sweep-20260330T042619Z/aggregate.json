@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.26105263157894737,
+        "mean": 0.2533684210526316,
+        "min": 0.24947368421052632,
+        "std": 0.004354925253229825,
+        "values": [
+          0.24986842105263157,
+          0.25526315789473686,
+          0.26105263157894737,
+          0.2511842105263158,
+          0.24947368421052632
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.12448248659132101,
+        "mean": 0.10990564623369722,
+        "min": 0.100031605562579,
+        "std": 0.009792872009901381,
+        "values": [
+          0.100031605562579,
+          0.11866762485551732,
+          0.12448248659132101,
+          0.10419755201010664,
+          0.10214896214896213
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.2619166666666667,
+        "mean": 0.2538,
+        "min": 0.25,
+        "std": 0.004586998534505508,
+        "values": [
+          0.25,
+          0.25583333333333336,
+          0.2619166666666667,
+          0.25116666666666665,
+          0.2500833333333333
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.12668909969497744,
+        "mean": 0.11053722374050216,
+        "min": 0.10023919413245039,
+        "std": 0.010758726861030795,
+        "values": [
+          0.10023919413245039,
+          0.12009057300424074,
+          0.12668909969497744,
+          0.10379829874378325,
+          0.10186895312705897
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.24986842105263157,
+          "macro_f1": 0.100031605562579
+        },
+        "val": {
+          "accuracy": 0.25,
+          "macro_f1": 0.10023919413245039
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_ag_news_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed2-3c3608f304daaf570f29-20260330T042621Z",
+      "run_id": "3c3608f304daaf570f29",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed2-3c3608f304daaf570f29-20260330T042621Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25526315789473686,
+          "macro_f1": 0.11866762485551732
+        },
+        "val": {
+          "accuracy": 0.25583333333333336,
+          "macro_f1": 0.12009057300424074
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_ag_news_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed3-8455d76b86cb769db553-20260330T043606Z",
+      "run_id": "8455d76b86cb769db553",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed3-8455d76b86cb769db553-20260330T043606Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.26105263157894737,
+          "macro_f1": 0.12448248659132101
+        },
+        "val": {
+          "accuracy": 0.2619166666666667,
+          "macro_f1": 0.12668909969497744
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_ag_news_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed4-2879652e6f0a3dfac83a-20260330T044547Z",
+      "run_id": "2879652e6f0a3dfac83a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed4-2879652e6f0a3dfac83a-20260330T044547Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.2511842105263158,
+          "macro_f1": 0.10419755201010664
+        },
+        "val": {
+          "accuracy": 0.25116666666666665,
+          "macro_f1": 0.10379829874378325
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_ag_news_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed5-9b3063ea79520bd2d2d3-20260330T045529Z",
+      "run_id": "9b3063ea79520bd2d2d3",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed5-9b3063ea79520bd2d2d3-20260330T045529Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.24947368421052632,
+          "macro_f1": 0.10214896214896213
+        },
+        "val": {
+          "accuracy": 0.2500833333333333,
+          "macro_f1": 0.10186895312705897
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_ag_news_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed6-0df4225c7e8542e0bcba-20260330T050509Z",
+      "run_id": "0df4225c7e8542e0bcba",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z/best_text_inductive_mean_teacher_ag_news_R1-seed6-0df4225c7e8542e0bcba-20260330T050509Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T05:14:49.284388+00:00",
+    "base_name": "best_text_inductive_mean_teacher_ag_news_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/text/ag_news.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/ag_news/best_text_inductive_mean_teacher_ag_news_R1-sweep-20260330T042619Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

@@ -1,0 +1,820 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "id": "cifar100",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-100 (torchvision).",
+        "homepage": null,
+        "key": "cifar100",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR100"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "democratic_co_learning",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "fit_fingerprint": "fit:2c7a23776bc1ff848faf50a9bb65a22612de2d0ab32d5948538ef2692f237461",
+      "plan_fingerprint": "resolved_plan:7e480f78e4abd74eecd02f32d04a3eca022423745dab3de3a0b25394f2dd86a3",
+      "preprocess_fingerprint": "preprocess:4b4ee0519ff476c6ab1157bf713b4563f4c245e1c11ca1628d3a01e4200cc597",
+      "seed": 7
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7,
+      "split_fingerprint": "5c075e1aeb8f0aa6e1c8eae4f04e98b927806da4f609ffb0ded77ef33e27f710",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 100,
+            "1": 100,
+            "10": 100,
+            "11": 100,
+            "12": 100,
+            "13": 100,
+            "14": 100,
+            "15": 100,
+            "16": 100,
+            "17": 100,
+            "18": 100,
+            "19": 100,
+            "2": 100,
+            "20": 100,
+            "21": 100,
+            "22": 100,
+            "23": 100,
+            "24": 100,
+            "25": 100,
+            "26": 100,
+            "27": 100,
+            "28": 100,
+            "29": 100,
+            "3": 100,
+            "30": 100,
+            "31": 100,
+            "32": 100,
+            "33": 100,
+            "34": 100,
+            "35": 100,
+            "36": 100,
+            "37": 100,
+            "38": 100,
+            "39": 100,
+            "4": 100,
+            "40": 100,
+            "41": 100,
+            "42": 100,
+            "43": 100,
+            "44": 100,
+            "45": 100,
+            "46": 100,
+            "47": 100,
+            "48": 100,
+            "49": 100,
+            "5": 100,
+            "50": 100,
+            "51": 100,
+            "52": 100,
+            "53": 100,
+            "54": 100,
+            "55": 100,
+            "56": 100,
+            "57": 100,
+            "58": 100,
+            "59": 100,
+            "6": 100,
+            "60": 100,
+            "61": 100,
+            "62": 100,
+            "63": 100,
+            "64": 100,
+            "65": 100,
+            "66": 100,
+            "67": 100,
+            "68": 100,
+            "69": 100,
+            "7": 100,
+            "70": 100,
+            "71": 100,
+            "72": 100,
+            "73": 100,
+            "74": 100,
+            "75": 100,
+            "76": 100,
+            "77": 100,
+            "78": 100,
+            "79": 100,
+            "8": 100,
+            "80": 100,
+            "81": 100,
+            "82": 100,
+            "83": 100,
+            "84": 100,
+            "85": 100,
+            "86": 100,
+            "87": 100,
+            "88": 100,
+            "89": 100,
+            "9": 100,
+            "90": 100,
+            "91": 100,
+            "92": 100,
+            "93": 100,
+            "94": 100,
+            "95": 100,
+            "96": 100,
+            "97": 100,
+            "98": 100,
+            "99": 100
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 450,
+            "1": 450,
+            "10": 450,
+            "11": 450,
+            "12": 450,
+            "13": 450,
+            "14": 450,
+            "15": 450,
+            "16": 450,
+            "17": 450,
+            "18": 450,
+            "19": 450,
+            "2": 450,
+            "20": 450,
+            "21": 450,
+            "22": 450,
+            "23": 450,
+            "24": 450,
+            "25": 450,
+            "26": 450,
+            "27": 450,
+            "28": 450,
+            "29": 450,
+            "3": 450,
+            "30": 450,
+            "31": 450,
+            "32": 450,
+            "33": 450,
+            "34": 450,
+            "35": 450,
+            "36": 450,
+            "37": 450,
+            "38": 450,
+            "39": 450,
+            "4": 450,
+            "40": 450,
+            "41": 450,
+            "42": 450,
+            "43": 450,
+            "44": 450,
+            "45": 450,
+            "46": 450,
+            "47": 450,
+            "48": 450,
+            "49": 450,
+            "5": 450,
+            "50": 450,
+            "51": 450,
+            "52": 450,
+            "53": 450,
+            "54": 450,
+            "55": 450,
+            "56": 450,
+            "57": 450,
+            "58": 450,
+            "59": 450,
+            "6": 450,
+            "60": 450,
+            "61": 450,
+            "62": 450,
+            "63": 450,
+            "64": 450,
+            "65": 450,
+            "66": 450,
+            "67": 450,
+            "68": 450,
+            "69": 450,
+            "7": 450,
+            "70": 450,
+            "71": 450,
+            "72": 450,
+            "73": 450,
+            "74": 450,
+            "75": 450,
+            "76": 450,
+            "77": 450,
+            "78": 450,
+            "79": 450,
+            "8": 450,
+            "80": 450,
+            "81": 450,
+            "82": 450,
+            "83": 450,
+            "84": 450,
+            "85": 450,
+            "86": 450,
+            "87": 450,
+            "88": 450,
+            "89": 450,
+            "9": 450,
+            "90": 450,
+            "91": 450,
+            "92": 450,
+            "93": 450,
+            "94": 450,
+            "95": 450,
+            "96": 450,
+            "97": 450,
+            "98": 450,
+            "99": 450
+          },
+          "n": 45000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 1,
+            "1": 1,
+            "10": 1,
+            "11": 1,
+            "12": 1,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "2": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "3": 1,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "4": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "5": 1,
+            "50": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "57": 1,
+            "58": 1,
+            "59": 1,
+            "6": 1,
+            "60": 1,
+            "61": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "7": 1,
+            "70": 1,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "8": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "83": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1,
+            "88": 1,
+            "89": 1,
+            "9": 1,
+            "90": 1,
+            "91": 1,
+            "92": 1,
+            "93": 1,
+            "94": 1,
+            "95": 1,
+            "96": 1,
+            "97": 1,
+            "98": 1,
+            "99": 1
+          },
+          "n": 100
+        },
+        "train_unlabeled": {
+          "n": 44900
+        },
+        "val": {
+          "classes": {
+            "0": 50,
+            "1": 50,
+            "10": 50,
+            "11": 50,
+            "12": 50,
+            "13": 50,
+            "14": 50,
+            "15": 50,
+            "16": 50,
+            "17": 50,
+            "18": 50,
+            "19": 50,
+            "2": 50,
+            "20": 50,
+            "21": 50,
+            "22": 50,
+            "23": 50,
+            "24": 50,
+            "25": 50,
+            "26": 50,
+            "27": 50,
+            "28": 50,
+            "29": 50,
+            "3": 50,
+            "30": 50,
+            "31": 50,
+            "32": 50,
+            "33": 50,
+            "34": 50,
+            "35": 50,
+            "36": 50,
+            "37": 50,
+            "38": 50,
+            "39": 50,
+            "4": 50,
+            "40": 50,
+            "41": 50,
+            "42": 50,
+            "43": 50,
+            "44": 50,
+            "45": 50,
+            "46": 50,
+            "47": 50,
+            "48": 50,
+            "49": 50,
+            "5": 50,
+            "50": 50,
+            "51": 50,
+            "52": 50,
+            "53": 50,
+            "54": 50,
+            "55": 50,
+            "56": 50,
+            "57": 50,
+            "58": 50,
+            "59": 50,
+            "6": 50,
+            "60": 50,
+            "61": 50,
+            "62": 50,
+            "63": 50,
+            "64": 50,
+            "65": 50,
+            "66": 50,
+            "67": 50,
+            "68": 50,
+            "69": 50,
+            "7": 50,
+            "70": 50,
+            "71": 50,
+            "72": 50,
+            "73": 50,
+            "74": 50,
+            "75": 50,
+            "76": 50,
+            "77": 50,
+            "78": 50,
+            "79": 50,
+            "8": 50,
+            "80": 50,
+            "81": 50,
+            "82": 50,
+            "83": 50,
+            "84": 50,
+            "85": 50,
+            "86": 50,
+            "87": 50,
+            "88": 50,
+            "89": 50,
+            "9": 50,
+            "90": 50,
+            "91": 50,
+            "92": 50,
+            "93": 50,
+            "94": 50,
+            "95": 50,
+            "96": 50,
+            "97": 50,
+            "98": 50,
+            "99": 50
+          },
+          "n": 5000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cifar100",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "democratic_co_learning",
+      "model": null,
+      "params": {
+        "classifier_backend": "torch",
+        "classifier_id": "image_pretrained",
+        "classifier_params": {
+          "batch_size": 32,
+          "freeze_backbone": false,
+          "input_layout": "channels_first",
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "model_name": "resnet18",
+          "weight_decay": 0.0001,
+          "weights": null
+        },
+        "confidence_level": 0.95,
+        "max_iter": 20,
+        "min_confidence": 0.5,
+        "n_learners": 3
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 32,
+              "width": 32
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "core.copy_raw"
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 7
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_inductive_democratic_co_learning_cifar100_R1-seed7",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/vision/cifar100/best_vision_inductive_democratic_co_learning_cifar100_R1-sweep-20260329T232950Z",
+      "seed": 7,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "c42d8e751d35024fe80d3bb155747f543d9ebab2d1f236c07d136539fc2e065b",
+    "effective_config_hash": "8aac43e137dbc37129c08e22ddc913785b5e9cea4482b557be0768bceeb9be5f"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.0143,
+      "macro_f1": 0.002083116331303087
+    },
+    "val": {
+      "accuracy": 0.0156,
+      "macro_f1": 0.0017595967467312387
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            100,
+            3,
+            32,
+            32
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            44900,
+            3,
+            32,
+            32
+          ]
+        },
+        "X_u_s": null,
+        "X_u_s_1": null,
+        "X_u_w": null,
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            100
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch",
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/vision/cifar100.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-30T00:12:50.054540+00:00",
+    "name": "best_vision_inductive_democratic_co_learning_cifar100_R1-seed7",
+    "run_id": "4f3f087438f04b89c78c",
+    "seed": 7,
+    "started_at": "2026-03-30T00:09:39.725293+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 932, in _run_experiment_single
+    metrics = eval_orch.evaluate_inductive(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/evaluation.py", line 292, in evaluate_inductive
+    scores = method.predict_proba(X)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/inductive/methods/deep_co_training.py", line 502, in predict_proba
+    raise InductiveValidationError("predict_proba requires torch.Tensor inputs (or dict).")
+modssc.inductive.errors.InductiveValidationError: predict_proba requires torch.Tensor inputs (or dict).

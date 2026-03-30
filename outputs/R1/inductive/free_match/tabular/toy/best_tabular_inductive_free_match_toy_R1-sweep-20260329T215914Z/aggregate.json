@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5,
+        "mean": 0.3625,
+        "min": 0.3125,
+        "std": 0.07288689868556626,
+        "values": [
+          0.3125,
+          0.3125,
+          0.5,
+          0.375,
+          0.3125
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4230769230769231,
+        "mean": 0.2162171162171162,
+        "min": 0.15873015873015872,
+        "std": 0.10381571867995767,
+        "values": [
+          0.15873015873015872,
+          0.15873015873015872,
+          0.4230769230769231,
+          0.1818181818181818,
+          0.15873015873015872
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.4,
+        "mean": 0.32,
+        "min": 0.2,
+        "std": 0.09797958971132713,
+        "values": [
+          0.4,
+          0.4,
+          0.4,
+          0.2,
+          0.2
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3,
+        "mean": 0.1958730158730159,
+        "min": 0.11111111111111112,
+        "std": 0.07778490411149303,
+        "values": [
+          0.3,
+          0.1904761904761905,
+          0.26666666666666666,
+          0.11111111111111112,
+          0.11111111111111112
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.15873015873015872
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.3
+        }
+      },
+      "name": "best_tabular_inductive_free_match_toy_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed1-24765e1018cb8bcb133f-20260329T215916Z",
+      "run_id": "24765e1018cb8bcb133f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed1-24765e1018cb8bcb133f-20260329T215916Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.15873015873015872
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.1904761904761905
+        }
+      },
+      "name": "best_tabular_inductive_free_match_toy_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed2-50ba3f215ed01e23dd85-20260329T215921Z",
+      "run_id": "50ba3f215ed01e23dd85",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed2-50ba3f215ed01e23dd85-20260329T215921Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5,
+          "macro_f1": 0.4230769230769231
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.26666666666666666
+        }
+      },
+      "name": "best_tabular_inductive_free_match_toy_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed3-98e804035877ba305671-20260329T215921Z",
+      "run_id": "98e804035877ba305671",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed3-98e804035877ba305671-20260329T215921Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.1818181818181818
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.11111111111111112
+        }
+      },
+      "name": "best_tabular_inductive_free_match_toy_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed4-8a386ba8475fc22fe276-20260329T215921Z",
+      "run_id": "8a386ba8475fc22fe276",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed4-8a386ba8475fc22fe276-20260329T215921Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.15873015873015872
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.11111111111111112
+        }
+      },
+      "name": "best_tabular_inductive_free_match_toy_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed5-4f554d056fa8fbf95d87-20260329T215921Z",
+      "run_id": "4f554d056fa8fbf95d87",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z/best_tabular_inductive_free_match_toy_R1-seed5-4f554d056fa8fbf95d87-20260329T215921Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:59:22.154274+00:00",
+    "base_name": "best_tabular_inductive_free_match_toy_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/free_match/tabular/toy.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/tabular/toy/best_tabular_inductive_free_match_toy_R1-sweep-20260329T215914Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

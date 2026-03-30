@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.8666666666666667,
+        "mean": 0.7666666666666666,
+        "min": 0.7,
+        "std": 0.05962847939999443,
+        "values": [
+          0.7,
+          0.8,
+          0.8666666666666667,
+          0.7333333333333333,
+          0.7333333333333333
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.861111111111111,
+        "mean": 0.7368119419576663,
+        "min": 0.656785642266586,
+        "std": 0.07984521687909987,
+        "values": [
+          0.656785642266586,
+          0.8010835913312694,
+          0.861111111111111,
+          0.6825396825396827,
+          0.6825396825396827
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9166666666666666,
+        "mean": 0.7666666666666666,
+        "min": 0.6666666666666666,
+        "std": 0.0816496580927726,
+        "values": [
+          0.75,
+          0.9166666666666666,
+          0.75,
+          0.6666666666666666,
+          0.75
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9153439153439153,
+        "mean": 0.7367772967772968,
+        "min": 0.6412698412698412,
+        "std": 0.09306698610483499,
+        "values": [
+          0.7090909090909091,
+          0.9153439153439153,
+          0.709090909090909,
+          0.6412698412698412,
+          0.709090909090909
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7,
+          "macro_f1": 0.656785642266586
+        },
+        "val": {
+          "accuracy": 0.75,
+          "macro_f1": 0.7090909090909091
+        }
+      },
+      "name": "best_tabular_inductive_adsh_iris_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed1-0de221574426e9b6f3f2-20260328T232153Z",
+      "run_id": "0de221574426e9b6f3f2",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed1-0de221574426e9b6f3f2-20260328T232153Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8,
+          "macro_f1": 0.8010835913312694
+        },
+        "val": {
+          "accuracy": 0.9166666666666666,
+          "macro_f1": 0.9153439153439153
+        }
+      },
+      "name": "best_tabular_inductive_adsh_iris_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed2-b319aa6c162061c32b79-20260328T232200Z",
+      "run_id": "b319aa6c162061c32b79",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed2-b319aa6c162061c32b79-20260328T232200Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8666666666666667,
+          "macro_f1": 0.861111111111111
+        },
+        "val": {
+          "accuracy": 0.75,
+          "macro_f1": 0.709090909090909
+        }
+      },
+      "name": "best_tabular_inductive_adsh_iris_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed3-30efbf074260d93ba025-20260328T232201Z",
+      "run_id": "30efbf074260d93ba025",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed3-30efbf074260d93ba025-20260328T232201Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7333333333333333,
+          "macro_f1": 0.6825396825396827
+        },
+        "val": {
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.6412698412698412
+        }
+      },
+      "name": "best_tabular_inductive_adsh_iris_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed4-1c9636a1c3d37f36f5a7-20260328T232201Z",
+      "run_id": "1c9636a1c3d37f36f5a7",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed4-1c9636a1c3d37f36f5a7-20260328T232201Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7333333333333333,
+          "macro_f1": 0.6825396825396827
+        },
+        "val": {
+          "accuracy": 0.75,
+          "macro_f1": 0.709090909090909
+        }
+      },
+      "name": "best_tabular_inductive_adsh_iris_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed5-10f639fe62a4d51463a6-20260328T232201Z",
+      "run_id": "10f639fe62a4d51463a6",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z/best_tabular_inductive_adsh_iris_R1-seed5-10f639fe62a4d51463a6-20260328T232201Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:22:02.137590+00:00",
+    "base_name": "best_tabular_inductive_adsh_iris_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/adsh/tabular/iris.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/tabular/iris/best_tabular_inductive_adsh_iris_R1-sweep-20260328T232150Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

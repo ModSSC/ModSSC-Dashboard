@@ -6,6 +6,7 @@ import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import json from 'react-syntax-highlighter/dist/esm/languages/hljs/json';
 import yaml from 'react-syntax-highlighter/dist/esm/languages/hljs/yaml';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { formatDatasetLabel, getRunLabeledFraction } from '../lib/dataset';
 
 SyntaxHighlighter.registerLanguage('json', json);
 SyntaxHighlighter.registerLanguage('yaml', yaml);
@@ -14,6 +15,7 @@ const RunDetailsModal = ({ run, isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState('config');
     const [content, setContent] = useState({ config: '', run: '', log: '' });
     const [loading, setLoading] = useState({ config: false, run: false, log: false });
+    const datasetLabel = formatDatasetLabel(run?.dataset_id, getRunLabeledFraction(run));
 
     useEffect(() => {
         if (isOpen && run && run.raw_data_urls) {
@@ -70,7 +72,7 @@ const RunDetailsModal = ({ run, isOpen, onClose }) => {
                         </h2>
                         <div className="flex gap-2 mt-1">
                             <Badge variant="outline">{run.method_id}</Badge>
-                            <Badge variant="outline">{run.dataset_id}</Badge>
+                            <Badge variant="outline">{datasetLabel}</Badge>
                             {run.error && <Badge variant="destructive">Error</Badge>}
                         </div>
                     </div>

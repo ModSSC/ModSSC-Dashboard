@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.2505263157894737,
+        "mean": 0.2501052631578947,
+        "min": 0.25,
+        "std": 0.0002105263157894832,
+        "values": [
+          0.2505263157894737,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.10714115913088955,
+        "mean": 0.10164674045962288,
+        "min": 0.1,
+        "std": 0.0027796054971215628,
+        "values": [
+          0.10109254316722477,
+          0.1,
+          0.1,
+          0.10714115913088955,
+          0.1
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.25125,
+        "mean": 0.2503833333333333,
+        "min": 0.25,
+        "std": 0.0004847679857416238,
+        "values": [
+          0.2505833333333333,
+          0.25,
+          0.25,
+          0.25125,
+          0.2500833333333333
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.10820759686445496,
+        "mean": 0.10191830286826822,
+        "min": 0.1,
+        "std": 0.003176818834184306,
+        "values": [
+          0.10121063923612195,
+          0.1,
+          0.1,
+          0.10820759686445496,
+          0.10017327824076419
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.2505263157894737,
+          "macro_f1": 0.10109254316722477
+        },
+        "val": {
+          "accuracy": 0.2505833333333333,
+          "macro_f1": 0.10121063923612195
+        }
+      },
+      "name": "best_text_inductive_deep_co_training_ag_news_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed2-9d496a5ddafdd95de8a8-20260329T225951Z",
+      "run_id": "9d496a5ddafdd95de8a8",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed2-9d496a5ddafdd95de8a8-20260329T225951Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1
+        },
+        "val": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1
+        }
+      },
+      "name": "best_text_inductive_deep_co_training_ag_news_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed3-7d73f00b4d99af67bb2a-20260329T232229Z",
+      "run_id": "7d73f00b4d99af67bb2a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed3-7d73f00b4d99af67bb2a-20260329T232229Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1
+        },
+        "val": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1
+        }
+      },
+      "name": "best_text_inductive_deep_co_training_ag_news_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed4-8c40ab684ed4e2c50be6-20260329T234505Z",
+      "run_id": "8c40ab684ed4e2c50be6",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed4-8c40ab684ed4e2c50be6-20260329T234505Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.10714115913088955
+        },
+        "val": {
+          "accuracy": 0.25125,
+          "macro_f1": 0.10820759686445496
+        }
+      },
+      "name": "best_text_inductive_deep_co_training_ag_news_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed5-396692b40a77c0de9135-20260330T000741Z",
+      "run_id": "396692b40a77c0de9135",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed5-396692b40a77c0de9135-20260330T000741Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.1
+        },
+        "val": {
+          "accuracy": 0.2500833333333333,
+          "macro_f1": 0.10017327824076419
+        }
+      },
+      "name": "best_text_inductive_deep_co_training_ag_news_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed6-72e4e181172a0743dfa4-20260330T003016Z",
+      "run_id": "72e4e181172a0743dfa4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z/best_text_inductive_deep_co_training_ag_news_R1-seed6-72e4e181172a0743dfa4-20260330T003016Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T00:52:51.256607+00:00",
+    "base_name": "best_text_inductive_deep_co_training_ag_news_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/deep_co_training/text/ag_news.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/deep_co_training/text/ag_news/best_text_inductive_deep_co_training_ag_news_R1-sweep-20260329T225949Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

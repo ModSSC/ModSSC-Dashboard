@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.0337,
+        "mean": 0.031979999999999995,
+        "min": 0.0298,
+        "std": 0.0015144636014114044,
+        "values": [
+          0.0298,
+          0.0314,
+          0.0337,
+          0.0313,
+          0.0337
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.03287091144388577,
+        "mean": 0.029755658446810378,
+        "min": 0.027876772439446057,
+        "std": 0.002083934135123832,
+        "values": [
+          0.028225492292193684,
+          0.027876772439446057,
+          0.0316481705432294,
+          0.02815694551529699,
+          0.03287091144388577
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.0322,
+        "mean": 0.03024,
+        "min": 0.0284,
+        "std": 0.0013763720427268193,
+        "values": [
+          0.0284,
+          0.031,
+          0.0322,
+          0.0306,
+          0.029
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.030506923092479578,
+        "mean": 0.028111271606794757,
+        "min": 0.026542913943178,
+        "std": 0.0013546436303732037,
+        "values": [
+          0.026542913943178,
+          0.027380838888328013,
+          0.030506923092479578,
+          0.027594769462306604,
+          0.028530912647681584
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0298,
+          "macro_f1": 0.028225492292193684
+        },
+        "val": {
+          "accuracy": 0.0284,
+          "macro_f1": 0.026542913943178
+        }
+      },
+      "name": "best_vision_inductive_temporal_ensembling_cifar100_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed3-ed0648a6576425f937de-20260330T042421Z",
+      "run_id": "ed0648a6576425f937de",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed3-ed0648a6576425f937de-20260330T042421Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0314,
+          "macro_f1": 0.027876772439446057
+        },
+        "val": {
+          "accuracy": 0.031,
+          "macro_f1": 0.027380838888328013
+        }
+      },
+      "name": "best_vision_inductive_temporal_ensembling_cifar100_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed4-65e27ba17c5a5db9cc1d-20260330T042935Z",
+      "run_id": "65e27ba17c5a5db9cc1d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed4-65e27ba17c5a5db9cc1d-20260330T042935Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0337,
+          "macro_f1": 0.0316481705432294
+        },
+        "val": {
+          "accuracy": 0.0322,
+          "macro_f1": 0.030506923092479578
+        }
+      },
+      "name": "best_vision_inductive_temporal_ensembling_cifar100_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed5-aa001b6c3d63a3da6b59-20260330T043433Z",
+      "run_id": "aa001b6c3d63a3da6b59",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed5-aa001b6c3d63a3da6b59-20260330T043433Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0313,
+          "macro_f1": 0.02815694551529699
+        },
+        "val": {
+          "accuracy": 0.0306,
+          "macro_f1": 0.027594769462306604
+        }
+      },
+      "name": "best_vision_inductive_temporal_ensembling_cifar100_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed6-c5dbce0e49c74aedc151-20260330T043922Z",
+      "run_id": "c5dbce0e49c74aedc151",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed6-c5dbce0e49c74aedc151-20260330T043922Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0337,
+          "macro_f1": 0.03287091144388577
+        },
+        "val": {
+          "accuracy": 0.029,
+          "macro_f1": 0.028530912647681584
+        }
+      },
+      "name": "best_vision_inductive_temporal_ensembling_cifar100_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed7-c2ceca4a13063153680c-20260330T044413Z",
+      "run_id": "c2ceca4a13063153680c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z/best_vision_inductive_temporal_ensembling_cifar100_R1-seed7-c2ceca4a13063153680c-20260330T044413Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T04:49:04.558991+00:00",
+    "base_name": "best_vision_inductive_temporal_ensembling_cifar100_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/temporal_ensembling/vision/cifar100.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/vision/cifar100/best_vision_inductive_temporal_ensembling_cifar100_R1-sweep-20260330T042419Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

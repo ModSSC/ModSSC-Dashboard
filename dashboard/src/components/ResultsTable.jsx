@@ -1,5 +1,6 @@
 import React from 'react';
 import { Eye } from 'lucide-react';
+import { formatDatasetLabel, getRunLabeledFraction } from '../lib/dataset';
 
 const ResultsTable = ({ runs, onSelect, selectedIds, onInspect }) => {
     if (!runs || runs.length === 0) return <div>No data available</div>;
@@ -34,6 +35,7 @@ const ResultsTable = ({ runs, onSelect, selectedIds, onInspect }) => {
                 <tbody className="[&_tr:last-child]:border-0">
                     {runs.map((run) => {
                         const isError = !!run.error;
+                        const datasetLabel = formatDatasetLabel(run.dataset_id, getRunLabeledFraction(run));
                         const rowClass = isError 
                             ? "bg-red-50 hover:bg-red-100 border-b transition-colors" 
                             : "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted";
@@ -57,7 +59,7 @@ const ResultsTable = ({ runs, onSelect, selectedIds, onInspect }) => {
                                     </button>
                                 </td>
                                 <td className="p-4 align-middle">{run.method_id}</td>
-                                <td className="p-4 align-middle">{run.dataset_id}</td>
+                                <td className="p-4 align-middle">{datasetLabel}</td>
                                 <td className="p-4 align-middle">
                                     {isError ? (
                                         <span className="text-red-600 font-bold text-xs">FAILED</span>

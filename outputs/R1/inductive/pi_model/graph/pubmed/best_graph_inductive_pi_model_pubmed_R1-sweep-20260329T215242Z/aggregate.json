@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.495,
+        "mean": 0.3406,
+        "min": 0.213,
+        "std": 0.11222406159108661,
+        "values": [
+          0.451,
+          0.247,
+          0.297,
+          0.495,
+          0.213
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4583008740458318,
+        "mean": 0.31383840828477877,
+        "min": 0.15800494986135546,
+        "std": 0.12230114313999088,
+        "values": [
+          0.4505167065364688,
+          0.21179910036817792,
+          0.29057041061205974,
+          0.4583008740458318,
+          0.15800494986135546
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.504,
+        "mean": 0.3608,
+        "min": 0.24,
+        "std": 0.11737529552678451,
+        "values": [
+          0.504,
+          0.254,
+          0.306,
+          0.5,
+          0.24
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.5048897253076474,
+        "mean": 0.3342795174315393,
+        "min": 0.18539705624907418,
+        "std": 0.1326102879320015,
+        "values": [
+          0.5048897253076474,
+          0.21431667098333765,
+          0.2900229271309411,
+          0.47677120748669605,
+          0.18539705624907418
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.451,
+          "macro_f1": 0.4505167065364688
+        },
+        "val": {
+          "accuracy": 0.504,
+          "macro_f1": 0.5048897253076474
+        }
+      },
+      "name": "best_graph_inductive_pi_model_pubmed_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed5-8293a66ce702e7952338-20260329T215244Z",
+      "run_id": "8293a66ce702e7952338",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed5-8293a66ce702e7952338-20260329T215244Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.247,
+          "macro_f1": 0.21179910036817792
+        },
+        "val": {
+          "accuracy": 0.254,
+          "macro_f1": 0.21431667098333765
+        }
+      },
+      "name": "best_graph_inductive_pi_model_pubmed_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed6-e54045f1e7e8cb5d7600-20260329T215250Z",
+      "run_id": "e54045f1e7e8cb5d7600",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed6-e54045f1e7e8cb5d7600-20260329T215250Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.297,
+          "macro_f1": 0.29057041061205974
+        },
+        "val": {
+          "accuracy": 0.306,
+          "macro_f1": 0.2900229271309411
+        }
+      },
+      "name": "best_graph_inductive_pi_model_pubmed_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed7-03ea6214beee75713eb0-20260329T215250Z",
+      "run_id": "03ea6214beee75713eb0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed7-03ea6214beee75713eb0-20260329T215250Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.495,
+          "macro_f1": 0.4583008740458318
+        },
+        "val": {
+          "accuracy": 0.5,
+          "macro_f1": 0.47677120748669605
+        }
+      },
+      "name": "best_graph_inductive_pi_model_pubmed_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed8-9fb0e47e4133c985382d-20260329T215250Z",
+      "run_id": "9fb0e47e4133c985382d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed8-9fb0e47e4133c985382d-20260329T215250Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.213,
+          "macro_f1": 0.15800494986135546
+        },
+        "val": {
+          "accuracy": 0.24,
+          "macro_f1": 0.18539705624907418
+        }
+      },
+      "name": "best_graph_inductive_pi_model_pubmed_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed9-335d81397dddad7c8867-20260329T215251Z",
+      "run_id": "335d81397dddad7c8867",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z/best_graph_inductive_pi_model_pubmed_R1-seed9-335d81397dddad7c8867-20260329T215251Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:52:51.445800+00:00",
+    "base_name": "best_graph_inductive_pi_model_pubmed_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/pi_model/graph/pubmed.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/pi_model/graph/pubmed/best_graph_inductive_pi_model_pubmed_R1-sweep-20260329T215242Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

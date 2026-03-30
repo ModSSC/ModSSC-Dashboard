@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.4375,
+        "mean": 0.325,
+        "min": 0.1875,
+        "std": 0.09185586535436918,
+        "values": [
+          0.375,
+          0.4375,
+          0.375,
+          0.1875,
+          0.25
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.41991341991341985,
+        "mean": 0.31597846597846596,
+        "min": 0.1494949494949495,
+        "std": 0.09614188555643721,
+        "values": [
+          0.3914529914529914,
+          0.41991341991341985,
+          0.34047619047619043,
+          0.1494949494949495,
+          0.27855477855477856
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.6,
+        "mean": 0.36,
+        "min": 0.0,
+        "std": 0.233238075793812,
+        "values": [
+          0.6,
+          0.6,
+          0.0,
+          0.4,
+          0.2
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4444444444444444,
+        "mean": 0.2911111111111111,
+        "min": 0.0,
+        "std": 0.16576049954641348,
+        "values": [
+          0.43333333333333335,
+          0.4444444444444444,
+          0.0,
+          0.35555555555555557,
+          0.2222222222222222
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.3914529914529914
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.43333333333333335
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_toy_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed1-b879af54f4ec9a442501-20260329T215844Z",
+      "run_id": "b879af54f4ec9a442501",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed1-b879af54f4ec9a442501-20260329T215844Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.4375,
+          "macro_f1": 0.41991341991341985
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.4444444444444444
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_toy_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed2-b5283e1637a71e80dbcf-20260329T215849Z",
+      "run_id": "b5283e1637a71e80dbcf",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed2-b5283e1637a71e80dbcf-20260329T215849Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.34047619047619043
+        },
+        "val": {
+          "accuracy": 0.0,
+          "macro_f1": 0.0
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_toy_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed3-5a5847e55806fe97ab7f-20260329T215850Z",
+      "run_id": "5a5847e55806fe97ab7f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed3-5a5847e55806fe97ab7f-20260329T215850Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1875,
+          "macro_f1": 0.1494949494949495
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.35555555555555557
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_toy_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed4-c67f18de22894b53b35b-20260329T215851Z",
+      "run_id": "c67f18de22894b53b35b",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed4-c67f18de22894b53b35b-20260329T215851Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.27855477855477856
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.2222222222222222
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_toy_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed5-cece289f787bd9d4c310-20260329T215853Z",
+      "run_id": "cece289f787bd9d4c310",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z/best_tabular_inductive_democratic_co_learning_toy_R1-seed5-cece289f787bd9d4c310-20260329T215853Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:58:54.312864+00:00",
+    "base_name": "best_tabular_inductive_democratic_co_learning_toy_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/tabular/toy.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/toy/best_tabular_inductive_democratic_co_learning_toy_R1-sweep-20260329T215841Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

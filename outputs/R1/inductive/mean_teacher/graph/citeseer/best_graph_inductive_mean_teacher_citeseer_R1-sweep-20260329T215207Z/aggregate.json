@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.273,
+        "mean": 0.24700000000000003,
+        "min": 0.216,
+        "std": 0.019677398201998157,
+        "values": [
+          0.25,
+          0.26,
+          0.273,
+          0.216,
+          0.236
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.26484362185404664,
+        "mean": 0.23464181594620906,
+        "min": 0.20392704311554197,
+        "std": 0.023282785996045986,
+        "values": [
+          0.20392704311554197,
+          0.26484362185404664,
+          0.25605999124267914,
+          0.2147647179546476,
+          0.23361370556412986
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.272,
+        "mean": 0.2504,
+        "min": 0.192,
+        "std": 0.02981006541421874,
+        "values": [
+          0.254,
+          0.268,
+          0.272,
+          0.192,
+          0.266
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.2671560252470757,
+        "mean": 0.23024138913750297,
+        "min": 0.18542472120626152,
+        "std": 0.03299501938540494,
+        "values": [
+          0.19710415817114815,
+          0.2671560252470757,
+          0.2426386496816604,
+          0.18542472120626152,
+          0.2588833913813691
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.20392704311554197
+        },
+        "val": {
+          "accuracy": 0.254,
+          "macro_f1": 0.19710415817114815
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_citeseer_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed5-01ac5a4344ae43d403f6-20260329T215209Z",
+      "run_id": "01ac5a4344ae43d403f6",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed5-01ac5a4344ae43d403f6-20260329T215209Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.26,
+          "macro_f1": 0.26484362185404664
+        },
+        "val": {
+          "accuracy": 0.268,
+          "macro_f1": 0.2671560252470757
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_citeseer_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed6-fc1bcdd229816f8d71af-20260329T215216Z",
+      "run_id": "fc1bcdd229816f8d71af",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed6-fc1bcdd229816f8d71af-20260329T215216Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.273,
+          "macro_f1": 0.25605999124267914
+        },
+        "val": {
+          "accuracy": 0.272,
+          "macro_f1": 0.2426386496816604
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_citeseer_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed7-4ba9fd722d032dbac0cf-20260329T215216Z",
+      "run_id": "4ba9fd722d032dbac0cf",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed7-4ba9fd722d032dbac0cf-20260329T215216Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.216,
+          "macro_f1": 0.2147647179546476
+        },
+        "val": {
+          "accuracy": 0.192,
+          "macro_f1": 0.18542472120626152
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_citeseer_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed8-e4c8e4b43456acc27ea1-20260329T215217Z",
+      "run_id": "e4c8e4b43456acc27ea1",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed8-e4c8e4b43456acc27ea1-20260329T215217Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.236,
+          "macro_f1": 0.23361370556412986
+        },
+        "val": {
+          "accuracy": 0.266,
+          "macro_f1": 0.2588833913813691
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_citeseer_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed9-2f5c7c1e919da28adaac-20260329T215217Z",
+      "run_id": "2f5c7c1e919da28adaac",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z/best_graph_inductive_mean_teacher_citeseer_R1-seed9-2f5c7c1e919da28adaac-20260329T215217Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:52:17.798343+00:00",
+    "base_name": "best_graph_inductive_mean_teacher_citeseer_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/graph/citeseer.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/citeseer/best_graph_inductive_mean_teacher_citeseer_R1-sweep-20260329T215207Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

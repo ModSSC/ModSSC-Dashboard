@@ -1,0 +1,278 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b8303bcc3e772e6f239c462c6a9e9966470adf816a4fa5ed757bbe4f91dc55df",
+      "id": "cifar10",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-10 (torchvision).",
+        "homepage": null,
+        "key": "cifar10",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR10"
+      }
+    },
+    "graph": {
+      "fingerprint": "2e18db806e6b1b64b331ca67ffa7ffceafe41a82dfa060cf2b9abbfd8e9c5d6d",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "graph_mincuts",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/b8303bcc3e772e6f239c462c6a9e9966470adf816a4fa5ed757bbe4f91dc55df",
+      "fit_fingerprint": "fit:94077a16d402c5259c6f304c18bff0c893b1c668c5f0155e7673c116e725440d",
+      "plan_fingerprint": "resolved_plan:736d62277fcffc01ca0407e63e93718b5eb8501f2739b5daaeb34ddbd1e24df9",
+      "preprocess_fingerprint": "preprocess:c50e511947188fbbaab6c57b68d064cdcc9b103e405815310354590eb6893374",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "0fa32e9548bcad7b69b18877e5d12ed072f74494419f265446d8d2362a06f23a",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1000,
+            "1": 1000
+          },
+          "n": 2000
+        },
+        "train": {
+          "classes": {
+            "0": 4500,
+            "1": 4500
+          },
+          "n": 9000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 900,
+            "1": 900
+          },
+          "n": 1800
+        },
+        "train_unlabeled": {
+          "n": 7200
+        },
+        "val": {
+          "classes": {
+            "0": 500,
+            "1": 500
+          },
+          "n": 1000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "cifar10",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/graph",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graph_mincuts",
+      "model": null,
+      "params": {
+        "backend": "scipy",
+        "capacity_scale": 1000.0,
+        "min_capacity": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.openclip",
+            "params": {
+              "batch_size": 64
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_graph_mincuts_cifar10",
+      "output_dir": "/home/mbarbaux/scratch/runs/transductive/graph_mincuts/vision/cifar10",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9875,
+      "macro_f1": 0.9874988717731776
+    },
+    "val": {
+      "accuracy": 0.986,
+      "macro_f1": 0.9859972554620705
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/graph_mincuts/vision/cifar10.yaml",
+    "finished_at": "2026-02-06T17:18:17.179575+00:00",
+    "name": "best_vision_transductive_graph_mincuts_cifar10",
+    "seed": 3,
+    "started_at": "2026-02-06T17:17:11.297719+00:00",
+    "status": "success"
+  }
+}

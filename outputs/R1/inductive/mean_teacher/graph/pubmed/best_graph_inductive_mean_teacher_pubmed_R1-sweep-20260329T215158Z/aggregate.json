@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.493,
+        "mean": 0.42960000000000004,
+        "min": 0.396,
+        "std": 0.03456356463098099,
+        "values": [
+          0.407,
+          0.493,
+          0.396,
+          0.438,
+          0.414
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.47365813890881253,
+        "mean": 0.3883995500204776,
+        "min": 0.33532928766132075,
+        "std": 0.04579629284334334,
+        "values": [
+          0.37159335980355185,
+          0.47365813890881253,
+          0.38107548083887827,
+          0.3803414828898246,
+          0.33532928766132075
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.488,
+        "mean": 0.4404,
+        "min": 0.408,
+        "std": 0.029241067011995314,
+        "values": [
+          0.456,
+          0.488,
+          0.408,
+          0.436,
+          0.414
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4733561319794694,
+        "mean": 0.40018143684464597,
+        "min": 0.3238717183658916,
+        "std": 0.05214391210731228,
+        "values": [
+          0.43990882662666614,
+          0.4733561319794694,
+          0.39109021335479593,
+          0.37268029389640683,
+          0.3238717183658916
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.407,
+          "macro_f1": 0.37159335980355185
+        },
+        "val": {
+          "accuracy": 0.456,
+          "macro_f1": 0.43990882662666614
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_pubmed_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed5-eaed079b87f0d7716f0d-20260329T215200Z",
+      "run_id": "eaed079b87f0d7716f0d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed5-eaed079b87f0d7716f0d-20260329T215200Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.493,
+          "macro_f1": 0.47365813890881253
+        },
+        "val": {
+          "accuracy": 0.488,
+          "macro_f1": 0.4733561319794694
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_pubmed_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed6-084a652f230f59d97876-20260329T215206Z",
+      "run_id": "084a652f230f59d97876",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed6-084a652f230f59d97876-20260329T215206Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.396,
+          "macro_f1": 0.38107548083887827
+        },
+        "val": {
+          "accuracy": 0.408,
+          "macro_f1": 0.39109021335479593
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_pubmed_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed7-6f09217369b6e5ce924c-20260329T215206Z",
+      "run_id": "6f09217369b6e5ce924c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed7-6f09217369b6e5ce924c-20260329T215206Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.438,
+          "macro_f1": 0.3803414828898246
+        },
+        "val": {
+          "accuracy": 0.436,
+          "macro_f1": 0.37268029389640683
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_pubmed_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed8-4a419928d152544c7439-20260329T215207Z",
+      "run_id": "4a419928d152544c7439",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed8-4a419928d152544c7439-20260329T215207Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.414,
+          "macro_f1": 0.33532928766132075
+        },
+        "val": {
+          "accuracy": 0.414,
+          "macro_f1": 0.3238717183658916
+        }
+      },
+      "name": "best_graph_inductive_mean_teacher_pubmed_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed9-025756bf5c0c015d3a19-20260329T215207Z",
+      "run_id": "025756bf5c0c015d3a19",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z/best_graph_inductive_mean_teacher_pubmed_R1-seed9-025756bf5c0c015d3a19-20260329T215207Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:52:07.636118+00:00",
+    "base_name": "best_graph_inductive_mean_teacher_pubmed_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/graph/pubmed.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/graph/pubmed/best_graph_inductive_mean_teacher_pubmed_R1-sweep-20260329T215158Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

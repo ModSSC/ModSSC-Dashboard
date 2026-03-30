@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.3313,
+        "mean": 0.2824,
+        "min": 0.1887,
+        "std": 0.05695015364333972,
+        "values": [
+          0.1887,
+          0.2435,
+          0.3281,
+          0.3313,
+          0.3204
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.30895088872827847,
+        "mean": 0.2557296816057012,
+        "min": 0.18635682170862983,
+        "std": 0.054584630816338096,
+        "values": [
+          0.19199985456853316,
+          0.18635682170862983,
+          0.29605950136120246,
+          0.30895088872827847,
+          0.2952813416618619
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.33166666666666667,
+        "mean": 0.2854333333333333,
+        "min": 0.2145,
+        "std": 0.04803662954223348,
+        "values": [
+          0.2145,
+          0.241,
+          0.3215,
+          0.33166666666666667,
+          0.3185
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3123611421553927,
+        "mean": 0.25725488252731193,
+        "min": 0.18264712149980478,
+        "std": 0.04957635488393652,
+        "values": [
+          0.2153459535129421,
+          0.18264712149980478,
+          0.2832655184548886,
+          0.3123611421553927,
+          0.29265467701353165
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1887,
+          "macro_f1": 0.19199985456853316
+        },
+        "val": {
+          "accuracy": 0.2145,
+          "macro_f1": 0.2153459535129421
+        }
+      },
+      "name": "best_vision_inductive_noisy_student_mnist_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed3-3c8cfe9cdddd0d15a846-20260329T064438Z",
+      "run_id": "3c8cfe9cdddd0d15a846",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed3-3c8cfe9cdddd0d15a846-20260329T064438Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.2435,
+          "macro_f1": 0.18635682170862983
+        },
+        "val": {
+          "accuracy": 0.241,
+          "macro_f1": 0.18264712149980478
+        }
+      },
+      "name": "best_vision_inductive_noisy_student_mnist_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed4-b599f9ce3891a535ea9c-20260329T064932Z",
+      "run_id": "b599f9ce3891a535ea9c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed4-b599f9ce3891a535ea9c-20260329T064932Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3281,
+          "macro_f1": 0.29605950136120246
+        },
+        "val": {
+          "accuracy": 0.3215,
+          "macro_f1": 0.2832655184548886
+        }
+      },
+      "name": "best_vision_inductive_noisy_student_mnist_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed5-8baf62e3f90379379170-20260329T065422Z",
+      "run_id": "8baf62e3f90379379170",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed5-8baf62e3f90379379170-20260329T065422Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3313,
+          "macro_f1": 0.30895088872827847
+        },
+        "val": {
+          "accuracy": 0.33166666666666667,
+          "macro_f1": 0.3123611421553927
+        }
+      },
+      "name": "best_vision_inductive_noisy_student_mnist_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed6-084a9cc5c08c5b98e354-20260329T065920Z",
+      "run_id": "084a9cc5c08c5b98e354",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed6-084a9cc5c08c5b98e354-20260329T065920Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3204,
+          "macro_f1": 0.2952813416618619
+        },
+        "val": {
+          "accuracy": 0.3185,
+          "macro_f1": 0.29265467701353165
+        }
+      },
+      "name": "best_vision_inductive_noisy_student_mnist_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed7-635d6ec89c9e83ce4186-20260329T070421Z",
+      "run_id": "635d6ec89c9e83ce4186",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z/best_vision_inductive_noisy_student_mnist_R1-seed7-635d6ec89c9e83ce4186-20260329T070421Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T07:09:24.977792+00:00",
+    "base_name": "best_vision_inductive_noisy_student_mnist_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/noisy_student/vision/mnist.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R1-sweep-20260329T064435Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

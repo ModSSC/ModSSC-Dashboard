@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5016,
+        "mean": 0.4977440000000001,
+        "min": 0.48748,
+        "std": 0.005190613065910423,
+        "values": [
+          0.5016,
+          0.48748,
+          0.49916,
+          0.50036,
+          0.50012
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4778658588660022,
+        "mean": 0.4638803987689826,
+        "min": 0.4509673634273297,
+        "std": 0.010998828722778476,
+        "values": [
+          0.4509673634273297,
+          0.4756506578675176,
+          0.46073970669935416,
+          0.4778658588660022,
+          0.4541784069847093
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5168,
+        "mean": 0.50096,
+        "min": 0.4812,
+        "std": 0.011707365203153101,
+        "values": [
+          0.5168,
+          0.4812,
+          0.5044,
+          0.5052,
+          0.4972
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.4836262345590886,
+        "mean": 0.4683806498708914,
+        "min": 0.455349112985985,
+        "std": 0.009018179812106251,
+        "values": [
+          0.46702471311105087,
+          0.4689961726783505,
+          0.46690701601998197,
+          0.4836262345590886,
+          0.455349112985985
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5016,
+          "macro_f1": 0.4509673634273297
+        },
+        "val": {
+          "accuracy": 0.5168,
+          "macro_f1": 0.46702471311105087
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_imdb_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed2-5b99c7daa212bf18496e-20260330T001318Z",
+      "run_id": "5b99c7daa212bf18496e",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed2-5b99c7daa212bf18496e-20260330T001318Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.48748,
+          "macro_f1": 0.4756506578675176
+        },
+        "val": {
+          "accuracy": 0.4812,
+          "macro_f1": 0.4689961726783505
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_imdb_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed3-f6f33b35832bc54ca699-20260330T001522Z",
+      "run_id": "f6f33b35832bc54ca699",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed3-f6f33b35832bc54ca699-20260330T001522Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.49916,
+          "macro_f1": 0.46073970669935416
+        },
+        "val": {
+          "accuracy": 0.5044,
+          "macro_f1": 0.46690701601998197
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_imdb_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed4-4b8d10f5171dc1fde180-20260330T001723Z",
+      "run_id": "4b8d10f5171dc1fde180",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed4-4b8d10f5171dc1fde180-20260330T001723Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50036,
+          "macro_f1": 0.4778658588660022
+        },
+        "val": {
+          "accuracy": 0.5052,
+          "macro_f1": 0.4836262345590886
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_imdb_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed5-3b9876c917de2c4e83d5-20260330T001925Z",
+      "run_id": "3b9876c917de2c4e83d5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed5-3b9876c917de2c4e83d5-20260330T001925Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50012,
+          "macro_f1": 0.4541784069847093
+        },
+        "val": {
+          "accuracy": 0.4972,
+          "macro_f1": 0.455349112985985
+        }
+      },
+      "name": "best_text_inductive_mean_teacher_imdb_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed6-5fef543ffd642a2e57a4-20260330T002126Z",
+      "run_id": "5fef543ffd642a2e57a4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z/best_text_inductive_mean_teacher_imdb_R1-seed6-5fef543ffd642a2e57a4-20260330T002126Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T00:23:27.657002+00:00",
+    "base_name": "best_text_inductive_mean_teacher_imdb_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/text/imdb.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R1-sweep-20260330T001316Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.50328,
+        "mean": 0.500696,
+        "min": 0.49748,
+        "std": 0.002091445433187292,
+        "values": [
+          0.49748,
+          0.50328,
+          0.50268,
+          0.50004,
+          0.5
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.47908196197061514,
+        "mean": 0.40075275524978055,
+        "min": 0.3333333333333333,
+        "std": 0.06422756483981443,
+        "values": [
+          0.4726667082623205,
+          0.38525955662285616,
+          0.47908196197061514,
+          0.3334222160597775,
+          0.3333333333333333
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5208,
+        "mean": 0.5056,
+        "min": 0.5,
+        "std": 0.007870959280799271,
+        "values": [
+          0.5208,
+          0.5056,
+          0.5016,
+          0.5,
+          0.5
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.49947725036365187,
+        "mean": 0.4075161458144282,
+        "min": 0.3333333333333333,
+        "std": 0.07075404345412645,
+        "values": [
+          0.49947725036365187,
+          0.3911262863196126,
+          0.4803105257222099,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.49748,
+          "macro_f1": 0.4726667082623205
+        },
+        "val": {
+          "accuracy": 0.5208,
+          "macro_f1": 0.49947725036365187
+        }
+      },
+      "name": "best_text_inductive_mixmatch_imdb_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed2-189ba3fce025056721ac-20260330T004035Z",
+      "run_id": "189ba3fce025056721ac",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed2-189ba3fce025056721ac-20260330T004035Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50328,
+          "macro_f1": 0.38525955662285616
+        },
+        "val": {
+          "accuracy": 0.5056,
+          "macro_f1": 0.3911262863196126
+        }
+      },
+      "name": "best_text_inductive_mixmatch_imdb_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed3-2fc801efb997c19b8cac-20260330T004400Z",
+      "run_id": "2fc801efb997c19b8cac",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed3-2fc801efb997c19b8cac-20260330T004400Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50268,
+          "macro_f1": 0.47908196197061514
+        },
+        "val": {
+          "accuracy": 0.5016,
+          "macro_f1": 0.4803105257222099
+        }
+      },
+      "name": "best_text_inductive_mixmatch_imdb_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed4-09f57bfe6cec01a1185a-20260330T004723Z",
+      "run_id": "09f57bfe6cec01a1185a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed4-09f57bfe6cec01a1185a-20260330T004723Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.50004,
+          "macro_f1": 0.3334222160597775
+        },
+        "val": {
+          "accuracy": 0.5,
+          "macro_f1": 0.3333333333333333
+        }
+      },
+      "name": "best_text_inductive_mixmatch_imdb_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed5-91440aded89325fb6a8d-20260330T005046Z",
+      "run_id": "91440aded89325fb6a8d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed5-91440aded89325fb6a8d-20260330T005046Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5,
+          "macro_f1": 0.3333333333333333
+        },
+        "val": {
+          "accuracy": 0.5,
+          "macro_f1": 0.3333333333333333
+        }
+      },
+      "name": "best_text_inductive_mixmatch_imdb_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed6-4747bef132da588e14ed-20260330T005409Z",
+      "run_id": "4747bef132da588e14ed",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z/best_text_inductive_mixmatch_imdb_R1-seed6-4747bef132da588e14ed-20260330T005409Z/run.json",
+      "seed": 6,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T00:57:31.868559+00:00",
+    "base_name": "best_text_inductive_mixmatch_imdb_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mixmatch/text/imdb.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mixmatch/text/imdb/best_text_inductive_mixmatch_imdb_R1-sweep-20260330T004033Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

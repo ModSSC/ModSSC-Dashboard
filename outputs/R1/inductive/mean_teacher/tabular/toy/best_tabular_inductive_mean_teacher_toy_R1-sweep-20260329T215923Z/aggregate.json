@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.375,
+        "mean": 0.3125,
+        "min": 0.1875,
+        "std": 0.06846531968814576,
+        "values": [
+          0.375,
+          0.3125,
+          0.375,
+          0.1875,
+          0.3125
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3914529914529914,
+        "mean": 0.30603951603951607,
+        "min": 0.1619047619047619,
+        "std": 0.08052104092889466,
+        "values": [
+          0.3914529914529914,
+          0.2916666666666667,
+          0.3696969696969697,
+          0.1619047619047619,
+          0.31547619047619047
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.8,
+        "mean": 0.52,
+        "min": 0.4,
+        "std": 0.16,
+        "values": [
+          0.6,
+          0.8,
+          0.4,
+          0.4,
+          0.4
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.8222222222222223,
+        "mean": 0.4533333333333333,
+        "min": 0.26666666666666666,
+        "std": 0.19237309429181468,
+        "values": [
+          0.43333333333333335,
+          0.8222222222222223,
+          0.38888888888888884,
+          0.35555555555555557,
+          0.26666666666666666
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.3914529914529914
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.43333333333333335
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_toy_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed1-e49f3d4829c5d76ca75f-20260329T215926Z",
+      "run_id": "e49f3d4829c5d76ca75f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed1-e49f3d4829c5d76ca75f-20260329T215926Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.2916666666666667
+        },
+        "val": {
+          "accuracy": 0.8,
+          "macro_f1": 0.8222222222222223
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_toy_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed2-e865e13e0e44272a3006-20260329T215930Z",
+      "run_id": "e865e13e0e44272a3006",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed2-e865e13e0e44272a3006-20260329T215930Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.375,
+          "macro_f1": 0.3696969696969697
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.38888888888888884
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_toy_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed3-ec7cecc5ee1a4779ef27-20260329T215930Z",
+      "run_id": "ec7cecc5ee1a4779ef27",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed3-ec7cecc5ee1a4779ef27-20260329T215930Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1875,
+          "macro_f1": 0.1619047619047619
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.35555555555555557
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_toy_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed4-b7a9a9e91682c7c08f8f-20260329T215930Z",
+      "run_id": "b7a9a9e91682c7c08f8f",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed4-b7a9a9e91682c7c08f8f-20260329T215930Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.31547619047619047
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.26666666666666666
+        }
+      },
+      "name": "best_tabular_inductive_mean_teacher_toy_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed5-329bb77cceb2e2a5bd4c-20260329T215930Z",
+      "run_id": "329bb77cceb2e2a5bd4c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z/best_tabular_inductive_mean_teacher_toy_R1-seed5-329bb77cceb2e2a5bd4c-20260329T215930Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:59:31.105016+00:00",
+    "base_name": "best_tabular_inductive_mean_teacher_toy_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/mean_teacher/tabular/toy.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/mean_teacher/tabular/toy/best_tabular_inductive_mean_teacher_toy_R1-sweep-20260329T215923Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

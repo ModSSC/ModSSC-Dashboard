@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.0112,
+        "mean": 0.009139999999999999,
+        "min": 0.0056,
+        "std": 0.001995595149322628,
+        "values": [
+          0.01,
+          0.0084,
+          0.0105,
+          0.0112,
+          0.0056
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.0020916636270142245,
+        "mean": 0.00113688970744124,
+        "min": 0.00019801980198019803,
+        "std": 0.0006101402374328736,
+        "values": [
+          0.00019801980198019803,
+          0.0013434462834622724,
+          0.0010465834848433588,
+          0.0010047353399061456,
+          0.0020916636270142245
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.0124,
+        "mean": 0.01024,
+        "min": 0.0076,
+        "std": 0.0015919798993705918,
+        "values": [
+          0.01,
+          0.01,
+          0.0112,
+          0.0124,
+          0.0076
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.002794449283816612,
+        "mean": 0.0014125057140091499,
+        "min": 0.00019801980198019803,
+        "std": 0.0008362208954425059,
+        "values": [
+          0.00019801980198019803,
+          0.0013133298586928785,
+          0.001601317517037122,
+          0.0011554121085189384,
+          0.002794449283816612
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.00019801980198019803
+        }
+      },
+      "name": "best_vision_inductive_tri_training_cifar100_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed3-07c269550039cf1b54b4-20260330T044908Z",
+      "run_id": "07c269550039cf1b54b4",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed3-07c269550039cf1b54b4-20260330T044908Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0084,
+          "macro_f1": 0.0013434462834622724
+        },
+        "val": {
+          "accuracy": 0.01,
+          "macro_f1": 0.0013133298586928785
+        }
+      },
+      "name": "best_vision_inductive_tri_training_cifar100_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed4-57d7d3e6d44a0964c597-20260330T052312Z",
+      "run_id": "57d7d3e6d44a0964c597",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed4-57d7d3e6d44a0964c597-20260330T052312Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0105,
+          "macro_f1": 0.0010465834848433588
+        },
+        "val": {
+          "accuracy": 0.0112,
+          "macro_f1": 0.001601317517037122
+        }
+      },
+      "name": "best_vision_inductive_tri_training_cifar100_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed5-80185e7fcafc708adda7-20260330T053113Z",
+      "run_id": "80185e7fcafc708adda7",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed5-80185e7fcafc708adda7-20260330T053113Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0112,
+          "macro_f1": 0.0010047353399061456
+        },
+        "val": {
+          "accuracy": 0.0124,
+          "macro_f1": 0.0011554121085189384
+        }
+      },
+      "name": "best_vision_inductive_tri_training_cifar100_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed6-93f3f0eb3c9a1156d296-20260330T053935Z",
+      "run_id": "93f3f0eb3c9a1156d296",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed6-93f3f0eb3c9a1156d296-20260330T053935Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0056,
+          "macro_f1": 0.0020916636270142245
+        },
+        "val": {
+          "accuracy": 0.0076,
+          "macro_f1": 0.002794449283816612
+        }
+      },
+      "name": "best_vision_inductive_tri_training_cifar100_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed7-992884f8a0963b06a553-20260330T055255Z",
+      "run_id": "992884f8a0963b06a553",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z/best_vision_inductive_tri_training_cifar100_R1-seed7-992884f8a0963b06a553-20260330T055255Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-30T05:59:06.379985+00:00",
+    "base_name": "best_vision_inductive_tri_training_cifar100_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/tri_training/vision/cifar100.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/cifar100/best_vision_inductive_tri_training_cifar100_R1-sweep-20260330T044906Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

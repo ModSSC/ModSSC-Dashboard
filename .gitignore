@@ -8,3 +8,9 @@ venv/
 env/
 
 # Project Logs and Runs
+logs/
+output/
+outputs/
+dashboard/public/data/results.json
+dashboard/public/data/results-manifest.json
+dashboard/public/data/results/

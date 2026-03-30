@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
 import { cn } from "../lib/utils";
 import { Download, Calculator } from 'lucide-react';
-import { Badge } from "./ui/badge";
+import { formatDatasetLabel, getDatasetFractionMap } from '../lib/dataset';
 
 const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
     const [compareMode, setCompareMode] = useState(false); // Default to absolute values
     const [baselineMethod, setBaselineMethod] = useState("");
-    const [sortByRank, setSortByRank] = useState(true);
 
     // 1. Get unique Datasets and Methods
     const datasets = React.useMemo(() => 
@@ -18,14 +17,16 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
         Array.from(new Set(runs.map(r => r.method_id).filter(id => id))),
         [runs]);
 
-    // 2. Build Data Map & Calculate Column Stats (Max/Min) for Heatmap
-    const { dataMap, colStats } = React.useMemo(() => {
+    const datasetFractionMap = React.useMemo(() => getDatasetFractionMap(runs), [runs]);
+
+    const datasetDisplayLabel = React.useCallback(
+        (dataset) => formatDatasetLabel(dataset, datasetFractionMap[dataset]),
+        [datasetFractionMap]
+    );
+
+    // 2. Build Data Map
+    const dataMap = React.useMemo(() => {
         const map = {};
-        const stats = {};
-        
-        datasets.forEach(d => {
-            stats[d] = { max: 0, min: 1 };
-        });
 
         runs.forEach(r => {
             const key = `${r.method_id}-${r.dataset_id}`;
@@ -42,58 +43,13 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
             else if (current.error && r.error) {
                  map[key] = { val: 0, error: r.error, run: r };
             }
-
-            // Update stats only if valid
-            if (!r.error && val > 0) {
-                if (val > stats[r.dataset_id].max) stats[r.dataset_id].max = val;
-                if (val < stats[r.dataset_id].min) stats[r.dataset_id].min = val;
-            }
         });
-        return { dataMap: map, colStats: stats };
+        return map;
     }, [runs, datasets, metric]);
 
-    // 3. Compute Ranks
+    // 3. Build method ordering
     const methodsSorted = React.useMemo(() => {
-        let sorted = [];
-        if (!sortByRank) {
-            sorted = [...allMethods].sort();
-        } else {
-            // Calculate Average Rank
-            const methodRanks = {};
-            allMethods.forEach(m => methodRanks[m] = []);
-
-            datasets.forEach(d => {
-                // Get all values for this dataset
-                const scores = allMethods.map(m => {
-                    const entry = dataMap[`${m}-${d}`];
-                    return { method: m, score: entry && !entry.error ? entry.val : -1 };
-                });
-                // Sort desc
-                scores.sort((a, b) => b.score - a.score);
-                
-                // Assign ranks (1-based)
-                let currentRank = 1;
-                scores.forEach((item, idx) => {
-                    if (item.score === -1) {
-                        // Method failed or didn't run -> Rank = Total Methods (Penalty)
-                        methodRanks[item.method].push(allMethods.length);
-                    } else {
-                        methodRanks[item.method].push(currentRank);
-                        currentRank++;
-                    }
-                });
-            });
-
-            // Compute avg
-            const methodAvgRank = [];
-            allMethods.forEach(m => {
-                const ranks = methodRanks[m];
-                const avg = ranks.length > 0 ? ranks.reduce((a, b) => a + b, 0) / ranks.length : 999;
-                methodAvgRank.push({ method: m, avgRank: avg });
-            });
-
-            sorted = methodAvgRank.sort((a, b) => a.avgRank - b.avgRank).map(item => item.method);
-        }
+        let sorted = [...allMethods].sort();
 
         // PIN "supervised" to top
         const pinnedMethod = "supervised";
@@ -103,7 +59,7 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
         }
 
         return sorted;
-    }, [allMethods, datasets, dataMap, sortByRank]);
+    }, [allMethods]);
 
 
     // Default baseline: Prioritize "supervised"
@@ -132,30 +88,11 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
         return val * 100;
     };
 
-    // Helper for background color (Heatmap)
-    const getCellColor = (entry, dataset) => {
-        if (!entry) return "";
-        if (entry.error) return "bg-red-50 text-red-600 font-bold";
-        if (compareMode) return ""; // No heatmap in compare mode
-        
-        const val = entry.val;
-        const min = colStats[dataset].min;
-        const max = colStats[dataset].max;
-        if (max === min) return "";
-        
-        // Normalize 0 to 1
-        const norm = (val - min) / (max - min);
-        
-        // Simple green opacity
-        if (norm >= 0.95) return "bg-green-200 text-green-900 font-bold";
-        if (norm >= 0.8) return "bg-green-100 text-green-800";
-        if (norm >= 0.6) return "bg-green-50 text-green-800";
-        return "text-zinc-600";
-    };
-
     const copyLatex = () => {
         let latex = "\\begin{table}[h]\n\\centering\n\\begin{tabular}{l" + "c".repeat(datasets.length) + "}\n\\toprule\n";
-        latex += "Method & " + datasets.map(d => d.replace(/_/g, '\\_')).join(" & ") + " \\\\\n\\midrule\n";
+        latex += "Method & " + datasets
+            .map(d => datasetDisplayLabel(d).replace(/_/g, '\\_').replace(/%/g, '\\%'))
+            .join(" & ") + " \\\\\n\\midrule\n";
 
         methodsSorted.forEach(m => {
             const row = [m.replace(/_/g, '\\_')];
@@ -178,13 +115,6 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                 <div className="flex gap-2">
                     {/* Controls */}
                     <div className="flex items-center gap-4 mr-4">
-                        <label className="text-sm font-medium text-muted-foreground flex items-center gap-1 cursor-pointer">
-                            <input type="checkbox" checked={sortByRank} onChange={e => setSortByRank(e.target.checked)} className="mr-1 accent-black" />
-                            <span className="flex items-center gap-1">Sort by Rank</span>
-                        </label>
-
-                        <div className="h-4 w-px bg-gray-300"></div>
-
                         <label className="text-sm font-medium text-muted-foreground flex items-center gap-1 cursor-pointer">
                             <input type="checkbox" checked={compareMode} onChange={e => setCompareMode(e.target.checked)} className="mr-1 accent-black" />
                             <span className="flex items-center gap-1"><Calculator className="w-3 h-3" /> Rel. to</span>
@@ -215,7 +145,7 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                 <th className="p-4 font-bold text-black border-r bg-gray-50/50 sticky left-0 z-10">Method</th>
                                 {datasets.map(d => (
                                     <th key={d} className="p-4 text-center font-bold text-black border-r last:border-r-0 min-w-[100px]">
-                                        {d.replace(/_/g, ' ')}
+                                        {datasetDisplayLabel(d).replace(/_/g, ' ')}
                                     </th>
                                 ))}
                             </tr>
@@ -225,7 +155,6 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                 <tr key={method} className={cn("hover:bg-zinc-50 transition-colors", idx % 2 === 0 ? "bg-white" : "bg-zinc-50/30")}>
                                     <td className="p-3 font-medium text-zinc-900 border-r border-gray-100 sticky left-0 bg-inherit z-10 shadow-[1px_0_0_0_rgba(0,0,0,0.05)]">
                                         {method}
-                                        {sortByRank && <span className="ml-2 text-[10px] text-zinc-400 font-mono">#{idx+1}</span>}
                                     </td>
                                     {datasets.map(dataset => {
                                         const entry = dataMap[`${method}-${dataset}`];
@@ -235,7 +164,7 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                         let cellText = rawVal === null ? "-" : (typeof rawVal === 'string' ? rawVal : rawVal.toFixed(2));
 
                                         // Color logic
-                                        let colorClass = getCellColor(entry, dataset);
+                                        let colorClass = "";
                                         
                                         // Override for diff mode
                                         if (isDiff && rawVal !== null && typeof rawVal === 'number') {

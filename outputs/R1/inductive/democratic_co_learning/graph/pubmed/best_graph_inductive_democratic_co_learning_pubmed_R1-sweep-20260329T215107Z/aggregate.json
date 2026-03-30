@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.412,
+        "mean": 0.259,
+        "min": 0.18,
+        "std": 0.0957538510974885,
+        "values": [
+          0.412,
+          0.332,
+          0.18,
+          0.18,
+          0.191
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.32880159307275825,
+        "mean": 0.18392446331050805,
+        "min": 0.1016949152542373,
+        "std": 0.09518635241963674,
+        "values": [
+          0.2665086530934117,
+          0.32880159307275825,
+          0.1016949152542373,
+          0.1016949152542373,
+          0.12092223987789567
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.404,
+        "mean": 0.266,
+        "min": 0.196,
+        "std": 0.0857717902343189,
+        "values": [
+          0.404,
+          0.33,
+          0.196,
+          0.196,
+          0.204
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3209362828512006,
+        "mean": 0.18838002820802885,
+        "min": 0.10925306577480491,
+        "std": 0.0909129637389964,
+        "values": [
+          0.2750608913926691,
+          0.3209362828512006,
+          0.10925306577480491,
+          0.10925306577480491,
+          0.1273968352466646
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.412,
+          "macro_f1": 0.2665086530934117
+        },
+        "val": {
+          "accuracy": 0.404,
+          "macro_f1": 0.2750608913926691
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_pubmed_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed5-d563f392ff7c65105c96-20260329T215110Z",
+      "run_id": "d563f392ff7c65105c96",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed5-d563f392ff7c65105c96-20260329T215110Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.332,
+          "macro_f1": 0.32880159307275825
+        },
+        "val": {
+          "accuracy": 0.33,
+          "macro_f1": 0.3209362828512006
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_pubmed_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed6-76120ce690cea45d26e0-20260329T215117Z",
+      "run_id": "76120ce690cea45d26e0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed6-76120ce690cea45d26e0-20260329T215117Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.18,
+          "macro_f1": 0.1016949152542373
+        },
+        "val": {
+          "accuracy": 0.196,
+          "macro_f1": 0.10925306577480491
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_pubmed_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed7-e54cf7d20448e8455264-20260329T215119Z",
+      "run_id": "e54cf7d20448e8455264",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed7-e54cf7d20448e8455264-20260329T215119Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.18,
+          "macro_f1": 0.1016949152542373
+        },
+        "val": {
+          "accuracy": 0.196,
+          "macro_f1": 0.10925306577480491
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_pubmed_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed8-a5eb050ffa3169496585-20260329T215120Z",
+      "run_id": "a5eb050ffa3169496585",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed8-a5eb050ffa3169496585-20260329T215120Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.191,
+          "macro_f1": 0.12092223987789567
+        },
+        "val": {
+          "accuracy": 0.204,
+          "macro_f1": 0.1273968352466646
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_pubmed_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed9-bab855a555f1e946576d-20260329T215121Z",
+      "run_id": "bab855a555f1e946576d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z/best_graph_inductive_democratic_co_learning_pubmed_R1-seed9-bab855a555f1e946576d-20260329T215121Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:51:23.858807+00:00",
+    "base_name": "best_graph_inductive_democratic_co_learning_pubmed_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/graph/pubmed.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/pubmed/best_graph_inductive_democratic_co_learning_pubmed_R1-sweep-20260329T215107Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

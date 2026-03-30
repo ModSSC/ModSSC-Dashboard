@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.312,
+        "mean": 0.16319999999999998,
+        "min": 0.083,
+        "std": 0.07832087844246896,
+        "values": [
+          0.146,
+          0.312,
+          0.083,
+          0.153,
+          0.122
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.09521256495639141,
+        "mean": 0.06970360873177997,
+        "min": 0.037944450337561546,
+        "std": 0.022173926523283413,
+        "values": [
+          0.07240241230374746,
+          0.09521256495639141,
+          0.037944450337561546,
+          0.09129690552628443,
+          0.05166171053491499
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.304,
+        "mean": 0.1608,
+        "min": 0.078,
+        "std": 0.07628997312884571,
+        "values": [
+          0.158,
+          0.304,
+          0.078,
+          0.138,
+          0.126
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.09913675740843363,
+        "mean": 0.07142761871810818,
+        "min": 0.04058198215975823,
+        "std": 0.02256881579762225,
+        "values": [
+          0.08783382380442671,
+          0.09913675740843363,
+          0.04058198215975823,
+          0.08012738999386701,
+          0.04945814022405535
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.146,
+          "macro_f1": 0.07240241230374746
+        },
+        "val": {
+          "accuracy": 0.158,
+          "macro_f1": 0.08783382380442671
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_cora_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed5-471acadfff9e0c369166-20260328T232541Z",
+      "run_id": "471acadfff9e0c369166",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed5-471acadfff9e0c369166-20260328T232541Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.312,
+          "macro_f1": 0.09521256495639141
+        },
+        "val": {
+          "accuracy": 0.304,
+          "macro_f1": 0.09913675740843363
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_cora_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed6-a221321a0a6d1460132d-20260328T232557Z",
+      "run_id": "a221321a0a6d1460132d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed6-a221321a0a6d1460132d-20260328T232557Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.083,
+          "macro_f1": 0.037944450337561546
+        },
+        "val": {
+          "accuracy": 0.078,
+          "macro_f1": 0.04058198215975823
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_cora_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed7-f37a9dfbd099ddee60e8-20260328T232602Z",
+      "run_id": "f37a9dfbd099ddee60e8",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed7-f37a9dfbd099ddee60e8-20260328T232602Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.153,
+          "macro_f1": 0.09129690552628443
+        },
+        "val": {
+          "accuracy": 0.138,
+          "macro_f1": 0.08012738999386701
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_cora_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed8-b53623d09a564716b6b5-20260328T232607Z",
+      "run_id": "b53623d09a564716b6b5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed8-b53623d09a564716b6b5-20260328T232607Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.122,
+          "macro_f1": 0.05166171053491499
+        },
+        "val": {
+          "accuracy": 0.126,
+          "macro_f1": 0.04945814022405535
+        }
+      },
+      "name": "best_graph_inductive_democratic_co_learning_cora_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed9-efd14e25c2e47f701841-20260328T232611Z",
+      "run_id": "efd14e25c2e47f701841",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z/best_graph_inductive_democratic_co_learning_cora_R1-seed9-efd14e25c2e47f701841-20260328T232611Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:26:15.803491+00:00",
+    "base_name": "best_graph_inductive_democratic_co_learning_cora_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/graph/cora.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/graph/cora/best_graph_inductive_democratic_co_learning_cora_R1-sweep-20260328T232539Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

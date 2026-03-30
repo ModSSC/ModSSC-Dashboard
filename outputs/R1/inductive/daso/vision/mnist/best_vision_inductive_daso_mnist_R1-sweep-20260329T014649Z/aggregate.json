@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.333,
+        "mean": 0.2476,
+        "min": 0.1727,
+        "std": 0.059669255064899215,
+        "values": [
+          0.2958,
+          0.333,
+          0.1976,
+          0.1727,
+          0.2389
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3247222980494857,
+        "mean": 0.20916591478625896,
+        "min": 0.10293102257649893,
+        "std": 0.08742400143893403,
+        "values": [
+          0.2926911254586867,
+          0.3247222980494857,
+          0.12891258998218544,
+          0.10293102257649893,
+          0.19657253786443815
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.32416666666666666,
+        "mean": 0.24899999999999997,
+        "min": 0.176,
+        "std": 0.05853137809946236,
+        "values": [
+          0.30666666666666664,
+          0.32416666666666666,
+          0.19633333333333333,
+          0.176,
+          0.24183333333333334
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.3202216457045899,
+        "mean": 0.2137221833037156,
+        "min": 0.10748183101882466,
+        "std": 0.08677475812880582,
+        "values": [
+          0.30590325753458625,
+          0.3202216457045899,
+          0.13395957326956937,
+          0.10748183101882466,
+          0.2010446089910079
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.2958,
+          "macro_f1": 0.2926911254586867
+        },
+        "val": {
+          "accuracy": 0.30666666666666664,
+          "macro_f1": 0.30590325753458625
+        }
+      },
+      "name": "best_vision_inductive_daso_mnist_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed3-1c9db1cabbfa349c04d3-20260329T014652Z",
+      "run_id": "1c9db1cabbfa349c04d3",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed3-1c9db1cabbfa349c04d3-20260329T014652Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.333,
+          "macro_f1": 0.3247222980494857
+        },
+        "val": {
+          "accuracy": 0.32416666666666666,
+          "macro_f1": 0.3202216457045899
+        }
+      },
+      "name": "best_vision_inductive_daso_mnist_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed4-fdf835708263adba240c-20260329T015354Z",
+      "run_id": "fdf835708263adba240c",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed4-fdf835708263adba240c-20260329T015354Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1976,
+          "macro_f1": 0.12891258998218544
+        },
+        "val": {
+          "accuracy": 0.19633333333333333,
+          "macro_f1": 0.13395957326956937
+        }
+      },
+      "name": "best_vision_inductive_daso_mnist_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed5-9731d201c9c2e213f270-20260329T020130Z",
+      "run_id": "9731d201c9c2e213f270",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed5-9731d201c9c2e213f270-20260329T020130Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1727,
+          "macro_f1": 0.10293102257649893
+        },
+        "val": {
+          "accuracy": 0.176,
+          "macro_f1": 0.10748183101882466
+        }
+      },
+      "name": "best_vision_inductive_daso_mnist_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed6-ff3c311db43790185d78-20260329T020853Z",
+      "run_id": "ff3c311db43790185d78",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed6-ff3c311db43790185d78-20260329T020853Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.2389,
+          "macro_f1": 0.19657253786443815
+        },
+        "val": {
+          "accuracy": 0.24183333333333334,
+          "macro_f1": 0.2010446089910079
+        }
+      },
+      "name": "best_vision_inductive_daso_mnist_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed7-2efe2877e9d80eb8bf7a-20260329T021614Z",
+      "run_id": "2efe2877e9d80eb8bf7a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z/best_vision_inductive_daso_mnist_R1-seed7-2efe2877e9d80eb8bf7a-20260329T021614Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T02:23:41.493146+00:00",
+    "base_name": "best_vision_inductive_daso_mnist_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/daso/vision/mnist.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/daso/vision/mnist/best_vision_inductive_daso_mnist_R1-sweep-20260329T014649Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

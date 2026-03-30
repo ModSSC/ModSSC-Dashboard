@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 636, in _run_experiment_single
+    dataset, dataset_info = ds_orch.load(cfg.dataset)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/dataset.py", line 43, in load
+    ds = load_dataset(
+         ^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 236, in load_dataset
+    ds = _download_and_store(layout, identity, force=force)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/services/service.py", line 438, in _download_and_store
+    with cache.cache_lock(layout, fp):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/data_loader/cache.py", line 98, in cache_lock
+    fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets/locks/79d985fb86cdc868c5817b0eafd9c74cca4d7ac9c96ab69082ce8cfd465102ed.lock'

@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.1135,
+        "mean": 0.10224,
+        "min": 0.0958,
+        "std": 0.006110515526532931,
+        "values": [
+          0.1009,
+          0.0958,
+          0.0982,
+          0.1135,
+          0.1028
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.0203861697350696,
+        "mean": 0.018545766408215848,
+        "min": 0.01748494250775689,
+        "std": 0.0010006516947926223,
+        "values": [
+          0.0183304568989009,
+          0.01748494250775689,
+          0.017883809870697504,
+          0.0203861697350696,
+          0.018643453028654337
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.11233333333333333,
+        "mean": 0.1024,
+        "min": 0.09733333333333333,
+        "std": 0.005534337258325415,
+        "values": [
+          0.09916666666666667,
+          0.09866666666666667,
+          0.09733333333333333,
+          0.11233333333333333,
+          0.1045
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.02019778243931675,
+        "mean": 0.01857309706001825,
+        "min": 0.017739975698663427,
+        "std": 0.0009066721627008097,
+        "values": [
+          0.018043972706595905,
+          0.01796116504854369,
+          0.017739975698663427,
+          0.02019778243931675,
+          0.01892258940697148
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1009,
+          "macro_f1": 0.0183304568989009
+        },
+        "val": {
+          "accuracy": 0.09916666666666667,
+          "macro_f1": 0.018043972706595905
+        }
+      },
+      "name": "best_vision_inductive_free_match_mnist_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed3-a65cee4fa23101461d8b-20260329T052413Z",
+      "run_id": "a65cee4fa23101461d8b",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed3-a65cee4fa23101461d8b-20260329T052413Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0958,
+          "macro_f1": 0.01748494250775689
+        },
+        "val": {
+          "accuracy": 0.09866666666666667,
+          "macro_f1": 0.01796116504854369
+        }
+      },
+      "name": "best_vision_inductive_free_match_mnist_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed4-cdb4ff72ce5ad346a7b0-20260329T053023Z",
+      "run_id": "cdb4ff72ce5ad346a7b0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed4-cdb4ff72ce5ad346a7b0-20260329T053023Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0982,
+          "macro_f1": 0.017883809870697504
+        },
+        "val": {
+          "accuracy": 0.09733333333333333,
+          "macro_f1": 0.017739975698663427
+        }
+      },
+      "name": "best_vision_inductive_free_match_mnist_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed5-df7ad9844a571cdaaf50-20260329T053620Z",
+      "run_id": "df7ad9844a571cdaaf50",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed5-df7ad9844a571cdaaf50-20260329T053620Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1135,
+          "macro_f1": 0.0203861697350696
+        },
+        "val": {
+          "accuracy": 0.11233333333333333,
+          "macro_f1": 0.02019778243931675
+        }
+      },
+      "name": "best_vision_inductive_free_match_mnist_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed6-1a052e0456a28de681a2-20260329T054227Z",
+      "run_id": "1a052e0456a28de681a2",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed6-1a052e0456a28de681a2-20260329T054227Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1028,
+          "macro_f1": 0.018643453028654337
+        },
+        "val": {
+          "accuracy": 0.1045,
+          "macro_f1": 0.01892258940697148
+        }
+      },
+      "name": "best_vision_inductive_free_match_mnist_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed7-1143fb1e0e9634ef8675-20260329T054822Z",
+      "run_id": "1143fb1e0e9634ef8675",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z/best_vision_inductive_free_match_mnist_R1-seed7-1143fb1e0e9634ef8675-20260329T054822Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T05:54:16.504806+00:00",
+    "base_name": "best_vision_inductive_free_match_mnist_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/free_match/vision/mnist.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/free_match/vision/mnist/best_vision_inductive_free_match_mnist_R1-sweep-20260329T052411Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

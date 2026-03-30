@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.1176,
+        "mean": 0.10828,
+        "min": 0.0966,
+        "std": 0.006868304011908614,
+        "values": [
+          0.1065,
+          0.111,
+          0.0966,
+          0.1097,
+          0.1176
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.04938773957815222,
+        "mean": 0.03891841253500243,
+        "min": 0.017908787541713014,
+        "std": 0.011569231562811996,
+        "values": [
+          0.035685914224727014,
+          0.04938773957815222,
+          0.017908787541713014,
+          0.04834749034749035,
+          0.043262130982929546
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.11416666666666667,
+        "mean": 0.10903333333333334,
+        "min": 0.099,
+        "std": 0.005774849685393453,
+        "values": [
+          0.10633333333333334,
+          0.11416666666666667,
+          0.099,
+          0.1115,
+          0.11416666666666667
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.05116506692452992,
+        "mean": 0.039281844744782315,
+        "min": 0.01825726141078838,
+        "std": 0.012141518621112112,
+        "values": [
+          0.035303985135104944,
+          0.05116506692452992,
+          0.01825726141078838,
+          0.050938412777744115,
+          0.04074449747574419
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1065,
+          "macro_f1": 0.035685914224727014
+        },
+        "val": {
+          "accuracy": 0.10633333333333334,
+          "macro_f1": 0.035303985135104944
+        }
+      },
+      "name": "best_vision_inductive_tri_training_mnist_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed3-bda6f10d7ab8d36362b0-20260329T084633Z",
+      "run_id": "bda6f10d7ab8d36362b0",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed3-bda6f10d7ab8d36362b0-20260329T084633Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.111,
+          "macro_f1": 0.04938773957815222
+        },
+        "val": {
+          "accuracy": 0.11416666666666667,
+          "macro_f1": 0.05116506692452992
+        }
+      },
+      "name": "best_vision_inductive_tri_training_mnist_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed4-449c442920e1c98b9ac5-20260329T093637Z",
+      "run_id": "449c442920e1c98b9ac5",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed4-449c442920e1c98b9ac5-20260329T093637Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0966,
+          "macro_f1": 0.017908787541713014
+        },
+        "val": {
+          "accuracy": 0.099,
+          "macro_f1": 0.01825726141078838
+        }
+      },
+      "name": "best_vision_inductive_tri_training_mnist_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed5-2bcfc9d95e15e9415146-20260329T102545Z",
+      "run_id": "2bcfc9d95e15e9415146",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed5-2bcfc9d95e15e9415146-20260329T102545Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1097,
+          "macro_f1": 0.04834749034749035
+        },
+        "val": {
+          "accuracy": 0.1115,
+          "macro_f1": 0.050938412777744115
+        }
+      },
+      "name": "best_vision_inductive_tri_training_mnist_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed6-965e6fdc6a7c85207d9a-20260329T110353Z",
+      "run_id": "965e6fdc6a7c85207d9a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed6-965e6fdc6a7c85207d9a-20260329T110353Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1176,
+          "macro_f1": 0.043262130982929546
+        },
+        "val": {
+          "accuracy": 0.11416666666666667,
+          "macro_f1": 0.04074449747574419
+        }
+      },
+      "name": "best_vision_inductive_tri_training_mnist_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed7-3e73f1f38bc96e0dc9d6-20260329T115225Z",
+      "run_id": "3e73f1f38bc96e0dc9d6",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z/best_vision_inductive_tri_training_mnist_R1-seed7-3e73f1f38bc96e0dc9d6-20260329T115225Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T12:41:58.248480+00:00",
+    "base_name": "best_vision_inductive_tri_training_mnist_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/tri_training/vision/mnist.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/tri_training/vision/mnist/best_vision_inductive_tri_training_mnist_R1-sweep-20260329T084630Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

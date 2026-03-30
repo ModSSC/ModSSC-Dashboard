@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.8333333333333334,
+        "mean": 0.6666666666666667,
+        "min": 0.5,
+        "std": 0.11785113019775792,
+        "values": [
+          0.75,
+          0.8333333333333334,
+          0.6666666666666666,
+          0.5833333333333334,
+          0.5
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.8333333333333334,
+        "mean": 0.6190947940947941,
+        "min": 0.3333333333333333,
+        "std": 0.17222740156526642,
+        "values": [
+          0.7482517482517481,
+          0.8333333333333334,
+          0.625,
+          0.5555555555555556,
+          0.3333333333333333
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.8,
+        "mean": 0.64,
+        "min": 0.4,
+        "std": 0.14966629547095767,
+        "values": [
+          0.8,
+          0.4,
+          0.6,
+          0.8,
+          0.6
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.8,
+        "mean": 0.5271428571428571,
+        "min": 0.28571428571428575,
+        "std": 0.22515980719371345,
+        "values": [
+          0.8,
+          0.28571428571428575,
+          0.37499999999999994,
+          0.8,
+          0.37499999999999994
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.75,
+          "macro_f1": 0.7482517482517481
+        },
+        "val": {
+          "accuracy": 0.8,
+          "macro_f1": 0.8
+        }
+      },
+      "name": "best_audio_inductive_adsh_yesno_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed4-885f06443f22a9e6caaf-20260328T232248Z",
+      "run_id": "885f06443f22a9e6caaf",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed4-885f06443f22a9e6caaf-20260328T232248Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8333333333333334,
+          "macro_f1": 0.8333333333333334
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.28571428571428575
+        }
+      },
+      "name": "best_audio_inductive_adsh_yesno_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed5-a61dcfa1257a678249f1-20260328T232309Z",
+      "run_id": "a61dcfa1257a678249f1",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed5-a61dcfa1257a678249f1-20260328T232309Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.6666666666666666,
+          "macro_f1": 0.625
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.37499999999999994
+        }
+      },
+      "name": "best_audio_inductive_adsh_yesno_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed6-0953f04cd7768927a080-20260328T232326Z",
+      "run_id": "0953f04cd7768927a080",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed6-0953f04cd7768927a080-20260328T232326Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5833333333333334,
+          "macro_f1": 0.5555555555555556
+        },
+        "val": {
+          "accuracy": 0.8,
+          "macro_f1": 0.8
+        }
+      },
+      "name": "best_audio_inductive_adsh_yesno_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed7-a5836ec381e988322417-20260328T232343Z",
+      "run_id": "a5836ec381e988322417",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed7-a5836ec381e988322417-20260328T232343Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5,
+          "macro_f1": 0.3333333333333333
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.37499999999999994
+        }
+      },
+      "name": "best_audio_inductive_adsh_yesno_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed8-33dbb69d80fd740a7844-20260328T232400Z",
+      "run_id": "33dbb69d80fd740a7844",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z/best_audio_inductive_adsh_yesno_R1-seed8-33dbb69d80fd740a7844-20260328T232400Z/run.json",
+      "seed": 8,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:24:18.122251+00:00",
+    "base_name": "best_audio_inductive_adsh_yesno_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/adsh/audio/yesno.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/adsh/audio/yesno/best_audio_inductive_adsh_yesno_R1-sweep-20260328T232246Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

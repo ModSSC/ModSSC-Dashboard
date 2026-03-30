@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.29,
+        "mean": 0.2444,
+        "min": 0.213,
+        "std": 0.02528715088735779,
+        "values": [
+          0.238,
+          0.213,
+          0.235,
+          0.246,
+          0.29
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.25406926392199,
+        "mean": 0.23044593787241796,
+        "min": 0.20221356676963134,
+        "std": 0.019213512123834,
+        "values": [
+          0.23567414932099834,
+          0.21491891319349238,
+          0.20221356676963134,
+          0.24535379615597772,
+          0.25406926392199
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.274,
+        "mean": 0.2492,
+        "min": 0.216,
+        "std": 0.02196724834839358,
+        "values": [
+          0.272,
+          0.216,
+          0.248,
+          0.236,
+          0.274
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.2695573417988849,
+        "mean": 0.2382240030323915,
+        "min": 0.21633379061748426,
+        "std": 0.01899426174989265,
+        "values": [
+          0.2695573417988849,
+          0.21633379061748426,
+          0.22309706215451786,
+          0.2340668687474275,
+          0.24806495184364283
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.238,
+          "macro_f1": 0.23567414932099834
+        },
+        "val": {
+          "accuracy": 0.272,
+          "macro_f1": 0.2695573417988849
+        }
+      },
+      "name": "best_graph_inductive_temporal_ensembling_cora_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed5-198ad6c4d399e4fefd4a-20260328T232940Z",
+      "run_id": "198ad6c4d399e4fefd4a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed5-198ad6c4d399e4fefd4a-20260328T232940Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.213,
+          "macro_f1": 0.21491891319349238
+        },
+        "val": {
+          "accuracy": 0.216,
+          "macro_f1": 0.21633379061748426
+        }
+      },
+      "name": "best_graph_inductive_temporal_ensembling_cora_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed6-44c29bf942c90a266f56-20260328T232948Z",
+      "run_id": "44c29bf942c90a266f56",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed6-44c29bf942c90a266f56-20260328T232948Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.235,
+          "macro_f1": 0.20221356676963134
+        },
+        "val": {
+          "accuracy": 0.248,
+          "macro_f1": 0.22309706215451786
+        }
+      },
+      "name": "best_graph_inductive_temporal_ensembling_cora_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed7-f76308a4e0bfe558f296-20260328T232948Z",
+      "run_id": "f76308a4e0bfe558f296",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed7-f76308a4e0bfe558f296-20260328T232948Z/run.json",
+      "seed": 7,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.246,
+          "macro_f1": 0.24535379615597772
+        },
+        "val": {
+          "accuracy": 0.236,
+          "macro_f1": 0.2340668687474275
+        }
+      },
+      "name": "best_graph_inductive_temporal_ensembling_cora_R1-seed8",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed8-432d5eb77e6f59502b7a-20260328T232949Z",
+      "run_id": "432d5eb77e6f59502b7a",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed8-432d5eb77e6f59502b7a-20260328T232949Z/run.json",
+      "seed": 8,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.29,
+          "macro_f1": 0.25406926392199
+        },
+        "val": {
+          "accuracy": 0.274,
+          "macro_f1": 0.24806495184364283
+        }
+      },
+      "name": "best_graph_inductive_temporal_ensembling_cora_R1-seed9",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed9-76faa795a1f0b3dc7188-20260328T232950Z",
+      "run_id": "76faa795a1f0b3dc7188",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z/best_graph_inductive_temporal_ensembling_cora_R1-seed9-76faa795a1f0b3dc7188-20260328T232950Z/run.json",
+      "seed": 9,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:29:51.239366+00:00",
+    "base_name": "best_graph_inductive_temporal_ensembling_cora_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/temporal_ensembling/graph/cora.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/temporal_ensembling/graph/cora/best_graph_inductive_temporal_ensembling_cora_R1-sweep-20260328T232938Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

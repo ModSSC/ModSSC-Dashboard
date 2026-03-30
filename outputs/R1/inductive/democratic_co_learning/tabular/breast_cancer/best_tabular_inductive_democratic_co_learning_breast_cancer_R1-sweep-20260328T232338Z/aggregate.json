@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9642857142857143,
+        "mean": 0.86,
+        "min": 0.7071428571428572,
+        "std": 0.0936341120467082,
+        "values": [
+          0.8,
+          0.9214285714285714,
+          0.9642857142857143,
+          0.9071428571428571,
+          0.7071428571428572
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.9612810443055478,
+        "mean": 0.808984135370453,
+        "min": 0.5484226260719063,
+        "std": 0.15219109361210265,
+        "values": [
+          0.728079911209767,
+          0.9155284954198892,
+          0.9612810443055478,
+          0.8916085998451551,
+          0.5484226260719063
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.9821428571428571,
+        "mean": 0.875,
+        "min": 0.6964285714285714,
+        "std": 0.11952286093343935,
+        "values": [
+          0.6964285714285714,
+          0.9821428571428571,
+          0.9821428571428571,
+          0.9464285714285714,
+          0.7678571428571429
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.980330172110994,
+        "mean": 0.8197078405674665,
+        "min": 0.5349291646311676,
+        "std": 0.1846385173188668,
+        "values": [
+          0.5349291646311676,
+          0.980330172110994,
+          0.980330172110994,
+          0.9376623376623376,
+          0.665287356321839
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.8,
+          "macro_f1": 0.728079911209767
+        },
+        "val": {
+          "accuracy": 0.6964285714285714,
+          "macro_f1": 0.5349291646311676
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed1-33aa64c1c09102ddf9df-20260328T232341Z",
+      "run_id": "33aa64c1c09102ddf9df",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed1-33aa64c1c09102ddf9df-20260328T232341Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9214285714285714,
+          "macro_f1": 0.9155284954198892
+        },
+        "val": {
+          "accuracy": 0.9821428571428571,
+          "macro_f1": 0.980330172110994
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed2-6c3cd962b1901b8d120d-20260328T232349Z",
+      "run_id": "6c3cd962b1901b8d120d",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed2-6c3cd962b1901b8d120d-20260328T232349Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9642857142857143,
+          "macro_f1": 0.9612810443055478
+        },
+        "val": {
+          "accuracy": 0.9821428571428571,
+          "macro_f1": 0.980330172110994
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed3-55f7a441040fc436e016-20260328T232351Z",
+      "run_id": "55f7a441040fc436e016",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed3-55f7a441040fc436e016-20260328T232351Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.9071428571428571,
+          "macro_f1": 0.8916085998451551
+        },
+        "val": {
+          "accuracy": 0.9464285714285714,
+          "macro_f1": 0.9376623376623376
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed4-2ce722d537ea0ad974f8-20260328T232353Z",
+      "run_id": "2ce722d537ea0ad974f8",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed4-2ce722d537ea0ad974f8-20260328T232353Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.7071428571428572,
+          "macro_f1": 0.5484226260719063
+        },
+        "val": {
+          "accuracy": 0.7678571428571429,
+          "macro_f1": 0.665287356321839
+        }
+      },
+      "name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed5-44965230f8b8ae0e51cc-20260328T232355Z",
+      "run_id": "44965230f8b8ae0e51cc",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-seed5-44965230f8b8ae0e51cc-20260328T232355Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-28T23:23:57.752222+00:00",
+    "base_name": "best_tabular_inductive_democratic_co_learning_breast_cancer_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/democratic_co_learning/tabular/breast_cancer.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/democratic_co_learning/tabular/breast_cancer/best_tabular_inductive_democratic_co_learning_breast_cancer_R1-sweep-20260328T232338Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

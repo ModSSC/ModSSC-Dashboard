@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.1435,
+        "mean": 0.1125,
+        "min": 0.0954,
+        "std": 0.01805247905413547,
+        "values": [
+          0.098,
+          0.1037,
+          0.1219,
+          0.1435,
+          0.0954
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.07223021238762825,
+        "mean": 0.061043649223010345,
+        "min": 0.043816494882847085,
+        "std": 0.010300502798202852,
+        "values": [
+          0.06889268253875622,
+          0.043816494882847085,
+          0.05537785320840818,
+          0.07223021238762825,
+          0.06490100309741201
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.143,
+        "mean": 0.11276666666666665,
+        "min": 0.0965,
+        "std": 0.01721969157034404,
+        "values": [
+          0.0965,
+          0.1075,
+          0.11933333333333333,
+          0.143,
+          0.0975
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.07252098940699897,
+        "mean": 0.06252824298179692,
+        "min": 0.051041002468585915,
+        "std": 0.008598585849173123,
+        "values": [
+          0.06932127720932457,
+          0.051041002468585915,
+          0.053646632281108886,
+          0.07252098940699897,
+          0.06611131354296626
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.098,
+          "macro_f1": 0.06889268253875622
+        },
+        "val": {
+          "accuracy": 0.0965,
+          "macro_f1": 0.06932127720932457
+        }
+      },
+      "name": "best_vision_inductive_supervised_mnist_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed3-26e065a8e09bc133ad01-20260329T081617Z",
+      "run_id": "26e065a8e09bc133ad01",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed3-26e065a8e09bc133ad01-20260329T081617Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1037,
+          "macro_f1": 0.043816494882847085
+        },
+        "val": {
+          "accuracy": 0.1075,
+          "macro_f1": 0.051041002468585915
+        }
+      },
+      "name": "best_vision_inductive_supervised_mnist_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed4-61e47395f1a7acce0072-20260329T081620Z",
+      "run_id": "61e47395f1a7acce0072",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed4-61e47395f1a7acce0072-20260329T081620Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1219,
+          "macro_f1": 0.05537785320840818
+        },
+        "val": {
+          "accuracy": 0.11933333333333333,
+          "macro_f1": 0.053646632281108886
+        }
+      },
+      "name": "best_vision_inductive_supervised_mnist_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed5-c042efe4f94a2905a975-20260329T081622Z",
+      "run_id": "c042efe4f94a2905a975",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed5-c042efe4f94a2905a975-20260329T081622Z/run.json",
+      "seed": 5,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.1435,
+          "macro_f1": 0.07223021238762825
+        },
+        "val": {
+          "accuracy": 0.143,
+          "macro_f1": 0.07252098940699897
+        }
+      },
+      "name": "best_vision_inductive_supervised_mnist_R1-seed6",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed6-e943e70a49c5fc7cc696-20260329T081623Z",
+      "run_id": "e943e70a49c5fc7cc696",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed6-e943e70a49c5fc7cc696-20260329T081623Z/run.json",
+      "seed": 6,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.0954,
+          "macro_f1": 0.06490100309741201
+        },
+        "val": {
+          "accuracy": 0.0975,
+          "macro_f1": 0.06611131354296626
+        }
+      },
+      "name": "best_vision_inductive_supervised_mnist_R1-seed7",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed7-f534fa43c6957c8dc959-20260329T081624Z",
+      "run_id": "f534fa43c6957c8dc959",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z/best_vision_inductive_supervised_mnist_R1-seed7-f534fa43c6957c8dc959-20260329T081624Z/run.json",
+      "seed": 7,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T08:16:26.026464+00:00",
+    "base_name": "best_vision_inductive_supervised_mnist_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/supervised/vision/mnist.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/supervised/vision/mnist/best_vision_inductive_supervised_mnist_R1-sweep-20260329T081614Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

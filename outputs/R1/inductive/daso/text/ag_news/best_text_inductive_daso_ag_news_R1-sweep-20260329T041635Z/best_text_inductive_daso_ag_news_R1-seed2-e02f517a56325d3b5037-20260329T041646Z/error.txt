@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/main.py", line 920, in _run_experiment_single
+    method, method_resolution = inductive_orch.run(
+                                ^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/orchestrators/method_inductive.py", line 651, in run
+    method.fit(data, device=device, seed=int(seed))
+  File "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/src/modssc/inductive/methods/daso.py", line 424, in fit
+    raise InductiveValidationError("Prototype feature dimension mismatch.")
+modssc.inductive.errors.InductiveValidationError: Prototype feature dimension mismatch.

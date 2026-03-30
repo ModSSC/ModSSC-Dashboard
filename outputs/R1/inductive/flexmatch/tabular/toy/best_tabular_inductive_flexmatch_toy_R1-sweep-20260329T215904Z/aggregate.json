@@ -1,0 +1,184 @@
+{
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.5,
+        "mean": 0.3625,
+        "min": 0.25,
+        "std": 0.09185586535436918,
+        "values": [
+          0.25,
+          0.5,
+          0.4375,
+          0.3125,
+          0.3125
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.467032967032967,
+        "mean": 0.3187146187146187,
+        "min": 0.20346320346320346,
+        "std": 0.09008676116132135,
+        "values": [
+          0.20346320346320346,
+          0.467032967032967,
+          0.35555555555555557,
+          0.2564102564102564,
+          0.3111111111111111
+        ]
+      }
+    },
+    "val": {
+      "accuracy": {
+        "count": 5,
+        "max": 0.6,
+        "mean": 0.44000000000000006,
+        "min": 0.2,
+        "std": 0.14966629547095764,
+        "values": [
+          0.6,
+          0.6,
+          0.4,
+          0.4,
+          0.2
+        ]
+      },
+      "macro_f1": {
+        "count": 5,
+        "max": 0.43333333333333335,
+        "mean": 0.3092063492063492,
+        "min": 0.1904761904761905,
+        "std": 0.10419954885389622,
+        "values": [
+          0.43333333333333335,
+          0.43333333333333335,
+          0.26666666666666666,
+          0.1904761904761905,
+          0.2222222222222222
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.25,
+          "macro_f1": 0.20346320346320346
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.43333333333333335
+        }
+      },
+      "name": "best_tabular_inductive_flexmatch_toy_R1-seed1",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed1-23629e02394ca05ce685-20260329T215907Z",
+      "run_id": "23629e02394ca05ce685",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed1-23629e02394ca05ce685-20260329T215907Z/run.json",
+      "seed": 1,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.5,
+          "macro_f1": 0.467032967032967
+        },
+        "val": {
+          "accuracy": 0.6,
+          "macro_f1": 0.43333333333333335
+        }
+      },
+      "name": "best_tabular_inductive_flexmatch_toy_R1-seed2",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed2-d24501066e375af07928-20260329T215911Z",
+      "run_id": "d24501066e375af07928",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed2-d24501066e375af07928-20260329T215911Z/run.json",
+      "seed": 2,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.4375,
+          "macro_f1": 0.35555555555555557
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.26666666666666666
+        }
+      },
+      "name": "best_tabular_inductive_flexmatch_toy_R1-seed3",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed3-182474bd5128482b4248-20260329T215911Z",
+      "run_id": "182474bd5128482b4248",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed3-182474bd5128482b4248-20260329T215911Z/run.json",
+      "seed": 3,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.2564102564102564
+        },
+        "val": {
+          "accuracy": 0.4,
+          "macro_f1": 0.1904761904761905
+        }
+      },
+      "name": "best_tabular_inductive_flexmatch_toy_R1-seed4",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed4-d7354899234cfb990739-20260329T215912Z",
+      "run_id": "d7354899234cfb990739",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed4-d7354899234cfb990739-20260329T215912Z/run.json",
+      "seed": 4,
+      "status": "success"
+    },
+    {
+      "error": null,
+      "error_code": null,
+      "metrics": {
+        "test": {
+          "accuracy": 0.3125,
+          "macro_f1": 0.3111111111111111
+        },
+        "val": {
+          "accuracy": 0.2,
+          "macro_f1": 0.2222222222222222
+        }
+      },
+      "name": "best_tabular_inductive_flexmatch_toy_R1-seed5",
+      "run_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed5-f4e5005b73512d82f9c7-20260329T215912Z",
+      "run_id": "f4e5005b73512d82f9c7",
+      "run_json": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z/best_tabular_inductive_flexmatch_toy_R1-seed5-f4e5005b73512d82f9c7-20260329T215912Z/run.json",
+      "seed": 5,
+      "status": "success"
+    }
+  ],
+  "sweep": {
+    "aggregated_at": "2026-03-29T21:59:12.547893+00:00",
+    "base_name": "best_tabular_inductive_flexmatch_toy_R1",
+    "completed_run_count": 5,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/flexmatch/tabular/toy.yaml",
+    "failed_run_count": 0,
+    "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/flexmatch/tabular/toy/best_tabular_inductive_flexmatch_toy_R1-sweep-20260329T215904Z",
+    "requested_run_count": 5,
+    "requested_seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "status": "success",
+    "successful_run_count": 5
+  }
+}

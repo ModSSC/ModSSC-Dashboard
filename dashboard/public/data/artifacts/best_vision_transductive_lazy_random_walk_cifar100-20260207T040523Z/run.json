@@ -1,0 +1,276 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "d5e96f3b92e7c9b79f4d4c2d552baae05e4989c9fb70284ef5365fc275daee30",
+      "id": "cifar100",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-100 (torchvision).",
+        "homepage": null,
+        "key": "cifar100",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR100"
+      }
+    },
+    "graph": {
+      "fingerprint": "9532323e3f75dfd7734fb5021cd9cb740c4c705829fd4a3e85a8c78545f96a06",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "lazy_random_walk",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/nfs/scratch/mbarbaux/cache/preprocess/d5e96f3b92e7c9b79f4d4c2d552baae05e4989c9fb70284ef5365fc275daee30",
+      "fit_fingerprint": "fit:2c10c9432d577fbd2899fa4a5ee51882df2568d9f41a95302ef60cafc31f49e0",
+      "plan_fingerprint": "resolved_plan:736d62277fcffc01ca0407e63e93718b5eb8501f2739b5daaeb34ddbd1e24df9",
+      "preprocess_fingerprint": "preprocess:1c14f3a8af3bd0b0050b75ca042a551033d34ae091c18e552a8e3d9e36f912f0",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "fraction",
+          "per_class": false,
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "852d6a13073589565ca2efad663f942e7d3ce41d9888569906f136b08c7175c3",
+      "stats": {
+        "policy": {
+          "has_official_test": true,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 100,
+            "1": 100
+          },
+          "n": 200
+        },
+        "train": {
+          "classes": {
+            "0": 450,
+            "1": 450
+          },
+          "n": 900
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 90,
+            "1": 90
+          },
+          "n": 180
+        },
+        "train_unlabeled": {
+          "n": 720
+        },
+        "val": {
+          "classes": {
+            "0": 50,
+            "1": 50
+          },
+          "n": 100
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": null,
+      "download": true,
+      "id": "cifar100",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/graph",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "lazy_random_walk",
+      "model": null,
+      "params": {
+        "alpha": 0.99
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/home/mbarbaux/scratch/cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.openclip",
+            "params": {
+              "batch_size": 64
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_lazy_random_walk_cifar100",
+      "output_dir": "/home/mbarbaux/scratch/runs/transductive/lazy_random_walk/vision/cifar100",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "min_per_class": 1,
+          "mode": "fraction",
+          "strategy": "balanced",
+          "value": 0.2
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "val": {
+      "accuracy": 0.99,
+      "macro_f1": 0.98999899989999
+    }
+  },
+  "run": {
+    "config_path": "bench/configs/experiments/best/transductive/lazy_random_walk/vision/cifar100.yaml",
+    "finished_at": "2026-02-07T04:05:24.255564+00:00",
+    "name": "best_vision_transductive_lazy_random_walk_cifar100",
+    "seed": 3,
+    "started_at": "2026-02-07T04:05:23.716520+00:00",
+    "status": "success"
+  }
+}
