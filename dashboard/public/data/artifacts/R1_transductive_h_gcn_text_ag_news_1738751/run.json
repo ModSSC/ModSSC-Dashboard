@@ -1,0 +1,90 @@
+{
+  "run": {
+    "id": "R1_transductive_h_gcn_text_ag_news_1738751",
+    "status": "FAIL",
+    "exit_code": 137,
+    "target_regime": "R1",
+    "paradigm": "transductive",
+    "modality": "text"
+  },
+  "method": {
+    "id": "h_gcn",
+    "params": {
+      "hidden_dim": 64,
+      "weight_embed_dim": 8,
+      "num_layers": 9,
+      "channels": 4,
+      "dropout": 0.15,
+      "lr": 0.03,
+      "weight_decay": 0.0007,
+      "max_epochs": 250,
+      "patience": 50,
+      "add_self_loops": true,
+      "symmetrize": true
+    }
+  },
+  "error": "exit_code=137",
+  "artifacts": {
+    "dataset": {
+      "id": "ag_news"
+    },
+    "sampling": {
+      "stats": {
+        "policy": {
+          "respect_official_test": true,
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "test_ref": "test"
+        },
+        "train": {
+          "n": 108000,
+          "classes": {
+            "0": 27000,
+            "1": 27000,
+            "2": 27000,
+            "3": 27000
+          }
+        },
+        "val": {
+          "n": 12000,
+          "classes": {
+            "0": 3000,
+            "1": 3000,
+            "2": 3000,
+            "3": 3000
+          }
+        },
+        "train_labeled": {
+          "n": 4,
+          "classes": {
+            "0": 1,
+            "1": 1,
+            "2": 1,
+            "3": 1
+          }
+        },
+        "train_unlabeled": {
+          "n": 107996
+        },
+        "test": {
+          "n": 7600,
+          "classes": {
+            "0": 1900,
+            "1": 1900,
+            "2": 1900,
+            "3": 1900
+          }
+        }
+      }
+    }
+  },
+  "source": {
+    "status_row": {
+      "status": "FAIL",
+      "exit_code": "137",
+      "config": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/re_run/phase_1/oom_probe/text_ag_news/R1/transductive/h_gcn/text/ag_news.yaml",
+      "log_file": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/logs/bench/ag_news/R1/transductive/h_gcn/text/R1_transductive_h_gcn_text_ag_news_1738751.log"
+    }
+  }
+}

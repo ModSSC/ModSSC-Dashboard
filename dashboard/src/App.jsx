@@ -3,7 +3,7 @@ import BenchmarkMatrix from './components/BenchmarkMatrix';
 import FilterBar from './components/FilterBar';
 import RunDetailsModal from './components/RunDetailsModal';
 import { cn } from './lib/utils';
-import { getRunLabeledCount } from './lib/dataset';
+import { getRunDatasetId, getRunLabeledCount, isRunVisibleInBenchmark } from './lib/dataset';
 import logoImage from './assets/logo.jpeg';
 
 const buildDataUrl = (relativePath) => {
@@ -66,6 +66,14 @@ const deriveRegimeOptionsFromRuns = (runs) => {
     });
 };
 
+const getModalityLabel = (modality) => (modality === 'vision' ? 'image' : modality);
+
+const isRunError = (run) => {
+  if (!run) return false;
+  if (run.error) return true;
+  return String(run.status ?? '').trim().toUpperCase() === 'FAIL';
+};
+
 function App() {
   const [manifest, setManifest] = useState(null);
   const [legacyRuns, setLegacyRuns] = useState([]);
@@ -76,7 +84,7 @@ function App() {
   const [selectedRegime, setSelectedRegime] = useState(null);
 
   // Global Filters
-  const [selectedParadigms, setSelectedParadigms] = useState(["inductive"]);
+  const [selectedParadigms, setSelectedParadigms] = useState(["inductive", "transductive"]);
   const [selectedModalities, setSelectedModalities] = useState(["text", "audio", "vision", "graph", "tabular"]);
   const [selectedDataset, setSelectedDataset] = useState("all");
 
@@ -221,20 +229,42 @@ function App() {
     return legacyRuns.filter((run) => normalizeRegime(run.target_regime) === selectedRegime);
   }, [selectedRegime, manifest, runsByRegime, legacyRuns]);
 
-  const selectedRegimeMeta = useMemo(
-    () => regimeOptions.find((option) => option.regime === selectedRegime) || null,
-    [regimeOptions, selectedRegime]
-  );
-  const regimeTotalRuns = selectedRegimeMeta?.runCount ?? regimeRuns.length;
-
-  // Compute available datasets dynamically
-  const availableDatasets = useMemo(
-    () => Array.from(new Set(regimeRuns.map((r) => r.dataset_id).filter((d) => d))).sort(),
+  const visibleRegimeRuns = useMemo(
+    () => regimeRuns.filter((run) => isRunVisibleInBenchmark(run)),
     [regimeRuns]
   );
 
+  const methodsWithErrors = useMemo(() => {
+    const methods = new Set();
+    visibleRegimeRuns.forEach((run) => {
+      if (isRunError(run) && run?.method_id) {
+        methods.add(run.method_id);
+      }
+    });
+    return methods;
+  }, [visibleRegimeRuns]);
+
+  const errorFreeRegimeRuns = useMemo(
+    () => visibleRegimeRuns.filter((run) => !methodsWithErrors.has(run?.method_id)),
+    [visibleRegimeRuns, methodsWithErrors]
+  );
+
+  const regimeTotalRuns = errorFreeRegimeRuns.length;
+
+  // Compute available datasets dynamically
+  const availableDatasets = useMemo(
+    () => Array.from(new Set(errorFreeRegimeRuns.map((run) => getRunDatasetId(run)).filter((d) => d))).sort(),
+    [errorFreeRegimeRuns]
+  );
+
+  useEffect(() => {
+    if (selectedDataset === "all") return;
+    if (availableDatasets.includes(selectedDataset)) return;
+    setSelectedDataset("all");
+  }, [selectedDataset, availableDatasets]);
+
   // Filter runs based on global state
-  const runsAfterMainFilters = useMemo(() => regimeRuns.filter(r => {
+  const runsAfterMainFilters = useMemo(() => errorFreeRegimeRuns.filter(r => {
     // Paradigm check
     const runParadigm = r.paradigm || "unknown";
     const matchParadigm = selectedParadigms.includes(runParadigm);
@@ -242,14 +272,29 @@ function App() {
     const runModality = r.modality || "unknown";
     const matchModality = selectedModalities.includes(runModality);
     
-    const matchDataset = selectedDataset === "all" || r.dataset_id === selectedDataset;
+    const matchDataset = selectedDataset === "all" || getRunDatasetId(r) === selectedDataset;
 
     return matchParadigm && matchModality && matchDataset;
-  }), [regimeRuns, selectedParadigms, selectedModalities, selectedDataset]);
+  }), [errorFreeRegimeRuns, selectedParadigms, selectedModalities, selectedDataset]);
 
   const filteredRuns = runsAfterMainFilters;
   const isChunkLoading = Boolean(manifest && selectedRegime && !runsByRegime[selectedRegime]);
   const isLoading = isBootLoading || isChunkLoading;
+  const singleSelectedModality = selectedModalities.length === 1 ? selectedModalities[0] : null;
+  const singleModalityStats = useMemo(() => {
+    if (!singleSelectedModality) return null;
+
+    const uniqueDatasets = new Set();
+    filteredRuns.forEach((run) => {
+      if (run?.dataset_id) uniqueDatasets.add(run.dataset_id);
+    });
+
+    return {
+      modality: singleSelectedModality,
+      runCount: filteredRuns.length,
+      datasetCount: uniqueDatasets.size,
+    };
+  }, [singleSelectedModality, filteredRuns]);
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
@@ -270,6 +315,19 @@ function App() {
               <span className="text-xs text-muted-foreground">Filtered Runs</span>
               <span className="font-mono font-bold">{filteredRuns.length} <span className="text-muted-foreground font-normal">/ {regimeTotalRuns}</span></span>
             </div>
+            {singleModalityStats && (
+              <div className="flex flex-col items-end">
+                <span className="text-xs text-muted-foreground">
+                  Évaluation ({getModalityLabel(singleModalityStats.modality)})
+                </span>
+                <span className="font-mono font-bold">
+                  {singleModalityStats.datasetCount}
+                  <span className="text-muted-foreground font-normal">
+                    {' '}dataset{singleModalityStats.datasetCount > 1 ? 's' : ''}, {singleModalityStats.runCount} run{singleModalityStats.runCount > 1 ? 's' : ''}
+                  </span>
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </header>

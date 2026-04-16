@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
 import { cn } from "../lib/utils";
-import { Download, Calculator } from 'lucide-react';
+import { Download, Calculator, Funnel } from 'lucide-react';
 import { formatDatasetLabel, getDatasetFractionMap } from '../lib/dataset';
 
 const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
     const [compareMode, setCompareMode] = useState(false); // Default to absolute values
     const [baselineMethod, setBaselineMethod] = useState("");
+    const [methodFilterMode, setMethodFilterMode] = useState("all"); // all | top | bottom
 
     // 1. Get unique Datasets and Methods
     const datasets = React.useMemo(() => 
@@ -48,7 +49,7 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
     }, [runs, datasets, metric]);
 
     // 3. Build method ordering
-    const methodsSorted = React.useMemo(() => {
+    const methodsBaseOrder = React.useMemo(() => {
         let sorted = [...allMethods].sort();
 
         // PIN "supervised" to top
@@ -61,17 +62,107 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
         return sorted;
     }, [allMethods]);
 
+    const methodScoreMap = React.useMemo(() => {
+        const scores = {};
+
+        methodsBaseOrder.forEach((method) => {
+            const values = [];
+
+            datasets.forEach((dataset) => {
+                const entry = dataMap[`${method}-${dataset}`];
+                if (!entry || entry.error) return;
+
+                if (compareMode && baselineMethod) {
+                    const baseEntry = dataMap[`${baselineMethod}-${dataset}`];
+                    if (!baseEntry || baseEntry.error) return;
+                    values.push((entry.val - baseEntry.val) * 100);
+                    return;
+                }
+
+                values.push(entry.val * 100);
+            });
+
+            if (values.length === 0) {
+                scores[method] = null;
+                return;
+            }
+
+            const mean = values.reduce((acc, value) => acc + value, 0) / values.length;
+            scores[method] = mean;
+        });
+
+        return scores;
+    }, [methodsBaseOrder, datasets, dataMap, compareMode, baselineMethod]);
+
+    const methodsSorted = React.useMemo(() => {
+        if (methodFilterMode === "all") {
+            return methodsBaseOrder;
+        }
+
+        const scoredMethods = [...methodsBaseOrder]
+            .sort((a, b) => {
+                const aScore = methodScoreMap[a];
+                const bScore = methodScoreMap[b];
+                if (aScore === null && bScore === null) return a.localeCompare(b);
+                if (aScore === null) return 1;
+                if (bScore === null) return -1;
+                const delta = methodFilterMode === "top" ? bScore - aScore : aScore - bScore;
+                if (Math.abs(delta) > 1e-9) return delta;
+                return a.localeCompare(b);
+            });
+
+        return scoredMethods;
+    }, [methodFilterMode, methodsBaseOrder, methodScoreMap]);
+
+    const bestAbsoluteByDataset = React.useMemo(() => {
+        if (compareMode || methodFilterMode !== "all") {
+            return {};
+        }
+
+        const bestMap = {};
+        datasets.forEach((dataset) => {
+            let best = null;
+            methodsBaseOrder.forEach((method) => {
+                const entry = dataMap[`${method}-${dataset}`];
+                if (!entry || entry.error) return;
+                const value = entry.val * 100;
+                if (best === null || value > best) {
+                    best = value;
+                }
+            });
+            bestMap[dataset] = best;
+        });
+
+        return bestMap;
+    }, [compareMode, methodFilterMode, datasets, methodsBaseOrder, dataMap]);
+
 
     // Default baseline: Prioritize "supervised"
     React.useEffect(() => {
-        if (!baselineMethod && methodsSorted.length > 0) {
-            if (methodsSorted.includes("supervised")) {
+        if (!baselineMethod && methodsBaseOrder.length > 0) {
+            if (methodsBaseOrder.includes("supervised")) {
                 setBaselineMethod("supervised");
             } else {
-                setBaselineMethod(methodsSorted[0]);
+                setBaselineMethod(methodsBaseOrder[0]);
             }
         }
-    }, [methodsSorted, baselineMethod]);
+    }, [methodsBaseOrder, baselineMethod]);
+
+    const cycleMethodFilter = () => {
+        setMethodFilterMode((prev) => {
+            if (prev === "all") return "top";
+            if (prev === "top") return "bottom";
+            return "all";
+        });
+    };
+
+    const filterLabel = React.useMemo(() => {
+        if (methodFilterMode === "all") return "All Methods";
+        if (methodFilterMode === "top") {
+            return compareMode ? "Top Δ" : "Top Score";
+        }
+        return compareMode ? "Bottom Δ" : "Bottom Score";
+    }, [methodFilterMode, compareMode]);
 
     const getCellValue = (method, dataset) => {
         const entry = dataMap[`${method}-${dataset}`];
@@ -125,8 +216,17 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                             onChange={e => setBaselineMethod(e.target.value)}
                             disabled={!compareMode}
                         >
-                            {methodsSorted.map(m => <option key={m} value={m}>{m}</option>)}
+                            {methodsBaseOrder.map(m => <option key={m} value={m}>{m}</option>)}
                         </select>
+                        <button
+                            type="button"
+                            onClick={cycleMethodFilter}
+                            className="px-2.5 py-1 text-xs font-semibold border rounded-md bg-white hover:bg-zinc-50 transition-colors flex items-center gap-1"
+                            title="Cycle: all -> top -> bottom"
+                        >
+                            <Funnel className="w-3 h-3" />
+                            {filterLabel}
+                        </button>
                     </div>
 
                     <button
@@ -162,6 +262,12 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                         
                                         const isDiff = compareMode && baselineMethod;
                                         let cellText = rawVal === null ? "-" : (typeof rawVal === 'string' ? rawVal : rawVal.toFixed(2));
+                                        const bestForDataset = bestAbsoluteByDataset[dataset];
+                                        const isBestAbsoluteScore = !isDiff &&
+                                            methodFilterMode === "all" &&
+                                            typeof rawVal === 'number' &&
+                                            typeof bestForDataset === 'number' &&
+                                            Math.abs(rawVal - bestForDataset) < 1e-6;
 
                                         // Color logic
                                         let colorClass = "";
@@ -180,7 +286,8 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                                 className={cn(
                                                     "p-2 text-center border-r border-gray-100 last:border-r-0",
                                                     entry && entry.run ? "cursor-pointer hover:underline" : "",
-                                                    colorClass
+                                                    colorClass,
+                                                    isBestAbsoluteScore ? "font-bold" : ""
                                                 )}
                                             >
                                                 {cellText}{isDiff && typeof rawVal === 'number' ? " pp" : (isDiff || typeof rawVal === 'string' ? "" : "%")}

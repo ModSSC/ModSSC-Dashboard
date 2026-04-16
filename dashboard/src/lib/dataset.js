@@ -3,6 +3,28 @@ const toFiniteNumber = (value) => {
   return Number.isFinite(n) ? n : null;
 };
 
+export const HIDDEN_BENCHMARK_DATASET_IDS = new Set([
+  'speechcommands',
+  'amazon_polarity',
+  'amazon_reviews_multi_en',
+  'dbpedia_14',
+  'stl10',
+  'svhn',
+  'toy',
+  'yesno',
+  'yelp_polarity',
+  'yelp_review_full',
+]);
+
+export const getRunDatasetId = (run) => {
+  return run?.dataset_id ?? run?.dataset?.id ?? run?.['artifacts.dataset.id'] ?? null;
+};
+
+export const isRunVisibleInBenchmark = (run) => {
+  const datasetId = getRunDatasetId(run);
+  return datasetId ? !HIDDEN_BENCHMARK_DATASET_IDS.has(datasetId) : true;
+};
+
 export const getRunLabeledCount = (run) => {
   return toFiniteNumber(
     run?.train_labeled_n ??
@@ -54,7 +76,7 @@ export const getDatasetFractionMap = (runs) => {
   const byDataset = new Map();
 
   runs.forEach((run) => {
-    const dataset = run?.dataset_id;
+    const dataset = getRunDatasetId(run);
     if (!dataset) return;
     const fraction = getRunLabeledFraction(run);
     if (fraction === null) return;
