@@ -1,0 +1,21 @@
+method:
+  id: h_gcn
+  params:
+    hidden_dim: 64
+    weight_embed_dim: 8
+    num_layers: 9
+    channels: 4
+    dropout: 0.15
+    lr: 0.03
+    weight_decay: 0.0007
+    max_epochs: 250
+    patience: 50
+    add_self_loops: true
+    symmetrize: true
+dataset:
+  id: ag_news
+target_regime: R1
+paradigm: transductive
+modality: text
+source:
+  config_path: /lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/transductive/h_gcn/text/ag_news.yaml

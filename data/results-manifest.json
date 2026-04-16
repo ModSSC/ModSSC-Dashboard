@@ -1,42 +1,42 @@
 {
   "schema_version": 1,
-  "total_runs": 1420,
+  "total_runs": 3239,
   "default_regime": "R1",
   "chunks": [
     {
       "regime": "R1",
       "path": "data/results/R1.json",
-      "run_count": 290,
+      "run_count": 652,
       "label_count": 2
     },
     {
       "regime": "R2",
       "path": "data/results/R2.json",
-      "run_count": 319,
+      "run_count": 627,
       "label_count": 6
     },
     {
       "regime": "R3",
       "path": "data/results/R3.json",
-      "run_count": 322,
+      "run_count": 623,
       "label_count": 10
     },
     {
       "regime": "R4",
       "path": "data/results/R4.json",
-      "run_count": 278,
+      "run_count": 628,
       "label_count": 20
     },
     {
       "regime": "R5",
       "path": "data/results/R5.json",
-      "run_count": 158,
+      "run_count": 426,
       "label_count": 40
     },
     {
       "regime": "R6",
       "path": "data/results/R6.json",
-      "run_count": 53,
+      "run_count": 283,
       "label_count": 100
     }
   ]

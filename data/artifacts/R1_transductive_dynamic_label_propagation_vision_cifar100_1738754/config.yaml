@@ -1,0 +1,14 @@
+method:
+  id: dynamic_label_propagation
+  params:
+    k_neighbors: 10
+    alpha: 0.05
+    lambda_value: 0.1
+    max_iter: 30
+dataset:
+  id: cifar100
+target_regime: R1
+paradigm: transductive
+modality: vision
+source:
+  config_path: /lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/re_run/phase_1/oom_probe/vision_cifar100/R1/transductive/dynamic_label_propagation/vision/cifar100.yaml
