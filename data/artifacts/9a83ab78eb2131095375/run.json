@@ -1,0 +1,345 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744",
+      "id": "citeseer",
+      "info": {
+        "citation": null,
+        "description": "CiteSeer Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "citeseer",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/CiteSeer"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "gcn",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/3fb862b6bc9dc5b9bfd36e222d5bbeab653ca6c7a430c3accea136e424ca3744",
+      "fit_fingerprint": "fit:3b512a930e6ce371ee1ca50413d6f46e47817ba7d18f912482f5c643fd9e551b",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:224ea6a7e37c7a838c832361e5bd9c8b49e4248991902811c55bc2d680c550e0",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "b028275af0535f8709c33a25b96451c9766742114b257a8183fda3eb71f3941b",
+      "stats": {
+        "labeled": 18,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 3
+          },
+          "n": 18
+        },
+        "nodes": 3327,
+        "test": 1000,
+        "train": 120,
+        "unlabeled": 102,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "citeseer",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "gcn",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "dropout": 0.5,
+        "hidden_dim": 16,
+        "lr": 0.01,
+        "max_epochs": 200,
+        "patience": 50,
+        "weight_decay": 0.0005
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_transductive_gcn_citeseer_R2-seed5",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/transductive/gcn/graph/citeseer/best_graph_transductive_gcn_citeseer_R2-sweep-20260329T215637Z",
+      "seed": 5,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "95a62afae749b0814792f806c89c75a4cd885a7316475ab62d99fe864a80b875",
+    "effective_config_hash": "37535bae0da925101d1857b49b9802256fa8ccdd3f5df2a9d0408b75d3beeba9"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.591,
+      "macro_f1": 0.5470540043312648
+    },
+    "val": {
+      "accuracy": 0.586,
+      "macro_f1": 0.5475175355101508
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "dataset",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            3327,
+            3703
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            3327
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            3327
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {},
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/transductive/gcn/graph/citeseer.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T21:56:42.223602+00:00",
+    "name": "best_graph_transductive_gcn_citeseer_R2-seed5",
+    "run_id": "9a83ab78eb2131095375",
+    "seed": 5,
+    "started_at": "2026-03-29T21:56:39.825752+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

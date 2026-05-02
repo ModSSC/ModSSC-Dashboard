@@ -1,0 +1,445 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 5
+    },
+    "dataset": {
+      "fingerprint": "38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "id": "yesno",
+      "info": {
+        "citation": null,
+        "description": "YESNO (torchaudio). No official split (data_loader returns train only).",
+        "homepage": null,
+        "key": "yesno",
+        "license": null,
+        "modality": "audio",
+        "provider": "torchaudio",
+        "required_extra": "audio",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchaudio:YESNO"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "pi_model",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "fit_fingerprint": "fit:55d5d07cf856f83c60adf0cb713bdfd599fef3aa41948802647cbf7932d54a47",
+      "plan_fingerprint": "resolved_plan:e9e6d6d7ded3f565d38cce2d92e8b86c0e118394598497c2112ee5ac6f129cf6",
+      "preprocess_fingerprint": "preprocess:c67c6bec1818abe65f7b7a017d5e00a91ce6555cc7f3269d27f39ed20ba66f55",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 20
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "0033e518250080dbac08491e60b48f974de06b9dc9fb259719ab5fff149c3ed5",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": false,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "no": 6,
+            "yes": 6
+          },
+          "n": 12
+        },
+        "train": {
+          "classes": {
+            "no": 22,
+            "yes": 21
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "no": 20,
+            "yes": 20
+          },
+          "n": 40
+        },
+        "train_unlabeled": {
+          "n": 3
+        },
+        "val": {
+          "classes": {
+            "no": 3,
+            "yes": 2
+          },
+          "n": 5
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "audio",
+      "mode": "fixed",
+      "seed": 5,
+      "strong": {
+        "steps": [
+          {
+            "id": "audio.add_noise",
+            "params": {
+              "std": 0.005
+            }
+          },
+          {
+            "id": "audio.time_shift",
+            "params": {
+              "max_frac": 0.1
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "audio.add_noise",
+            "params": {
+              "std": 0.002
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "yesno",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "pi_model",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "audio_pretrained",
+        "classifier_params": {
+          "batch_size": 8,
+          "bundle": "WAV2VEC2_BASE",
+          "freeze_backbone": false,
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "weight_decay": 0.0001
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "freeze_bn": false,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "unsup_warm_up": 0.4
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "audio.load_waveform",
+            "params": {
+              "allow_fallback": true,
+              "max_length": 16000,
+              "target_sample_rate": 16000
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_audio_inductive_pi_model_yesno_R5-seed5",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R5/inductive/pi_model/audio/yesno/best_audio_inductive_pi_model_yesno_R5-sweep-20260329T025834Z",
+      "seed": 5,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 20
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "88ab7dc268c1c3aa99ddd9c75ff3ee8b33891eefd5137b573f3fec0e4aced343",
+    "effective_config_hash": "4fb4678a211350de626fe9935fd2af0441918bfaa3feaa6c9ee32d83de2dcab2"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    },
+    "val": {
+      "accuracy": 0.4,
+      "macro_f1": 0.28571428571428575
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": "torch",
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            40,
+            16000
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            3,
+            16000
+          ]
+        },
+        "X_u_s": {
+          "dtype": "torch.float32",
+          "shape": [
+            3,
+            16000
+          ]
+        },
+        "X_u_s_1": null,
+        "X_u_w": {
+          "dtype": "torch.float32",
+          "shape": [
+            3,
+            16000
+          ]
+        },
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            40
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "train",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R5/inductive/pi_model/audio/yesno.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T02:59:04.020017+00:00",
+    "name": "best_audio_inductive_pi_model_yesno_R5-seed5",
+    "run_id": "e18313e197562bc02afb",
+    "seed": 5,
+    "started_at": "2026-03-29T02:58:51.712659+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

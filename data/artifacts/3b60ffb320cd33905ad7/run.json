@@ -1,0 +1,350 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "poisson_mbo",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "fit_fingerprint": "fit:69137afd1c861c50b78720fcc2d0fde429579f620aa2eb8082fae7b8f5a9a628",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:f8f1a874da1510f0dfc432f074a114b0572f184ee491e88fbe7525bea222e167",
+      "seed": 7
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7,
+      "split_fingerprint": "301189f05d2430e6b371e5b036ad394326c34cdc435efb6f72b00e72be848841",
+      "stats": {
+        "labeled": 21,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 3,
+            "6": 3
+          },
+          "n": 21
+        },
+        "nodes": 2708,
+        "test": 1000,
+        "train": 140,
+        "unlabeled": 119,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "poisson_mbo",
+      "model": null,
+      "params": {
+        "Ninner": 40,
+        "Nouter": 20,
+        "T": 200,
+        "b_strategy": "uniform",
+        "d_tau": 10.0,
+        "mu": 1.0,
+        "n_volume_iters": 100,
+        "smax": 2.0,
+        "smin": 0.5,
+        "symmetrize": true,
+        "zero_diagonal": true
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 7
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_transductive_poisson_mbo_cora_R2-seed7",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/transductive/poisson_mbo/graph/cora/best_graph_transductive_poisson_mbo_cora_R2-sweep-20260329T030243Z",
+      "seed": 7,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "2f6f888ae6c896850ef3d079e2095b873d2f68c20bac263db9bff1c8d4612ce3",
+    "effective_config_hash": "6ba3fd627945f78315a3ff8980d72d1390440d0f85e95db25fa1456014cb5e69"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.482,
+      "macro_f1": 0.4949925027208767
+    },
+    "val": {
+      "accuracy": 0.494,
+      "macro_f1": 0.5014664293474114
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "dataset",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cpu"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            2708,
+            1433
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            2708
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            2708
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {},
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/transductive/poisson_mbo/graph/cora.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T03:02:59.892727+00:00",
+    "name": "best_graph_transductive_poisson_mbo_cora_R2-seed7",
+    "run_id": "3b60ffb320cd33905ad7",
+    "seed": 7,
+    "started_at": "2026-03-29T03:02:55.334506+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

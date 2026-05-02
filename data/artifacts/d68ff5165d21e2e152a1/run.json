@@ -1,0 +1,514 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 5
+    },
+    "dataset": {
+      "fingerprint": "75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "id": "dbpedia_14",
+      "info": {
+        "citation": null,
+        "description": "DBpedia-14 (Hugging Face datasets).",
+        "homepage": null,
+        "key": "dbpedia_14",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "content"
+        },
+        "task": "classification",
+        "uri": "hf:dbpedia_14"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "adamatch",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "fit_fingerprint": "fit:d8f865db76af57b1c6a660b330467f0ff13f0e7f8a751b2c5d6bdd3e7118c7ab",
+      "plan_fingerprint": "resolved_plan:f6edee3330573ff309bb67d1390b7c10660610ae4afdff2c62ae9aa2dea83416",
+      "preprocess_fingerprint": "preprocess:ee947b1386eb690ff7dadd026dcf1b573da01aa0c298955002a40451bb1fcdd7",
+      "seed": 5
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5,
+      "split_fingerprint": "3f50976a02111986bea353683fc84fe74b478bdbe7ee2e7076e176a2ac4695f0",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 5000,
+            "1": 5000,
+            "10": 5000,
+            "11": 5000,
+            "12": 5000,
+            "13": 5000,
+            "2": 5000,
+            "3": 5000,
+            "4": 5000,
+            "5": 5000,
+            "6": 5000,
+            "7": 5000,
+            "8": 5000,
+            "9": 5000
+          },
+          "n": 70000
+        },
+        "train": {
+          "classes": {
+            "0": 36000,
+            "1": 36000,
+            "10": 36000,
+            "11": 36000,
+            "12": 36000,
+            "13": 36000,
+            "2": 36000,
+            "3": 36000,
+            "4": 36000,
+            "5": 36000,
+            "6": 36000,
+            "7": 36000,
+            "8": 36000,
+            "9": 36000
+          },
+          "n": 504000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 10,
+            "1": 10,
+            "10": 10,
+            "11": 10,
+            "12": 10,
+            "13": 10,
+            "2": 10,
+            "3": 10,
+            "4": 10,
+            "5": 10,
+            "6": 10,
+            "7": 10,
+            "8": 10,
+            "9": 10
+          },
+          "n": 140
+        },
+        "train_unlabeled": {
+          "n": 503860
+        },
+        "val": {
+          "classes": {
+            "0": 4000,
+            "1": 4000,
+            "10": 4000,
+            "11": 4000,
+            "12": 4000,
+            "13": 4000,
+            "2": 4000,
+            "3": 4000,
+            "4": 4000,
+            "5": 4000,
+            "6": 4000,
+            "7": 4000,
+            "8": 4000,
+            "9": 4000
+          },
+          "n": 56000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "text",
+      "mode": "fixed",
+      "seed": 5,
+      "strong": {
+        "steps": [
+          {
+            "id": "text.token_mask",
+            "params": {
+              "mask_token_id": 1,
+              "p": 0.15,
+              "pad_token_id": 0
+            }
+          },
+          {
+            "id": "text.token_swap",
+            "params": {
+              "n_swaps": 1,
+              "pad_token_id": 0
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "text.token_mask",
+            "params": {
+              "mask_token_id": 1,
+              "p": 0.05,
+              "pad_token_id": 0
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "dbpedia_14",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "content"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "adamatch",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "lstm_scratch",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 256,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "ema_p": 0.999,
+        "hard_label": true,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "p_cutoff": 0.95,
+        "temperature": 0.5,
+        "use_cat": false
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.vocab_tokenizer",
+            "params": {
+              "max_length": 256,
+              "vocab_size": 20000
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 5
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_adamatch_dbpedia_14_R4-seed5",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R4/inductive/adamatch/text/dbpedia_14/best_text_inductive_adamatch_dbpedia_14_R4-sweep-20260329T220827Z",
+      "seed": 5,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 5
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "c3d143775af70992bb6508567d8e731bf8ef615e88289bb4ecdbc62d0f803150",
+    "effective_config_hash": "c3d143775af70992bb6508567d8e731bf8ef615e88289bb4ecdbc62d0f803150"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.8345714285714285,
+      "macro_f1": 0.8335785449310522
+    },
+    "val": {
+      "accuracy": 0.8342857142857143,
+      "macro_f1": 0.8332931952030764
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": "torch",
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            140,
+            256
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            503860,
+            256
+          ]
+        },
+        "X_u_s": {
+          "dtype": "torch.float32",
+          "shape": [
+            503860,
+            256
+          ]
+        },
+        "X_u_s_1": null,
+        "X_u_w": {
+          "dtype": "torch.float32",
+          "shape": [
+            503860,
+            256
+          ]
+        },
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            140
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R4/inductive/adamatch/text/dbpedia_14.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-30T01:33:06.636028+00:00",
+    "name": "best_text_inductive_adamatch_dbpedia_14_R4-seed5",
+    "run_id": "d68ff5165d21e2e152a1",
+    "seed": 5,
+    "started_at": "2026-03-30T00:42:03.617866+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "id": "mnist",
+      "info": {
+        "citation": null,
+        "description": "MNIST (torchvision).",
+        "homepage": null,
+        "key": "mnist",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:MNIST"
+      }
+    },
+    "graph": {
+      "fingerprint": "1e8bd9eec6277bd62ace0befb46706b48c39d037e1973fe2b6765cf9f6afa81d",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "poisson_mbo",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "fit_fingerprint": "fit:7ccdab1eb5776de3f6aed0c486347200a2bd3f8b20b4f1413586676744e1b357",
+      "plan_fingerprint": "resolved_plan:82221f6aeabb50db93065f5e167641b86f7dfb486bf450de2060785bb50446e3",
+      "preprocess_fingerprint": "preprocess:69a09d24559082582babf8f92577dac1ed23447c3fd617918a1b656c470bb5b5",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "63713a0a650be99956e78a1f710232d72533b6d204426cd86eb1a95ea0eba1fd",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 980,
+            "1": 1135,
+            "2": 1032,
+            "3": 1010,
+            "4": 982,
+            "5": 892,
+            "6": 958,
+            "7": 1028,
+            "8": 974,
+            "9": 1009
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 5331,
+            "1": 6068,
+            "2": 5362,
+            "3": 5518,
+            "4": 5258,
+            "5": 4879,
+            "6": 5326,
+            "7": 5638,
+            "8": 5266,
+            "9": 5354
+          },
+          "n": 54000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5,
+            "1": 5,
+            "2": 5,
+            "3": 5,
+            "4": 5,
+            "5": 5,
+            "6": 5,
+            "7": 5,
+            "8": 5,
+            "9": 5
+          },
+          "n": 50
+        },
+        "train_unlabeled": {
+          "n": 53950
+        },
+        "val": {
+          "classes": {
+            "0": 592,
+            "1": 674,
+            "2": 596,
+            "3": 613,
+            "4": 584,
+            "5": 542,
+            "6": 592,
+            "7": 627,
+            "8": 585,
+            "9": 595
+          },
+          "n": 6000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "mnist",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "poisson_mbo",
+      "model": null,
+      "params": {
+        "Ninner": 40,
+        "Nouter": 20,
+        "T": 200,
+        "b_strategy": "uniform",
+        "d_tau": 10.0,
+        "mu": 1.0,
+        "n_volume_iters": 100,
+        "smax": 2.0,
+        "smin": 0.5,
+        "symmetrize": true,
+        "zero_diagonal": true
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 28,
+              "width": 28
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "embeddings.auto",
+            "params": {
+              "batch_size": 64,
+              "model_id_vision": "torchvision:resnet18"
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_poisson_mbo_mnist_R3-seed3",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R3/transductive/poisson_mbo/vision/mnist/best_vision_transductive_poisson_mbo_mnist_R3-sweep-20260410T031244Z",
+      "seed": 3,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "196d7abe3beadd05821f9547ad5f72cef07fd5bd67ccc90477778ba8abcae5fa",
+    "effective_config_hash": "4ad48bdbd318df89940141c6b3e2cc654ed16f4b21e849d351d71f3848537263"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.7606,
+      "macro_f1": 0.7571579319879264
+    },
+    "val": {
+      "accuracy": 0.7476666666666667,
+      "macro_f1": 0.7440855204468195
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cpu"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            70000,
+            512
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            70000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            70000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy",
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R3/transductive/poisson_mbo/vision/mnist.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-10T03:15:27.332144+00:00",
+    "name": "best_vision_transductive_poisson_mbo_mnist_R3-seed3",
+    "run_id": "55d85fa51db9692c1445",
+    "seed": 3,
+    "started_at": "2026-04-10T03:12:46.853751+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

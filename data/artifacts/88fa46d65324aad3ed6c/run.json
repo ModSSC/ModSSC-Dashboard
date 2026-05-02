@@ -1,0 +1,425 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "c76cb0fcac607faf409fadd0539fd8d56833d7871e6ca7be3272c95526320b35",
+      "id": "ag_news",
+      "info": {
+        "citation": null,
+        "description": "AG News (Hugging Face datasets).",
+        "homepage": null,
+        "key": "ag_news",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:ag_news"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "co_training",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/c76cb0fcac607faf409fadd0539fd8d56833d7871e6ca7be3272c95526320b35",
+      "fit_fingerprint": "fit:86405defa1d6dc0a7db2447873fd7c3b114fe6a0b2399084f4f59638254fcf5f",
+      "plan_fingerprint": "resolved_plan:8e900a0cdef90e09f7316581b19222199cb8b5af7a347c55ace71e7ffa88c4bc",
+      "preprocess_fingerprint": "preprocess:7eaba73e4ebd5d3a81d347bf3176919966d62f680ae9e9fd43a1ff5750c30a21",
+      "seed": 2
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2,
+      "split_fingerprint": "3ff8783992eb80e6932b5d2e6178ee8e0a31d5c9aadccc15ec0daea6075d48d6",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1900,
+            "1": 1900,
+            "2": 1900,
+            "3": 1900
+          },
+          "n": 7600
+        },
+        "train": {
+          "classes": {
+            "0": 27000,
+            "1": 27000,
+            "2": 27000,
+            "3": 27000
+          },
+          "n": 108000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3
+          },
+          "n": 12
+        },
+        "train_unlabeled": {
+          "n": 107988
+        },
+        "val": {
+          "classes": {
+            "0": 3000,
+            "1": 3000,
+            "2": 3000,
+            "3": 3000
+          },
+          "n": 12000
+        }
+      }
+    },
+    "views": {
+      "meta": {
+        "n_views": 2
+      },
+      "n_views": 2,
+      "seed": 2
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "ag_news",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "co_training",
+      "model": null,
+      "params": {
+        "classifier_backend": "sklearn",
+        "classifier_id": "logreg",
+        "classifier_params": {
+          "max_iter": 1000
+        },
+        "k_per_class": 1,
+        "max_iter": 20
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32,
+              "model_id": "st:all-MiniLM-L6-v2"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 2
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_co_training_ag_news_R2-seed2",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/inductive/co_training/text/ag_news/best_text_inductive_co_training_ag_news_R2-sweep-20260329T235014Z",
+      "seed": 2,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 2
+    },
+    "search": null,
+    "views": {
+      "plan": {
+        "views": [
+          {
+            "columns": {
+              "fraction": 0.5,
+              "mode": "random"
+            },
+            "name": "view_a"
+          },
+          {
+            "columns": {
+              "complement_of": "view_a",
+              "mode": "complement"
+            },
+            "name": "view_b"
+          }
+        ]
+      },
+      "seed": 2
+    }
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "705d7ca0b9428e39e927cbe7f26c68eb0989f1510fe429d5035730eba3af5105",
+    "effective_config_hash": "705d7ca0b9428e39e927cbe7f26c68eb0989f1510fe429d5035730eba3af5105"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.39789473684210525,
+      "macro_f1": 0.3916415735143836
+    },
+    "val": {
+      "accuracy": 0.3978333333333333,
+      "macro_f1": 0.3909150515868942
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "method": "numpy"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "float32",
+          "shape": [
+            12,
+            12
+          ]
+        },
+        "X_u": {
+          "dtype": "float32",
+          "shape": [
+            107988,
+            12
+          ]
+        },
+        "X_u_s": null,
+        "X_u_s_1": null,
+        "X_u_w": null,
+        "y_l": {
+          "dtype": "int64",
+          "shape": [
+            12
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/inductive/co_training/text/ag_news.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T23:50:26.244175+00:00",
+    "name": "best_text_inductive_co_training_ag_news_R2-seed2",
+    "run_id": "88fa46d65324aad3ed6c",
+    "seed": 2,
+    "started_at": "2026-03-29T23:50:17.997577+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

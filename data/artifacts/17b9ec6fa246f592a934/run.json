@@ -1,0 +1,406 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "id": "yesno",
+      "info": {
+        "citation": null,
+        "description": "YESNO (torchaudio). No official split (data_loader returns train only).",
+        "homepage": null,
+        "key": "yesno",
+        "license": null,
+        "modality": "audio",
+        "provider": "torchaudio",
+        "required_extra": "audio",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchaudio:YESNO"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "co_training",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/38c7ca24e893b118cc7e6abd3412ad8ec39a1c4c663d067777e0cc0b661b2703",
+      "fit_fingerprint": "fit:bf79d57bf33aabebcfb8aa1d69d359afdabf1d56ae29b776545f43230cf5437b",
+      "plan_fingerprint": "resolved_plan:04481eefac7b16c8bab97f20c33cdaa1f46e80240166a7d66255b93a45a5e892",
+      "preprocess_fingerprint": "preprocess:8d9bdda90926f2289a07cda993dd858c8ac1b821b0214eada7cbffe1b91e6aab",
+      "seed": 6
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6,
+      "split_fingerprint": "40a96022a09290ffd19048c1ff56645edc03fa9c9d1662e7621f207ba4b209d1",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": false,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "no": 6,
+            "yes": 6
+          },
+          "n": 12
+        },
+        "train": {
+          "classes": {
+            "no": 22,
+            "yes": 21
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "no": 3,
+            "yes": 3
+          },
+          "n": 6
+        },
+        "train_unlabeled": {
+          "n": 37
+        },
+        "val": {
+          "classes": {
+            "no": 3,
+            "yes": 2
+          },
+          "n": 5
+        }
+      }
+    },
+    "views": {
+      "meta": {
+        "n_views": 2
+      },
+      "n_views": 2,
+      "seed": 6
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "yesno",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "co_training",
+      "model": null,
+      "params": {
+        "classifier_backend": "sklearn",
+        "classifier_id": "logreg",
+        "classifier_params": {
+          "max_iter": 1000
+        },
+        "k_per_class": 1,
+        "max_iter": 20
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "audio.wav2vec2",
+            "params": {
+              "batch_size": 8,
+              "model_id": "wav2vec2:base"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 6
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_audio_inductive_co_training_yesno_R2-seed6",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/inductive/co_training/audio/yesno/best_audio_inductive_co_training_yesno_R2-sweep-20260329T001451Z",
+      "seed": 6,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6
+    },
+    "search": null,
+    "views": {
+      "plan": {
+        "views": [
+          {
+            "columns": {
+              "fraction": 0.5,
+              "mode": "random"
+            },
+            "name": "view_a"
+          },
+          {
+            "columns": {
+              "complement_of": "view_a",
+              "mode": "complement"
+            },
+            "name": "view_b"
+          }
+        ]
+      },
+      "seed": 6
+    }
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "7e016e4560d728fcf680b1ba01163a94c96c87c71a313fc298ea73e38dba4cb8",
+    "effective_config_hash": "f432fe327058cde50e98117ec597c12803ec456ada08d33388d43cbe36f406cd"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.4166666666666667,
+      "macro_f1": 0.41258741258741255
+    },
+    "val": {
+      "accuracy": 0.4,
+      "macro_f1": 0.28571428571428575
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "method": "numpy"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "float32",
+          "shape": [
+            6,
+            6
+          ]
+        },
+        "X_u": {
+          "dtype": "float32",
+          "shape": [
+            37,
+            6
+          ]
+        },
+        "X_u_s": null,
+        "X_u_s_1": null,
+        "X_u_w": null,
+        "y_l": {
+          "dtype": "int64",
+          "shape": [
+            6
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "train",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/inductive/co_training/audio/yesno.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T00:15:03.368986+00:00",
+    "name": "best_audio_inductive_co_training_yesno_R2-seed6",
+    "run_id": "17b9ec6fa246f592a934",
+    "seed": 6,
+    "started_at": "2026-03-29T00:15:03.070035+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

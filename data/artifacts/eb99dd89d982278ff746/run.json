@@ -1,0 +1,418 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "a669cd337e72c816e8333733a84d71c0c99485e7b23d0cc442877a5ff0d068a6",
+      "id": "yesno",
+      "info": {
+        "citation": null,
+        "description": "YESNO (torchaudio). No official split (data_loader returns train only).",
+        "homepage": null,
+        "key": "yesno",
+        "license": null,
+        "modality": "audio",
+        "provider": "torchaudio",
+        "required_extra": "audio",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchaudio:YESNO"
+      }
+    },
+    "graph": {
+      "fingerprint": "f90b2e5ce4acd034a80671e82c91b88503d20d177b4f76830f25ea73c7acb7c6",
+      "seed": 8,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "graph_mincuts",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/a669cd337e72c816e8333733a84d71c0c99485e7b23d0cc442877a5ff0d068a6",
+      "fit_fingerprint": "fit:7f609cc4145f36bec048f2e3449275409cfc948175d7b987100928d847bc273a",
+      "plan_fingerprint": "resolved_plan:04481eefac7b16c8bab97f20c33cdaa1f46e80240166a7d66255b93a45a5e892",
+      "preprocess_fingerprint": "preprocess:ffe1e1dfb71eb4244abb9f5f2227c82beb574db0fce6775a6edfd18da44a0e98",
+      "seed": 8
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 20
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 8,
+      "split_fingerprint": "db64568148e4c602c7e245ea73805c5e67d8946e4be5cb0095774a7d9484b7ca",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": false,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "no": 6,
+            "yes": 6
+          },
+          "n": 12
+        },
+        "train": {
+          "classes": {
+            "no": 22,
+            "yes": 21
+          },
+          "n": 43
+        },
+        "train_labeled": {
+          "classes": {
+            "no": 20,
+            "yes": 20
+          },
+          "n": 40
+        },
+        "train_unlabeled": {
+          "n": 3
+        },
+        "val": {
+          "classes": {
+            "no": 3,
+            "yes": 2
+          },
+          "n": 5
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "yesno",
+      "options": {
+        "class_filter": [
+          "yes",
+          "no"
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 8,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graph_mincuts",
+      "model": null,
+      "params": {
+        "backend": "scipy",
+        "capacity_scale": 1000.0,
+        "min_capacity": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "audio.wav2vec2",
+            "params": {
+              "batch_size": 8,
+              "model_id": "wav2vec2:base"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 8
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_audio_transductive_graph_mincuts_yesno_R5-seed8",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R5/transductive/graph_mincuts/audio/yesno/best_audio_transductive_graph_mincuts_yesno_R5-sweep-20260329T031345Z",
+      "seed": 8,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 20
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 8
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "629d40275f99b3a2cdb87ce2b62d128538430466fed111adb49480750f7082c8",
+    "effective_config_hash": "11b8aec8d723cdadaf4b3f50112b0ea7c953f8292c96698181437e202e38136b"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6666666666666666,
+      "macro_f1": 0.6571428571428571
+    },
+    "val": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": "scipy"
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": "scipy"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cpu"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            60,
+            40
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            60
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            60
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [
+        "graph.spec.chunk_size: 1024 -> 512"
+      ],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "train",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R5/transductive/graph_mincuts/audio/yesno.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T03:13:49.491500+00:00",
+    "name": "best_audio_transductive_graph_mincuts_yesno_R5-seed8",
+    "run_id": "eb99dd89d982278ff746",
+    "seed": 8,
+    "started_at": "2026-03-29T03:13:49.387055+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

@@ -1,0 +1,471 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "id": "dbpedia_14",
+      "info": {
+        "citation": null,
+        "description": "DBpedia-14 (Hugging Face datasets).",
+        "homepage": null,
+        "key": "dbpedia_14",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "content"
+        },
+        "task": "classification",
+        "uri": "hf:dbpedia_14"
+      }
+    },
+    "graph": {
+      "fingerprint": "b963349f573d4c4d1eecf1271ef424fc8acbc159e2e38d4191429e0e38341d55",
+      "seed": 6,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "label_propagation",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "fit_fingerprint": "fit:f2b380ed77751f4b55331d15de4f8ea8d78c41636d146890f3fd3f53150aa398",
+      "plan_fingerprint": "resolved_plan:8e900a0cdef90e09f7316581b19222199cb8b5af7a347c55ace71e7ffa88c4bc",
+      "preprocess_fingerprint": "preprocess:a449d56d3b688d295398b68a175adecc766c0b246aabd1b96737fe6cef4bee34",
+      "seed": 6
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6,
+      "split_fingerprint": "b9a0b9b9b315356beb5f15399f12d8b17f219c6801e3b00dc5e85c9953ffb4dc",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 5000,
+            "1": 5000,
+            "10": 5000,
+            "11": 5000,
+            "12": 5000,
+            "13": 5000,
+            "2": 5000,
+            "3": 5000,
+            "4": 5000,
+            "5": 5000,
+            "6": 5000,
+            "7": 5000,
+            "8": 5000,
+            "9": 5000
+          },
+          "n": 70000
+        },
+        "train": {
+          "classes": {
+            "0": 36000,
+            "1": 36000,
+            "10": 36000,
+            "11": 36000,
+            "12": 36000,
+            "13": 36000,
+            "2": 36000,
+            "3": 36000,
+            "4": 36000,
+            "5": 36000,
+            "6": 36000,
+            "7": 36000,
+            "8": 36000,
+            "9": 36000
+          },
+          "n": 504000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 10,
+            "1": 10,
+            "10": 10,
+            "11": 10,
+            "12": 10,
+            "13": 10,
+            "2": 10,
+            "3": 10,
+            "4": 10,
+            "5": 10,
+            "6": 10,
+            "7": 10,
+            "8": 10,
+            "9": 10
+          },
+          "n": 140
+        },
+        "train_unlabeled": {
+          "n": 503860
+        },
+        "val": {
+          "classes": {
+            "0": 4000,
+            "1": 4000,
+            "10": 4000,
+            "11": 4000,
+            "12": 4000,
+            "13": 4000,
+            "2": 4000,
+            "3": 4000,
+            "4": 4000,
+            "5": 4000,
+            "6": 4000,
+            "7": 4000,
+            "8": 4000,
+            "9": 4000
+          },
+          "n": 56000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "dbpedia_14",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "content"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 6,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "label_propagation",
+      "model": null,
+      "params": {
+        "max_iter": 200,
+        "norm": "rw",
+        "normalize_rows": true,
+        "tol": 1e-06
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32,
+              "model_id": "st:all-MiniLM-L6-v2"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 6
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_transductive_label_propagation_dbpedia_14_R4-seed6",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R4/transductive/label_propagation/text/dbpedia_14/best_text_transductive_label_propagation_dbpedia_14_R4-sweep-20260407T031720Z",
+      "seed": 6,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "c4873b033ce70d06a65d1b311b701c113133646271040aa903b3a697190873a3",
+    "effective_config_hash": "c4873b033ce70d06a65d1b311b701c113133646271040aa903b3a697190873a3"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6475571428571428,
+      "macro_f1": 0.6344300035392172
+    },
+    "val": {
+      "accuracy": 0.6507678571428571,
+      "macro_f1": 0.6368132764215593
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            630000,
+            128
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            630000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            630000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R4/transductive/label_propagation/text/dbpedia_14.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-07T03:17:49.037634+00:00",
+    "name": "best_text_transductive_label_propagation_dbpedia_14_R4-seed6",
+    "run_id": "d3c14a4fe70fe1bf51b0",
+    "seed": 6,
+    "started_at": "2026-04-07T03:17:44.331188+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

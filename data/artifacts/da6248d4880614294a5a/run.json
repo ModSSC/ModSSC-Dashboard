@@ -1,0 +1,380 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": "5cdfcfd0f60c002b8fbdd9c703d55ada3d61edfd9eaac7bfe0c5994ff31c3fca",
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "lazy_random_walk",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/e68a1f98cf3379658e5d7ce5a6c843018809f25065f1b69c6a2dbd7826ebb239",
+      "fit_fingerprint": "fit:2b0fe6f45d13aadade0bdf392508b08e1c99314c1ffcf932193de7842dcc9684",
+      "plan_fingerprint": "resolved_plan:8a5e3ebe41a4f364f53ac26a625ef44f5a721631be61f65e32b92a3759853b68",
+      "preprocess_fingerprint": "preprocess:5662c1842d32726bc6dbc58083dfcc3b6b48df69380437e86b41f088a545e214",
+      "seed": 7
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7,
+      "split_fingerprint": "9b1551ac85054855cca6ca35d21742c07c14c5bfcefcab0f169e72fbc510b580",
+      "stats": {
+        "labeled": 6,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 3,
+            "1": 3
+          },
+          "n": 6
+        },
+        "nodes": 568,
+        "test": 221,
+        "train": 40,
+        "unlabeled": 34,
+        "val": 97
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "n_classes": 2,
+        "n_features": 4,
+        "n_samples": 64,
+        "official_test": true,
+        "test_size": 0.25
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": null
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 512,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "lazy_random_walk",
+      "model": null,
+      "params": {
+        "alpha": 0.99
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 7
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_transductive_lazy_random_walk_cora_R2-seed7",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/transductive/lazy_random_walk/graph/cora/best_graph_transductive_lazy_random_walk_cora_R2-sweep-20260329T013045Z",
+      "seed": 7,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "e8e20104ccd8e004cb6a2a011d01cd56aa2ebc865f91db154ebf57d5e62fb0d3",
+    "effective_config_hash": "d957ca2056974c281d5f899ddaa197b54a26ace26470771fc89ddcabc5b7b74c"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.46153846153846156,
+      "macro_f1": 0.39354317998385796
+    },
+    "val": {
+      "accuracy": 0.4329896907216495,
+      "macro_f1": 0.38909882056567047
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": null,
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            568,
+            1433
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            568
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            568
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [
+        "graph.spec.chunk_size: 1024 -> 512"
+      ],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {},
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/transductive/lazy_random_walk/graph/cora.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T01:30:51.316556+00:00",
+    "name": "best_graph_transductive_lazy_random_walk_cora_R2-seed7",
+    "run_id": "da6248d4880614294a5a",
+    "seed": 7,
+    "started_at": "2026-03-29T01:30:50.937832+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

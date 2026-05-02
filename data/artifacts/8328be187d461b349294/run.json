@@ -1,0 +1,426 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967",
+      "id": "adult",
+      "info": {
+        "citation": null,
+        "description": "Adult (OpenML data_id=1590). No official split.",
+        "homepage": null,
+        "key": "adult",
+        "license": null,
+        "modality": "tabular",
+        "provider": "openml",
+        "required_extra": "openml",
+        "source_kwargs": {
+          "data_id": 1590
+        },
+        "task": "classification",
+        "uri": "openml:1590"
+      }
+    },
+    "graph": {
+      "fingerprint": "f4ac032be0fe57bd13d219f0e86dd16a04e61dca70d0d494ba0406506e5a71ab",
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "h_gcn",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/f9281cab47a3de02bacdff6aeecab3cc3bec164d4d321622f81551b6b4f82967",
+      "fit_fingerprint": "fit:750dec604e4980018d21c4ac35d643768ea1596b760d79290633290ccb4ce8b6",
+      "plan_fingerprint": "resolved_plan:b3d423d4eebe5cbd0481744f65f50bc863a766454daab08a7b4f5816576089c2",
+      "preprocess_fingerprint": "preprocess:f0d2e7563513bf82cd0817d58268c42307645880f86fc7ac625be4cd7a14225c",
+      "seed": 1
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 50
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1,
+      "split_fingerprint": "711b613974aa7841204ed6f110d85269de798bbdd4245a1b0dfe25b60c5e0fc9",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": false,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "<=50K": 7431,
+            ">50K": 2337
+          },
+          "n": 9768
+        },
+        "train": {
+          "classes": {
+            "<=50K": 26752,
+            ">50K": 8415
+          },
+          "n": 35167
+        },
+        "train_labeled": {
+          "classes": {
+            "<=50K": 50,
+            ">50K": 50
+          },
+          "n": 100
+        },
+        "train_unlabeled": {
+          "n": 35067
+        },
+        "val": {
+          "classes": {
+            "<=50K": 2972,
+            ">50K": 935
+          },
+          "n": 3907
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "adult",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 1,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "h_gcn",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "channels": 4,
+        "dropout": 0.15,
+        "hidden_dim": 64,
+        "lr": 0.03,
+        "max_epochs": 250,
+        "num_layers": 9,
+        "patience": 50,
+        "symmetrize": true,
+        "weight_decay": 0.0007,
+        "weight_embed_dim": 8
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "tabular.one_hot"
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "tabular.impute"
+          },
+          {
+            "id": "tabular.standard_scaler"
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 30
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 1
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_tabular_transductive_h_gcn_adult_R6-seed1",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R6/transductive/h_gcn/tabular/adult/best_tabular_transductive_h_gcn_adult_R6-sweep-20260401T111107Z",
+      "seed": 1,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 50
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 1
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "12c546444d64f08cf63f1efed9da87593751b63027758a6e0d6985999a01fa67",
+    "effective_config_hash": "b125dd5d800b2714ea9b97d99c7e062bab000605565d7f5b91354a946be9f626"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.7607493857493858,
+      "macro_f1": 0.4320600034885749
+    },
+    "val": {
+      "accuracy": 0.7606859482979268,
+      "macro_f1": 0.4320395406309056
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            48842,
+            20
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            48842
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            48842
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "train",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R6/transductive/h_gcn/tabular/adult.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-01T11:15:24.876643+00:00",
+    "name": "best_tabular_transductive_h_gcn_adult_R6-seed1",
+    "run_id": "8328be187d461b349294",
+    "seed": 1,
+    "started_at": "2026-04-01T11:11:09.497960+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

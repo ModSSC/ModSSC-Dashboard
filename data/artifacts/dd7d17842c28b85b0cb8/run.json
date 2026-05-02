@@ -1,0 +1,443 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b8303bcc3e772e6f239c462c6a9e9966470adf816a4fa5ed757bbe4f91dc55df",
+      "id": "cifar10",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-10 (torchvision).",
+        "homepage": null,
+        "key": "cifar10",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR10"
+      }
+    },
+    "graph": {
+      "fingerprint": "81fdaba60e853f342da6709307a00dcc2b14b08de245a402feb795ed10ee992f",
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "lazy_random_walk",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/b8303bcc3e772e6f239c462c6a9e9966470adf816a4fa5ed757bbe4f91dc55df",
+      "fit_fingerprint": "fit:bd92e49cff354ae27efe79528d5f4520e359dcd929f79a18d9ac39c196888681",
+      "plan_fingerprint": "resolved_plan:da920b425edb498bc06ec73573166351763a2d22d88a2138eed736f9a8364f3a",
+      "preprocess_fingerprint": "preprocess:efdc5bd36ca5a2290531ce9af047e3ceedc4a768ecb07d533fa946638e93c079",
+      "seed": 7
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 50
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7,
+      "split_fingerprint": "c418c81e98bf47e07af82520ac0c6f4dd3f8c27552268e7ef38bb2f85870afee",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 1000,
+            "1": 1000
+          },
+          "n": 2000
+        },
+        "train": {
+          "classes": {
+            "0": 4500,
+            "1": 4500
+          },
+          "n": 9000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 50,
+            "1": 50
+          },
+          "n": 100
+        },
+        "train_unlabeled": {
+          "n": 8900
+        },
+        "val": {
+          "classes": {
+            "0": 500,
+            "1": 500
+          },
+          "n": 1000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cifar10",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ]
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "lazy_random_walk",
+      "model": null,
+      "params": {
+        "alpha": 0.99
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 32,
+              "width": 32
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "embeddings.auto",
+            "params": {
+              "batch_size": 64,
+              "model_id_vision": "torchvision:resnet18"
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 7
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_lazy_random_walk_cifar10_R6-seed7",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R6/transductive/lazy_random_walk/vision/cifar10/best_vision_transductive_lazy_random_walk_cifar10_R6-sweep-20260401T202100Z",
+      "seed": 7,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 50
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "6b1a2c966b060c11db75fd92a254e1cf7efc638fff288adb57710e1e4a9a40cf",
+    "effective_config_hash": "6b1a2c966b060c11db75fd92a254e1cf7efc638fff288adb57710e1e4a9a40cf"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.887,
+      "macro_f1": 0.8867053205387212
+    },
+    "val": {
+      "accuracy": 0.875,
+      "macro_f1": 0.8745331378057752
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            12000,
+            512
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            12000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            12000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy",
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R6/transductive/lazy_random_walk/vision/cifar10.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-01T20:21:12.863149+00:00",
+    "name": "best_vision_transductive_lazy_random_walk_cifar10_R6-seed7",
+    "run_id": "dd7d17842c28b85b0cb8",
+    "seed": 7,
+    "started_at": "2026-04-01T20:21:11.018336+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

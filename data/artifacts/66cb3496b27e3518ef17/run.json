@@ -1,0 +1,464 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 4
+    },
+    "dataset": {
+      "fingerprint": "58fab0ad71a2d0aeb12650ac2c8a40bfa7bf5d23534db8462bff7c12fc101c60",
+      "id": "imdb",
+      "info": {
+        "citation": null,
+        "description": "IMDB (Hugging Face datasets).",
+        "homepage": null,
+        "key": "imdb",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "text"
+        },
+        "task": "classification",
+        "uri": "hf:imdb"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "mean_teacher",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/58fab0ad71a2d0aeb12650ac2c8a40bfa7bf5d23534db8462bff7c12fc101c60",
+      "fit_fingerprint": "fit:0f8dad1e0ceeddd02be1232b45ed66e59080326c12d1dc464c9d001d84cc03be",
+      "plan_fingerprint": "resolved_plan:f6edee3330573ff309bb67d1390b7c10660610ae4afdff2c62ae9aa2dea83416",
+      "preprocess_fingerprint": "preprocess:b3c9588183aa7ba23bf6abbabb27190a24e1325ad6f5db4bce2afc1eb670fdf0",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "96ccae115b8806fdc4c7d4ef36b7f17c8c256b1aee48820e4f095b0c41e26219",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 12500,
+            "1": 12500
+          },
+          "n": 25000
+        },
+        "train": {
+          "classes": {
+            "0": 11250,
+            "1": 11250
+          },
+          "n": 22500
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 3,
+            "1": 3
+          },
+          "n": 6
+        },
+        "train_unlabeled": {
+          "n": 22494
+        },
+        "val": {
+          "classes": {
+            "0": 1250,
+            "1": 1250
+          },
+          "n": 2500
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "text",
+      "mode": "fixed",
+      "seed": 4,
+      "strong": {
+        "steps": [
+          {
+            "id": "text.token_mask",
+            "params": {
+              "mask_token_id": 1,
+              "p": 0.15,
+              "pad_token_id": 0
+            }
+          },
+          {
+            "id": "text.token_swap",
+            "params": {
+              "n_swaps": 1,
+              "pad_token_id": 0
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "text.token_mask",
+            "params": {
+              "mask_token_id": 1,
+              "p": 0.05,
+              "pad_token_id": 0
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "imdb",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "text"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "mean_teacher",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "lstm_scratch",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 256,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "ema": true,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "ema_decay": 0.999,
+        "freeze_bn": true,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "unsup_warm_up": 0.4
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.vocab_tokenizer",
+            "params": {
+              "max_length": 256,
+              "vocab_size": 20000
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_mean_teacher_imdb_R2-seed4",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/inductive/mean_teacher/text/imdb/best_text_inductive_mean_teacher_imdb_R2-sweep-20260330T001425Z",
+      "seed": 4,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "105047823d25a2a7b38cdf66cd997137816546933a79a247dc616f0ed5bb3233",
+    "effective_config_hash": "105047823d25a2a7b38cdf66cd997137816546933a79a247dc616f0ed5bb3233"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.49892,
+      "macro_f1": 0.45861867223654923
+    },
+    "val": {
+      "accuracy": 0.5084,
+      "macro_f1": 0.47311027506130193
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": "torch",
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            6,
+            256
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            22494,
+            256
+          ]
+        },
+        "X_u_s": {
+          "dtype": "torch.float32",
+          "shape": [
+            22494,
+            256
+          ]
+        },
+        "X_u_s_1": null,
+        "X_u_w": {
+          "dtype": "torch.float32",
+          "shape": [
+            22494,
+            256
+          ]
+        },
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            6
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/inductive/mean_teacher/text/imdb.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-30T00:20:37.498001+00:00",
+    "name": "best_text_inductive_mean_teacher_imdb_R2-seed4",
+    "run_id": "66cb3496b27e3518ef17",
+    "seed": 4,
+    "started_at": "2026-03-30T00:18:35.015116+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

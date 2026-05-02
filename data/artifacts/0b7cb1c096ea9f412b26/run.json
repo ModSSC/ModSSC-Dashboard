@@ -1,0 +1,426 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f",
+      "id": "breast_cancer",
+      "info": {
+        "citation": null,
+        "description": "Breast Cancer Wisconsin (OpenML data_id=15). Binary, numeric features.",
+        "homepage": null,
+        "key": "breast_cancer",
+        "license": null,
+        "modality": "tabular",
+        "provider": "openml",
+        "required_extra": "openml",
+        "source_kwargs": {
+          "data_id": 15
+        },
+        "task": "classification",
+        "uri": "openml:15"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "co_training",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/6dece738ab3dfc5f1500b389918a8723dfd218d54ba657c31846dda9cfbbc81f",
+      "fit_fingerprint": "fit:987af6481455aed24c161afeaabfb195516c80cbf16ae2e605a61a78b2a8da19",
+      "plan_fingerprint": "resolved_plan:2fd28781de548db14dc25cb730c4a58beda13172ed36f45b2cc1411caf334e69",
+      "preprocess_fingerprint": "preprocess:7a39e174872b3db01729b61e3c43839c8f191522cad1a5b45e711ffc3aa12833",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "a8c9758457b05a1eeeb18f914d3c4c4d6f60873dbe50ad0d1dcb6c33f1805bec",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": false,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "train"
+        },
+        "test": {
+          "classes": {
+            "benign": 92,
+            "malignant": 48
+          },
+          "n": 140
+        },
+        "train": {
+          "classes": {
+            "benign": 329,
+            "malignant": 174
+          },
+          "n": 503
+        },
+        "train_labeled": {
+          "classes": {
+            "benign": 3,
+            "malignant": 3
+          },
+          "n": 6
+        },
+        "train_unlabeled": {
+          "n": 497
+        },
+        "val": {
+          "classes": {
+            "benign": 37,
+            "malignant": 19
+          },
+          "n": 56
+        }
+      }
+    },
+    "views": {
+      "meta": {
+        "n_views": 2
+      },
+      "n_views": 2,
+      "seed": 4
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "breast_cancer",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "co_training",
+      "model": null,
+      "params": {
+        "classifier_backend": "torch",
+        "classifier_id": "mlp",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            256,
+            256
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "k_per_class": 1,
+        "max_iter": 20
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "core.ensure_2d"
+          },
+          {
+            "id": "tabular.impute"
+          },
+          {
+            "id": "tabular.standard_scaler"
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_tabular_inductive_co_training_breast_cancer_R2-seed4",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/inductive/co_training/tabular/breast_cancer/best_tabular_inductive_co_training_breast_cancer_R2-sweep-20260328T234002Z",
+      "seed": 4,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": {
+      "plan": {
+        "views": [
+          {
+            "columns": {
+              "fraction": 0.5,
+              "mode": "random"
+            },
+            "name": "view_a"
+          },
+          {
+            "columns": {
+              "complement_of": "view_a",
+              "mode": "complement"
+            },
+            "name": "view_b"
+          }
+        ]
+      },
+      "seed": 4
+    }
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "0fc87f17acd68bfbed63f900a02a4a627a2236a2fda2cb9467f09a2651becf6f",
+    "effective_config_hash": "1e01546ccd1daf9fee356752b3b11f210d3a8a821c488ee659e8f3a732935104"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.9642857142857143,
+      "macro_f1": 0.960565601937919
+    },
+    "val": {
+      "accuracy": 0.9821428571428571,
+      "macro_f1": 0.9798198198198198
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            6,
+            9
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            497,
+            9
+          ]
+        },
+        "X_u_s": null,
+        "X_u_s_1": null,
+        "X_u_w": null,
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            6
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [
+        "method.params.classifier_params.batch_size: 256 -> 128"
+      ],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "train",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/inductive/co_training/tabular/breast_cancer.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-28T23:40:22.440242+00:00",
+    "name": "best_tabular_inductive_co_training_breast_cancer_R2-seed4",
+    "run_id": "0b7cb1c096ea9f412b26",
+    "seed": 4,
+    "started_at": "2026-03-28T23:40:19.386198+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

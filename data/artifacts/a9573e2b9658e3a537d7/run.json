@@ -1,0 +1,426 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "732fb57067ac0f11df181c4c513adec00c572b9a5b729f2a0a1827cb669275c7",
+      "id": "dbpedia_14",
+      "info": {
+        "citation": null,
+        "description": "DBpedia-14 (Hugging Face datasets).",
+        "homepage": null,
+        "key": "dbpedia_14",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "content"
+        },
+        "task": "classification",
+        "uri": "hf:dbpedia_14"
+      }
+    },
+    "graph": {
+      "fingerprint": "e77569a8088be75ff219fa73eb515c127f40dc9f0f06f7076eb6abdb7760d337",
+      "seed": 4,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cpu"
+      },
+      "id": "graph_mincuts",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/732fb57067ac0f11df181c4c513adec00c572b9a5b729f2a0a1827cb669275c7",
+      "fit_fingerprint": "fit:79434debe1b7439f533b0ac6991d6ef376df9cd9ca23256bdba05f7237324ca8",
+      "plan_fingerprint": "resolved_plan:8e900a0cdef90e09f7316581b19222199cb8b5af7a347c55ace71e7ffa88c4bc",
+      "preprocess_fingerprint": "preprocess:7bcef548bb8fbe84af374c8f73a7d17104fe8d1e3f9da74c39271b3f8aefbfed",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "eda8763afdf06bd5ea945c4799fa5efe84ec6d8b5e4581d5b1dd8ee26ad280e3",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 5000,
+            "1": 5000
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 36000,
+            "1": 36000
+          },
+          "n": 72000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5,
+            "1": 5
+          },
+          "n": 10
+        },
+        "train_unlabeled": {
+          "n": 71990
+        },
+        "val": {
+          "classes": {
+            "0": 4000,
+            "1": 4000
+          },
+          "n": 8000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "dbpedia_14",
+      "options": {
+        "class_filter": [
+          0,
+          1
+        ],
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "content"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 4,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "graph_mincuts",
+      "model": null,
+      "params": {
+        "backend": "scipy",
+        "capacity_scale": 1000.0,
+        "min_capacity": 1
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32,
+              "model_id": "st:all-MiniLM-L6-v2"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_transductive_graph_mincuts_dbpedia_14_R3-seed4",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R3/transductive/graph_mincuts/text/dbpedia_14/best_text_transductive_graph_mincuts_dbpedia_14_R3-sweep-20260407T022557Z",
+      "seed": 4,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "e9f89475ae35cf65e83617be0cc27b4f434ab7d0dd7d1d70f8e4b96f4e7ca467",
+    "effective_config_hash": "e9f89475ae35cf65e83617be0cc27b4f434ab7d0dd7d1d70f8e4b96f4e7ca467"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    },
+    "val": {
+      "accuracy": 0.5,
+      "macro_f1": 0.3333333333333333
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": "scipy"
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": "scipy"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cpu"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            90000,
+            10
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            90000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            90000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R3/transductive/graph_mincuts/text/dbpedia_14.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-07T02:28:07.990863+00:00",
+    "name": "best_text_transductive_graph_mincuts_dbpedia_14_R3-seed4",
+    "run_id": "a9573e2b9658e3a537d7",
+    "seed": 4,
+    "started_at": "2026-04-07T02:27:27.312229+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

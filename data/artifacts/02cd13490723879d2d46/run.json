@@ -1,0 +1,468 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "id": "mnist",
+      "info": {
+        "citation": null,
+        "description": "MNIST (torchvision).",
+        "homepage": null,
+        "key": "mnist",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:MNIST"
+      }
+    },
+    "graph": {
+      "fingerprint": "53e6c19bf5529e3a7b04d60561e5237dad58406f60ab2bf794f56ff9d9bf60bd",
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "laplace_learning",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "fit_fingerprint": "fit:076bf8a86d11a8c9fa61e62b98d4e4ca0eeeebfe75435b1fb55731b42bacc18a",
+      "plan_fingerprint": "resolved_plan:82221f6aeabb50db93065f5e167641b86f7dfb486bf450de2060785bb50446e3",
+      "preprocess_fingerprint": "preprocess:25548cd5114179ebc963388ad3f3b71dd19b690cd112aa1d2894e6110e087457",
+      "seed": 7
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7,
+      "split_fingerprint": "93cba0468ce13ab9faa7228953fafd6537a3eaf55cbe11ecf6b23cc1170e576c",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 980,
+            "1": 1135,
+            "2": 1032,
+            "3": 1010,
+            "4": 982,
+            "5": 892,
+            "6": 958,
+            "7": 1028,
+            "8": 974,
+            "9": 1009
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 5331,
+            "1": 6068,
+            "2": 5362,
+            "3": 5518,
+            "4": 5258,
+            "5": 4879,
+            "6": 5326,
+            "7": 5638,
+            "8": 5266,
+            "9": 5354
+          },
+          "n": 54000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5,
+            "1": 5,
+            "2": 5,
+            "3": 5,
+            "4": 5,
+            "5": 5,
+            "6": 5,
+            "7": 5,
+            "8": 5,
+            "9": 5
+          },
+          "n": 50
+        },
+        "train_unlabeled": {
+          "n": 53950
+        },
+        "val": {
+          "classes": {
+            "0": 592,
+            "1": 674,
+            "2": 596,
+            "3": 613,
+            "4": 584,
+            "5": 542,
+            "6": 592,
+            "7": 627,
+            "8": 585,
+            "9": 595
+          },
+          "n": 6000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "mnist",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 7,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "or",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "laplace_learning",
+      "model": null,
+      "params": {}
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 28,
+              "width": 28
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "embeddings.auto",
+            "params": {
+              "batch_size": 64,
+              "model_id_vision": "torchvision:resnet18"
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 7
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_laplace_learning_mnist_R3-seed7",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R3/transductive/laplace_learning/vision/mnist/best_vision_transductive_laplace_learning_mnist_R3-sweep-20260406T183037Z",
+      "seed": 7,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 7
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "482ea60f2ccaabe8f42ac12f5f4a37d5cd07a310380665a7e6dfa81577e1a517",
+    "effective_config_hash": "7a2e3cd468f5a2b3edd2dc17533627e5ca5f290eeeb5d04d845100e0ea758925"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.5557,
+      "macro_f1": 0.5136212565983603
+    },
+    "val": {
+      "accuracy": 0.5545,
+      "macro_f1": 0.5138172025924331
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            70000,
+            512
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            70000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            70000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy",
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R3/transductive/laplace_learning/vision/mnist.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-06T18:31:48.138886+00:00",
+    "name": "best_vision_transductive_laplace_learning_mnist_R3-seed7",
+    "run_id": "02cd13490723879d2d46",
+    "seed": 7,
+    "started_at": "2026-04-06T18:31:34.664362+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

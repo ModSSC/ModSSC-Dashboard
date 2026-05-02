@@ -1,0 +1,445 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "id": "dbpedia_14",
+      "info": {
+        "citation": null,
+        "description": "DBpedia-14 (Hugging Face datasets).",
+        "homepage": null,
+        "key": "dbpedia_14",
+        "license": null,
+        "modality": "text",
+        "provider": "hf",
+        "required_extra": "hf",
+        "source_kwargs": {
+          "label_column": "label",
+          "prefer_test_split": true,
+          "text_column": "content"
+        },
+        "task": "classification",
+        "uri": "hf:dbpedia_14"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "setred",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/75a51236931fd5525484e5007957c40f0d6ba206d4c30e87f64d8d15db405977",
+      "fit_fingerprint": "fit:2f92385ce93ad93d09c535cdf4a9059ced6626f71f73cd7d18725121c47058bd",
+      "plan_fingerprint": "resolved_plan:8e900a0cdef90e09f7316581b19222199cb8b5af7a347c55ace71e7ffa88c4bc",
+      "preprocess_fingerprint": "preprocess:305f9ac05262ff10fa9ac684c93139152ef2d1d2f87d37677a3f1f6248765b0c",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "7c4bab19beed2abdbca2b367ec99b9eaeb311e705f816127bd0317d910f36dd7",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 5000,
+            "1": 5000,
+            "10": 5000,
+            "11": 5000,
+            "12": 5000,
+            "13": 5000,
+            "2": 5000,
+            "3": 5000,
+            "4": 5000,
+            "5": 5000,
+            "6": 5000,
+            "7": 5000,
+            "8": 5000,
+            "9": 5000
+          },
+          "n": 70000
+        },
+        "train": {
+          "classes": {
+            "0": 36000,
+            "1": 36000,
+            "10": 36000,
+            "11": 36000,
+            "12": 36000,
+            "13": 36000,
+            "2": 36000,
+            "3": 36000,
+            "4": 36000,
+            "5": 36000,
+            "6": 36000,
+            "7": 36000,
+            "8": 36000,
+            "9": 36000
+          },
+          "n": 504000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 1,
+            "1": 1,
+            "10": 1,
+            "11": 1,
+            "12": 1,
+            "13": 1,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 1
+          },
+          "n": 14
+        },
+        "train_unlabeled": {
+          "n": 503986
+        },
+        "val": {
+          "classes": {
+            "0": 4000,
+            "1": 4000,
+            "10": 4000,
+            "11": 4000,
+            "12": 4000,
+            "13": 4000,
+            "2": 4000,
+            "3": 4000,
+            "4": 4000,
+            "5": 4000,
+            "6": 4000,
+            "7": 4000,
+            "8": 4000,
+            "9": 4000
+          },
+          "n": 56000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "dbpedia_14",
+      "options": {
+        "label_column": "label",
+        "prefer_test_split": true,
+        "text_column": "content"
+      }
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "setred",
+      "model": null,
+      "params": {
+        "classifier_backend": "sklearn",
+        "classifier_id": "logreg",
+        "classifier_params": {
+          "max_iter": 1000
+        },
+        "confidence_threshold": 0.95,
+        "edge_weight": "uniform",
+        "graph_type": "knn",
+        "knn_k": 10,
+        "max_iter": 10,
+        "max_new_labels": 50,
+        "min_new_labels": 1,
+        "pool_size": 200,
+        "theta": 0.05
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "text.ensure_strings"
+          },
+          {
+            "id": "text.sentence_transformer",
+            "params": {
+              "batch_size": 32,
+              "model_id": "st:all-MiniLM-L6-v2"
+            }
+          },
+          {
+            "id": "core.pca",
+            "params": {
+              "n_components": 128
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_text_inductive_setred_dbpedia_14_R1-seed3",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R1/inductive/setred/text/dbpedia_14/best_text_inductive_setred_dbpedia_14_R1-sweep-20260406T195332Z",
+      "seed": 3,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 1
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "df9dffc241bac581c2a051aa68732ef2c55b1463817952352a73ea11c4bcf978",
+    "effective_config_hash": "df9dffc241bac581c2a051aa68732ef2c55b1463817952352a73ea11c4bcf978"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.32198571428571426,
+      "macro_f1": 0.3193682538278189
+    },
+    "val": {
+      "accuracy": 0.31991071428571427,
+      "macro_f1": 0.3181685264841517
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "method": "numpy"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "float32",
+          "shape": [
+            14,
+            14
+          ]
+        },
+        "X_u": {
+          "dtype": "float32",
+          "shape": [
+            503986,
+            14
+          ]
+        },
+        "X_u_s": null,
+        "X_u_s_1": null,
+        "X_u_w": null,
+        "y_l": {
+          "dtype": "int64",
+          "shape": [
+            14
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R1/inductive/setred/text/dbpedia_14.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-06T19:53:45.383049+00:00",
+    "name": "best_text_inductive_setred_dbpedia_14_R1-seed3",
+    "run_id": "ab3f47b400352cfb5385",
+    "seed": 3,
+    "started_at": "2026-04-06T19:53:41.177163+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

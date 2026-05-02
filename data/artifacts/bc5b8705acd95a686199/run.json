@@ -1,0 +1,511 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 4
+    },
+    "dataset": {
+      "fingerprint": "a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "id": "mnist",
+      "info": {
+        "citation": null,
+        "description": "MNIST (torchvision).",
+        "homepage": null,
+        "key": "mnist",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:MNIST"
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "noisy_student",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/a509362fa8ce20622694ff1f4d85b7a5a2009a412d9e6ab54d1c35a2f8a6ab01",
+      "fit_fingerprint": "fit:5b2a131a1b33663b9fd9d56443d99144785701a4836e8fea3746a099890c1839",
+      "plan_fingerprint": "resolved_plan:ba2b6fb23e1116c7e05a025c8858bd25123be54bf491d735c70d2518af3fb639",
+      "preprocess_fingerprint": "preprocess:de77fb49a010be9d3f52c340beae5497ff2554e2ffeac87063acc787bd327f3b",
+      "seed": 4
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4,
+      "split_fingerprint": "7e67c27922a38e2005b39455986aaaa25725e477e357adecb5fcc5c4b39aceb3",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 980,
+            "1": 1135,
+            "2": 1032,
+            "3": 1010,
+            "4": 982,
+            "5": 892,
+            "6": 958,
+            "7": 1028,
+            "8": 974,
+            "9": 1009
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 5331,
+            "1": 6068,
+            "2": 5362,
+            "3": 5518,
+            "4": 5258,
+            "5": 4879,
+            "6": 5326,
+            "7": 5638,
+            "8": 5266,
+            "9": 5354
+          },
+          "n": 54000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 3,
+            "1": 3,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 3,
+            "6": 3,
+            "7": 3,
+            "8": 3,
+            "9": 3
+          },
+          "n": 30
+        },
+        "train_unlabeled": {
+          "n": 53970
+        },
+        "val": {
+          "classes": {
+            "0": 592,
+            "1": 674,
+            "2": 596,
+            "3": 613,
+            "4": 584,
+            "5": 542,
+            "6": 592,
+            "7": 627,
+            "8": 585,
+            "9": 595
+          },
+          "n": 6000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "vision",
+      "mode": "fixed",
+      "seed": 4,
+      "strong": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 2
+            }
+          },
+          {
+            "id": "vision.cutout",
+            "params": {
+              "frac": 0.25
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "vision.random_crop_pad",
+            "params": {
+              "padding": 2
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "mnist",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "noisy_student",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "image_pretrained",
+        "classifier_params": {
+          "batch_size": 32,
+          "freeze_backbone": false,
+          "input_layout": "channels_first",
+          "lr": 0.0001,
+          "max_epochs": 5,
+          "model_name": "resnet18",
+          "weight_decay": 0.0001,
+          "weights": null
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "batch_size": 128,
+        "detach_target": true,
+        "hard_label": true,
+        "lambda_u": 1.0,
+        "max_epochs": 50,
+        "p_cutoff": 0.95,
+        "temperature": 0.5,
+        "use_cat": false
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 28,
+              "width": 28
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "core.copy_raw"
+          }
+        ]
+      },
+      "seed": 4
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_inductive_noisy_student_mnist_R2-seed4",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R2/inductive/noisy_student/vision/mnist/best_vision_inductive_noisy_student_mnist_R2-sweep-20260406T182159Z",
+      "seed": 4,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 3
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 4
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "1ac2a14772c4813341f258fa1b552ed6f74f6ae97bfa59377ba8332a5e19d1b9",
+    "effective_config_hash": "7915fc7d5f7149c9d3013a3c78c1194df021b9b6b7dc60c9614804cc219caf85"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.6057,
+      "macro_f1": 0.5966489818918781
+    },
+    "val": {
+      "accuracy": 0.5955,
+      "macro_f1": 0.5836802268368139
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": "torch",
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            30,
+            3,
+            28,
+            28
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            53970,
+            3,
+            28,
+            28
+          ]
+        },
+        "X_u_s": {
+          "dtype": "torch.float32",
+          "shape": [
+            53970,
+            3,
+            28,
+            28
+          ]
+        },
+        "X_u_s_1": null,
+        "X_u_w": {
+          "dtype": "torch.float32",
+          "shape": [
+            53970,
+            3,
+            28,
+            28
+          ]
+        },
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            30
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R2/inductive/noisy_student/vision/mnist.yaml",
+    "error_code": null,
+    "finished_at": "2026-04-06T18:31:49.259228+00:00",
+    "name": "best_vision_inductive_noisy_student_mnist_R2-seed4",
+    "run_id": "bc5b8705acd95a686199",
+    "seed": 4,
+    "started_at": "2026-04-06T18:26:58.337397+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}

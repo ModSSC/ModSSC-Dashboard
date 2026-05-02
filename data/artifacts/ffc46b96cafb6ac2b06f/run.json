@@ -1,0 +1,436 @@
+{
+  "artifacts": {
+    "augmentation": {
+      "mode": "fixed",
+      "seed": 6
+    },
+    "dataset": {
+      "fingerprint": "2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "id": "cora",
+      "info": {
+        "citation": null,
+        "description": "Cora Planetoid citation graph (torch_geometric). Includes official masks.",
+        "homepage": null,
+        "key": "cora",
+        "license": null,
+        "modality": "graph",
+        "provider": "pyg",
+        "required_extra": "graph",
+        "source_kwargs": {},
+        "task": "node_classification",
+        "uri": "pyg:Planetoid/Cora"
+      }
+    },
+    "graph": {
+      "fingerprint": null,
+      "seed": null,
+      "source": "dataset",
+      "spec": null
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "trinet",
+      "kind": "inductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/2919521af8679a8c84658219f16403f74aa1bfc03b19b6a08eb2565299400728",
+      "fit_fingerprint": "fit:6eb67eb474073cdf509f4adf370f6e9741bcbc8b76e5c6d0c6d7db63f7c6e56d",
+      "plan_fingerprint": "resolved_plan:95213a523f045acfbe48296ceac122bc48b9fd73dbd5843390244a44a4946c42",
+      "preprocess_fingerprint": "preprocess:ff0d08e262d89f7343221a926d92f2b78b898db8e4df2f803a9ea42510377436",
+      "seed": 6
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6,
+      "split_fingerprint": "5e5e56e9ce93064e962d2fb708414b30c8a0116ff48f8513bd006e2251ef75f4",
+      "stats": {
+        "labeled": 70,
+        "labeled_class_dist": {
+          "classes": {
+            "0": 10,
+            "1": 10,
+            "2": 10,
+            "3": 10,
+            "4": 10,
+            "5": 10,
+            "6": 10
+          },
+          "n": 70
+        },
+        "nodes": 2708,
+        "test": 1000,
+        "train": 140,
+        "unlabeled": 70,
+        "val": 500
+      }
+    }
+  },
+  "config": {
+    "augmentation": {
+      "enabled": true,
+      "modality": "graph",
+      "mode": "fixed",
+      "seed": 6,
+      "strong": {
+        "steps": [
+          {
+            "id": "graph.feature_mask",
+            "params": {
+              "p": 0.1
+            }
+          },
+          {
+            "id": "graph.edge_dropout",
+            "params": {
+              "p": 0.2
+            }
+          }
+        ]
+      },
+      "weak": {
+        "steps": [
+          {
+            "id": "graph.feature_mask",
+            "params": {
+              "p": 0.05
+            }
+          }
+        ]
+      }
+    },
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cora",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": null,
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "inductive",
+      "method_id": "trinet",
+      "model": {
+        "classifier_backend": "torch",
+        "classifier_id": "graphsage_inductive",
+        "classifier_params": {
+          "activation": "relu",
+          "batch_size": 128,
+          "dropout": 0.1,
+          "hidden_sizes": [
+            128
+          ],
+          "lr": 0.001,
+          "max_epochs": 50,
+          "weight_decay": 0.0
+        },
+        "ema": false,
+        "factory": null,
+        "params": {}
+      },
+      "params": {
+        "max_rounds": 30,
+        "pool_base": 1000
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "labels.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "int64"
+            }
+          },
+          {
+            "id": "graph.sparse_adjacency",
+            "params": {
+              "batch_size": 32,
+              "device": "auto",
+              "embed_epochs": 5,
+              "embed_lr": 0.01,
+              "max_nodes": 20000,
+              "undirected": true
+            }
+          },
+          {
+            "id": "core.to_torch",
+            "params": {
+              "device": "auto",
+              "dtype": "float32"
+            }
+          }
+        ]
+      },
+      "seed": 6
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_graph_inductive_trinet_cora_R4-seed6",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R4/inductive/trinet/graph/cora/best_graph_inductive_trinet_cora_R4-sweep-20260329T045330Z",
+      "seed": 6,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 10
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 6
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [
+    {
+      "code": "E_BENCH_GRAPH_SAMPLING_CONVERTED",
+      "message": "Converted graph masks to inductive indices for inductive method"
+    }
+  ],
+  "hashes": {
+    "config_hash": "76513efb046163eb0bdeaa41848b55e11f4feae2fc237ebed539dc9e50a7c89b",
+    "effective_config_hash": "063a714062465801e259ca042dc3554687285b00203c51fc488a95fb1f6259c8"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.426,
+      "macro_f1": 0.42908165846554464
+    },
+    "val": {
+      "accuracy": 0.41,
+      "macro_f1": 0.42514354513631886
+    }
+  },
+  "protocol": {
+    "kind": "inductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": false
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": "torch",
+        "graph": null,
+        "method": null
+      },
+      "resolved": {
+        "classifier": "torch",
+        "graph": "dataset",
+        "method": "torch"
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X_l": {
+          "dtype": "torch.float32",
+          "shape": [
+            70,
+            1433
+          ]
+        },
+        "X_u": {
+          "dtype": "torch.float32",
+          "shape": [
+            70,
+            1433
+          ]
+        },
+        "X_u_s": {
+          "dtype": "torch.float32",
+          "shape": [
+            70,
+            1433
+          ]
+        },
+        "X_u_s_1": null,
+        "X_u_w": {
+          "dtype": "torch.float32",
+          "shape": [
+            70,
+            1433
+          ]
+        },
+        "y_l": {
+          "dtype": "torch.int64",
+          "shape": [
+            70
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [
+        "preprocess.plan.steps[graph.sparse_adjacency].params.batch_size: 1024 -> 32",
+        "method.model.classifier_params.batch_size: 256 -> 128"
+      ],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 512,
+        "max_method_batch_size": 128,
+        "max_method_sup_batch_size": 64,
+        "max_preprocess_batch_size": 32,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "v100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_torch"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {},
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": false
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R4/inductive/trinet/graph/cora.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-29T04:53:45.055932+00:00",
+    "name": "best_graph_inductive_trinet_cora_R4-seed6",
+    "run_id": "ffc46b96cafb6ac2b06f",
+    "seed": 6,
+    "started_at": "2026-03-29T04:53:42.906902+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  }
+}
