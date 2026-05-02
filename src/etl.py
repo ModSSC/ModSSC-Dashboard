@@ -3,6 +3,7 @@ import csv
 import json
 import re
 import shutil
+from datetime import datetime
 from pathlib import Path
 
 import yaml
@@ -19,9 +20,77 @@ DURATION_RE = re.compile(r"\bduration_s=([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)")
 EXIT_CODE_RE = re.compile(r"\bEXIT_CODE=(-?\d+)\b")
 SEED_RE = re.compile(r"\bseed=(\d+)\b")
 EXCEPTION_RE = re.compile(r"([A-Za-z_]\w*(?:Error|Exception)):\s*(.+)")
+GPU_DEVICE_RE = re.compile(r"Preprocess GPU device:\s+device=(\S+)\s+model=(.+)$")
 RUN_ID_REGIME_RE = re.compile(r"^(R\d+)_")
 TOKEN_REGIME_RE = re.compile(r"(?:^|[_-])(R\d+)(?:[_-]|$)", re.IGNORECASE)
 REGIME_ONLY_RE = re.compile(r"^R(\d+)$", re.IGNORECASE)
+
+METHOD_FAMILY = {
+    'supervised': 'Baseline',
+    'self_training': 'Wrappers',
+    'pseudo_label': 'Wrappers',
+    'co_training': 'Wrappers',
+    'deep_co_training': 'Wrappers',
+    'democratic_co_learning': 'Wrappers',
+    'tri_training': 'Wrappers',
+    'trinet': 'Wrappers',
+    'setred': 'Wrappers',
+    'pi_model': 'Consistency',
+    'temporal_ensembling': 'Consistency',
+    'mean_teacher': 'Consistency',
+    'vat': 'Consistency',
+    'adamatch': 'Hybrid',
+    'comatch': 'Hybrid',
+    'daso': 'Hybrid',
+    'defixmatch': 'Hybrid',
+    'fixmatch': 'Hybrid',
+    'flexmatch': 'Hybrid',
+    'free_match': 'Hybrid',
+    'meta_pseudo_labels': 'Hybrid',
+    'mixmatch': 'Hybrid',
+    'noisy_student': 'Hybrid',
+    'simclr_v2': 'Hybrid',
+    'softmatch': 'Hybrid',
+    'uda': 'Hybrid',
+    'adsh': 'Margin-based inductive',
+    's4vm': 'Margin-based inductive',
+    'tsvm': 'Margin-based inductive',
+    'dynamic_label_propagation': 'Classical transductive',
+    'graph_mincuts': 'Classical transductive',
+    'graphhop': 'Classical transductive',
+    'label_propagation': 'Classical transductive',
+    'label_spreading': 'Classical transductive',
+    'lazy_random_walk': 'Classical transductive',
+    'laplace_learning': 'PDE/Variational',
+    'p_laplace_learning': 'PDE/Variational',
+    'poisson_learning': 'PDE/Variational',
+    'poisson_mbo': 'PDE/Variational',
+    'appnp': 'GNN',
+    'chebnet': 'GNN',
+    'gat': 'GNN',
+    'gcn': 'GNN',
+    'gcnii': 'GNN',
+    'grafn': 'GNN',
+    'grand': 'GNN',
+    'graphsage': 'GNN',
+    'h_gcn': 'GNN',
+    'n_gcn': 'GNN',
+    'planetoid': 'GNN',
+    'sgc': 'GNN',
+}
+
+HIDDEN_BENCHMARK_DATASET_IDS = {
+    'speechcommands',
+    'amazon_polarity',
+    'amazon_reviews_multi_en',
+    'dbpedia_14',
+    'stl10',
+    'svhn',
+    'toy',
+    'yesno',
+    'yelp_polarity',
+    'yelp_review_full',
+}
 
 
 def to_float(value):
@@ -37,6 +106,43 @@ def to_int(value):
         return int(value)
     except (TypeError, ValueError):
         return None
+
+
+def parse_datetime(value):
+    if not value:
+        return None
+
+    text = str(value).strip()
+    if not text:
+        return None
+
+    try:
+        return datetime.fromisoformat(text.replace('Z', '+00:00'))
+    except ValueError:
+        return None
+
+
+def sample_std(values):
+    clean = [value for value in values if value is not None]
+    if len(clean) < 2:
+        return 0.0 if clean else None
+    avg = sum(clean) / len(clean)
+    variance = sum((value - avg) ** 2 for value in clean) / (len(clean) - 1)
+    return variance ** 0.5
+
+
+def summarize_numeric(values):
+    clean = [value for value in values if value is not None]
+    if not clean:
+        return {}
+    return {
+        'mean': sum(clean) / len(clean),
+        'std': sample_std(clean),
+        'min': min(clean),
+        'max': max(clean),
+        'count': len(clean),
+        'values': clean,
+    }
 
 
 def flatten_dict(d, parent_key='', sep='.'):
@@ -156,6 +262,7 @@ def parse_bench_log_summary(log_path):
     exit_code = None
     traceback_seen = False
     last_exception = None
+    gpu_devices = set()
 
     try:
         with open(log_path, 'r', encoding='utf-8', errors='ignore') as f:
@@ -192,6 +299,12 @@ def parse_bench_log_summary(log_path):
                     duration_match = DURATION_RE.search(line)
                     if duration_match:
                         method_duration = to_float(duration_match.group(1))
+
+                gpu_match = GPU_DEVICE_RE.search(line)
+                if gpu_match:
+                    model_name = gpu_match.group(2).strip()
+                    if model_name:
+                        gpu_devices.add(model_name)
 
                 exit_match = EXIT_CODE_RE.search(line)
                 if exit_match:
@@ -237,6 +350,11 @@ def parse_bench_log_summary(log_path):
         'exit_code': exit_code,
         'error': None,
     }
+
+    if gpu_devices:
+        ordered_devices = sorted(gpu_devices)
+        results['gpu_device'] = ordered_devices[0] if len(ordered_devices) == 1 else ', '.join(ordered_devices)
+        results['gpu_devices'] = ordered_devices
 
     if 'test' in eval_metrics:
         results['test_accuracy'] = to_float(eval_metrics['test'].get('accuracy'))
@@ -393,7 +511,7 @@ def parse_config_file_into_results(config_path, results, artifacts_dir, run_id):
         if not results.get('method_id'):
             results['method_id'] = config.get('method', {}).get('id')
 
-        if results.get('seed') is None:
+        if results.get('run_kind') != 'seed_sweep' and results.get('seed') is None:
             results['seed'] = config.get('run', {}).get('seed')
 
         params = config.get('method', {}).get('params', {})
@@ -401,6 +519,71 @@ def parse_config_file_into_results(config_path, results, artifacts_dir, run_id):
             for k, v in flatten_dict(params, parent_key='params').items():
                 # Keep params from logs if already available.
                 results.setdefault(k, v)
+
+        dataset_options = config.get('dataset', {}).get('options', {})
+        if isinstance(dataset_options, dict):
+            for k, v in flatten_dict(dataset_options, parent_key='dataset.options').items():
+                results.setdefault(k, v)
+
+        sampling_plan = config.get('sampling', {}).get('plan', {})
+        if isinstance(sampling_plan, dict):
+            for section in ('split', 'labeling', 'imbalance', 'policy'):
+                section_values = sampling_plan.get(section)
+                if isinstance(section_values, dict):
+                    for k, v in flatten_dict(section_values, parent_key=f'sampling.{section}').items():
+                        results.setdefault(k, v)
+
+        preprocess = config.get('preprocess', {})
+        if isinstance(preprocess, dict):
+            for field in ('fit_on', 'cache'):
+                if field in preprocess:
+                    results.setdefault(f'preprocess.{field}', preprocess.get(field))
+            steps = get_nested(preprocess, ('plan', 'steps'), default=[])
+            if isinstance(steps, list):
+                step_ids = [step.get('id') for step in steps if isinstance(step, dict) and step.get('id')]
+                if step_ids:
+                    results.setdefault('preprocess.steps', step_ids)
+
+        augmentation = config.get('augmentation', {})
+        if isinstance(augmentation, dict):
+            for field in ('enabled', 'mode', 'modality'):
+                if field in augmentation:
+                    results.setdefault(f'augmentation.{field}', augmentation.get(field))
+            for view in ('weak', 'strong'):
+                steps = get_nested(augmentation, (view, 'steps'), default=[])
+                if isinstance(steps, list):
+                    step_ids = [step.get('id') for step in steps if isinstance(step, dict) and step.get('id')]
+                    if step_ids:
+                        results.setdefault(f'augmentation.{view}.steps', step_ids)
+
+        method = config.get('method', {})
+        if isinstance(method, dict):
+            model = method.get('model', {})
+            if isinstance(model, dict):
+                for field in ('classifier_id', 'classifier_backend'):
+                    if field in model:
+                        results.setdefault(f'method.model.{field}', model.get(field))
+            device = method.get('device', {})
+            if isinstance(device, dict):
+                requested = first_present(device.get('device'), device.get('requested'))
+                resolved = first_present(device.get('resolved_device'), device.get('resolved'))
+                if requested is not None:
+                    results.setdefault('method_device_requested', requested)
+                if resolved is not None:
+                    results.setdefault('method_device_resolved', resolved)
+                if device.get('dtype') is not None:
+                    results.setdefault('method_device_dtype', device.get('dtype'))
+
+        limits = config.get('limits', {})
+        if isinstance(limits, dict) and limits.get('profile') is not None:
+            results.setdefault('limits.profile', limits.get('profile'))
+            results.setdefault('hardware_profile', limits.get('profile'))
+
+        evaluation = config.get('evaluation', {})
+        if isinstance(evaluation, dict):
+            for field in ('split_for_model_selection', 'report_splits', 'metrics'):
+                if field in evaluation:
+                    results.setdefault(f'evaluation.{field}', evaluation.get(field))
 
         return True
 
@@ -433,6 +616,265 @@ def resolve_run_json_from_aggregate(aggregate_path):
     return None
 
 
+def metric_stats_from_aggregate(metrics, split, metric_name):
+    data = get_nested(metrics, (split, metric_name))
+    if not isinstance(data, dict):
+        return {}
+
+    return {
+        'mean': to_float(data.get('mean')),
+        'std': to_float(data.get('std')),
+        'min': to_float(data.get('min')),
+        'max': to_float(data.get('max')),
+        'count': to_int(data.get('count')),
+        'values': data.get('values') if isinstance(data.get('values'), list) else None,
+    }
+
+
+def set_sweep_metric_fields(results, metrics, split, metric_name):
+    stats = metric_stats_from_aggregate(metrics, split, metric_name)
+    if not stats:
+        return
+
+    if split == 'val' and metric_name == 'accuracy':
+        base_key = 'val.accuracy'
+        stat_prefix = 'val_accuracy'
+    elif split == 'val':
+        base_key = f'val.{metric_name}'
+        stat_prefix = f'val_{metric_name}'
+    else:
+        base_key = f'{split}_{metric_name}'
+        stat_prefix = base_key
+
+    if stats.get('mean') is not None:
+        results[base_key] = stats['mean']
+        results[f'{stat_prefix}_mean'] = stats['mean']
+
+    for stat_name in ('std', 'min', 'max', 'count'):
+        if stats.get(stat_name) is not None:
+            results[f'{stat_prefix}_{stat_name}'] = stats[stat_name]
+
+    if stats.get('values') is not None:
+        results[f'{stat_prefix}_values'] = stats['values']
+
+
+def build_seed_entry_from_aggregate_run(run_info, payload=None, fallback=None):
+    seed_metrics = run_info.get('metrics') if isinstance(run_info, dict) else {}
+    if not isinstance(seed_metrics, dict):
+        seed_metrics = {}
+
+    entry = {
+        'seed': to_int(run_info.get('seed')),
+        'run_id': run_info.get('run_id'),
+        'status': normalize_status(run_info.get('status')),
+        'test_accuracy': to_float(get_nested(seed_metrics, ('test', 'accuracy'))),
+        'test_macro_f1': to_float(get_nested(seed_metrics, ('test', 'macro_f1'))),
+        'val.accuracy': to_float(get_nested(seed_metrics, ('val', 'accuracy'))),
+        'val.macro_f1': to_float(get_nested(seed_metrics, ('val', 'macro_f1'))),
+    }
+
+    hardware_info = extract_runtime_hardware_info(payload or {}, fallback or {})
+    for key in (
+        'run_time_seconds',
+        'gpu_device',
+        'hardware_profile',
+        'method_device_requested',
+        'method_device_resolved',
+        'hardware_mismatch',
+        'hardware_mismatch_reason',
+    ):
+        if key in hardware_info:
+            entry[key] = hardware_info[key]
+
+    return prune_empty(entry)
+
+
+def build_seed_sweep_results(log_path, summary, source_row=None):
+    output_aggregate = resolve_local_output_path(summary.get('_output_aggregate_json'))
+    if not output_aggregate or not output_aggregate.exists():
+        return None
+
+    try:
+        with open(output_aggregate, 'r', encoding='utf-8', errors='ignore') as f:
+            aggregate_payload = json.load(f)
+    except Exception as e:
+        print(f"Error reading aggregate {output_aggregate}: {e}")
+        return None
+
+    runs = aggregate_payload.get('runs', [])
+    if not isinstance(runs, list) or not runs:
+        return None
+
+    run_id = output_aggregate.parent.name or Path(log_path).stem
+    artifacts_dir = Path(f'dashboard/public/data/artifacts/{run_id}')
+    artifacts_dir.mkdir(parents=True, exist_ok=True)
+
+    results = {
+        'run_id': run_id,
+        'run_kind': 'seed_sweep',
+        'raw_data_urls': {},
+        'history': summary.get('history', []),
+        'seed_runs': [],
+    }
+    results.update(extract_metadata_from_bench_log_path(log_path))
+
+    for k, v in summary.items():
+        if k in {
+            'history',
+            'run_id',
+            'seed',
+            'test_accuracy',
+            'test_macro_f1',
+            'val.accuracy',
+            'val.macro_f1',
+            'status',
+            'exit_code',
+            'error',
+        }:
+            continue
+        if not k.startswith('_'):
+            results[k] = v
+
+    sweep_metrics = aggregate_payload.get('metrics', {})
+    if not isinstance(sweep_metrics, dict):
+        sweep_metrics = {}
+
+    for split in ('test', 'val'):
+        for metric_name in ('accuracy', 'macro_f1'):
+            set_sweep_metric_fields(results, sweep_metrics, split, metric_name)
+
+    seed_entries = []
+    first_seed_payload = None
+    for run_info in runs:
+        if not isinstance(run_info, dict):
+            continue
+        seed_payload = read_json_payload(resolve_local_output_path(run_info.get('run_json')))
+        if first_seed_payload is None and seed_payload:
+            first_seed_payload = seed_payload
+        seed_fallback = {
+            'gpu_device': summary.get('gpu_device'),
+            'duration_s': summary.get('duration_s'),
+        }
+        seed_entry = build_seed_entry_from_aggregate_run(
+            run_info,
+            payload=seed_payload,
+            fallback=seed_fallback,
+        )
+        if seed_payload and seed_entry.get('run_id'):
+            write_annotated_run_payload(
+                seed_entry.get('run_id'),
+                seed_payload,
+                extract_runtime_hardware_info(seed_payload, seed_fallback),
+            )
+        if seed_entry:
+            seed_entries.append(seed_entry)
+
+    seed_entries.sort(key=lambda item: (
+        item.get('seed') is None,
+        item.get('seed') if item.get('seed') is not None else 0,
+        str(item.get('run_id') or ''),
+    ))
+    results['seed_runs'] = seed_entries
+    results['seeds'] = [entry['seed'] for entry in seed_entries if entry.get('seed') is not None]
+    results['seed_count'] = len(seed_entries)
+
+    runtime_stats = summarize_numeric([entry.get('run_time_seconds') for entry in seed_entries])
+    if runtime_stats:
+        results['run_time_seconds'] = runtime_stats['mean']
+        results['duration_s'] = runtime_stats['mean']
+        for stat_name in ('mean', 'std', 'min', 'max', 'count', 'values'):
+            results[f'run_time_seconds_{stat_name}'] = runtime_stats.get(stat_name)
+
+    seed_devices = sorted({entry.get('gpu_device') for entry in seed_entries if entry.get('gpu_device')})
+    if seed_devices:
+        results['gpu_device'] = seed_devices[0] if len(seed_devices) == 1 else 'Mixed'
+        results['gpu_devices'] = seed_devices
+
+    seed_profiles = sorted({entry.get('hardware_profile') for entry in seed_entries if entry.get('hardware_profile')})
+    if seed_profiles:
+        results['hardware_profile'] = seed_profiles[0] if len(seed_profiles) == 1 else 'Mixed'
+
+    mismatch_count = sum(1 for entry in seed_entries if entry.get('hardware_mismatch') is True)
+    if seed_entries:
+        results['hardware_mismatch'] = mismatch_count > 0
+        results['hardware_mismatch_count'] = mismatch_count
+
+    seed_statuses = [entry.get('status') for entry in seed_entries if entry.get('status')]
+    if seed_statuses and all(status == 'OK' for status in seed_statuses):
+        results['status'] = 'OK'
+    elif any(status == 'FAIL' for status in seed_statuses):
+        results['status'] = 'FAIL'
+    else:
+        results['status'] = normalize_status(source_row.get('status') if source_row else None) or normalize_status('OK')
+
+    row_exit_code = to_int(source_row.get('exit_code')) if source_row else None
+    if row_exit_code is not None:
+        results['exit_code'] = row_exit_code
+    elif summary.get('exit_code') is not None:
+        results['exit_code'] = summary.get('exit_code')
+
+    if results.get('status') == 'FAIL':
+        results['error'] = summary.get('error') or 'one or more seeds failed'
+
+    first_seed_run_id = next(
+        (entry.get('run_id') for entry in seed_entries if entry.get('run_id')),
+        None,
+    )
+    first_seed_artifacts_dir = (
+        Path('dashboard/public/data/artifacts') / first_seed_run_id
+        if first_seed_run_id
+        else None
+    )
+
+    existing_seed_log = first_seed_artifacts_dir / 'run.log' if first_seed_artifacts_dir else None
+    if existing_seed_log and existing_seed_log.exists():
+        results['raw_data_urls']['log'] = f"data/artifacts/{first_seed_run_id}/run.log"
+    else:
+        try:
+            shutil.copy(log_path, artifacts_dir / 'run.log')
+            results['raw_data_urls']['log'] = f"data/artifacts/{run_id}/run.log"
+        except Exception as e:
+            print(f"Error copying sweep log {log_path}: {e}")
+
+    existing_seed_config = first_seed_artifacts_dir / 'config.yaml' if first_seed_artifacts_dir else None
+    if existing_seed_config and existing_seed_config.exists():
+        parse_config_file_into_results(existing_seed_config, results, artifacts_dir, run_id)
+
+    try:
+        aggregate_copy = dict(aggregate_payload)
+        aggregate_copy = annotate_payload_with_run_info(
+            aggregate_copy,
+            extract_runtime_hardware_info({}, results),
+        )
+        with open(artifacts_dir / 'aggregate.json', 'w', encoding='utf-8') as f:
+            json.dump(aggregate_copy, f, indent=2)
+        aggregate_url = f"data/artifacts/{run_id}/aggregate.json"
+        results['raw_data_urls']['aggregate'] = aggregate_url
+        results['raw_data_urls']['run'] = aggregate_url
+    except Exception as e:
+        print(f"Error copying aggregate json {output_aggregate}: {e}")
+
+    first_run_json = None
+    for run_info in runs:
+        if not isinstance(run_info, dict):
+            continue
+        first_run_json = resolve_local_output_path(run_info.get('run_json'))
+        if first_run_json and first_run_json.exists():
+            break
+
+    hydrate_config_from_available_sources(
+        results,
+        artifacts_dir,
+        run_id,
+        source_row=source_row,
+        output_run_json_path=first_run_json,
+    )
+    merge_runtime_hardware_into_results(results, first_seed_payload)
+    ensure_fallback_artifacts(results, artifacts_dir, run_id, source_row=source_row)
+
+    return prune_empty(results)
+
+
 def copy_output_run_json_into_artifacts(results, artifacts_dir, run_id):
     output_run = resolve_local_output_path(results.pop('_output_run_json', None))
     output_aggregate = resolve_local_output_path(results.pop('_output_aggregate_json', None))
@@ -445,7 +887,14 @@ def copy_output_run_json_into_artifacts(results, artifacts_dir, run_id):
 
     if run_source and run_source.exists():
         try:
-            shutil.copy(run_source, artifacts_dir / 'run.json')
+            payload = read_json_payload(run_source)
+            info = merge_runtime_hardware_into_results(results, payload)
+            if payload:
+                payload = annotate_payload_with_run_info(payload, info)
+                with open(artifacts_dir / 'run.json', 'w', encoding='utf-8') as f:
+                    json.dump(payload, f, indent=2)
+            else:
+                shutil.copy(run_source, artifacts_dir / 'run.json')
             results['raw_data_urls']['run'] = f"data/artifacts/{run_id}/run.json"
         except Exception as e:
             print(f"Error copying output run json {run_source}: {e}")
@@ -574,6 +1023,13 @@ def ensure_fallback_artifacts(results, artifacts_dir, run_id, source_row=None):
                 'paradigm': results.get('paradigm'),
                 'modality': results.get('modality'),
             },
+            'run_info': {
+                'run_time_seconds': results.get('run_time_seconds'),
+                'gpu_device': results.get('gpu_device'),
+                'hardware_profile': results.get('hardware_profile') or results.get('limits.profile'),
+                'hardware_mismatch': results.get('hardware_mismatch'),
+                'hardware_mismatch_reason': results.get('hardware_mismatch_reason'),
+            },
             'method': {
                 'id': results.get('method_id'),
                 'params': params,
@@ -590,6 +1046,13 @@ def ensure_fallback_artifacts(results, artifacts_dir, run_id, source_row=None):
             },
             'error': results.get('error'),
             'artifacts': {
+                'method': {
+                    'device': {
+                        'requested': results.get('method_device_requested'),
+                        'resolved': results.get('method_device_resolved'),
+                        'dtype': results.get('method_device_dtype'),
+                    },
+                },
                 'dataset': {
                     'id': results.get('dataset_id'),
                 },
@@ -622,6 +1085,13 @@ def extract_run_data_from_status_row(row):
         return None
 
     run_id = log_path.stem
+    summary = parse_bench_log_summary(log_path)
+
+    sweep_results = build_seed_sweep_results(log_path, summary, source_row=row)
+    if sweep_results:
+        return sweep_results
+
+    # Fallback to single run processing if no aggregate or error
     artifacts_dir = Path(f'dashboard/public/data/artifacts/{run_id}')
     artifacts_dir.mkdir(parents=True, exist_ok=True)
 
@@ -646,7 +1116,6 @@ def extract_run_data_from_status_row(row):
     except Exception as e:
         print(f"Error copying log {log_path}: {e}")
 
-    summary = parse_bench_log_summary(log_path)
     results.update(summary)
 
     # Prefer status-file exit_code when available.
@@ -668,6 +1137,7 @@ def extract_run_data_from_status_row(row):
         source_row=row,
         output_run_json_path=output_run_json_path,
     )
+    merge_runtime_hardware_into_results(results)
 
     ensure_fallback_artifacts(results, artifacts_dir, run_id, source_row=row)
 
@@ -694,6 +1164,13 @@ def extract_run_data_from_bench_log(log_path):
     log_path = Path(log_path)
     run_id = log_path.stem
 
+    summary = parse_bench_log_summary(log_path)
+
+    sweep_results = build_seed_sweep_results(log_path, summary, source_row=None)
+    if sweep_results:
+        return sweep_results
+
+    # Fallback to single run
     artifacts_dir = Path(f'dashboard/public/data/artifacts/{run_id}')
     artifacts_dir.mkdir(parents=True, exist_ok=True)
 
@@ -710,7 +1187,6 @@ def extract_run_data_from_bench_log(log_path):
     except Exception as e:
         print(f"Error copying log {log_path}: {e}")
 
-    summary = parse_bench_log_summary(log_path)
     results.update(summary)
 
     output_run_json_path = copy_output_run_json_into_artifacts(results, artifacts_dir, run_id)
@@ -721,6 +1197,7 @@ def extract_run_data_from_bench_log(log_path):
         source_row=None,
         output_run_json_path=output_run_json_path,
     )
+    merge_runtime_hardware_into_results(results)
 
     ensure_fallback_artifacts(results, artifacts_dir, run_id, source_row=None)
 
@@ -736,6 +1213,199 @@ def get_nested(mapping, path, default=None):
         if cursor is None:
             return default
     return cursor
+
+
+def read_json_payload(path):
+    if not path or not Path(path).exists():
+        return None
+    try:
+        with open(path, 'r', encoding='utf-8', errors='ignore') as f:
+            payload = json.load(f)
+        return payload if isinstance(payload, dict) else None
+    except Exception:
+        return None
+
+
+def first_present(*values):
+    for value in values:
+        if value is None:
+            continue
+        if isinstance(value, str) and not value.strip():
+            continue
+        return value
+    return None
+
+
+def normalize_hardware_profile(value):
+    if value is None:
+        return None
+    if isinstance(value, dict):
+        value = value.get('profile') or value.get('id') or value.get('name')
+    text = str(value).strip()
+    return text or None
+
+
+def normalize_device_text(value):
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def extract_runtime_seconds(payload):
+    direct = pick_numeric(
+        get_nested(payload, ('run_info', 'run_time_seconds')),
+        get_nested(payload, ('run_info', 'run_time_seconds', 'mean')),
+        get_nested(payload, ('run', 'run_time_seconds')),
+        get_nested(payload, ('run', 'duration_s')),
+        get_nested(payload, ('duration_s',)),
+    )
+    if direct is not None:
+        return direct
+
+    started_at = parse_datetime(get_nested(payload, ('run', 'started_at')))
+    finished_at = parse_datetime(get_nested(payload, ('run', 'finished_at')))
+    if started_at and finished_at:
+        return max(0.0, (finished_at - started_at).total_seconds())
+
+    return None
+
+
+def extract_runtime_hardware_info(payload, fallback=None):
+    fallback = fallback or {}
+    runtime_seconds = first_present(
+        pick_numeric(fallback.get('run_time_seconds')),
+        extract_runtime_seconds(payload),
+        pick_numeric(fallback.get('duration_s')),
+    )
+
+    requested_device = normalize_device_text(first_present(
+        get_nested(payload, ('artifacts', 'method', 'device', 'requested')),
+        get_nested(payload, ('config', 'method', 'device', 'device')),
+        get_nested(payload, ('config', 'method', 'device', 'requested')),
+        fallback.get('method_device_requested'),
+    ))
+    resolved_device = normalize_device_text(first_present(
+        get_nested(payload, ('artifacts', 'method', 'device', 'resolved')),
+        get_nested(payload, ('config', 'method', 'device', 'resolved_device')),
+        fallback.get('method_device_resolved'),
+    ))
+    hardware_profile = normalize_hardware_profile(first_present(
+        get_nested(payload, ('run_info', 'hardware_profile')),
+        get_nested(payload, ('config', 'limits', 'profile')),
+        fallback.get('limits.profile'),
+        fallback.get('hardware_profile'),
+    ))
+
+    gpu_device = normalize_device_text(first_present(
+        get_nested(payload, ('run_info', 'gpu_device')),
+        get_nested(payload, ('hardware', 'gpu_device')),
+        fallback.get('gpu_device'),
+    ))
+
+    resolved_lower = (resolved_device or '').lower()
+    if not gpu_device:
+        if resolved_lower.startswith('cpu'):
+            gpu_device = 'CPU'
+        elif resolved_lower.startswith('cuda'):
+            gpu_device = 'Unknown'
+        else:
+            gpu_device = 'Unknown'
+
+    profile_lower = (hardware_profile or '').lower()
+    gpu_lower = gpu_device.lower()
+    mismatch = False
+    reasons = []
+
+    if resolved_lower.startswith('cuda') and gpu_lower == 'cpu':
+        mismatch = True
+        reasons.append('resolved device is cuda but detected GPU is CPU')
+
+    if profile_lower and profile_lower not in {'auto', 'none', 'default', 'unknown', 'cpu', 'cuda'}:
+        if gpu_lower == 'unknown':
+            reasons.append('specific hardware profile requested but GPU name is unavailable')
+        elif profile_lower not in gpu_lower:
+            mismatch = True
+            reasons.append(f'profile {hardware_profile} not found in detected GPU {gpu_device}')
+
+    explicit_mismatch = first_present(
+        get_nested(payload, ('run_info', 'hardware_mismatch')),
+        fallback.get('hardware_mismatch'),
+    )
+    if explicit_mismatch is True:
+        mismatch = True
+    elif explicit_mismatch is False and not mismatch:
+        mismatch = False
+
+    return prune_empty({
+        'run_time_seconds': runtime_seconds,
+        'gpu_device': gpu_device,
+        'hardware_profile': hardware_profile,
+        'method_device_requested': requested_device,
+        'method_device_resolved': resolved_device,
+        'hardware_mismatch': mismatch,
+        'hardware_mismatch_reason': '; '.join(reasons) if reasons else None,
+    })
+
+
+def merge_runtime_hardware_into_results(results, payload=None, fallback=None):
+    payload = payload if isinstance(payload, dict) else {}
+    fallback_values = dict(fallback or {})
+    fallback_values.update(results)
+    info = extract_runtime_hardware_info(payload, fallback_values)
+
+    for key, value in info.items():
+        if key == 'hardware_mismatch':
+            results[key] = bool(value)
+        else:
+            results[key] = value
+
+    if info.get('run_time_seconds') is not None:
+        results['duration_s'] = info['run_time_seconds']
+
+    if info.get('hardware_profile') is not None:
+        results.setdefault('limits.profile', info['hardware_profile'])
+
+    return info
+
+
+def annotate_payload_with_run_info(payload, info):
+    if not isinstance(payload, dict) or not info:
+        return payload
+
+    run_info = payload.get('run_info')
+    if not isinstance(run_info, dict):
+        run_info = {}
+
+    for source_key, target_key in (
+        ('run_time_seconds', 'run_time_seconds'),
+        ('gpu_device', 'gpu_device'),
+        ('hardware_profile', 'hardware_profile'),
+        ('hardware_mismatch', 'hardware_mismatch'),
+        ('hardware_mismatch_reason', 'hardware_mismatch_reason'),
+    ):
+        if info.get(source_key) is not None:
+            run_info[target_key] = info[source_key]
+
+    payload['run_info'] = run_info
+    payload['hardware_mismatch'] = bool(info.get('hardware_mismatch'))
+    if info.get('hardware_mismatch_reason'):
+        payload['hardware_mismatch_reason'] = info['hardware_mismatch_reason']
+
+    return payload
+
+
+def write_annotated_run_payload(run_id, payload, info):
+    if not run_id or not isinstance(payload, dict):
+        return
+
+    artifact_dir = Path('dashboard/public/data/artifacts') / str(run_id)
+    artifact_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(artifact_dir / 'run.json', 'w', encoding='utf-8') as f:
+            json.dump(annotate_payload_with_run_info(payload, info), f, indent=2)
+    except Exception as e:
+        print(f"Error writing annotated run json for {run_id}: {e}")
 
 
 def normalize_status(value):
@@ -820,6 +1490,7 @@ def extract_train_count(run):
 def build_run_summary(run):
     summary_fields = [
         'run_id',
+        'run_kind',
         'method_id',
         'dataset_id',
         'paradigm',
@@ -829,14 +1500,89 @@ def build_run_summary(run):
         'test_macro_f1',
         'val.accuracy',
         'val.macro_f1',
+        'test_accuracy_mean',
+        'test_accuracy_std',
+        'test_accuracy_min',
+        'test_accuracy_max',
+        'test_accuracy_count',
+        'test_accuracy_values',
+        'test_macro_f1_mean',
+        'test_macro_f1_std',
+        'test_macro_f1_min',
+        'test_macro_f1_max',
+        'test_macro_f1_count',
+        'test_macro_f1_values',
+        'val_accuracy_mean',
+        'val_accuracy_std',
+        'val_accuracy_min',
+        'val_accuracy_max',
+        'val_accuracy_count',
+        'val_accuracy_values',
+        'val_macro_f1_mean',
+        'val_macro_f1_std',
+        'val_macro_f1_min',
+        'val_macro_f1_max',
+        'val_macro_f1_count',
+        'val_macro_f1_values',
         'duration_s',
+        'run_time_seconds',
+        'run_time_seconds_mean',
+        'run_time_seconds_std',
+        'run_time_seconds_min',
+        'run_time_seconds_max',
+        'run_time_seconds_count',
+        'run_time_seconds_values',
+        'gpu_device',
+        'gpu_devices',
+        'hardware_profile',
+        'hardware_mismatch',
+        'hardware_mismatch_count',
+        'hardware_mismatch_reason',
+        'method_device_requested',
+        'method_device_resolved',
+        'method_device_dtype',
         'seed',
+        'seed_count',
+        'seeds',
+        'seed_runs',
         'status',
         'exit_code',
         'error',
     ]
+    protocol_fields = [
+        'dataset.options.class_filter',
+        'sampling.split.kind',
+        'sampling.split.test_fraction',
+        'sampling.split.val_fraction',
+        'sampling.split.stratify',
+        'sampling.split.shuffle',
+        'sampling.labeling.mode',
+        'sampling.labeling.value',
+        'sampling.labeling.strategy',
+        'sampling.labeling.min_per_class',
+        'sampling.labeling.per_class',
+        'sampling.imbalance.kind',
+        'sampling.policy.respect_official_test',
+        'sampling.policy.use_official_graph_masks',
+        'sampling.policy.allow_override_official',
+        'preprocess.fit_on',
+        'preprocess.cache',
+        'preprocess.steps',
+        'augmentation.enabled',
+        'augmentation.mode',
+        'augmentation.modality',
+        'augmentation.weak.steps',
+        'augmentation.strong.steps',
+        'method.model.classifier_id',
+        'method.model.classifier_backend',
+        'limits.profile',
+        'evaluation.split_for_model_selection',
+        'evaluation.report_splits',
+        'evaluation.metrics',
+    ]
 
     summary = {field: run.get(field) for field in summary_fields}
+    summary.update({field: run.get(field) for field in protocol_fields})
     summary['target_regime'] = normalize_target_regime(summary.get('target_regime'))
 
     raw_data_urls = run.get('raw_data_urls')
@@ -873,6 +1619,141 @@ def infer_regime_label_count(runs):
             best = value
             best_freq = freq
     return best
+
+
+def get_method_family(method_id):
+    return METHOD_FAMILY.get(method_id, 'Other')
+
+
+def is_successful_compact_run(run):
+    if run.get('error'):
+        return False
+    status = str(run.get('status') or '').strip().upper()
+    return not status or status in {'OK', 'SUCCESS', 'SUCCEEDED'}
+
+
+def is_visible_compact_run(run):
+    dataset_id = run.get('dataset_id')
+    return not dataset_id or dataset_id not in HIDDEN_BENCHMARK_DATASET_IDS
+
+
+def runtime_value_for_summary(run):
+    return pick_numeric(
+        run.get('run_time_seconds'),
+        run.get('run_time_seconds_mean'),
+        run.get('duration_s'),
+    )
+
+
+def write_runtime_summaries(compact_runs, output_dir):
+    rows = []
+    runs = [
+        run for run in compact_runs
+        if is_successful_compact_run(run)
+        and is_visible_compact_run(run)
+        and runtime_value_for_summary(run) is not None
+    ]
+
+    for include_mismatches in (True, False):
+        filtered = runs if include_mismatches else [
+            run for run in runs if run.get('hardware_mismatch') is not True
+        ]
+
+        groups = {}
+        for run in filtered:
+            group_key = (
+                run.get('method_id'),
+                get_method_family(run.get('method_id')),
+                run.get('dataset_id'),
+                run.get('target_regime'),
+                run.get('modality'),
+            )
+            groups.setdefault(group_key, []).append(run)
+
+        for (method_id, family, dataset_id, regime, modality), group_runs in groups.items():
+            values = [runtime_value_for_summary(run) for run in group_runs]
+            stats = summarize_numeric(values)
+            if not stats:
+                continue
+            hardware_mismatch_count = sum(1 for run in group_runs if run.get('hardware_mismatch') is True)
+            gpu_devices = sorted({run.get('gpu_device') for run in group_runs if run.get('gpu_device')})
+            hardware_profiles = sorted({
+                run.get('hardware_profile') or run.get('limits.profile')
+                for run in group_runs
+                if run.get('hardware_profile') or run.get('limits.profile')
+            })
+            rows.append({
+                'hardware_filter': 'all' if include_mismatches else 'matched_only',
+                'method_id': method_id,
+                'family': family,
+                'dataset_id': dataset_id,
+                'target_regime': regime,
+                'modality': modality,
+                'count': stats['count'],
+                'mean': stats['mean'],
+                'std': stats['std'],
+                'min': stats['min'],
+                'max': stats['max'],
+                'hardware_mismatch_count': hardware_mismatch_count,
+                'gpu_devices': '|'.join(gpu_devices),
+                'hardware_profiles': '|'.join(hardware_profiles),
+            })
+
+    rows.sort(key=lambda row: (
+        row['hardware_filter'],
+        regime_sort_key(row.get('target_regime')),
+        str(row.get('modality') or ''),
+        str(row.get('family') or ''),
+        str(row.get('method_id') or ''),
+        str(row.get('dataset_id') or ''),
+    ))
+
+    if not rows:
+        return
+
+    fieldnames = [
+        'hardware_filter',
+        'method_id',
+        'family',
+        'dataset_id',
+        'target_regime',
+        'modality',
+        'count',
+        'mean',
+        'std',
+        'min',
+        'max',
+        'hardware_mismatch_count',
+        'gpu_devices',
+        'hardware_profiles',
+    ]
+
+    public_csv = output_dir / 'runtime-summary.csv'
+    public_json = output_dir / 'runtime-summary.json'
+    with open(public_csv, 'w', encoding='utf-8', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    with open(public_json, 'w', encoding='utf-8') as f:
+        json.dump(rows, f, indent=2)
+
+    analysis_dir = Path('analysis/output')
+    analysis_dir.mkdir(parents=True, exist_ok=True)
+    with open(analysis_dir / 'runtime_summary.csv', 'w', encoding='utf-8', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    with open(analysis_dir / 'runtime_summary.json', 'w', encoding='utf-8') as f:
+        json.dump(rows, f, indent=2)
+
+    try:
+        import pandas as pd  # type: ignore
+
+        frame = pd.DataFrame(rows)
+        frame.to_parquet(output_dir / 'runtime-summary.parquet', index=False)
+        frame.to_parquet(analysis_dir / 'runtime_summary.parquet', index=False)
+    except Exception as e:
+        print(f"Runtime parquet summary skipped: {e}")
 
 
 def write_compact_results(all_runs, output_dir):
@@ -932,6 +1813,8 @@ def write_compact_results(all_runs, output_dir):
 
     with open(output_dir / 'results-manifest.json', 'w', encoding='utf-8') as f:
         json.dump(manifest, f, indent=2)
+
+    write_runtime_summaries(compact_runs, output_dir)
 
     return compact_runs
 
@@ -1019,6 +1902,7 @@ def extract_run_data_from_artifact_dir(artifact_dir):
         'val.accuracy': to_float(get_nested(payload, ('metrics', 'val', 'accuracy'))),
         'val.macro_f1': to_float(get_nested(payload, ('metrics', 'val', 'macro_f1'))),
     }
+    merge_runtime_hardware_into_results(results, payload)
 
     config_path = artifact_dir / 'config.yaml'
     if config_path.exists():
@@ -1056,26 +1940,42 @@ def main():
     status_dir = Path('logs/status')
     if status_dir.exists():
         for row in iter_status_rows(status_dir):
-            run_data = extract_run_data_from_status_row(row)
-            if not run_data:
+            run_data_or_list = extract_run_data_from_status_row(row)
+            if not run_data_or_list:
                 continue
-            run_id = run_data.get('run_id')
-            if not run_id:
-                continue
-            if run_id in seen_run_ids:
-                continue
-            all_runs.append(run_data)
-            seen_run_ids.add(run_id)
+            
+            if isinstance(run_data_or_list, dict):
+                entries = [run_data_or_list]
+            else:
+                entries = run_data_or_list
+
+            for entry in entries:
+                run_id = entry.get('run_id')
+                if not run_id:
+                    continue
+                if run_id in seen_run_ids:
+                    continue
+                all_runs.append(entry)
+                seen_run_ids.add(run_id)
     else:
         print('Directory logs/status not found; trying logs/bench fallback.')
         bench_dir = Path('logs/bench')
         if bench_dir.exists():
             for log_path in sorted(bench_dir.rglob('*.log')):
-                run_data = extract_run_data_from_bench_log(log_path)
-                run_id = run_data.get('run_id')
-                if run_id and run_id not in seen_run_ids:
-                    all_runs.append(run_data)
-                    seen_run_ids.add(run_id)
+                run_data_or_list = extract_run_data_from_bench_log(log_path)
+                if not run_data_or_list:
+                    continue
+
+                if isinstance(run_data_or_list, dict):
+                    entries = [run_data_or_list]
+                else:
+                    entries = run_data_or_list
+
+                for entry in entries:
+                    run_id = entry.get('run_id')
+                    if run_id and run_id not in seen_run_ids:
+                        all_runs.append(entry)
+                        seen_run_ids.add(run_id)
 
     if not all_runs:
         artifacts_root = output_dir / 'artifacts'

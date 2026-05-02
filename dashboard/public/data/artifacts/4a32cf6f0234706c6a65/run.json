@@ -1,0 +1,845 @@
+{
+  "artifacts": {
+    "dataset": {
+      "fingerprint": "b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "id": "cifar100",
+      "info": {
+        "citation": null,
+        "description": "CIFAR-100 (torchvision).",
+        "homepage": null,
+        "key": "cifar100",
+        "license": null,
+        "modality": "vision",
+        "provider": "torchvision",
+        "required_extra": "vision",
+        "source_kwargs": {},
+        "task": "classification",
+        "uri": "torchvision:CIFAR100"
+      }
+    },
+    "graph": {
+      "fingerprint": "1a6f64b279f90a728c55e048a09503f0b45d97f5ddaa2d8651ea261b8d0a6b28",
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "method": {
+      "device": {
+        "dtype": "float32",
+        "requested": "auto",
+        "resolved": "cuda"
+      },
+      "id": "gat",
+      "kind": "transductive"
+    },
+    "preprocess": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess/b6951043dbbc14b4d60f10a5388d1ce139acbe0b11f22c6eb26adcc9c0920fdd",
+      "fit_fingerprint": "fit:393331fe31e2a11045bc436c1f41cf280e1819108eaa60d93af74e9d84b5c166",
+      "plan_fingerprint": "resolved_plan:da920b425edb498bc06ec73573166351763a2d22d88a2138eed736f9a8364f3a",
+      "preprocess_fingerprint": "preprocess:87f9debfc8b58c5bef5bccc0c996c289248d047769022816e2316e209d675055",
+      "seed": 3
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "alpha": null,
+          "apply_to": "train",
+          "kind": "none",
+          "max_per_class": null,
+          "min_per_class": 1
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3,
+      "split_fingerprint": "f1fe384f8c97af0ae9c7be6c41e24729c20bed4c8c95f3c049cd4275c39eb8b8",
+      "stats": {
+        "policy": {
+          "allow_override_official": false,
+          "has_official_test": true,
+          "official_test_ignored": false,
+          "respect_official_test": true,
+          "test_ref": "test"
+        },
+        "test": {
+          "classes": {
+            "0": 100,
+            "1": 100,
+            "10": 100,
+            "11": 100,
+            "12": 100,
+            "13": 100,
+            "14": 100,
+            "15": 100,
+            "16": 100,
+            "17": 100,
+            "18": 100,
+            "19": 100,
+            "2": 100,
+            "20": 100,
+            "21": 100,
+            "22": 100,
+            "23": 100,
+            "24": 100,
+            "25": 100,
+            "26": 100,
+            "27": 100,
+            "28": 100,
+            "29": 100,
+            "3": 100,
+            "30": 100,
+            "31": 100,
+            "32": 100,
+            "33": 100,
+            "34": 100,
+            "35": 100,
+            "36": 100,
+            "37": 100,
+            "38": 100,
+            "39": 100,
+            "4": 100,
+            "40": 100,
+            "41": 100,
+            "42": 100,
+            "43": 100,
+            "44": 100,
+            "45": 100,
+            "46": 100,
+            "47": 100,
+            "48": 100,
+            "49": 100,
+            "5": 100,
+            "50": 100,
+            "51": 100,
+            "52": 100,
+            "53": 100,
+            "54": 100,
+            "55": 100,
+            "56": 100,
+            "57": 100,
+            "58": 100,
+            "59": 100,
+            "6": 100,
+            "60": 100,
+            "61": 100,
+            "62": 100,
+            "63": 100,
+            "64": 100,
+            "65": 100,
+            "66": 100,
+            "67": 100,
+            "68": 100,
+            "69": 100,
+            "7": 100,
+            "70": 100,
+            "71": 100,
+            "72": 100,
+            "73": 100,
+            "74": 100,
+            "75": 100,
+            "76": 100,
+            "77": 100,
+            "78": 100,
+            "79": 100,
+            "8": 100,
+            "80": 100,
+            "81": 100,
+            "82": 100,
+            "83": 100,
+            "84": 100,
+            "85": 100,
+            "86": 100,
+            "87": 100,
+            "88": 100,
+            "89": 100,
+            "9": 100,
+            "90": 100,
+            "91": 100,
+            "92": 100,
+            "93": 100,
+            "94": 100,
+            "95": 100,
+            "96": 100,
+            "97": 100,
+            "98": 100,
+            "99": 100
+          },
+          "n": 10000
+        },
+        "train": {
+          "classes": {
+            "0": 450,
+            "1": 450,
+            "10": 450,
+            "11": 450,
+            "12": 450,
+            "13": 450,
+            "14": 450,
+            "15": 450,
+            "16": 450,
+            "17": 450,
+            "18": 450,
+            "19": 450,
+            "2": 450,
+            "20": 450,
+            "21": 450,
+            "22": 450,
+            "23": 450,
+            "24": 450,
+            "25": 450,
+            "26": 450,
+            "27": 450,
+            "28": 450,
+            "29": 450,
+            "3": 450,
+            "30": 450,
+            "31": 450,
+            "32": 450,
+            "33": 450,
+            "34": 450,
+            "35": 450,
+            "36": 450,
+            "37": 450,
+            "38": 450,
+            "39": 450,
+            "4": 450,
+            "40": 450,
+            "41": 450,
+            "42": 450,
+            "43": 450,
+            "44": 450,
+            "45": 450,
+            "46": 450,
+            "47": 450,
+            "48": 450,
+            "49": 450,
+            "5": 450,
+            "50": 450,
+            "51": 450,
+            "52": 450,
+            "53": 450,
+            "54": 450,
+            "55": 450,
+            "56": 450,
+            "57": 450,
+            "58": 450,
+            "59": 450,
+            "6": 450,
+            "60": 450,
+            "61": 450,
+            "62": 450,
+            "63": 450,
+            "64": 450,
+            "65": 450,
+            "66": 450,
+            "67": 450,
+            "68": 450,
+            "69": 450,
+            "7": 450,
+            "70": 450,
+            "71": 450,
+            "72": 450,
+            "73": 450,
+            "74": 450,
+            "75": 450,
+            "76": 450,
+            "77": 450,
+            "78": 450,
+            "79": 450,
+            "8": 450,
+            "80": 450,
+            "81": 450,
+            "82": 450,
+            "83": 450,
+            "84": 450,
+            "85": 450,
+            "86": 450,
+            "87": 450,
+            "88": 450,
+            "89": 450,
+            "9": 450,
+            "90": 450,
+            "91": 450,
+            "92": 450,
+            "93": 450,
+            "94": 450,
+            "95": 450,
+            "96": 450,
+            "97": 450,
+            "98": 450,
+            "99": 450
+          },
+          "n": 45000
+        },
+        "train_labeled": {
+          "classes": {
+            "0": 5,
+            "1": 5,
+            "10": 5,
+            "11": 5,
+            "12": 5,
+            "13": 5,
+            "14": 5,
+            "15": 5,
+            "16": 5,
+            "17": 5,
+            "18": 5,
+            "19": 5,
+            "2": 5,
+            "20": 5,
+            "21": 5,
+            "22": 5,
+            "23": 5,
+            "24": 5,
+            "25": 5,
+            "26": 5,
+            "27": 5,
+            "28": 5,
+            "29": 5,
+            "3": 5,
+            "30": 5,
+            "31": 5,
+            "32": 5,
+            "33": 5,
+            "34": 5,
+            "35": 5,
+            "36": 5,
+            "37": 5,
+            "38": 5,
+            "39": 5,
+            "4": 5,
+            "40": 5,
+            "41": 5,
+            "42": 5,
+            "43": 5,
+            "44": 5,
+            "45": 5,
+            "46": 5,
+            "47": 5,
+            "48": 5,
+            "49": 5,
+            "5": 5,
+            "50": 5,
+            "51": 5,
+            "52": 5,
+            "53": 5,
+            "54": 5,
+            "55": 5,
+            "56": 5,
+            "57": 5,
+            "58": 5,
+            "59": 5,
+            "6": 5,
+            "60": 5,
+            "61": 5,
+            "62": 5,
+            "63": 5,
+            "64": 5,
+            "65": 5,
+            "66": 5,
+            "67": 5,
+            "68": 5,
+            "69": 5,
+            "7": 5,
+            "70": 5,
+            "71": 5,
+            "72": 5,
+            "73": 5,
+            "74": 5,
+            "75": 5,
+            "76": 5,
+            "77": 5,
+            "78": 5,
+            "79": 5,
+            "8": 5,
+            "80": 5,
+            "81": 5,
+            "82": 5,
+            "83": 5,
+            "84": 5,
+            "85": 5,
+            "86": 5,
+            "87": 5,
+            "88": 5,
+            "89": 5,
+            "9": 5,
+            "90": 5,
+            "91": 5,
+            "92": 5,
+            "93": 5,
+            "94": 5,
+            "95": 5,
+            "96": 5,
+            "97": 5,
+            "98": 5,
+            "99": 5
+          },
+          "n": 500
+        },
+        "train_unlabeled": {
+          "n": 44500
+        },
+        "val": {
+          "classes": {
+            "0": 50,
+            "1": 50,
+            "10": 50,
+            "11": 50,
+            "12": 50,
+            "13": 50,
+            "14": 50,
+            "15": 50,
+            "16": 50,
+            "17": 50,
+            "18": 50,
+            "19": 50,
+            "2": 50,
+            "20": 50,
+            "21": 50,
+            "22": 50,
+            "23": 50,
+            "24": 50,
+            "25": 50,
+            "26": 50,
+            "27": 50,
+            "28": 50,
+            "29": 50,
+            "3": 50,
+            "30": 50,
+            "31": 50,
+            "32": 50,
+            "33": 50,
+            "34": 50,
+            "35": 50,
+            "36": 50,
+            "37": 50,
+            "38": 50,
+            "39": 50,
+            "4": 50,
+            "40": 50,
+            "41": 50,
+            "42": 50,
+            "43": 50,
+            "44": 50,
+            "45": 50,
+            "46": 50,
+            "47": 50,
+            "48": 50,
+            "49": 50,
+            "5": 50,
+            "50": 50,
+            "51": 50,
+            "52": 50,
+            "53": 50,
+            "54": 50,
+            "55": 50,
+            "56": 50,
+            "57": 50,
+            "58": 50,
+            "59": 50,
+            "6": 50,
+            "60": 50,
+            "61": 50,
+            "62": 50,
+            "63": 50,
+            "64": 50,
+            "65": 50,
+            "66": 50,
+            "67": 50,
+            "68": 50,
+            "69": 50,
+            "7": 50,
+            "70": 50,
+            "71": 50,
+            "72": 50,
+            "73": 50,
+            "74": 50,
+            "75": 50,
+            "76": 50,
+            "77": 50,
+            "78": 50,
+            "79": 50,
+            "8": 50,
+            "80": 50,
+            "81": 50,
+            "82": 50,
+            "83": 50,
+            "84": 50,
+            "85": 50,
+            "86": 50,
+            "87": 50,
+            "88": 50,
+            "89": 50,
+            "9": 50,
+            "90": 50,
+            "91": 50,
+            "92": 50,
+            "93": 50,
+            "94": 50,
+            "95": 50,
+            "96": 50,
+            "97": 50,
+            "98": 50,
+            "99": 50
+          },
+          "n": 5000
+        }
+      }
+    }
+  },
+  "config": {
+    "augmentation": null,
+    "dataset": {
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/datasets",
+      "download": true,
+      "id": "cifar100",
+      "options": {}
+    },
+    "evaluation": {
+      "metrics": [
+        "accuracy",
+        "macro_f1"
+      ],
+      "report_splits": [
+        "val",
+        "test"
+      ],
+      "split_for_model_selection": "val"
+    },
+    "graph": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/graph",
+      "enabled": true,
+      "seed": 3,
+      "spec": {
+        "backend": "numpy",
+        "chunk_size": 1024,
+        "feature_field": "features.X",
+        "k": 15,
+        "metric": "cosine",
+        "normalize": "rw",
+        "scheme": "knn",
+        "self_loops": true,
+        "symmetrize": "mutual",
+        "weights": {
+          "kind": "heat",
+          "sigma": 1.0
+        }
+      }
+    },
+    "limits": {
+      "max_graph_chunk_size": null,
+      "max_method_batch_size": null,
+      "max_method_sup_batch_size": null,
+      "max_preprocess_batch_size": null,
+      "max_test_samples": null,
+      "max_train_samples": null,
+      "profile": "auto"
+    },
+    "method": {
+      "device": {
+        "device": "auto",
+        "dtype": "float32",
+        "resolved_device": null
+      },
+      "kind": "transductive",
+      "method_id": "gat",
+      "model": null,
+      "params": {
+        "add_self_loops": true,
+        "dropout": 0.6,
+        "head_dim": 8,
+        "heads": 8,
+        "lr": 0.005,
+        "max_epochs": 200,
+        "negative_slope": 0.2,
+        "patience": 100,
+        "weight_decay": 0.0005
+      }
+    },
+    "preprocess": {
+      "cache": true,
+      "cache_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/modssc_cache/preprocess",
+      "fit_on": "train_labeled",
+      "plan": {
+        "output_key": "features.X",
+        "steps": [
+          {
+            "id": "labels.encode"
+          },
+          {
+            "id": "vision.ensure_num_channels",
+            "params": {
+              "num_channels": 3
+            }
+          },
+          {
+            "id": "vision.channels_order",
+            "params": {
+              "order": "NCHW"
+            }
+          },
+          {
+            "id": "vision.resize",
+            "params": {
+              "height": 32,
+              "width": 32
+            }
+          },
+          {
+            "id": "vision.normalize",
+            "params": {
+              "mean": [
+                123.675,
+                116.28,
+                103.53
+              ],
+              "std": [
+                58.395,
+                57.12,
+                57.375
+              ]
+            }
+          },
+          {
+            "id": "embeddings.auto",
+            "params": {
+              "batch_size": 64,
+              "model_id_vision": "torchvision:resnet18"
+            }
+          },
+          {
+            "id": "core.to_numpy"
+          }
+        ]
+      },
+      "seed": 3
+    },
+    "run": {
+      "allow_custom_factories": false,
+      "benchmark_mode": false,
+      "fail_fast": true,
+      "log_level": "detailed",
+      "name": "best_vision_transductive_gat_cifar100_R3-seed3",
+      "output_dir": "/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/outputs/R3/transductive/gat/vision/cifar100/best_vision_transductive_gat_cifar100_R3-sweep-20260330T102052Z",
+      "seed": 3,
+      "seeds": null
+    },
+    "sampling": {
+      "plan": {
+        "imbalance": {
+          "kind": "none"
+        },
+        "labeling": {
+          "fixed_indices": null,
+          "min_per_class": 1,
+          "mode": "per_class",
+          "per_class": true,
+          "strategy": "balanced",
+          "value": 5
+        },
+        "policy": {
+          "allow_override_official": false,
+          "respect_official_test": true,
+          "use_official_graph_masks": true
+        },
+        "split": {
+          "kind": "holdout",
+          "shuffle": true,
+          "stratify": true,
+          "test_fraction": 0.2,
+          "val_fraction": 0.1
+        }
+      },
+      "seed": 3
+    },
+    "search": null,
+    "views": null
+  },
+  "error": null,
+  "fallback_events": [],
+  "hashes": {
+    "config_hash": "f95e6e42690148da2a34bc0803a7f71f2bab5d083e76e3a73576aed4f262da44",
+    "effective_config_hash": "f4e87b326eefa581c0d8dc815f5baabd084b5ff17add663ce517e336c951f361"
+  },
+  "hpo": null,
+  "metrics": {
+    "test": {
+      "accuracy": 0.1945,
+      "macro_f1": 0.18058915096880615
+    },
+    "val": {
+      "accuracy": 0.1922,
+      "macro_f1": 0.17657227925220098
+    }
+  },
+  "protocol": {
+    "kind": "transductive",
+    "report_splits": [
+      "val",
+      "test"
+    ],
+    "split_for_model_selection": "val",
+    "use_test_split": true
+  },
+  "resolution": {
+    "backend": {
+      "requested": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      },
+      "resolved": {
+        "classifier": null,
+        "graph": "numpy",
+        "method": null
+      }
+    },
+    "device": {
+      "requested": "auto",
+      "resolved": "cuda"
+    },
+    "dtype": {
+      "requested": {
+        "method_device_dtype": "float32"
+      },
+      "resolved": {
+        "X": {
+          "dtype": "float32",
+          "shape": [
+            60000,
+            512
+          ]
+        },
+        "y_obs": {
+          "dtype": "int64",
+          "shape": [
+            60000
+          ]
+        },
+        "y_true": {
+          "dtype": "int64",
+          "shape": [
+            60000
+          ]
+        }
+      }
+    },
+    "limits": {
+      "changes": [],
+      "requested": {
+        "max_graph_chunk_size": null,
+        "max_method_batch_size": null,
+        "max_method_sup_batch_size": null,
+        "max_preprocess_batch_size": null,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "auto"
+      },
+      "resolved": {
+        "max_graph_chunk_size": 1024,
+        "max_method_batch_size": 512,
+        "max_method_sup_batch_size": 256,
+        "max_preprocess_batch_size": 64,
+        "max_test_samples": null,
+        "max_train_samples": null,
+        "profile": "h100"
+      }
+    },
+    "normalization": {
+      "requested": {
+        "preprocess_steps": [
+          "core.to_numpy",
+          "vision.normalize"
+        ]
+      },
+      "resolved": {
+        "implicit_method_conversion": false,
+        "strict_contract_validated": false
+      }
+    },
+    "splits": {
+      "requested": [
+        "val",
+        "test"
+      ],
+      "resolved": {
+        "refs": {
+          "test": "test",
+          "train": "train",
+          "train_labeled": "train",
+          "train_unlabeled": "train",
+          "val": "train"
+        },
+        "report_splits": [
+          "val",
+          "test"
+        ],
+        "use_test_split": true
+      }
+    }
+  },
+  "run": {
+    "benchmark_mode": false,
+    "config_path": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/ModSSC/bench/configs/best/R3/transductive/gat/vision/cifar100.yaml",
+    "error_code": null,
+    "finished_at": "2026-03-30T10:21:00.917309+00:00",
+    "name": "best_vision_transductive_gat_cifar100_R3-seed3",
+    "run_id": "4a32cf6f0234706c6a65",
+    "seed": 3,
+    "started_at": "2026-03-30T10:20:54.945120+00:00",
+    "status": "success"
+  },
+  "versions": {
+    "cuda": "12.8",
+    "cudnn": 91002,
+    "executable": "/lustre/fswork/projects/rech/dqp/uqj57xk/projet_modssc/envs/modssc-py312/bin/python",
+    "git_sha": null,
+    "modssc": "1.0.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-5.14.0-570.58.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.12.13",
+    "python_implementation": "CPython",
+    "scikit_learn": "1.8.0",
+    "torch": "2.10.0",
+    "torch_geometric": "2.7.0"
+  },
+  "run_info": {
+    "run_time_seconds": 5.972189,
+    "gpu_device": "Unknown",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false
+  },
+  "hardware_mismatch": false
+}

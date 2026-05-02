@@ -14,3 +14,4 @@ outputs/
 dashboard/public/data/results.json
 dashboard/public/data/results-manifest.json
 dashboard/public/data/results/
+dashboard/public/data/artifacts/*-sweep-*/

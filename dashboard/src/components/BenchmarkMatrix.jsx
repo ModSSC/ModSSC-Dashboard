@@ -4,6 +4,29 @@ import { cn } from "../lib/utils";
 import { Download, Calculator, Funnel } from 'lucide-react';
 import { formatDatasetLabel, getDatasetFractionMap } from '../lib/dataset';
 
+const toFiniteNumber = (value) => {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : null;
+};
+
+const metricStatKey = (metric, stat) => `${metric.replace(/\./g, '_')}_${stat}`;
+
+const getMetricStat = (run, metric, stat) => {
+    if (!run) return null;
+    return toFiniteNumber(run[metricStatKey(metric, stat)]);
+};
+
+const getMetricCount = (run, metric) => {
+    return getMetricStat(run, metric, 'count') ?? toFiniteNumber(run?.seed_count);
+};
+
+const formatPercent = (value) => `${(value * 100).toFixed(2)}%`;
+
+const formatSeedList = (seeds) => {
+    if (!Array.isArray(seeds) || seeds.length === 0) return null;
+    return seeds.join(', ');
+};
+
 const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
     const [compareMode, setCompareMode] = useState(false); // Default to absolute values
     const [baselineMethod, setBaselineMethod] = useState("");
@@ -31,22 +54,31 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
 
         runs.forEach(r => {
             const key = `${r.method_id}-${r.dataset_id}`;
-            const val = r[metric] || 0;
+            const val = toFiniteNumber(r[metric]);
+            if (!r.error && val === null) return;
             
             // Logic: Prioritize success over error, then max value
             const current = map[key];
             
             // If new entry or (current is error and new is not) or (both success and new > old)
             if (!current || (current.error && !r.error) || (!r.error && val > current.val)) {
-                map[key] = { val, error: r.error, run: r };
+                map[key] = {
+                    val: val ?? 0,
+                    std: getMetricStat(r, metric, 'std'),
+                    min: getMetricStat(r, metric, 'min'),
+                    max: getMetricStat(r, metric, 'max'),
+                    count: getMetricCount(r, metric),
+                    error: r.error,
+                    run: r,
+                };
             }
             // If both are errors, just keep one (maybe the last one)
             else if (current.error && r.error) {
-                 map[key] = { val: 0, error: r.error, run: r };
+                 map[key] = { val: 0, std: null, min: null, max: null, count: null, error: r.error, run: r };
             }
         });
         return map;
-    }, [runs, datasets, metric]);
+    }, [runs, metric]);
 
     // 3. Build method ordering
     const methodsBaseOrder = React.useMemo(() => {
@@ -189,7 +221,12 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
             const row = [m.replace(/_/g, '\\_')];
             datasets.forEach(d => {
                 const entry = dataMap[`${m}-${d}`];
-                row.push(entry && !entry.error ? (entry.val * 100).toFixed(2) : "-");
+                if (!entry || entry.error) {
+                    row.push("-");
+                    return;
+                }
+                const std = typeof entry.std === 'number' ? ` $\\pm$ ${(entry.std * 100).toFixed(2)}` : "";
+                row.push(`${(entry.val * 100).toFixed(2)}${std}`);
             });
             latex += row.join(" & ") + " \\\\\n";
         });
@@ -197,6 +234,25 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
         latex += "\\bottomrule\n\\end{tabular}\n\\caption{Benchmark results.}\n\\label{tab:bench}\n\\end{table}";
         navigator.clipboard.writeText(latex);
         alert("LaTeX table code copied to clipboard!");
+    };
+
+    const getCellTitle = (entry, isDiff) => {
+        if (!entry) return "";
+        if (entry.error) return entry.error;
+        if (isDiff) return "Click for details";
+
+        const details = ["Click for details"];
+        if (entry.count && entry.count > 1) {
+            details.push(`${entry.count} seeds`);
+        }
+        if (typeof entry.min === 'number' && typeof entry.max === 'number') {
+            details.push(`min ${formatPercent(entry.min)}, max ${formatPercent(entry.max)}`);
+        }
+        const seedList = formatSeedList(entry.run?.seeds);
+        if (seedList) {
+            details.push(`seeds ${seedList}`);
+        }
+        return details.join(' · ');
     };
 
     return (
@@ -261,7 +317,11 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                         const rawVal = getCellValue(method, dataset); 
                                         
                                         const isDiff = compareMode && baselineMethod;
-                                        let cellText = rawVal === null ? "-" : (typeof rawVal === 'string' ? rawVal : rawVal.toFixed(2));
+                                        const cellText = rawVal === null ? "-" : (typeof rawVal === 'string' ? rawVal : rawVal.toFixed(2));
+                                        const stdText = !isDiff && entry?.std !== null && typeof entry?.std === 'number'
+                                            ? ` ± ${(entry.std * 100).toFixed(2)}`
+                                            : "";
+                                        const count = !isDiff ? entry?.count : null;
                                         const bestForDataset = bestAbsoluteByDataset[dataset];
                                         const isBestAbsoluteScore = !isDiff &&
                                             methodFilterMode === "all" &&
@@ -281,7 +341,7 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
 
                                         return (
                                             <td key={dataset} 
-                                                title={entry?.error || "Click for details"} 
+                                                title={getCellTitle(entry, isDiff)}
                                                 onClick={() => entry && entry.run && onInspect && onInspect(entry.run)}
                                                 className={cn(
                                                     "p-2 text-center border-r border-gray-100 last:border-r-0",
@@ -290,7 +350,20 @@ const BenchmarkMatrix = ({ runs, metric = "test_accuracy", onInspect }) => {
                                                     isBestAbsoluteScore ? "font-bold" : ""
                                                 )}
                                             >
-                                                {cellText}{isDiff && typeof rawVal === 'number' ? " pp" : (isDiff || typeof rawVal === 'string' ? "" : "%")}
+                                                {rawVal === null || typeof rawVal === 'string' ? (
+                                                    cellText
+                                                ) : (
+                                                    <span className="inline-flex flex-col items-center gap-0.5 leading-tight">
+                                                        <span>
+                                                            {isDiff ? `${cellText} pp` : `${cellText}%${stdText}`}
+                                                        </span>
+                                                        {count && count > 1 && (
+                                                            <span className="text-[10px] font-normal text-zinc-500">
+                                                                n={count}
+                                                            </span>
+                                                        )}
+                                                    </span>
+                                                )}
                                             </td>
                                         );
                                     })}
