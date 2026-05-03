@@ -464,5 +464,12 @@
     "scikit_learn": "1.8.0",
     "torch": "2.10.0",
     "torch_geometric": "2.7.0"
-  }
+  },
+  "run_info": {
+    "run_time_seconds": 12.514234,
+    "gpu_device": "Unknown",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false
+  },
+  "hardware_mismatch": false
 }

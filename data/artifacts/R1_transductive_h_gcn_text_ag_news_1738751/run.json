@@ -7,6 +7,10 @@
     "paradigm": "transductive",
     "modality": "text"
   },
+  "run_info": {
+    "gpu_device": "Unknown",
+    "hardware_mismatch": false
+  },
   "method": {
     "id": "h_gcn",
     "params": {
