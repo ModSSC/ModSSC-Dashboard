@@ -12393,6 +12393,31 @@
     "train_n": 108000.0
   },
   {
+    "run_id": "R1_transductive_laplace_learning_text_ag_news_470381",
+    "method_id": "laplace_learning",
+    "dataset_id": "ag_news",
+    "paradigm": "transductive",
+    "modality": "text",
+    "target_regime": "R1",
+    "duration_s": 355.475305,
+    "run_time_seconds": 355.475305,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "RuntimeError: Failed to load SentenceTransformer model 'sentence-transformers/all-MiniLM-L6-v2' using local cache only (cache_folder='/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/tmp/hf/sentence_transformers'). On offline compute nodes, pre-populate the cache and export HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1.",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_laplace_learning_text_ag_news_470381/run.json",
+      "config": "data/artifacts/R1_transductive_laplace_learning_text_ag_news_470381/config.yaml"
+    },
+    "train_labeled_n": 4.0,
+    "train_n": 108000.0
+  },
+  {
     "run_id": "13e6aaeab09eb3336ca7",
     "method_id": "lazy_random_walk",
     "dataset_id": "ag_news",
@@ -13623,6 +13648,31 @@
     "raw_data_urls": {
       "run": "data/artifacts/R1_transductive_poisson_learning_text_ag_news_1972872/run.json",
       "config": "data/artifacts/R1_transductive_poisson_learning_text_ag_news_1972872/config.yaml"
+    },
+    "train_labeled_n": 4.0,
+    "train_n": 108000.0
+  },
+  {
+    "run_id": "R1_transductive_poisson_learning_text_ag_news_470388",
+    "method_id": "poisson_learning",
+    "dataset_id": "ag_news",
+    "paradigm": "transductive",
+    "modality": "text",
+    "target_regime": "R1",
+    "duration_s": 11.183684,
+    "run_time_seconds": 11.183684,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "RuntimeError: Failed to load SentenceTransformer model 'sentence-transformers/all-MiniLM-L6-v2' using local cache only (cache_folder='/lustre/fsn1/projects/rech/dqp/uqj57xk/projet_modssc/tmp/hf/sentence_transformers'). On offline compute nodes, pre-populate the cache and export HF_HUB_OFFLINE=1 and TRANSFORMERS_OFFLINE=1.",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_poisson_learning_text_ag_news_470388/run.json",
+      "config": "data/artifacts/R1_transductive_poisson_learning_text_ag_news_470388/config.yaml"
     },
     "train_labeled_n": 4.0,
     "train_n": 108000.0
@@ -27342,6 +27392,31 @@
     "train_n": 45000.0
   },
   {
+    "run_id": "R1_transductive_laplace_learning_vision_cifar10_470408",
+    "method_id": "laplace_learning",
+    "dataset_id": "cifar10",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 16.437231,
+    "run_time_seconds": 16.437231,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_laplace_learning_vision_cifar10_470408/run.json",
+      "config": "data/artifacts/R1_transductive_laplace_learning_vision_cifar10_470408/config.yaml"
+    },
+    "train_labeled_n": 10.0,
+    "train_n": 45000.0
+  },
+  {
     "run_id": "af79d0abb773dc833f75",
     "method_id": "laplace_learning",
     "dataset_id": "cifar10",
@@ -28539,6 +28614,31 @@
     "raw_data_urls": {
       "run": "data/artifacts/R1_transductive_poisson_learning_vision_cifar10_1973030/run.json",
       "config": "data/artifacts/R1_transductive_poisson_learning_vision_cifar10_1973030/config.yaml"
+    },
+    "train_labeled_n": 10.0,
+    "train_n": 45000.0
+  },
+  {
+    "run_id": "R1_transductive_poisson_learning_vision_cifar10_470414",
+    "method_id": "poisson_learning",
+    "dataset_id": "cifar10",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 2.339504,
+    "run_time_seconds": 2.339504,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_poisson_learning_vision_cifar10_470414/run.json",
+      "config": "data/artifacts/R1_transductive_poisson_learning_vision_cifar10_470414/config.yaml"
     },
     "train_labeled_n": 10.0,
     "train_n": 45000.0
@@ -34092,6 +34192,31 @@
     "train_n": 45000.0
   },
   {
+    "run_id": "R1_transductive_laplace_learning_vision_cifar100_470420",
+    "method_id": "laplace_learning",
+    "dataset_id": "cifar100",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 19.672446,
+    "run_time_seconds": 19.672446,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_laplace_learning_vision_cifar100_470420/run.json",
+      "config": "data/artifacts/R1_transductive_laplace_learning_vision_cifar100_470420/config.yaml"
+    },
+    "train_labeled_n": 100.0,
+    "train_n": 45000.0
+  },
+  {
     "run_id": "a38f6d55ea5840aa220d",
     "method_id": "laplace_learning",
     "dataset_id": "cifar100",
@@ -35347,6 +35472,31 @@
     "raw_data_urls": {
       "run": "data/artifacts/R1_transductive_poisson_learning_vision_cifar100_1972977/run.json",
       "config": "data/artifacts/R1_transductive_poisson_learning_vision_cifar100_1972977/config.yaml"
+    },
+    "train_labeled_n": 100.0,
+    "train_n": 45000.0
+  },
+  {
+    "run_id": "R1_transductive_poisson_learning_vision_cifar100_470425",
+    "method_id": "poisson_learning",
+    "dataset_id": "cifar100",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 7.424338,
+    "run_time_seconds": 7.424338,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_poisson_learning_vision_cifar100_470425/run.json",
+      "config": "data/artifacts/R1_transductive_poisson_learning_vision_cifar100_470425/config.yaml"
     },
     "train_labeled_n": 100.0,
     "train_n": 45000.0
@@ -80943,6 +81093,31 @@
     "train_n": 54000.0
   },
   {
+    "run_id": "R1_transductive_laplace_learning_vision_mnist_470394",
+    "method_id": "laplace_learning",
+    "dataset_id": "mnist",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 7.237979,
+    "run_time_seconds": 7.237979,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_laplace_learning_vision_mnist_470394/run.json",
+      "config": "data/artifacts/R1_transductive_laplace_learning_vision_mnist_470394/config.yaml"
+    },
+    "train_labeled_n": 10.0,
+    "train_n": 54000.0
+  },
+  {
     "run_id": "a65e215b61a45c4c5dbf",
     "method_id": "laplace_learning",
     "dataset_id": "mnist",
@@ -82384,6 +82559,31 @@
     "raw_data_urls": {
       "run": "data/artifacts/R1_transductive_poisson_learning_vision_mnist_1848223/run.json",
       "config": "data/artifacts/R1_transductive_poisson_learning_vision_mnist_1848223/config.yaml"
+    },
+    "train_labeled_n": 10.0,
+    "train_n": 54000.0
+  },
+  {
+    "run_id": "R1_transductive_poisson_learning_vision_mnist_470400",
+    "method_id": "poisson_learning",
+    "dataset_id": "mnist",
+    "paradigm": "transductive",
+    "modality": "vision",
+    "target_regime": "R1",
+    "duration_s": 2.732017,
+    "run_time_seconds": 2.732017,
+    "gpu_device": "NVIDIA A100-SXM4-80GB",
+    "hardware_profile": "auto",
+    "hardware_mismatch": false,
+    "method_device_requested": "auto",
+    "method_device_resolved": "cuda",
+    "seed": 1,
+    "status": "FAIL",
+    "error": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+    "limits.profile": "auto",
+    "raw_data_urls": {
+      "run": "data/artifacts/R1_transductive_poisson_learning_vision_mnist_470400/run.json",
+      "config": "data/artifacts/R1_transductive_poisson_learning_vision_mnist_470400/config.yaml"
     },
     "train_labeled_n": 10.0,
     "train_n": 54000.0
